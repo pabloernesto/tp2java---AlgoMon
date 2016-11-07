@@ -18,4 +18,17 @@ public class ChanseyTest
 
         assertEquals(vidaInicial - 30, squirtle.vida());
     }
+
+    @Test
+    public void latigoCepaQuita7PuntosDeVidaACharmander()
+    {
+        AlgoMon chansey = Especie.CHANSEY.nuevo();
+        AlgoMon charmander = Especie.CHARMANDER.nuevo();
+
+        int vidaInicial = charmander.vida();
+
+        chansey.atacar(charmander, Movimiento.LATIGO_CEPA);
+
+        assertEquals(vidaInicial - 7, charmander.vida());
+    }
 }
