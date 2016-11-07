@@ -14,7 +14,7 @@ public class BulbasaurTest
 
         int vidaInicial = squirtle.vida();
 
-        squirtle.atacar(squirtle, Movimiento.LATIGO_CEPA);
+        bulbasaur.atacar(squirtle, Movimiento.LATIGO_CEPA);
 
         assertEquals(vidaInicial - 30, squirtle.vida());
     }
