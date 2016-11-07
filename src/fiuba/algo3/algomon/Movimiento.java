@@ -13,6 +13,15 @@ public enum Movimiento
 
     public int potencia(Tipo t)
     {
-        return t == Tipo.FUEGO ? potencia * 2 : potencia / 2;
+        if (t == Tipo.AGUA)
+            return potencia / 2;
+
+        if (t == Tipo.FUEGO)
+            return potencia * 2;
+
+        if (t == Tipo.PLANTA)
+            return potencia / 2;
+
+        return potencia;
     }
 }

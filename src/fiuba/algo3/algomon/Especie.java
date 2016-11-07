@@ -24,6 +24,14 @@ public enum Especie
         {
             return new AlgoMon(Tipo.PLANTA);
         }
+    },
+
+    RATTATA
+    {
+        public AlgoMon nuevo()
+        {
+            return new AlgoMon(Tipo.NORMAL);
+        }
     };
 
     public abstract AlgoMon nuevo();
