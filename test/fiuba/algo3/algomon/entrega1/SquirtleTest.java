@@ -70,4 +70,17 @@ public class SquirtleTest
 
         assertEquals(vidaInicial - 10, rattata.vida());
     }
+
+    @Test
+    public void canionDeAguaQuita20PuntosDeVidaARattata()
+    {
+        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
+        AlgoMon rattata = Especie.RATTATA.nuevo();
+
+        int vidaInicial = rattata.vida();
+
+        squirtle.atacar(rattata, Movimiento.CANION_DE_AGUA);
+
+        assertEquals(vidaInicial - 20, rattata.vida());
+    }
 }
