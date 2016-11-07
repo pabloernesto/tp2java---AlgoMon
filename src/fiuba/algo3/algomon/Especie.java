@@ -32,6 +32,14 @@ public enum Especie
         {
             return new AlgoMon(Tipo.NORMAL);
         }
+    },
+
+    CHANSEY
+    {
+        public AlgoMon nuevo()
+        {
+            return new AlgoMon(Tipo.NORMAL);
+        }
     };
 
     public abstract AlgoMon nuevo();
