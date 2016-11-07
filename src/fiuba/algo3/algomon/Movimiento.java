@@ -2,26 +2,21 @@ package fiuba.algo3.algomon;
 
 public enum Movimiento
 {
-    BURBUJAS(10), CANION_DE_AGUA(20), LATIGO_CEPA(60);
+    BURBUJAS(Tipo.AGUA, 10),
+    CANION_DE_AGUA(Tipo.AGUA, 20),
+    LATIGO_CEPA(Tipo.PLANTA, 15);
 
     int potencia;
+    Tipo tipo;
 
-    Movimiento(int potencia)
+    Movimiento(Tipo tipo, int potencia)
     {
+        this.tipo = tipo;
         this.potencia = potencia;
     }
 
     public int potencia(Tipo t)
     {
-        if (t == Tipo.AGUA)
-            return potencia / 2;
-
-        if (t == Tipo.FUEGO)
-            return potencia * 2;
-
-        if (t == Tipo.PLANTA)
-            return potencia / 2;
-
-        return potencia;
+        return (int) (potencia * tipo.efectividad(t));
     }
 }

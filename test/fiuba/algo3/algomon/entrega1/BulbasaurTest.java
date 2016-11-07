@@ -18,4 +18,17 @@ public class BulbasaurTest
 
         assertEquals(vidaInicial - 30, squirtle.vida());
     }
+
+    @Test
+    public void latigoCepaQuita7PuntosDeVidaACharmander()
+    {
+        AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
+        AlgoMon charmander = Especie.CHARMANDER.nuevo();
+
+        int vidaInicial = charmander.vida();
+
+        bulbasaur.atacar(charmander, Movimiento.LATIGO_CEPA);
+
+        assertEquals(vidaInicial - 7, charmander.vida());
+    }
 }
