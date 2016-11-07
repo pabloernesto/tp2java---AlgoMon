@@ -31,4 +31,17 @@ public class SquirtleTest
 
         assertEquals(vidaInicial - 40, charmander.vida());
     }
+
+    @Test
+    public void burbujaQuita5PuntosDeVidaABulbasaur()
+    {
+        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
+        AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
+
+        int vidaInicial = bulbasaur.vida();
+
+        squirtle.atacar(bulbasaur, Movimiento.BURBUJAS);
+
+        assertEquals(vidaInicial - 5, bulbasaur.vida());
+    }
 }

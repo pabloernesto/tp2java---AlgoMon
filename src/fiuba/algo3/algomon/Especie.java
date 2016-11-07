@@ -6,7 +6,7 @@ public enum Especie
     {   
         public AlgoMon nuevo()
         {
-            return new AlgoMon();
+            return new AlgoMon(Tipo.AGUA);
         }
     },
 
@@ -14,7 +14,15 @@ public enum Especie
     {   
         public AlgoMon nuevo()
         {
-            return new AlgoMon();
+            return new AlgoMon(Tipo.FUEGO);
+        }
+    },
+    
+    BULBASAUR
+    {
+        public AlgoMon nuevo()
+        {
+            return new AlgoMon(Tipo.PLANTA);
         }
     };
 
