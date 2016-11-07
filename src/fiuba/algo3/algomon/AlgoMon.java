@@ -6,7 +6,11 @@ public class AlgoMon
 
     public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento)
     {
-        enemigo.vida -= 20;
+        if (movimiento == Movimiento.BURBUJAS)
+            enemigo.vida -= 20;
+        else
+            enemigo.vida -= 40;
+
         return this;
     }
 
