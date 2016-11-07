@@ -12,13 +12,7 @@ public class AlgoMon
 
     public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento)
     {
-        if (movimiento == Movimiento.BURBUJAS)
-            if (enemigo.tipo == Tipo.FUEGO)
-                enemigo.vida -= 20;
-            else
-                enemigo.vida -= 5;
-        else
-            enemigo.vida -= 40;
+        enemigo.vida -= movimiento.potencia(enemigo.tipo);
 
         return this;
     }
