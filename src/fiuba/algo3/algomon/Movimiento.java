@@ -2,7 +2,7 @@ package fiuba.algo3.algomon;
 
 public enum Movimiento
 {
-    BURBUJAS(10), CANION_DE_AGUA(20);
+    BURBUJAS(10), CANION_DE_AGUA(20), LATIGO_CEPA(60);
 
     int potencia;
 
