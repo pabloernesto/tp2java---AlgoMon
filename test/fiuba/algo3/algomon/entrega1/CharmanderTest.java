@@ -31,4 +31,17 @@ public class CharmanderTest
 
         assertEquals(vidaInicial - 8, squirtle.vida());
     }
+
+    @Test
+    public void brasasQuita16PuntosDeVidaARattata()
+    {
+        AlgoMon charmander = Especie.CHARMANDER.nuevo();
+        AlgoMon rattata = Especie.RATTATA.nuevo();
+
+        int vidaInicial = rattata.vida();
+
+        charmander.atacar(rattata, Movimiento.BRASAS);
+
+        assertEquals(vidaInicial - 16, rattata.vida());
+    }
 }
