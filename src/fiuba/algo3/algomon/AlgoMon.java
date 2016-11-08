@@ -12,6 +12,9 @@ public class AlgoMon
 
     public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento)
     {
+        if (movimiento == Movimiento.FOGONAZO)
+            throw new RuntimeException();
+
         enemigo.vida -= movimiento.potencia(enemigo.tipo);
 
         return this;
