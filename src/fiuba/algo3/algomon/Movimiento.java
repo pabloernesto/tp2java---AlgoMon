@@ -4,7 +4,8 @@ public enum Movimiento
 {
     BURBUJAS(Tipo.AGUA, 10),
     CANION_DE_AGUA(Tipo.AGUA, 20),
-    LATIGO_CEPA(Tipo.PLANTA, 15);
+    LATIGO_CEPA(Tipo.PLANTA, 15),
+    BRASAS(Tipo.FUEGO, 16);
 
     int potencia;
     Tipo tipo;
