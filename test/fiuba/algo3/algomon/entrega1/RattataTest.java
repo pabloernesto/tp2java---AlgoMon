@@ -19,4 +19,17 @@ public class RattataTest
             .atacar(squirtle, Movimiento.FOGONAZO)
             .atacar(squirtle, Movimiento.FOGONAZO);
     }
+
+    @Test
+    public void fogonazoQuita2PuntosDeVidaARattata()
+    {
+        AlgoMon atacante = Especie.RATTATA.nuevo();
+        AlgoMon atacado = Especie.RATTATA.nuevo();
+
+        int vidaInicial = atacado.vida();
+
+        atacante.atacar(atacado, Movimiento.FOGONAZO);
+
+        assertEquals(vidaInicial - 2, atacado.vida());
+    }
 }

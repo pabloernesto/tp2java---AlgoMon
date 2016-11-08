@@ -1,21 +1,25 @@
 package fiuba.algo3.algomon;
 
+import java.util.Map;
+import java.util.EnumMap;
+
 public class AlgoMon
 {
     int vida = 100;
     Tipo tipo;
+    Map<Movimiento, Ataque> ataques = new EnumMap(Movimiento.class);
 
-    public AlgoMon(Tipo t)
+    public AlgoMon(Tipo t, Movimiento [] movimientos)
     {
         tipo = t;
+
+        for (Movimiento m : movimientos)
+            ataques.put(m, new Ataque(m));
     }
 
     public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento)
     {
-        if (movimiento == Movimiento.FOGONAZO)
-            throw new RuntimeException();
-
-        enemigo.vida -= movimiento.potencia(enemigo.tipo);
+        ataques.get(movimiento).atacar(enemigo);
 
         return this;
     }
