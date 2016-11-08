@@ -2,45 +2,56 @@ package fiuba.algo3.algomon;
 
 public enum Especie
 {
-    SQUIRTLE
-    {   
-        public AlgoMon nuevo()
+    SQUIRTLE(
+        Tipo.AGUA,
+        new Movimiento[]
         {
-            return new AlgoMon(Tipo.AGUA);
-        }
-    },
+            Movimiento.BURBUJAS,
+            Movimiento.CANION_DE_AGUA,
+            Movimiento.ATAQUE_RAPIDO
+        }),
+    CHARMANDER(
+        Tipo.FUEGO,
+        new Movimiento[]
+        {
+            Movimiento.BRASAS,
+            Movimiento.FOGONAZO,
+            Movimiento.ATAQUE_RAPIDO
+        }),
+    BULBASAUR(
+        Tipo.PLANTA,
+        new Movimiento[]
+        {
+            Movimiento.LATIGO_CEPA,
+            Movimiento.ATAQUE_RAPIDO
+        }),
+    RATTATA(
+        Tipo.NORMAL,
+        new Movimiento[]
+        {
+            Movimiento.FOGONAZO,
+            Movimiento.BURBUJAS,
+            Movimiento.ATAQUE_RAPIDO
+        }),
+    CHANSEY(
+        Tipo.NORMAL,
+        new Movimiento[]
+        {
+            Movimiento.LATIGO_CEPA,
+            Movimiento.ATAQUE_RAPIDO
+        });
 
-    CHARMANDER
-    {   
-        public AlgoMon nuevo()
-        {
-            return new AlgoMon(Tipo.FUEGO);
-        }
-    },
-    
-    BULBASAUR
+    Movimiento[] movimientos;
+    Tipo tipo;
+
+    Especie(Tipo t, Movimiento[] m)
     {
-        public AlgoMon nuevo()
-        {
-            return new AlgoMon(Tipo.PLANTA);
-        }
-    },
+        tipo = t;
+        movimientos = m;
+    }
 
-    RATTATA
+    public AlgoMon nuevo()
     {
-        public AlgoMon nuevo()
-        {
-            return new AlgoMon(Tipo.NORMAL);
-        }
-    },
-
-    CHANSEY
-    {
-        public AlgoMon nuevo()
-        {
-            return new AlgoMon(Tipo.NORMAL);
-        }
-    };
-
-    public abstract AlgoMon nuevo();
+        return new AlgoMon(tipo, movimientos);
+    }
 }
