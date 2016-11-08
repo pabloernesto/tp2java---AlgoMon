@@ -44,4 +44,17 @@ public class ChanseyTest
 
         assertEquals(vidaInicial - 15, rattata.vida());
     }
+
+    @Test
+    public void ataqueRapidoQuita10PuntosDeVidaARattata()
+    {
+        AlgoMon chansey = Especie.CHANSEY.nuevo();
+        AlgoMon rattata = Especie.RATTATA.nuevo();
+
+        int vidaInicial = rattata.vida();
+
+        chansey.atacar(rattata, Movimiento.ATAQUE_RAPIDO);
+
+        assertEquals(vidaInicial - 10, rattata.vida());
+    }
 }

@@ -5,7 +5,8 @@ public enum Movimiento
     BURBUJAS(Tipo.AGUA, 10),
     CANION_DE_AGUA(Tipo.AGUA, 20),
     LATIGO_CEPA(Tipo.PLANTA, 15),
-    BRASAS(Tipo.FUEGO, 16);
+    BRASAS(Tipo.FUEGO, 16),
+    ATAQUE_RAPIDO(Tipo.NORMAL, 10);
 
     int potencia;
     Tipo tipo;
