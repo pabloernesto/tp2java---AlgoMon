@@ -75,4 +75,5 @@ public class CharmanderTest
         charmander.atacar(rattata4, Movimiento.FOGONAZO);
         charmander.atacar(rattata5, Movimiento.FOGONAZO);
     }
+
 }
