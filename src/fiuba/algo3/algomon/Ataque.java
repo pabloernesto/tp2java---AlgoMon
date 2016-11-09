@@ -14,9 +14,10 @@ public class Ataque
 
     public Ataque atacar(AlgoMon atacado)
     {
-        if (--cantidadDeUsosRestantes < 0)
+        if (cantidadDeUsosRestantes == 0)
             throw new CantidadDeAtaquesExcedidaException();
 
+        cantidadDeUsosRestantes--;
         atacado.vida -= movimiento.potencia(atacado.tipo);
         return this;
     }
