@@ -16,12 +16,6 @@ public enum Movimiento
     int cantidadDeUsos;
     Tipo tipo;
 
-/*    Movimiento(Tipo tipo, int potencia)
-    {
-        this.tipo = tipo;
-        this.potencia = potencia;
-    }*/
-
     Movimiento(Tipo tipo, int potencia, int cantidadDeUsos)
     {
         this.tipo = tipo;
