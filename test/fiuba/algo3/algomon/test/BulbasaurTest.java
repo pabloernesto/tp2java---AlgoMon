@@ -36,13 +36,13 @@ public class BulbasaurTest
     public void latigoCepaQuita15PuntosDeVidaAChansey()
     {
         AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
-        AlgoMon charmander = Especie.CHANSEY.nuevo();
+        AlgoMon chansey = Especie.CHANSEY.nuevo();
 
-        int vidaInicial = charmander.vida();
+        int vidaInicial = chansey.vida();
 
-        bulbasaur.atacar(charmander, Movimiento.LATIGO_CEPA);
+        bulbasaur.atacar(chansey, Movimiento.LATIGO_CEPA);
 
-        assertEquals(vidaInicial - 15, charmander.vida());
+        assertEquals(vidaInicial - 15, chansey.vida());
     }
 
 
