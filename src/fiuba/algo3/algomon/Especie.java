@@ -39,6 +39,15 @@ public enum Especie
         {
             Movimiento.LATIGO_CEPA,
             Movimiento.ATAQUE_RAPIDO
+        }),
+
+	JIGGLYPUFF(
+        Tipo.NORMAL,
+        new Movimiento[]
+        {
+            Movimiento.CANTO,
+            Movimiento.BURBUJAS,
+            Movimiento.ATAQUE_RAPIDO
         });
 
     Movimiento[] movimientos;

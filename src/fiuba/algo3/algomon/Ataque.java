@@ -1,19 +1,21 @@
 package fiuba.algo3.algomon;
+import  fiuba.algo3.algomon.excepciones.*;
 
 public class Ataque
 {
-    int cantidadRestante = 4;
+    int cantidadDeUsosRestantes;
     Movimiento movimiento;
 
     public Ataque(Movimiento m)
     {
         movimiento = m;
+        cantidadDeUsosRestantes = m.cantidadDeUsos;
     }
 
-    public Ataque atacar(AlgoMon atacado)
+    public Ataque atacar(AlgoMon atacado) throws CantidadDeAtaquesExcedidaException
     {
-        if (--cantidadRestante < 0)
-            throw new RuntimeException();
+        if (--cantidadDeUsosRestantes < 0)
+            throw new CantidadDeAtaquesExcedidaException();
 
         atacado.vida -= movimiento.potencia(atacado.tipo);
         return this;

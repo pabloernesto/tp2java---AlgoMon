@@ -1,6 +1,9 @@
 package fiuba.algo3.algomon;
 
 import java.util.Map;
+
+import fiuba.algo3.algomon.excepciones.CantidadDeAtaquesExcedidaException;
+
 import java.util.EnumMap;
 
 public class AlgoMon
@@ -17,7 +20,7 @@ public class AlgoMon
             ataques.put(m, new Ataque(m));
     }
 
-    public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento)
+    public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento) throws CantidadDeAtaquesExcedidaException
     {
         ataques.get(movimiento).atacar(enemigo);
 

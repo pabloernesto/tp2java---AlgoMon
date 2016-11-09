@@ -2,21 +2,33 @@ package fiuba.algo3.algomon;
 
 public enum Movimiento
 {
-    BURBUJAS(Tipo.AGUA, 10),
-    CANION_DE_AGUA(Tipo.AGUA, 20),
-    LATIGO_CEPA(Tipo.PLANTA, 15),
-    BRASAS(Tipo.FUEGO, 16),
-    ATAQUE_RAPIDO(Tipo.NORMAL, 10),
-    FOGONAZO(Tipo.FUEGO, 2);
+    ATAQUE_RAPIDO(Tipo.NORMAL, 10, 16),
+    CANTO(Tipo.NORMAL, 0, 6),
+    BURBUJAS(Tipo.AGUA, 10, 15),
+    CANION_DE_AGUA(Tipo.AGUA, 20, 8),
+    CHUPAVIDAS(Tipo.PLANTA, 15, 8),
+    LATIGO_CEPA(Tipo.PLANTA, 15, 10),
+    BRASAS(Tipo.FUEGO, 16, 10),
+    FOGONAZO(Tipo.FUEGO, 2,4) 
+    ;
 
     int potencia;
+    int cantidadDeUsos;
     Tipo tipo;
 
-    Movimiento(Tipo tipo, int potencia)
+/*    Movimiento(Tipo tipo, int potencia)
     {
         this.tipo = tipo;
         this.potencia = potencia;
+    }*/
+
+    Movimiento(Tipo tipo, int potencia, int cantidadDeUsos)
+    {
+        this.tipo = tipo;
+        this.potencia = potencia;
+        this.cantidadDeUsos =cantidadDeUsos;
     }
+
 
     public int potencia(Tipo t)
     {
