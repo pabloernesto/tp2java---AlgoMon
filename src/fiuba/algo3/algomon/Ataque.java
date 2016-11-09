@@ -12,7 +12,7 @@ public class Ataque
         cantidadDeUsosRestantes = m.cantidadDeUsos;
     }
 
-    public Ataque atacar(AlgoMon atacado) throws CantidadDeAtaquesExcedidaException
+    public Ataque atacar(AlgoMon atacado)
     {
         if (--cantidadDeUsosRestantes < 0)
             throw new CantidadDeAtaquesExcedidaException();

@@ -20,7 +20,7 @@ public class AlgoMon
             ataques.put(m, new Ataque(m));
     }
 
-    public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento) throws CantidadDeAtaquesExcedidaException
+    public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento)
     {
         ataques.get(movimiento).atacar(enemigo);
 
