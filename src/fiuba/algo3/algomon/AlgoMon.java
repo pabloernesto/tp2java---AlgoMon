@@ -2,6 +2,7 @@ package fiuba.algo3.algomon;
 
 import java.util.Map;
 
+import fiuba.algo3.algomon.excepciones.AlgomonNoPoseeElMovimientoException;
 import fiuba.algo3.algomon.excepciones.CantidadDeAtaquesExcedidaException;
 
 import java.util.EnumMap;
@@ -24,9 +25,12 @@ public class AlgoMon
 
     public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento)
     {
-        ataques.get(movimiento).atacar(enemigo);
-
-        return this;
+        try{
+            ataques.get(movimiento).atacar(enemigo);
+            return this;
+        }
+        catch(NullPointerException e){throw new AlgomonNoPoseeElMovimientoException();}
+        							
     }
 
     public int vida()
