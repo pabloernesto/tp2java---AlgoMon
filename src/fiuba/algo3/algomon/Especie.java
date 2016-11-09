@@ -43,7 +43,7 @@ public enum Especie
             Movimiento.ATAQUE_RAPIDO
         }),
 
-	JIGGLYPUFF(
+    JIGGLYPUFF(
         Tipo.NORMAL,
         new Movimiento[]
         {
