@@ -19,6 +19,19 @@ public class CharmanderTest {
 	        assertEquals(vidaInicial - 32, bulbasaur.vida());
 	    }
 
+	    @Test
+	    public void brasasQuita8PuntosDeVidaASquirtle()
+	    {
+	        AlgoMon charmander = Especie.CHARMANDER.nuevo();
+	        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
+
+	        int vidaInicial = squirtle.vida();
+
+	        charmander.atacar(squirtle, Movimiento.BRASAS);
+
+	        assertEquals(vidaInicial - 8, squirtle.vida());
+	    }
+
 
 	}
 
