@@ -2,6 +2,7 @@ package fiuba.algo3.algomon.test;
 
 import fiuba.algo3.algomon.*;
 import fiuba.algo3.algomon.excepciones.*;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -89,5 +90,15 @@ public class CharmanderTest
         charmander.atacar(rattata4, Movimiento.FOGONAZO);
         charmander.atacar(rattata5, Movimiento.FOGONAZO);
     }
+
+    @Test (expected = AlgomonNoPoseeElMovimientoException.class)
+    public void charmanderLevantaExcepcionAlgomonNoPoseeElMovimientoExeption()
+    {
+        AlgoMon charmander = Especie.CHARMANDER.nuevo();
+        AlgoMon rattata = Especie.RATTATA.nuevo();
+
+        charmander.atacar(rattata, Movimiento.BURBUJAS);
+    }
+
 
 }
