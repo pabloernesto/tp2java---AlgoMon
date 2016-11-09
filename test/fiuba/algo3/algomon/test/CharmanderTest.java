@@ -47,6 +47,20 @@ public class CharmanderTest
     }
 
     @Test
+    public void brasasQuita16PuntosDeVidaAJigglypuff()
+    {
+        AlgoMon charmander = Especie.CHARMANDER.nuevo();
+        AlgoMon jigglypuff = Especie.JIGGLYPUFF.nuevo();
+
+        int vidaInicial = jigglypuff.vida();
+
+        charmander.atacar(jigglypuff, Movimiento.BRASAS);
+
+        assertEquals(vidaInicial - 16, jigglypuff.vida());
+    }
+
+
+    @Test
     public void ataqueRapidoQuita10PuntosDeVidaARattata()
     {
         AlgoMon charmander = Especie.CHARMANDER.nuevo();
