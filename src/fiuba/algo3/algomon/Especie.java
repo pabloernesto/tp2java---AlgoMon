@@ -22,6 +22,7 @@ public enum Especie
         Tipo.PLANTA,
         new Movimiento[]
         {
+            Movimiento.CHUPAVIDAS,
             Movimiento.LATIGO_CEPA,
             Movimiento.ATAQUE_RAPIDO
         }),
@@ -37,6 +38,7 @@ public enum Especie
         Tipo.NORMAL,
         new Movimiento[]
         {
+            Movimiento.CANTO,
             Movimiento.LATIGO_CEPA,
             Movimiento.ATAQUE_RAPIDO
         }),
