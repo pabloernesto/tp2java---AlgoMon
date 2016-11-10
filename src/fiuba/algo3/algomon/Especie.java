@@ -70,6 +70,6 @@ public enum Especie
 
     public AlgoMon nuevo()
     {
-        return new AlgoMon(tipo, movimientos, 100);
+        return new AlgoMon(tipo, movimientos, vida);
     }
 }
