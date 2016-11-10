@@ -14,7 +14,7 @@ public class SquirtleTest
 
         int vidaInicial = charmander.vida();
 
-        squirtle.atacar(charmander, Movimiento.BURBUJAS);
+        squirtle.atacar(charmander, Movimiento.BURBUJA);
 
         assertEquals(vidaInicial - 20, charmander.vida());
     }
@@ -40,7 +40,7 @@ public class SquirtleTest
 
         int vidaInicial = bulbasaur.vida();
 
-        squirtle.atacar(bulbasaur, Movimiento.BURBUJAS);
+        squirtle.atacar(bulbasaur, Movimiento.BURBUJA);
 
         assertEquals(vidaInicial - 5, bulbasaur.vida());
     }
@@ -66,7 +66,7 @@ public class SquirtleTest
 
         int vidaInicial = rattata.vida();
 
-        squirtle.atacar(rattata, Movimiento.BURBUJAS);
+        squirtle.atacar(rattata, Movimiento.BURBUJA);
 
         assertEquals(vidaInicial - 10, rattata.vida());
     }

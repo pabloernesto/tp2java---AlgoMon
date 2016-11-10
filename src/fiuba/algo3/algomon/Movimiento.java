@@ -4,7 +4,7 @@ public enum Movimiento
 {
     ATAQUE_RAPIDO(Tipo.NORMAL, 10, 16),
     CANTO(Tipo.NORMAL, 0, 6),
-    BURBUJAS(Tipo.AGUA, 10, 15),
+    BURBUJA(Tipo.AGUA, 10, 15),
     CANION_DE_AGUA(Tipo.AGUA, 20, 8),
     CHUPAVIDAS(Tipo.PLANTA, 15, 8),
     LATIGO_CEPA(Tipo.PLANTA, 15, 10),

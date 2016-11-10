@@ -6,7 +6,7 @@ public enum Especie
         Tipo.AGUA,
         new Movimiento[]
         {
-            Movimiento.BURBUJAS,
+            Movimiento.BURBUJA,
             Movimiento.CANION_DE_AGUA,
             Movimiento.ATAQUE_RAPIDO
         },
@@ -34,7 +34,7 @@ public enum Especie
         new Movimiento[]
         {
             Movimiento.FOGONAZO,
-            Movimiento.BURBUJAS,
+            Movimiento.BURBUJA,
             Movimiento.ATAQUE_RAPIDO
         },
         170),
@@ -52,7 +52,7 @@ public enum Especie
         new Movimiento[]
         {
             Movimiento.CANTO,
-            Movimiento.BURBUJAS,
+            Movimiento.BURBUJA,
             Movimiento.ATAQUE_RAPIDO
         },
         130);

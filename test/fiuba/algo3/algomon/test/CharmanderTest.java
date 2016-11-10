@@ -97,7 +97,7 @@ public class CharmanderTest
         AlgoMon charmander = Especie.CHARMANDER.nuevo();
         AlgoMon rattata = Especie.RATTATA.nuevo();
 
-        charmander.atacar(rattata, Movimiento.BURBUJAS);
+        charmander.atacar(rattata, Movimiento.BURBUJA);
     }
 
 
