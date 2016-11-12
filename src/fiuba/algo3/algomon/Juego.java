@@ -1,7 +1,7 @@
 package fiuba.algo3.algomon;
 
 import java.util.ArrayList;
-
+import java.util.Random;
 import fiuba.algo3.algomon.excepciones.ImposibleAgregarMasJugadoresException;
 
 public class Juego {
@@ -11,11 +11,14 @@ public class Juego {
 
 	public Juego(){
 		this.jugadores = new ArrayList<Jugador>();
-		this.turno = 0;
+		this.turno = new Random().nextInt(2);
+	}
+
+	public Jugador jugador(int nroDeJugador) {
+		return jugadores.get(nroDeJugador);
 	}
 	
-	//refactor -> quitar nroDeJugador
-	public void agregarJugador(int nroDeJugador, Jugador jugador) {
+	public void agregarJugador(Jugador jugador) {
 		
 		switch (this.jugadores.size()){
 			case 0 : 	this.jugadores.add(jugador);
@@ -26,6 +29,10 @@ public class Juego {
 		}
 	}
 
+	public Jugador turno() {
+		return jugadores.get(turno);
+	}
+	
 	public int pasarTurno() {
 		if (turno == 0) 
 			return 1;
@@ -33,12 +40,5 @@ public class Juego {
 			return 0;
 	}
 
-	public Jugador turno() {
-		return jugadores.get(turno);
-	}
-
-	public Jugador jugador(int nroDeJugador) {
-		return jugadores.get(nroDeJugador);
-	}
 
 }

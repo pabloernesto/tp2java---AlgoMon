@@ -22,5 +22,9 @@ public class Jugador {
 		return algomones.get(nroDeAlgomon-1);
 	}
 
+	public String getNombre() {
+		return this.nombre;
+	}
+
 
 }

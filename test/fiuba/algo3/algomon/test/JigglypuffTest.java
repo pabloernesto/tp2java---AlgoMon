@@ -15,8 +15,8 @@ public class JigglypuffTest {
     {
     	Juego juego = new Juego();
     	
-    	juego.agregarJugador(0,new Jugador("Natalia"));
-    	juego.agregarJugador(1,new Jugador("Martín"));
+    	juego.agregarJugador(new Jugador("Natalia"));
+    	juego.agregarJugador(new Jugador("Martín"));
     	
     	juego.jugador(0).elegirAlgomones(	Especie.CHANSEY.nuevo(),
     										Especie.CHARMANDER.nuevo(),
