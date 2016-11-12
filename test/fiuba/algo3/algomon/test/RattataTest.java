@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class RattataTest
 {
-    @Test (expected = RuntimeException.class)
+    @Test (expected = RuntimeException.class) // refactor
     public void usarFogonazo5VecesCausaUnaExcepcion()
     {
         AlgoMon rattata = Especie.RATTATA.nuevo();
