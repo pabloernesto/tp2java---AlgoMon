@@ -19,6 +19,8 @@ public class Ataque
 
         cantidadDeUsosRestantes--;
         atacado.vida -= movimiento.potencia(atacado.tipo);
+        atacado.dormido = movimiento.efectoEfimero();
+        
         return this;
     }
 }

@@ -2,6 +2,7 @@ package fiuba.algo3.algomon;
 
 public enum Movimiento
 {
+	// NOMBRE_ATAQUE(tipo,potencia,cantidadDeUsos)
     ATAQUE_RAPIDO(Tipo.NORMAL, 10, 16),
     CANTO(Tipo.NORMAL, 0, 6),
     BURBUJA(Tipo.AGUA, 10, 15),
@@ -9,8 +10,7 @@ public enum Movimiento
     CHUPAVIDAS(Tipo.PLANTA, 15, 8),
     LATIGO_CEPA(Tipo.PLANTA, 15, 10),
     BRASAS(Tipo.FUEGO, 16, 10),
-    FOGONAZO(Tipo.FUEGO, 2,4) 
-    ;
+    FOGONAZO(Tipo.FUEGO, 2,4);
 
     int potencia;
     int cantidadDeUsos;
@@ -27,5 +27,12 @@ public enum Movimiento
     public int potencia(Tipo t)
     {
         return (int) (potencia * tipo.efectividad(t));
+    }
+    
+    public boolean efectoEfimero(){
+		if (this == CANTO) 			// ! refactor 
+			return true;
+		else
+			return false;
     }
 }

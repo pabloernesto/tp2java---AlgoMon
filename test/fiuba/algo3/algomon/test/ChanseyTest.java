@@ -1,6 +1,7 @@
 package fiuba.algo3.algomon.test;
 
 import fiuba.algo3.algomon.*;
+import fiuba.algo3.algomon.excepciones.AlgomonEstaInhabilitadoParaAtacarException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -44,4 +45,25 @@ public class ChanseyTest
 
         assertEquals(vidaInicial - 15, jigglypuff.vida());
     }
+    
+    @Test (expected = AlgomonEstaInhabilitadoParaAtacarException.class)
+    public void ataqueConCantoInhabilitaElAtaqueDeCharmander()
+    {
+    	Juego juego = new Juego();
+    	
+    	juego.agregarJugador(0,new Jugador("María"));
+    	juego.agregarJugador(1,new Jugador("Juan"));
+    	
+    	juego.jugador(0).elegirAlgomones(	Especie.CHANSEY.nuevo(),
+    										Especie.CHARMANDER.nuevo(),
+    										Especie.RATTATA.nuevo());
+    	juego.jugador(1).elegirAlgomones(	Especie.CHANSEY.nuevo(),
+											Especie.CHARMANDER.nuevo(),
+											Especie.RATTATA.nuevo());
+    	
+        juego.jugador(0).algomonNro(1).atacar(juego.jugador(1).algomonNro(2), Movimiento.CANTO);
+        juego.jugador(1).algomonNro(2).atacar(juego.jugador(0).algomonNro(2), Movimiento.BRASAS);
+
+    }
+    
 }
