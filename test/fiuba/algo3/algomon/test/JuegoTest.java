@@ -29,11 +29,11 @@ public class JuegoTest {
 		juego.agregarJugador(new Jugador("Mabel"));
 		juego.agregarJugador(new Jugador("Otto"));
 		
-		String jugadorQueEmpieza = juego.turno().getNombre();
+		String jugadorQueEmpieza = juego.turno().nombre();
 		juego.pasarTurno();
 		juego.pasarTurno();
 		
-		assertEquals(jugadorQueEmpieza,juego.turno().getNombre());
+		assertEquals(jugadorQueEmpieza,juego.turno().nombre());
 	}
 	
 }
