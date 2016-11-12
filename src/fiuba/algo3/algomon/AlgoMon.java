@@ -12,7 +12,7 @@ public class AlgoMon
     int vida;
     Tipo tipo;
     Map<Movimiento, Ataque> ataques = new EnumMap<Movimiento, Ataque>(Movimiento.class);
-    boolean dormido;
+    int turnosRestantesDormido;
 
     public AlgoMon(Tipo t, Movimiento [] movimientos, int vida)
     {
@@ -22,12 +22,12 @@ public class AlgoMon
             ataques.put(m, new Ataque(m));
 
         this.vida = vida;
-        this.dormido = false;
+        this.turnosRestantesDormido = 0;
     }
 
     public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento)
     {
-    	if (dormido)
+    	if (turnosRestantesDormido != 0)
     		throw new AlgomonEstaInhabilitadoParaAtacarException();
     	
         try{
@@ -42,4 +42,8 @@ public class AlgoMon
     {
         return vida;
     }
+
+	public void turnoTerminado() {
+		if (turnosRestantesDormido >0) this.turnosRestantesDormido--;
+	}
 }

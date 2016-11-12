@@ -33,11 +33,18 @@ public class Juego {
 		return jugadores.get(turno);
 	}
 	
-	public int pasarTurno() {
+	public void pasarTurno() {
+		
+		this.jugador(this.turno).actualizarEstadoAlgomones();
+		this.cambiarTurno();
+		
+	}
+
+	private void cambiarTurno() {
 		if (turno == 0) 
-			return 1;
+			this.turno = 1;
 		else 
-			return 0;
+			this.turno = 0;
 	}
 
 

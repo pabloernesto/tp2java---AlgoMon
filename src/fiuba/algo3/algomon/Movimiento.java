@@ -29,10 +29,10 @@ public enum Movimiento
         return (int) (potencia * tipo.efectividad(t));
     }
     
-    public boolean efectoEfimero(){
+    public int efectoEfimero(){
 		if (this == CANTO) 			// ! refactor 
-			return true;
+			return 3;
 		else
-			return false;
+			return 0;
     }
 }

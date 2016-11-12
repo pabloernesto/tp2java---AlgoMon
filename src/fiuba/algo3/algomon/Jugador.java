@@ -40,5 +40,11 @@ public class Jugador {
 		return this.nombre;
 	}
 
+	public void actualizarEstadoAlgomones() {
+		for (int i = 0; i < MAX_CANT_ALGOMONES_POR_JUGADOR; i++){
+			this.algomones.get(i).turnoTerminado();
+		}
+	}
+
 
 }
