@@ -51,7 +51,7 @@ public class ChanseyTest
     {
     	Juego juego = new Juego();
     	
-    	juego.agregarJugador(new Jugador("María"));
+    	juego.agregarJugador(new Jugador("Nahuel"));
     	juego.agregarJugador(new Jugador("Juan"));
     	
     	juego.jugador(0).elegirAlgomon(Especie.CHANSEY.nuevo());

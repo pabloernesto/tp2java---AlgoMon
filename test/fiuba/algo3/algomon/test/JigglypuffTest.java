@@ -18,7 +18,7 @@ public class JigglypuffTest {
     	Juego juego = new Juego();
     	
     	juego.agregarJugador(new Jugador("Natalia"));
-    	juego.agregarJugador(new Jugador("Martín"));
+    	juego.agregarJugador(new Jugador("Nahuel"));
     	
     	juego.jugador(0).elegirAlgomon(Especie.CHANSEY.nuevo());
     	juego.jugador(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
@@ -43,7 +43,7 @@ public class JigglypuffTest {
     	Juego juego = new Juego();
     	
     	juego.agregarJugador(new Jugador("Natalia"));
-    	juego.agregarJugador(new Jugador("Martín"));
+    	juego.agregarJugador(new Jugador("Nahuel"));
     	
     	juego.jugador(0).elegirAlgomon(Especie.CHANSEY.nuevo());
     	juego.jugador(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
