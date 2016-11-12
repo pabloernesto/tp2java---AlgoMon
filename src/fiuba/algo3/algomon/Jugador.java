@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Jugador {
 
+	private static final int MAX_CANT_ALGOMONES_POR_JUGADOR = 3;
+	
 	private String nombre;
 	private ArrayList<AlgoMon> algomones;
 
@@ -12,10 +14,16 @@ public class Jugador {
 		this.algomones = new ArrayList<AlgoMon>();
 	}
 
-	public void elegirAlgomones(AlgoMon algomon1, AlgoMon algomon2, AlgoMon algomon3) {
-		this.algomones.add(0, algomon1);
-		this.algomones.add(1, algomon2);
-		this.algomones.add(2, algomon3);
+	public void elegirAlgomon(AlgoMon algomon) {
+		int i = 0;
+		
+		while (i <= MAX_CANT_ALGOMONES_POR_JUGADOR){
+			if (this.algomones.size() == i){
+				this.algomones.add(i, algomon);
+				break;
+			}
+			i++;
+		}
 	}
 
 	public AlgoMon algomonNro(int nroDeAlgomon) {

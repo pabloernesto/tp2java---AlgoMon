@@ -54,12 +54,13 @@ public class ChanseyTest
     	juego.agregarJugador(new Jugador("María"));
     	juego.agregarJugador(new Jugador("Juan"));
     	
-    	juego.jugador(0).elegirAlgomones(	Especie.CHANSEY.nuevo(),
-    										Especie.CHARMANDER.nuevo(),
-    										Especie.RATTATA.nuevo());
-    	juego.jugador(1).elegirAlgomones(	Especie.CHANSEY.nuevo(),
-											Especie.CHARMANDER.nuevo(),
-											Especie.RATTATA.nuevo());
+    	juego.jugador(0).elegirAlgomon(Especie.CHANSEY.nuevo());
+    	juego.jugador(0).elegirAlgomon(Especie.CHARMANDER.nuevo());
+    	juego.jugador(0).elegirAlgomon(Especie.RATTATA.nuevo());
+    	
+    	juego.jugador(1).elegirAlgomon(Especie.CHANSEY.nuevo());
+    	juego.jugador(1).elegirAlgomon(Especie.CHARMANDER.nuevo());
+    	juego.jugador(1).elegirAlgomon(Especie.RATTATA.nuevo());
     	
         juego.jugador(0).algomonNro(1).atacar(juego.jugador(1).algomonNro(2), Movimiento.CANTO);
         juego.jugador(1).algomonNro(2).atacar(juego.jugador(0).algomonNro(2), Movimiento.BRASAS);

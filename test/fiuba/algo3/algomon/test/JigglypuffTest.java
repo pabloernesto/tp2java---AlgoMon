@@ -18,12 +18,13 @@ public class JigglypuffTest {
     	juego.agregarJugador(new Jugador("Natalia"));
     	juego.agregarJugador(new Jugador("Martín"));
     	
-    	juego.jugador(0).elegirAlgomones(	Especie.CHANSEY.nuevo(),
-    										Especie.CHARMANDER.nuevo(),
-    										Especie.RATTATA.nuevo());
-    	juego.jugador(1).elegirAlgomones(	Especie.CHANSEY.nuevo(),
-											Especie.JIGGLYPUFF.nuevo(),
-											Especie.RATTATA.nuevo());
+    	juego.jugador(0).elegirAlgomon(Especie.CHANSEY.nuevo());
+    	juego.jugador(0).elegirAlgomon(Especie.CHARMANDER.nuevo());
+    	juego.jugador(0).elegirAlgomon(Especie.RATTATA.nuevo());
+    	
+    	juego.jugador(1).elegirAlgomon(Especie.CHANSEY.nuevo());
+    	juego.jugador(1).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
+    	juego.jugador(1).elegirAlgomon(Especie.RATTATA.nuevo());
     	
         juego.jugador(1).algomonNro(2).atacar(juego.jugador(0).algomonNro(3), Movimiento.CANTO);
         juego.jugador(0).algomonNro(3).atacar(juego.jugador(1).algomonNro(2), Movimiento.BRASAS);
