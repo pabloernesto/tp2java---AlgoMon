@@ -20,7 +20,7 @@ public class AtaqueNormal implements Ataque
 
         cantidadDeUsosRestantes--;
         atacado.vida -= movimiento.potencia(atacado.tipo);
-        atacado.turnosRestantesDormido = movimiento.efectoEfimero();
+        atacado.estado(movimiento.efectoEfimero());
         //atacado.manejoDeEstado(movimiento.efectoEfimero());
         
         return this;

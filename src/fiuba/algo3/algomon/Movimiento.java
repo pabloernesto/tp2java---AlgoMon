@@ -29,10 +29,10 @@ public enum Movimiento
         return (int) (potencia * tipo.efectividad(t));
     }
     
-    public int efectoEfimero(){
+    public EstadoDeAlgomon efectoEfimero(){
 		if (this == CANTO) 			// ! refactor 
-			return 3;
+			return new EstadoDeAlgomonDormido();
 		else
-			return 0;
+			return new EstadoDeAlgomonNormal();
     }
 }
