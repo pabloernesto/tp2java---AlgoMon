@@ -13,7 +13,6 @@ public class AlgoMon
     Tipo tipo;
     Map<Movimiento, AtaqueNormal> ataques = new EnumMap<Movimiento, AtaqueNormal>(Movimiento.class);
     EstadoDeAlgomon estado = new EstadoDeAlgomonNormal();
-    EstadoDeAlgomon estadoGuardado;
 
     public AlgoMon(Tipo t, Movimiento [] movimientos, int vida)
     {
@@ -27,16 +26,12 @@ public class AlgoMon
 
     public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento)
     {
-//    	if (turnosRestantesDormido != 0)
-//    		throw new AlgomonEstaInhabilitadoParaAtacarException();
-    	
         try{
             estado.atacar(ataques.get(movimiento),enemigo);
             estado.turnoTerminado(this);
             return this;
         }
         catch(NullPointerException e){throw new AlgomonNoPoseeElMovimientoException();}
-        
     }
 
     public int vida()
@@ -44,17 +39,18 @@ public class AlgoMon
         return vida;
     }
 
-    public void recuperarEstado() {
+    public void recuperarEstado() 
+    {
        this.estado = new EstadoDeAlgomonNormal(); 
     }
 
-    public void estado(EstadoDeAlgomon efectoEfimero) {
+    public void estado(EstadoDeAlgomon efectoEfimero) 
+    {
         this.estado = efectoEfimero;
-        
     }
 
-    public void turnoTerminado() {
+    public void turnoTerminado() 
+    {
         this.estado.turnoTerminado(this);
-        
     }
 }
