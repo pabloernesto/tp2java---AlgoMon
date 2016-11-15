@@ -61,15 +61,13 @@ public enum Especie
     Tipo tipo;
     int vida;
 
-    Especie(Tipo t, Movimiento[] m, int vida)
-    {
-        tipo = t;
-        movimientos = m;
+    Especie(Tipo t, Movimiento[] m, int vida) {
+        this.tipo = t;
+        this.movimientos = m;
         this.vida = vida;
     }
 
-    public AlgoMon nuevo()
-    {
+    public AlgoMon nuevo() {
         return new AlgoMon(tipo, movimientos, vida);
     }
 }

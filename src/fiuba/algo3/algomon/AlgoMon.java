@@ -2,20 +2,18 @@ package fiuba.algo3.algomon;
 
 import java.util.Map;
 
-import fiuba.algo3.algomon.excepciones.AlgomonEstaInhabilitadoParaAtacarException;
 import fiuba.algo3.algomon.excepciones.AlgomonNoPoseeElMovimientoException;
 
 import java.util.EnumMap;
 
-public class AlgoMon
-{
+public class AlgoMon {
+	
     int vida;
     Tipo tipo;
     Map<Movimiento, AtaqueNormal> ataques = new EnumMap<Movimiento, AtaqueNormal>(Movimiento.class);
     EstadoDeAlgomon estado = new EstadoDeAlgomonNormal();
 
-    public AlgoMon(Tipo t, Movimiento [] movimientos, int vida)
-    {
+    public AlgoMon(Tipo t, Movimiento [] movimientos, int vida) {
         tipo = t;
 
         for (Movimiento m : movimientos)
@@ -24,8 +22,7 @@ public class AlgoMon
         this.vida = vida;
     }
 
-    public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento)
-    {
+    public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento) {
         try{
             estado.atacar(ataques.get(movimiento),enemigo);
             estado.turnoTerminado(this);
@@ -34,23 +31,19 @@ public class AlgoMon
         catch(NullPointerException e){throw new AlgomonNoPoseeElMovimientoException();}
     }
 
-    public int vida()
-    {
+    public int vida() {
         return vida;
     }
 
-    public void recuperarEstado() 
-    {
+    public void recuperarEstado() {
        this.estado = new EstadoDeAlgomonNormal(); 
     }
 
-    public void estado(EstadoDeAlgomon efectoEfimero) 
-    {
+    public void estado(EstadoDeAlgomon efectoEfimero) {
         this.estado = efectoEfimero;
     }
 
-    public void turnoTerminado() 
-    {
+    public void turnoTerminado() {
         this.estado.turnoTerminado(this);
     }
 }

@@ -20,8 +20,7 @@ public class EstadoDeAlgomonDormido implements EstadoDeAlgomon {
     }
 
     @Override
-    public EstadoDeAlgomon atacar(AtaqueNormal ataqueNormal, AlgoMon enemigo) throws AlgomonEstaInhabilitadoParaAtacarException
-    {
+    public EstadoDeAlgomon atacar(AtaqueNormal ataqueNormal, AlgoMon enemigo) throws AlgomonEstaInhabilitadoParaAtacarException {
        throw new AlgomonEstaInhabilitadoParaAtacarException();
     }
 

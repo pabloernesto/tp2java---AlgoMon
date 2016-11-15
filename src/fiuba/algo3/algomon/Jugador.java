@@ -33,7 +33,7 @@ public class Jugador {
 	}
 
 	public AlgoMon algomonNro(int nroDeAlgomon) {
-		return algomones.get(nroDeAlgomon-1);
+		return this.algomones.get(nroDeAlgomon-1);
 	}
 
 	public String nombre() {
