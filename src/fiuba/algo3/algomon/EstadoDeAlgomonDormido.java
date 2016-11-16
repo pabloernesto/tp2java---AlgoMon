@@ -4,7 +4,7 @@ import fiuba.algo3.algomon.excepciones.AlgomonEstaInhabilitadoParaAtacarExceptio
 
 public class EstadoDeAlgomonDormido implements EstadoDeAlgomon {
 
-    int turnosRestantesDormido; 
+    int turnosRestantesDormido;
 
     public EstadoDeAlgomonDormido() {
         super();
@@ -20,18 +20,18 @@ public class EstadoDeAlgomonDormido implements EstadoDeAlgomon {
     }
 
     @Override
-    public EstadoDeAlgomon atacar(AtaqueNormal ataqueNormal, AlgoMon enemigo) throws AlgomonEstaInhabilitadoParaAtacarException {
+    public EstadoDeAlgomon atacar(Ataque ataqueNormal, AlgoMon enemigo) throws AlgomonEstaInhabilitadoParaAtacarException {
        throw new AlgomonEstaInhabilitadoParaAtacarException();
     }
 
     @Override
     public void causarDanio(int potencia, AlgoMon algoMon) {
         algoMon.vida -= potencia;
-        
+
     }
 
     @Override
-    public void estadoDelAtacante(AtaqueNormal ataqueNormal, AlgoMon algoMon) {
+    public void estadoDelAtacante(Ataque ataqueNormal, AlgoMon algoMon) {
     }
 
 }

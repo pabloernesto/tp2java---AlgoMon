@@ -7,10 +7,10 @@ import fiuba.algo3.algomon.excepciones.AlgomonNoPoseeElMovimientoException;
 import java.util.EnumMap;
 
 public class AlgoMon {
-	
+
     int vida;
     Tipo tipo;
-    Map<Movimiento, AtaqueNormal> ataques = new EnumMap<Movimiento, AtaqueNormal>(Movimiento.class);
+    Map<Movimiento, Ataque> ataques = new EnumMap<Movimiento, Ataque>(Movimiento.class);
     EstadoDeAlgomon estado = new EstadoDeAlgomonNormal();
     private int vidaOriginal;
 
@@ -18,7 +18,7 @@ public class AlgoMon {
         tipo = t;
 
         for (Movimiento m : movimientos)
-            ataques.put(m, new AtaqueNormal(m));
+            ataques.put(m, new Ataque(m));
 
         this.vida = vida;
         this.vidaOriginal = vida;
@@ -43,7 +43,7 @@ public class AlgoMon {
     }
 
     public void recuperarEstado() {
-       this.estado = new EstadoDeAlgomonNormal(); 
+       this.estado = new EstadoDeAlgomonNormal();
     }
 
     public void estado(EstadoDeAlgomon efectoEfimero) { //rename

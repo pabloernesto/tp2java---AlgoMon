@@ -1,15 +1,15 @@
 package fiuba.algo3.algomon;
 import  fiuba.algo3.algomon.excepciones.*;
 
-public class AtaqueNormal 
+public class Ataque
 {
     int cantidadDeUsosRestantes;
     Movimiento movimiento;
 
-    
-    public AtaqueNormal(){};
-    
-    public AtaqueNormal(Movimiento mov) {
+
+    public Ataque(){};
+
+    public Ataque(Movimiento mov) {
         this.movimiento = mov;
         cantidadDeUsosRestantes = this.movimiento.cantidadDeUsos;
     }
@@ -23,11 +23,11 @@ public class AtaqueNormal
         atacado.causarDanio(cantidadDeDanioCausado);
         atacado.estado(movimiento.efectoEfimero());
         //atacado.manejoDeEstado(movimiento.efectoEfimero());
-        
+
         return cantidadDeDanioCausado;
     }
 
-    public EstadoDeAlgomon estadoDelAlgomonAtacante(AtaqueNormal ataqueNormal) {
+    public EstadoDeAlgomon estadoDelAlgomonAtacante(Ataque ataqueNormal) {
         return movimiento.estadoDelAlgomonAtacante();
     }
 }

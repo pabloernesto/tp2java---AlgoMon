@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class EstadoDeAlgomonNormal implements EstadoDeAlgomon {
 
-    Map<Movimiento, AtaqueNormal> ataques = new EnumMap<Movimiento, AtaqueNormal>(Movimiento.class);
+    Map<Movimiento, Ataque> ataques = new EnumMap<Movimiento, Ataque>(Movimiento.class);
 
     public EstadoDeAlgomonNormal() {
     }
@@ -15,7 +15,7 @@ public class EstadoDeAlgomonNormal implements EstadoDeAlgomon {
     }
 
     @Override
-    public EstadoDeAlgomon atacar(AtaqueNormal ataqueNormal, AlgoMon enemigo) {       
+    public EstadoDeAlgomon atacar(Ataque ataqueNormal, AlgoMon enemigo) {
         ataqueNormal.atacar(enemigo);
         return this;
     }
@@ -26,7 +26,7 @@ public class EstadoDeAlgomonNormal implements EstadoDeAlgomon {
     }
 
     @Override
-    public void estadoDelAtacante(AtaqueNormal ataqueNormal, AlgoMon algoMon) {
+    public void estadoDelAtacante(Ataque ataqueNormal, AlgoMon algoMon) {
        algoMon.estado(ataqueNormal.estadoDelAlgomonAtacante(ataqueNormal));
     }
 
