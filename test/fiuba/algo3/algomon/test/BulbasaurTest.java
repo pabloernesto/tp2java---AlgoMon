@@ -1,6 +1,8 @@
 package fiuba.algo3.algomon.test;
 
 import fiuba.algo3.algomon.*;
+import fiuba.algo3.algomon.excepciones.AlgomonEstaInhabilitadoParaAtacarException;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -45,5 +47,17 @@ public class BulbasaurTest
         assertEquals(vidaInicial - 15, chansey.vida());
     }
 
+    @Test (expected = AlgomonEstaInhabilitadoParaAtacarException.class)
+    public void ataqueConChupaVidasLeQuita30PuntosACharmander()
+    {
+        AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
+        AlgoMon chansey = Especie.CHARMANDER.nuevo();
+        
+        int vidaInicial = chansey.vida();
+
+        bulbasaur.atacar(chansey, Movimiento.CHUPAVIDAS);
+
+        assertEquals(vidaInicial - 30, chansey.vida());
+    }
 
 }
