@@ -99,5 +99,16 @@ public class BulbasaurTest
          assertEquals(vidaInicial - 7, charmander.vida());
  }
 
- 
+     @Test 
+     public void ataqueConChupaVidasCharmanderGana2Puntos()
+     {
+         AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
+         AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
+         
+         int vidaInicial = bulbasaur.vida();
+
+         bulbasaur.atacar(squirtle, Movimiento.CHUPAVIDAS);
+
+         assertEquals(vidaInicial + 9, bulbasaur.vida());
+     } 
 }
