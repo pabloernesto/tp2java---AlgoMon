@@ -114,7 +114,7 @@ public class CharmanderTest
     }
 
     @Test
-    public void fogonazoLeQuita17PuntosDeVidaARattata()
+    public void fogonazoQuita17PuntosDeVidaPorQuemadurasARattata()
     {
         AlgoMon charmander = Especie.CHARMANDER.nuevo();
         AlgoMon rattata = Especie.RATTATA.nuevo();
@@ -122,9 +122,8 @@ public class CharmanderTest
         charmander.atacar(rattata, Movimiento.FOGONAZO);
 
         int vidaInicial = rattata.vida();
-
         rattata.turnoTerminado();
-        
+
         assertEquals(vidaInicial - 17, rattata.vida());
     }
 }
