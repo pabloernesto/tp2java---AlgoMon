@@ -6,15 +6,15 @@ public class AtaqueNormal implements Ataque
     int cantidadDeUsosRestantes;
     Movimiento movimiento;
 
+    
     public AtaqueNormal(){};
-    public AtaqueNormal(Movimiento m)
-    {
-        movimiento = m;
-        cantidadDeUsosRestantes = m.cantidadDeUsos;
+    
+    public AtaqueNormal(Movimiento mov) {
+        this.movimiento = mov;
+        cantidadDeUsosRestantes = this.movimiento.cantidadDeUsos;
     }
 
-    public AtaqueNormal atacar(AlgoMon atacado)
-    {
+    public AtaqueNormal atacar(AlgoMon atacado) {
         if (cantidadDeUsosRestantes == 0)
             throw new CantidadDeAtaquesExcedidaException();
 

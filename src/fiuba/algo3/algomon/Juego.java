@@ -15,7 +15,7 @@ public class Juego {
 	}
 
 	public Jugador jugador(int nroDeJugador) {
-		return jugadores.get(nroDeJugador);
+		return this.jugadores.get(nroDeJugador);
 	}
 	
 	public void agregarJugador(Jugador jugador) {
@@ -30,7 +30,7 @@ public class Juego {
 	}
 
 	public Jugador turno() {
-		return jugadores.get(turno);
+		return this.jugadores.get(turno);
 	}
 	
 	public void pasarTurno() {
@@ -41,7 +41,7 @@ public class Juego {
 	}
 
 	private void cambiarTurno() {
-		if (turno == 0) 
+		if (this.turno == 0) 
 			this.turno = 1;
 		else 
 			this.turno = 0;

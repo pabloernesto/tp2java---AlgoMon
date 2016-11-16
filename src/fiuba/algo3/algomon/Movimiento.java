@@ -16,20 +16,17 @@ public enum Movimiento
     int cantidadDeUsos;
     Tipo tipo;
 
-    Movimiento(Tipo tipo, int potencia, int cantidadDeUsos)
-    {
+    Movimiento(Tipo tipo, int potencia, int cantidadDeUsos) {
         this.tipo = tipo;
         this.potencia = potencia;
         this.cantidadDeUsos =cantidadDeUsos;
     }
 
-
-    public int potencia(Tipo t)
-    {
+    public int potencia(Tipo t) {
         return (int) (potencia * tipo.efectividad(t));
     }
     
-    public EstadoDeAlgomon efectoEfimero(){
+    public EstadoDeAlgomon efectoEfimero() {
 		if (this == CANTO) 			// ! refactor 
 			return new EstadoDeAlgomonDormido();
 		else
