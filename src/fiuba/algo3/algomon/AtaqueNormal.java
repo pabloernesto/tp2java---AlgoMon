@@ -1,7 +1,7 @@
 package fiuba.algo3.algomon;
 import  fiuba.algo3.algomon.excepciones.*;
 
-public class AtaqueNormal implements Ataque
+public class AtaqueNormal 
 {
     int cantidadDeUsosRestantes;
     Movimiento movimiento;
