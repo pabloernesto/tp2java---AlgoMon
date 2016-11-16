@@ -30,6 +30,8 @@ public enum Movimiento
     public EstadoDeAlgomon efectoEfimero() {// ! refactor 
 		if (this == CANTO) 			
 			return new EstadoDeAlgomonDormido();
+		if (this == FOGONAZO)
+			return new EstadoDeAlgomonQuemado();
 		else
 			return new EstadoDeAlgomonNormal();
     }

@@ -12,6 +12,7 @@ public class AlgoMon {
     Tipo tipo;
     Map<Movimiento, AtaqueNormal> ataques = new EnumMap<Movimiento, AtaqueNormal>(Movimiento.class);
     EstadoDeAlgomon estado = new EstadoDeAlgomonNormal();
+    private int vidaOriginal;
 
     public AlgoMon(Tipo t, Movimiento [] movimientos, int vida) {
         tipo = t;
@@ -20,6 +21,7 @@ public class AlgoMon {
             ataques.put(m, new AtaqueNormal(m));
 
         this.vida = vida;
+        this.vidaOriginal = vida;
     }
 
     public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento) {
@@ -30,6 +32,10 @@ public class AlgoMon {
             return this;
         }
         catch(NullPointerException e){throw new AlgomonNoPoseeElMovimientoException();}
+    }
+
+    public int vidaOriginal() {
+        return this.vidaOriginal;
     }
 
     public int vida() {
