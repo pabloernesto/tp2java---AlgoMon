@@ -2,16 +2,28 @@ package fiuba.algo3.algomon;
 
 public class EstadoDeAlgomonChupavidas implements EstadoDeAlgomon {
 
+    int cantidadDeDanioARecuperar;
 	@Override
 	public EstadoDeAlgomon atacar(AtaqueNormal ataqueNormal, AlgoMon enemigo) {
-		// TODO Auto-generated method stub
-		return null;
+        int danioCausado = ataqueNormal.atacar(enemigo);
+        this.cantidadDeDanioARecuperar = (danioCausado*30/100);
+        return this;
 	}
 
 	@Override
 	public void turnoTerminado(AlgoMon algoMon) {
-		// TODO Auto-generated method stub
-
+	    algoMon.vida += this.cantidadDeDanioARecuperar;
+	    algoMon.recuperarEstado();
 	}
+
+    @Override
+    public void causarDanio(int potencia, AlgoMon algoMon) {
+        algoMon.vida -= potencia;
+    }
+
+    @Override
+    public void estadoDelAtacante(AtaqueNormal ataqueNormal, AlgoMon algoMon) {
+       algoMon.estado(ataqueNormal.estadoDelAlgomonAtacante(ataqueNormal));
+    }
 
 }

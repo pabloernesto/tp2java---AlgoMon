@@ -24,4 +24,14 @@ public class EstadoDeAlgomonDormido implements EstadoDeAlgomon {
        throw new AlgomonEstaInhabilitadoParaAtacarException();
     }
 
+    @Override
+    public void causarDanio(int potencia, AlgoMon algoMon) {
+        algoMon.vida -= potencia;
+        
+    }
+
+    @Override
+    public void estadoDelAtacante(AtaqueNormal ataqueNormal, AlgoMon algoMon) {
+    }
+
 }

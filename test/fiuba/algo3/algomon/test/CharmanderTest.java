@@ -100,5 +100,31 @@ public class CharmanderTest
         charmander.atacar(rattata, Movimiento.BURBUJA);
     }
 
+    @Test
+    public void fogonazoLeQuita2PuntosDeVidaARattata()
+    {
+        AlgoMon charmander = Especie.CHARMANDER.nuevo();
+        AlgoMon rattata = Especie.RATTATA.nuevo();
 
+        int vidaInicial = rattata.vida();
+
+        charmander.atacar(rattata, Movimiento.FOGONAZO);
+
+        assertEquals(vidaInicial - 2, rattata.vida());
+    }
+
+    @Test
+    public void fogonazoLeQuita17PuntosDeVidaARattata()
+    {
+        AlgoMon charmander = Especie.CHARMANDER.nuevo();
+        AlgoMon rattata = Especie.RATTATA.nuevo();
+
+        charmander.atacar(rattata, Movimiento.FOGONAZO);
+
+        int vidaInicial = rattata.vida();
+
+        rattata.turnoTerminado();
+        
+        assertEquals(vidaInicial - 17, rattata.vida());
+    }
 }
