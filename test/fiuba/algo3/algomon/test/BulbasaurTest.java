@@ -47,17 +47,29 @@ public class BulbasaurTest
         assertEquals(vidaInicial - 15, chansey.vida());
     }
 
-    @Test (expected = AlgomonEstaInhabilitadoParaAtacarException.class)
-    public void ataqueConChupaVidasLeQuita30PuntosACharmander()
+    @Test
+    public void ataqueConChupaVidasLeQuita30PuntosASquirtle()
     {
         AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
-        AlgoMon chansey = Especie.CHARMANDER.nuevo();
+        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
         
-        int vidaInicial = chansey.vida();
+        int vidaInicial = squirtle.vida();
 
-        bulbasaur.atacar(chansey, Movimiento.CHUPAVIDAS);
+        bulbasaur.atacar(squirtle, Movimiento.CHUPAVIDAS);
 
-        assertEquals(vidaInicial - 30, chansey.vida());
+        assertEquals(vidaInicial - 30, squirtle.vida());
     }
 
+    @Test 
+    public void ataqueConChupaVidasBulbasaurGana9Puntos()
+    {
+        AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
+        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
+        
+        int vidaInicial = bulbasaur.vida();
+
+        bulbasaur.atacar(squirtle, Movimiento.CHUPAVIDAS);
+
+        assertEquals(vidaInicial + 9, bulbasaur.vida());
+    }
 }

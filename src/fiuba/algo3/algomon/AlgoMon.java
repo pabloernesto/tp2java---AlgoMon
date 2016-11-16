@@ -24,6 +24,7 @@ public class AlgoMon {
 
     public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento) {
         try{
+            estado.estadoDelAtacante(ataques.get(movimiento),this);
             estado.atacar(ataques.get(movimiento),enemigo);
             estado.turnoTerminado(this);
             return this;
@@ -39,11 +40,15 @@ public class AlgoMon {
        this.estado = new EstadoDeAlgomonNormal(); 
     }
 
-    public void estado(EstadoDeAlgomon efectoEfimero) {
+    public void estado(EstadoDeAlgomon efectoEfimero) { //rename
         this.estado = efectoEfimero;
     }
 
     public void turnoTerminado() {
         this.estado.turnoTerminado(this);
+    }
+
+    public void causarDanio(int potencia) {
+        this.estado.causarDanio(potencia, this);
     }
 }

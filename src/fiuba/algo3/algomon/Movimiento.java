@@ -23,13 +23,22 @@ public enum Movimiento
     }
 
     public int potencia(Tipo t) {
-        return (int) (potencia * tipo.efectividad(t));
+        int cantidadTotal = (int)(potencia * tipo.efectividad(t));
+        return cantidadTotal;
     }
     
-    public EstadoDeAlgomon efectoEfimero() {
-		if (this == CANTO) 			// ! refactor 
+    public EstadoDeAlgomon efectoEfimero() {// ! refactor 
+		if (this == CANTO) 			
 			return new EstadoDeAlgomonDormido();
 		else
 			return new EstadoDeAlgomonNormal();
+    }
+
+    public EstadoDeAlgomon estadoDelAlgomonAtacante(){// ! refactor 
+ 		if (this == Movimiento.CHUPAVIDAS) 			
+			return new EstadoDeAlgomonChupavidas();
+		else
+			return new EstadoDeAlgomonNormal();
+        
     }
 }
