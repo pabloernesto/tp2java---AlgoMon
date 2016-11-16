@@ -1,12 +1,13 @@
 package fiuba.algo3.algomon.test;
 
+import fiuba.algo3.algomon.excepciones.*;
 import fiuba.algo3.algomon.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class RattataTest
 {
-    @Test (expected = RuntimeException.class) // refactor
+    @Test (expected = CantidadDeAtaquesExcedidaException.class)
     public void usarFogonazo5VecesCausaUnaExcepcion()
     {
         AlgoMon rattata = Especie.RATTATA.nuevo();
