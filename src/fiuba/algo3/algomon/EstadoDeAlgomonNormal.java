@@ -5,8 +5,6 @@ import java.util.Map;
 
 public class EstadoDeAlgomonNormal implements EstadoDeAlgomon {
 
-    Map<Movimiento, Ataque> ataques = new EnumMap<Movimiento, Ataque>(Movimiento.class);
-
     public EstadoDeAlgomonNormal() {
     }
 
