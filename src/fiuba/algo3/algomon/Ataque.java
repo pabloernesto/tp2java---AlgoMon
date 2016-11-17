@@ -20,12 +20,10 @@ public class Ataque
 
         cantidadDeUsosRestantes--;
 
+        atacado.estado(movimiento.efectoEfimero());
+
         int cantidadDeDanioCausado = movimiento.potencia(atacado.tipo);
         atacado.causarDanio(cantidadDeDanioCausado);
-
-        atacado.estado(movimiento.efectoEfimero());
-        //atacado.manejoDeEstado(movimiento.efectoEfimero());
-
         return cantidadDeDanioCausado;
     }
 
