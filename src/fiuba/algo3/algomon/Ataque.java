@@ -19,8 +19,10 @@ public class Ataque
             throw new CantidadDeAtaquesExcedidaException();
 
         cantidadDeUsosRestantes--;
+
         int cantidadDeDanioCausado = movimiento.potencia(atacado.tipo);
         atacado.causarDanio(cantidadDeDanioCausado);
+
         atacado.estado(movimiento.efectoEfimero());
         //atacado.manejoDeEstado(movimiento.efectoEfimero());
 
