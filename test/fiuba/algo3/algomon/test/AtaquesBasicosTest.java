@@ -11,8 +11,8 @@ public class AtaquesBasicosTest
     @Test
     public void bulbasaurUsaLatigoCepaQuita30PuntosDeVidaASquirtle()
     {
-        AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
-        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon bulbasaur = Especie.BULBASAUR.nuevo();
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
 
         int vidaInicial = squirtle.vida();
 
@@ -24,8 +24,8 @@ public class AtaquesBasicosTest
     @Test
     public void bulbasaurUsaLatigoCepaQuita7PuntosDeVidaACharmander()
     {
-        AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
-        AlgoMon charmander = Especie.CHARMANDER.nuevo();
+        Algomon bulbasaur = Especie.BULBASAUR.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
 
         int vidaInicial = charmander.vida();
 
@@ -37,8 +37,8 @@ public class AtaquesBasicosTest
     @Test
     public void bulbasaurUsaLatigoCepaQuita15PuntosDeVidaAChansey()
     {
-        AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
-        AlgoMon chansey = Especie.CHANSEY.nuevo();
+        Algomon bulbasaur = Especie.BULBASAUR.nuevo();
+        Algomon chansey = Especie.CHANSEY.nuevo();
 
         int vidaInicial = chansey.vida();
 
@@ -50,8 +50,8 @@ public class AtaquesBasicosTest
     @Test
     public void chanseyUsaLatigoCepaQuita30PuntosDeVidaASquirtle()
     {
-        AlgoMon chansey = Especie.CHANSEY.nuevo();
-        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon chansey = Especie.CHANSEY.nuevo();
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
 
         int vidaInicial = squirtle.vida();
 
@@ -63,8 +63,8 @@ public class AtaquesBasicosTest
     @Test
     public void chanseyUsaLatigoCepaQuita7PuntosDeVidaACharmander()
     {
-        AlgoMon chansey = Especie.CHANSEY.nuevo();
-        AlgoMon charmander = Especie.CHARMANDER.nuevo();
+        Algomon chansey = Especie.CHANSEY.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
 
         int vidaInicial = charmander.vida();
 
@@ -76,8 +76,8 @@ public class AtaquesBasicosTest
     @Test
     public void chanseyUsaLatigoCepaQuita15PuntosDeVidaAJigglypuff()
     {
-        AlgoMon chansey = Especie.CHANSEY.nuevo();
-        AlgoMon jigglypuff = Especie.JIGGLYPUFF.nuevo();
+        Algomon chansey = Especie.CHANSEY.nuevo();
+        Algomon jigglypuff = Especie.JIGGLYPUFF.nuevo();
 
         int vidaInicial = jigglypuff.vida();
 

@@ -2,11 +2,11 @@ package fiuba.algo3.algomon;
 
 public interface EstadoDeAlgomon {
 
-    public EstadoDeAlgomon atacar(Ataque ataqueNormal, AlgoMon enemigo);
+    public EstadoDeAlgomon atacar(Ataque ataqueNormal, Algomon enemigo);
 
-    public void turnoTerminado(AlgoMon algoMon);
+    public void turnoTerminado(Algomon algoMon);
 
-    public void causarDanio(int potencia, AlgoMon algoMon);
+    public void causarDanio(int potencia, Algomon algoMon);
 
-    public void estadoDelAtacante(Ataque ataqueNormal, AlgoMon algoMon);
+    public void estadoDelAtacante(Ataque ataqueNormal, Algomon algoMon);
 }

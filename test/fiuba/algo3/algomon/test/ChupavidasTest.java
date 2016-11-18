@@ -11,8 +11,8 @@ public class ChupavidasTest
     @Test
     public void bulbasaurUsaChupaVidasLeQuita30PuntosASquirtle()
     {
-        AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
-        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon bulbasaur = Especie.BULBASAUR.nuevo();
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
 
         int vidaInicial = squirtle.vida();
 
@@ -24,8 +24,8 @@ public class ChupavidasTest
     @Test
     public void bulbasaurUsaChupaVidasASquirtleBulbasaurGana9Puntos()
     {
-        AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
-        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon bulbasaur = Especie.BULBASAUR.nuevo();
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
 
         int vidaInicial = bulbasaur.vida();
 
@@ -37,8 +37,8 @@ public class ChupavidasTest
     @Test
     public void bulbasaurUsaChupaVidasBulbasaurGana9Puntos()
     {
-        AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
-        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon bulbasaur = Especie.BULBASAUR.nuevo();
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
 
         int vidaInicial = bulbasaur.vida();
 
@@ -50,8 +50,8 @@ public class ChupavidasTest
      @Test
      public void bulbasaurUsaChupaVidasLeQuita7PuntosACharmander()
      {
-         AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
-         AlgoMon charmander = Especie.CHARMANDER.nuevo();
+         Algomon bulbasaur = Especie.BULBASAUR.nuevo();
+         Algomon charmander = Especie.CHARMANDER.nuevo();
 
          int vidaInicial = charmander.vida();
 
@@ -63,8 +63,8 @@ public class ChupavidasTest
      @Test
      public void bulbasaurUsaChupaVidasCharmanderGana2Puntos()
      {
-         AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
-         AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
+         Algomon bulbasaur = Especie.BULBASAUR.nuevo();
+         Algomon squirtle = Especie.SQUIRTLE.nuevo();
 
          int vidaInicial = bulbasaur.vida();
 
@@ -76,8 +76,8 @@ public class ChupavidasTest
      @Test
      public void bulbasaurUsaChupaVidasLeQuita15PuntosARattata()
      {
-         AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
-         AlgoMon rattata = Especie.RATTATA.nuevo();
+         Algomon bulbasaur = Especie.BULBASAUR.nuevo();
+         Algomon rattata = Especie.RATTATA.nuevo();
 
          int vidaInicial = rattata.vida();
 
@@ -89,8 +89,8 @@ public class ChupavidasTest
      @Test
      public void bulbasaurUsaChupaVidasRattataGana4Puntos()
      {
-         AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
-         AlgoMon rattata = Especie.RATTATA.nuevo();
+         Algomon bulbasaur = Especie.BULBASAUR.nuevo();
+         Algomon rattata = Especie.RATTATA.nuevo();
 
          int vidaInicial = bulbasaur.vida();
 

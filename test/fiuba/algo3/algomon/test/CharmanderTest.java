@@ -11,8 +11,8 @@ public class CharmanderTest
     @Test
     public void brasasQuita32PuntosDeVidaABulbasaur()
     {
-        AlgoMon charmander = Especie.CHARMANDER.nuevo();
-        AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
+        Algomon bulbasaur = Especie.BULBASAUR.nuevo();
 
         int vidaInicial = bulbasaur.vida();
 
@@ -24,8 +24,8 @@ public class CharmanderTest
     @Test
     public void brasasQuita8PuntosDeVidaASquirtle()
     {
-        AlgoMon charmander = Especie.CHARMANDER.nuevo();
-        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
 
         int vidaInicial = squirtle.vida();
 
@@ -37,8 +37,8 @@ public class CharmanderTest
     @Test
     public void brasasQuita16PuntosDeVidaARattata()
     {
-        AlgoMon charmander = Especie.CHARMANDER.nuevo();
-        AlgoMon rattata = Especie.RATTATA.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
+        Algomon rattata = Especie.RATTATA.nuevo();
 
         int vidaInicial = rattata.vida();
 
@@ -50,8 +50,8 @@ public class CharmanderTest
     @Test
     public void brasasQuita16PuntosDeVidaAJigglypuff()
     {
-        AlgoMon charmander = Especie.CHARMANDER.nuevo();
-        AlgoMon jigglypuff = Especie.JIGGLYPUFF.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
+        Algomon jigglypuff = Especie.JIGGLYPUFF.nuevo();
 
         int vidaInicial = jigglypuff.vida();
 
@@ -64,8 +64,8 @@ public class CharmanderTest
     @Test
     public void ataqueRapidoQuita10PuntosDeVidaARattata()
     {
-        AlgoMon charmander = Especie.CHARMANDER.nuevo();
-        AlgoMon rattata = Especie.RATTATA.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
+        Algomon rattata = Especie.RATTATA.nuevo();
 
         int vidaInicial = rattata.vida();
 
@@ -77,12 +77,12 @@ public class CharmanderTest
     @Test (expected = CantidadDeAtaquesExcedidaException.class)
     public void fogonazoLevantaExcepcionSiExcedeSuCantidadDeUsos()
     {
-        AlgoMon charmander = Especie.CHARMANDER.nuevo();
-        AlgoMon rattata1 = Especie.RATTATA.nuevo();
-        AlgoMon rattata2 = Especie.RATTATA.nuevo();
-        AlgoMon rattata3 = Especie.RATTATA.nuevo();
-        AlgoMon rattata4 = Especie.RATTATA.nuevo();
-        AlgoMon rattata5 = Especie.RATTATA.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
+        Algomon rattata1 = Especie.RATTATA.nuevo();
+        Algomon rattata2 = Especie.RATTATA.nuevo();
+        Algomon rattata3 = Especie.RATTATA.nuevo();
+        Algomon rattata4 = Especie.RATTATA.nuevo();
+        Algomon rattata5 = Especie.RATTATA.nuevo();
 
         charmander.atacar(rattata1, Movimiento.FOGONAZO);
         charmander.atacar(rattata2, Movimiento.FOGONAZO);
@@ -94,8 +94,8 @@ public class CharmanderTest
     @Test (expected = AlgomonNoPoseeElMovimientoException.class)
     public void charmanderLevantaExcepcionAlgomonNoPoseeElMovimientoExeption()
     {
-        AlgoMon charmander = Especie.CHARMANDER.nuevo();
-        AlgoMon rattata = Especie.RATTATA.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
+        Algomon rattata = Especie.RATTATA.nuevo();
 
         charmander.atacar(rattata, Movimiento.BURBUJA);
     }
@@ -103,8 +103,8 @@ public class CharmanderTest
     @Test
     public void fogonazoLeQuita2PuntosDeVidaARattata()
     {
-        AlgoMon charmander = Especie.CHARMANDER.nuevo();
-        AlgoMon rattata = Especie.RATTATA.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
+        Algomon rattata = Especie.RATTATA.nuevo();
 
         int vidaInicial = rattata.vida();
 
@@ -116,8 +116,8 @@ public class CharmanderTest
     @Test
     public void fogonazoQuita17PuntosDeVidaPorQuemadurasARattata()
     {
-        AlgoMon charmander = Especie.CHARMANDER.nuevo();
-        AlgoMon rattata = Especie.RATTATA.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
+        Algomon rattata = Especie.RATTATA.nuevo();
 
         charmander.atacar(rattata, Movimiento.FOGONAZO);
 

@@ -19,7 +19,7 @@ public enum Especie
         this.vida = v;
     }
 
-    public AlgoMon nuevo() {
-        return new AlgoMon(tipo, movimientos, vida);
+    public Algomon nuevo() {
+        return new Algomon(tipo, movimientos, vida);
     }
 }

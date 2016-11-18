@@ -11,7 +11,7 @@ public class Ataque
         cantidadDeUsosRestantes = this.movimiento.cantidadDeUsos;
     }
 
-    public int atacar(AlgoMon atacado) {
+    public int atacar(Algomon atacado) {
         if (cantidadDeUsosRestantes == 0)
             throw new CantidadDeAtaquesExcedidaException();
 

@@ -9,14 +9,14 @@ public class Jugador {
 	private static final int MAX_CANT_ALGOMONES_POR_JUGADOR = 3;
 	
 	private String nombre;
-	private ArrayList<AlgoMon> algomones;
+	private ArrayList<Algomon> algomones;
 
 	public Jugador(String nombreJugador) {
 		this.nombre = nombreJugador;
-		this.algomones = new ArrayList<AlgoMon>();
+		this.algomones = new ArrayList<Algomon>();
 	}
 
-	public void elegirAlgomon(AlgoMon algomon) {
+	public void elegirAlgomon(Algomon algomon) {
 		int i = 0;
 		
 		while (i < MAX_CANT_ALGOMONES_POR_JUGADOR){
@@ -32,7 +32,7 @@ public class Jugador {
 		
 	}
 
-	public AlgoMon algomonNro(int nroDeAlgomon) {
+	public Algomon algomonNro(int nroDeAlgomon) {
 		return this.algomones.get(nroDeAlgomon-1);
 	}
 

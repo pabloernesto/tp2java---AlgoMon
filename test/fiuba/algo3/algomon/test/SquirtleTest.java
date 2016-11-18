@@ -9,8 +9,8 @@ public class SquirtleTest
     @Test
     public void burbujasQuita20PuntosDeVidaACharmander()
     {
-        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
-        AlgoMon charmander = Especie.CHARMANDER.nuevo();
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
 
         int vidaInicial = charmander.vida();
 
@@ -22,8 +22,8 @@ public class SquirtleTest
     @Test
     public void canionDeAguaQuita40PuntosDeVidaACharmander()
     {
-        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
-        AlgoMon charmander = Especie.CHARMANDER.nuevo();
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
 
         int vidaInicial = charmander.vida();
 
@@ -35,8 +35,8 @@ public class SquirtleTest
     @Test
     public void burbujaQuita5PuntosDeVidaABulbasaur()
     {
-        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
-        AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon bulbasaur = Especie.BULBASAUR.nuevo();
 
         int vidaInicial = bulbasaur.vida();
 
@@ -48,8 +48,8 @@ public class SquirtleTest
     @Test
     public void canionDeAguaQuita10PuntosDeVidaABulbasaur()
     {
-        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
-        AlgoMon bulbasaur = Especie.BULBASAUR.nuevo();
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon bulbasaur = Especie.BULBASAUR.nuevo();
 
         int vidaInicial = bulbasaur.vida();
 
@@ -61,8 +61,8 @@ public class SquirtleTest
     @Test
     public void burbujaQuita10PuntosDeVidaARattata()
     {
-        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
-        AlgoMon rattata = Especie.RATTATA.nuevo();
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon rattata = Especie.RATTATA.nuevo();
 
         int vidaInicial = rattata.vida();
 
@@ -74,8 +74,8 @@ public class SquirtleTest
     @Test
     public void canionDeAguaQuita20PuntosDeVidaARattata()
     {
-        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
-        AlgoMon rattata = Especie.RATTATA.nuevo();
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon rattata = Especie.RATTATA.nuevo();
 
         int vidaInicial = rattata.vida();
 

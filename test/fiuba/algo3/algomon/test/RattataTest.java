@@ -10,8 +10,8 @@ public class RattataTest
     @Test (expected = CantidadDeAtaquesExcedidaException.class)
     public void usarFogonazo5VecesCausaUnaExcepcion()
     {
-        AlgoMon rattata = Especie.RATTATA.nuevo();
-        AlgoMon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon rattata = Especie.RATTATA.nuevo();
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
 
         rattata
             .atacar(squirtle, Movimiento.FOGONAZO)
@@ -24,8 +24,8 @@ public class RattataTest
     @Test
     public void fogonazoQuita2PuntosDeVidaARattata()
     {
-        AlgoMon atacante = Especie.RATTATA.nuevo();
-        AlgoMon atacado = Especie.RATTATA.nuevo();
+        Algomon atacante = Especie.RATTATA.nuevo();
+        Algomon atacado = Especie.RATTATA.nuevo();
 
         int vidaInicial = atacado.vida();
 

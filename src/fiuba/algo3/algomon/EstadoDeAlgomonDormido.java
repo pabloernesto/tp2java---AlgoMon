@@ -12,7 +12,7 @@ public class EstadoDeAlgomonDormido implements EstadoDeAlgomon {
     }
 
     @Override
-    public void turnoTerminado(AlgoMon algomon) {
+    public void turnoTerminado(Algomon algomon) {
         turnosRestantesDormido -= 1;
         if(turnosRestantesDormido ==0 ){
             algomon.recuperarEstado();
@@ -20,18 +20,18 @@ public class EstadoDeAlgomonDormido implements EstadoDeAlgomon {
     }
 
     @Override
-    public EstadoDeAlgomon atacar(Ataque ataqueNormal, AlgoMon enemigo) throws AlgomonEstaInhabilitadoParaAtacarException {
+    public EstadoDeAlgomon atacar(Ataque ataqueNormal, Algomon enemigo) throws AlgomonEstaInhabilitadoParaAtacarException {
        throw new AlgomonEstaInhabilitadoParaAtacarException();
     }
 
     @Override
-    public void causarDanio(int potencia, AlgoMon algoMon) {
+    public void causarDanio(int potencia, Algomon algoMon) {
         algoMon.vida -= potencia;
 
     }
 
     @Override
-    public void estadoDelAtacante(Ataque ataqueNormal, AlgoMon algoMon) {
+    public void estadoDelAtacante(Ataque ataqueNormal, Algomon algoMon) {
     }
 
 }
