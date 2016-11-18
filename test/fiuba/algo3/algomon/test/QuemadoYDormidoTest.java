@@ -20,4 +20,27 @@ public class QuemadoYDormidoTest
 
         rattata.atacar(charmander, Movimiento.ATAQUE_RAPIDO);
     }
+
+    @Test
+    public void alFinalizarCantoRattataSigueQuemado()
+    {
+        Algomon charmander = Especie.CHARMANDER.nuevo();
+        Algomon jigglypuff = Especie.JIGGLYPUFF.nuevo();
+        Algomon rattata = Especie.RATTATA.nuevo();
+
+        charmander.atacar(rattata, Movimiento.FOGONAZO);
+        jigglypuff.atacar(rattata, Movimiento.CANTO);
+
+        int vidaInicial = rattata.vida();
+        rattata
+            .turnoTerminado()
+            .turnoTerminado()
+            .turnoTerminado()
+            .atacar(charmander, Movimiento.ATAQUE_RAPIDO);
+
+        assertTrue(
+            "La vida de rattata debe disminuir "
+            + "cuando ataca porque esta quemado",
+            rattata.vida() < vidaInicial);
+    }
 }

@@ -63,8 +63,9 @@ public class Algomon {
         this.estadoPermanente = nuevoEstado;
     }
 
-    public void turnoTerminado() {
-        this.estadoEfimero.turnoTerminado(this);
+    public Algomon turnoTerminado() {
+        estadoEfimero.turnoTerminado(this);
+        return this;
     }
 
     public void causarDanio(int potencia) {
