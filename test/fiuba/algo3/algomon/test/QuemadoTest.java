@@ -22,4 +22,22 @@ public class QuemadoTest
 
         assertEquals(vidaInicial - 17, rattata.vida());
     }
+
+
+    @Test
+    public void pasarTurnoSinRealizarAccionNoCausaDanio()
+    {
+        Algomon charmander = Especie.CHARMANDER.nuevo();
+        Algomon rattata = Especie.RATTATA.nuevo();
+
+        charmander.atacar(rattata, Movimiento.FOGONAZO);
+
+        int vidaInicial = rattata.vida();
+        rattata
+            .turnoTerminado()
+            .turnoTerminado()
+            .turnoTerminado();
+
+        assertEquals(vidaInicial, rattata.vida());
+    }
 }
