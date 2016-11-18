@@ -29,9 +29,4 @@ public class EstadoDeAlgomonDormido implements EstadoDeAlgomon {
         algoMon.vida -= potencia;
 
     }
-
-    @Override
-    public void estadoDelAtacante(Ataque ataqueNormal, Algomon algoMon) {
-    }
-
 }

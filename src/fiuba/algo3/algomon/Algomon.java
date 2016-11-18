@@ -17,8 +17,12 @@ public class Algomon {
     public Algomon(Tipo t, Movimiento [] movimientos, int vida) {
         tipo = t;
 
-        for (Movimiento m : movimientos)
-            ataques.put(m, m.nuevo());
+        for (Movimiento m : movimientos) {
+            Ataque a = m.nuevo();
+
+            a.setAtacante(this);
+            ataques.put(m, a);
+        }
 
         this.vida = vida;
         this.vidaOriginal = vida;
@@ -26,12 +30,11 @@ public class Algomon {
 
     public Algomon atacar(Algomon enemigo, Movimiento movimiento) {
         try{
-        	
-        	//this.estadoEfimero.consecuencia(); 
-        	//this.estadoPermanente.consecuencia(this);
-        	//this.ataques.get(movimiento).atacar(enemigo);
-        	
-        	this.estado.estadoDelAtacante(ataques.get(movimiento),this);
+
+            //this.estadoEfimero.consecuencia();
+            //this.estadoPermanente.consecuencia(this);
+            //this.ataques.get(movimiento).atacar(enemigo);
+
             this.estado.atacar(ataques.get(movimiento),enemigo);
             this.estado.turnoTerminado(this);
             return this;
@@ -61,5 +64,11 @@ public class Algomon {
 
     public void causarDanio(int potencia) {
         this.estado.causarDanio(potencia, this);
+    }
+
+    public void recuperarVida(int cantidad) {
+        vida += cantidad;
+        //~ if (vida > vidaOriginal)
+            //~ vida = vidaOriginal;
     }
 }
