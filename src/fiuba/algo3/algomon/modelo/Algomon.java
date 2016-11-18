@@ -74,7 +74,7 @@ public class Algomon {
 
     public void recuperarVida(int cantidad) {
         vida += cantidad;
-        //~ if (vida > vidaOriginal)
-            //~ vida = vidaOriginal;
+        if (vida > vidaOriginal)
+            vida = vidaOriginal;
     }
 }
