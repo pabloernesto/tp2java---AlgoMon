@@ -18,7 +18,7 @@ public class AlgoMon {
         tipo = t;
 
         for (Movimiento m : movimientos)
-            ataques.put(m, new Ataque(m));
+            ataques.put(m, m.nuevo());
 
         this.vida = vida;
         this.vidaOriginal = vida;
@@ -26,9 +26,9 @@ public class AlgoMon {
 
     public AlgoMon atacar(AlgoMon enemigo, Movimiento movimiento) {
         try{
-            estado.estadoDelAtacante(ataques.get(movimiento),this);
-            estado.atacar(ataques.get(movimiento),enemigo);
-            estado.turnoTerminado(this);
+            this.estado.estadoDelAtacante(ataques.get(movimiento),this);
+            this.estado.atacar(ataques.get(movimiento),enemigo);
+            this.estado.turnoTerminado(this);
             return this;
         }
         catch(NullPointerException e){throw new AlgomonNoPoseeElMovimientoException();}

@@ -43,4 +43,8 @@ public enum Movimiento
 			return new EstadoDeAlgomonNormal();
         
     }
+
+	public Ataque nuevo() {
+		return (new Ataque(this));
+	}
 }

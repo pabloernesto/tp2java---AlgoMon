@@ -6,9 +6,6 @@ public class Ataque
     int cantidadDeUsosRestantes;
     Movimiento movimiento;
 
-
-    public Ataque(){};
-
     public Ataque(Movimiento mov) {
         this.movimiento = mov;
         cantidadDeUsosRestantes = this.movimiento.cantidadDeUsos;
