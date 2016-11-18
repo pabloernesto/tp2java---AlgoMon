@@ -16,19 +16,19 @@ public class EstadoDeAlgomonQuemado implements EstadoDeAlgomon {
     }
 
     @Override
-    public EstadoDeAlgomon atacar(Ataque ataqueNormal, Algomon enemigo) {
-        ataqueNormal.efectuar(enemigo);
-        return this;
-    }
-
-    @Override
     public void causarDanio(int potencia, Algomon algoMon) {
         algoMon.vida -= potencia;
     }
 
     @Override
     public void estadoDelAtacante(Ataque ataqueNormal, Algomon algoMon) {
-       algoMon.estado(ataqueNormal.estadoDelAlgomonAtacante(ataqueNormal));
+       algoMon.cambiarEstadoPermanente(ataqueNormal.estadoDelAlgomonAtacante(ataqueNormal));
     }
+
+	public void consecuencia(Algomon algomon) {
+		int vida = algomon.vidaOriginal();
+        int potencia = vida / 10;
+        algomon.causarDanio(potencia);
+	}
 
 }

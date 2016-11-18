@@ -3,17 +3,17 @@ package fiuba.algo3.algomon;
 public class EstadoDeAlgomonChupavidas implements EstadoDeAlgomon {
 
     int cantidadDeDanioARecuperar;
-    @Override
-    public EstadoDeAlgomon atacar(Ataque ataqueNormal, Algomon enemigo) {
-        int danioCausado = ataqueNormal.efectuar(enemigo);
-        this.cantidadDeDanioARecuperar = (danioCausado*30/100);
-        return this;
-    }
+    //@Override
+    //public EstadoDeAlgomon atacar(Ataque ataqueNormal, Algomon enemigo) {
+    //    int danioCausado = ataqueNormal.efectuar(enemigo);
+    //    this.cantidadDeDanioARecuperar = (danioCausado*30/100);
+    //    return this;
+    //}
 
     @Override
     public void turnoTerminado(Algomon algoMon) {
         algoMon.vida += this.cantidadDeDanioARecuperar;
-        algoMon.recuperarEstado();
+        algoMon.recuperarEstadoEfimero();
     }
 
     @Override
@@ -22,8 +22,15 @@ public class EstadoDeAlgomonChupavidas implements EstadoDeAlgomon {
     }
 
     @Override
-    public void estadoDelAtacante(Ataque ataqueNormal, Algomon algoMon) {
-       algoMon.estado(ataqueNormal.estadoDelAlgomonAtacante(ataqueNormal));
+    public void estadoDelAtacante(Ataque ataque, Algomon algoMon) {
+       algoMon.cambiarEstadoEfimero(ataque.estadoDelAlgomonAtacante(ataque));
     }
+
+	@Override
+	public void consecuencia(Algomon algomon) {
+
+        algomon.recuperarEstadoEfimero();
+		
+	}
 
 }

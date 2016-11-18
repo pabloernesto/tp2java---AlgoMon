@@ -27,7 +27,7 @@ public enum Movimiento
         return cantidadTotal;
     }
     
-    public EstadoDeAlgomon efectoEfimero() {// ! refactor 
+    public EstadoDeAlgomon tipoDeEfecto() {// ! refactor 
 		if (this == CANTO) 			
 			return new EstadoDeAlgomonDormido();
 		if (this == FOGONAZO)

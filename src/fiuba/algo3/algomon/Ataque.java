@@ -17,7 +17,7 @@ public class Ataque
 
         cantidadDeUsosRestantes--;
 
-        atacado.estado(movimiento.efectoEfimero());
+        atacado.cambiarEstadoEfimero(movimiento.tipoDeEfecto());
 
         int cantidadDeDanioCausado = movimiento.potencia(atacado.tipo);
         atacado.causarDanio(cantidadDeDanioCausado);

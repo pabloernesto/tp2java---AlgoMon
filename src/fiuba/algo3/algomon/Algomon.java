@@ -8,32 +8,36 @@ import java.util.EnumMap;
 
 public class Algomon {
 
+	Tipo tipo;
     int vida;
-    Tipo tipo;
-    Map<Movimiento, Ataque> ataques = new EnumMap<Movimiento, Ataque>(Movimiento.class);
-    EstadoDeAlgomon estado = new EstadoDeAlgomonNormal();
     private int vidaOriginal;
-
-    public Algomon(Tipo t, Movimiento [] movimientos, int vida) {
-        tipo = t;
-
-        for (Movimiento m : movimientos)
-            ataques.put(m, m.nuevo());
-
+    EstadoDeAlgomon estadoEfimero = new EstadoDeAlgomonNormal();
+    EstadoDeAlgomon estadoPermanente = new EstadoDeAlgomonNormal();
+    Map<Movimiento, Ataque> ataques = new EnumMap<Movimiento, Ataque>(Movimiento.class);
+    
+    public Algomon(Tipo tipo, Movimiento [] movimientos, int vida) {
+        
+    	this.tipo = tipo;
         this.vida = vida;
         this.vidaOriginal = vida;
+        
+        for (Movimiento m : movimientos)
+            ataques.put(m, m.nuevo());        
     }
 
     public Algomon atacar(Algomon enemigo, Movimiento movimiento) {
         try{
+        	this.estadoEfimero.consecuencia(this); 
+        	this.estadoPermanente.consecuencia(this);
         	
-        	//this.estadoEfimero.consecuencia(); 
-        	//this.estadoPermanente.consecuencia(this);
-        	//this.ataques.get(movimiento).atacar(enemigo);
+        	if (movimiento == Movimiento.CHUPAVIDAS) {	// este IF se va con el cambio de implementación de CHUPAVIDAS
+        		int danioCausado = this.ataques.get(movimiento).efectuar(enemigo);
+        		int cantidadDeDanioARecuperar = (danioCausado*30/100);
+        		this.vida += cantidadDeDanioARecuperar;
+        	}else{
+        		this.ataques.get(movimiento).efectuar(enemigo);		// queda esto solo
+        	}
         	
-        	this.estado.estadoDelAtacante(ataques.get(movimiento),this);
-            this.estado.atacar(ataques.get(movimiento),enemigo);
-            this.estado.turnoTerminado(this);
             return this;
         }
         catch(NullPointerException e){throw new AlgomonNoPoseeElMovimientoException();}
@@ -47,19 +51,23 @@ public class Algomon {
         return vida;
     }
 
-    public void recuperarEstado() {
-       this.estado = new EstadoDeAlgomonNormal();
+    public void recuperarEstadoEfimero() {
+       this.estadoEfimero = new EstadoDeAlgomonNormal();
     }
 
-    public void estado(EstadoDeAlgomon efectoEfimero) { //rename
-        this.estado = efectoEfimero;
+    public void cambiarEstadoEfimero(EstadoDeAlgomon nuevoEstado) {
+        this.estadoEfimero = nuevoEstado;
+    }
+    
+    public void cambiarEstadoPermanente(EstadoDeAlgomon nuevoEstado) {
+        this.estadoPermanente = nuevoEstado;
     }
 
     public void turnoTerminado() {
-        this.estado.turnoTerminado(this);
+        this.estadoEfimero.turnoTerminado(this);
     }
 
     public void causarDanio(int potencia) {
-        this.estado.causarDanio(potencia, this);
+        this.estadoEfimero.causarDanio(potencia, this);
     }
 }

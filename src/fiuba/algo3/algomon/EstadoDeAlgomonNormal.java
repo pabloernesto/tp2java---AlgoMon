@@ -13,19 +13,17 @@ public class EstadoDeAlgomonNormal implements EstadoDeAlgomon {
     }
 
     @Override
-    public EstadoDeAlgomon atacar(Ataque ataqueNormal, Algomon enemigo) {
-        ataqueNormal.efectuar(enemigo);
-        return this;
-    }
-
-    @Override
     public void causarDanio(int potencia, Algomon algoMon) {
         algoMon.vida -= potencia;
     }
 
     @Override
-    public void estadoDelAtacante(Ataque ataqueNormal, Algomon algoMon) {
-       algoMon.estado(ataqueNormal.estadoDelAlgomonAtacante(ataqueNormal));
+    public void estadoDelAtacante(Ataque ataque, Algomon algoMon) {
+       algoMon.cambiarEstadoEfimero(ataque.estadoDelAlgomonAtacante(ataque));
     }
+
+	@Override
+	public void consecuencia(Algomon algomon) {
+	}
 
 }
