@@ -5,7 +5,7 @@ public class EstadoDeAlgomonChupavidas implements EstadoDeAlgomon {
     int cantidadDeDanioARecuperar;
     @Override
     public EstadoDeAlgomon atacar(Ataque ataqueNormal, Algomon enemigo) {
-        int danioCausado = ataqueNormal.atacar(enemigo);
+        int danioCausado = ataqueNormal.efectuar(enemigo);
         this.cantidadDeDanioARecuperar = (danioCausado*30/100);
         return this;
     }

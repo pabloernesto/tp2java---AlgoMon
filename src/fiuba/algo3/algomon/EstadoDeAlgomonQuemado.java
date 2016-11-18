@@ -17,7 +17,7 @@ public class EstadoDeAlgomonQuemado implements EstadoDeAlgomon {
 
     @Override
     public EstadoDeAlgomon atacar(Ataque ataqueNormal, Algomon enemigo) {
-        ataqueNormal.atacar(enemigo);
+        ataqueNormal.efectuar(enemigo);
         return this;
     }
 
