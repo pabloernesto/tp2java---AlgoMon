@@ -98,4 +98,82 @@ public class AtaquesBasicosTest
 
         assertEquals(vidaInicial - 2, atacado.vida());
     }
+
+    @Test
+    public void squirtleUsaBurbujasQuita20PuntosDeVidaACharmander()
+    {
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
+
+        int vidaInicial = charmander.vida();
+
+        squirtle.atacar(charmander, Movimiento.BURBUJA);
+
+        assertEquals(vidaInicial - 20, charmander.vida());
+    }
+
+    @Test
+    public void squirtleUsaCanionDeAguaQuita40PuntosDeVidaACharmander()
+    {
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
+
+        int vidaInicial = charmander.vida();
+
+        squirtle.atacar(charmander, Movimiento.CANION_DE_AGUA);
+
+        assertEquals(vidaInicial - 40, charmander.vida());
+    }
+
+    @Test
+    public void squirtleUsaBurbujaQuita5PuntosDeVidaABulbasaur()
+    {
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon bulbasaur = Especie.BULBASAUR.nuevo();
+
+        int vidaInicial = bulbasaur.vida();
+
+        squirtle.atacar(bulbasaur, Movimiento.BURBUJA);
+
+        assertEquals(vidaInicial - 5, bulbasaur.vida());
+    }
+
+    @Test
+    public void squirtleUsaCanionDeAguaQuita10PuntosDeVidaABulbasaur()
+    {
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon bulbasaur = Especie.BULBASAUR.nuevo();
+
+        int vidaInicial = bulbasaur.vida();
+
+        squirtle.atacar(bulbasaur, Movimiento.CANION_DE_AGUA);
+
+        assertEquals(vidaInicial - 10, bulbasaur.vida());
+    }
+
+    @Test
+    public void squirtleUsaBurbujaQuita10PuntosDeVidaARattata()
+    {
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon rattata = Especie.RATTATA.nuevo();
+
+        int vidaInicial = rattata.vida();
+
+        squirtle.atacar(rattata, Movimiento.BURBUJA);
+
+        assertEquals(vidaInicial - 10, rattata.vida());
+    }
+
+    @Test
+    public void squirtleUsaCanionDeAguaQuita20PuntosDeVidaARattata()
+    {
+        Algomon squirtle = Especie.SQUIRTLE.nuevo();
+        Algomon rattata = Especie.RATTATA.nuevo();
+
+        int vidaInicial = rattata.vida();
+
+        squirtle.atacar(rattata, Movimiento.CANION_DE_AGUA);
+
+        assertEquals(vidaInicial - 20, rattata.vida());
+    }
 }
