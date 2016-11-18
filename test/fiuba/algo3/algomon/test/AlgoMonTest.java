@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import fiuba.algo3.algomon.Algomon;
-import fiuba.algo3.algomon.Especie;
+import fiuba.algo3.algomon.modelo.Algomon;
+import fiuba.algo3.algomon.modelo.Especie;
 
 public class AlgoMonTest {
 

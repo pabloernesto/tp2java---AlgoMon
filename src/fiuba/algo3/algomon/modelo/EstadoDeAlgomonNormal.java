@@ -1,4 +1,4 @@
-package fiuba.algo3.algomon;
+package fiuba.algo3.algomon.modelo;
 
 public class EstadoDeAlgomonNormal implements EstadoDeAlgomon {
 

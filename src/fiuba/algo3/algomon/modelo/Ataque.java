@@ -1,4 +1,4 @@
-package fiuba.algo3.algomon;
+package fiuba.algo3.algomon.modelo;
 import  fiuba.algo3.algomon.excepciones.*;
 
 public class Ataque

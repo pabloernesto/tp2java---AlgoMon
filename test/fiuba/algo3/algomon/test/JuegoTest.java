@@ -4,10 +4,10 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import fiuba.algo3.algomon.Especie;
-import fiuba.algo3.algomon.Juego;
-import fiuba.algo3.algomon.Jugador;
 import fiuba.algo3.algomon.excepciones.ImposibleAgregarMasJugadoresException;
+import fiuba.algo3.algomon.modelo.Especie;
+import fiuba.algo3.algomon.modelo.Juego;
+import fiuba.algo3.algomon.modelo.Jugador;
 
 public class JuegoTest {
 

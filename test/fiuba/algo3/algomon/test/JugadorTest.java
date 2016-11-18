@@ -2,10 +2,10 @@ package fiuba.algo3.algomon.test;
 
 import org.junit.Test;
 
-import fiuba.algo3.algomon.Especie;
-import fiuba.algo3.algomon.Juego;
-import fiuba.algo3.algomon.Jugador;
 import fiuba.algo3.algomon.excepciones.ImposibleElegirMasDeTresAlgomonesException;
+import fiuba.algo3.algomon.modelo.Especie;
+import fiuba.algo3.algomon.modelo.Juego;
+import fiuba.algo3.algomon.modelo.Jugador;
 
 public class JugadorTest {
 

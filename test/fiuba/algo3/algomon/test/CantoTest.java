@@ -2,6 +2,10 @@ package fiuba.algo3.algomon.test;
 
 import fiuba.algo3.algomon.*;
 import fiuba.algo3.algomon.excepciones.*;
+import fiuba.algo3.algomon.modelo.Especie;
+import fiuba.algo3.algomon.modelo.Juego;
+import fiuba.algo3.algomon.modelo.Jugador;
+import fiuba.algo3.algomon.modelo.Movimiento;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
