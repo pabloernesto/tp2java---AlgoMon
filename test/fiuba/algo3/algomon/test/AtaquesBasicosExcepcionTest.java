@@ -1,11 +1,12 @@
 package fiuba.algo3.algomon.test;
 
-import fiuba.algo3.algomon.excepciones.*;
 import fiuba.algo3.algomon.*;
+import fiuba.algo3.algomon.excepciones.*;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class RattataTest
+public class AtaquesBasicosExcepcionTest
 {
     @Test (expected = CantidadDeAtaquesExcedidaException.class)
     public void usarFogonazo5VecesCausaUnaExcepcion()
@@ -19,18 +20,5 @@ public class RattataTest
             .atacar(squirtle, Movimiento.FOGONAZO)
             .atacar(squirtle, Movimiento.FOGONAZO)
             .atacar(squirtle, Movimiento.FOGONAZO);
-    }
-
-    @Test
-    public void fogonazoQuita2PuntosDeVidaARattata()
-    {
-        Algomon atacante = Especie.RATTATA.nuevo();
-        Algomon atacado = Especie.RATTATA.nuevo();
-
-        int vidaInicial = atacado.vida();
-
-        atacante.atacar(atacado, Movimiento.FOGONAZO);
-
-        assertEquals(vidaInicial - 2, atacado.vida());
     }
 }

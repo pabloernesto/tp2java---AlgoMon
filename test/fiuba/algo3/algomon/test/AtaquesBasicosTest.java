@@ -85,4 +85,17 @@ public class AtaquesBasicosTest
 
         assertEquals(vidaInicial - 15, jigglypuff.vida());
     }
+
+    @Test
+    public void rattataUsaFogonazoQuita2PuntosDeVidaARattata()
+    {
+        Algomon atacante = Especie.RATTATA.nuevo();
+        Algomon atacado = Especie.RATTATA.nuevo();
+
+        int vidaInicial = atacado.vida();
+
+        atacante.atacar(atacado, Movimiento.FOGONAZO);
+
+        assertEquals(vidaInicial - 2, atacado.vida());
+    }
 }
