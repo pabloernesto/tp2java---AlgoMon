@@ -1,8 +1,5 @@
 package fiuba.algo3.algomon;
 
-import java.util.EnumMap;
-import java.util.Map;
-
 public class EstadoDeAlgomonQuemado implements EstadoDeAlgomon {
 
     public EstadoDeAlgomonQuemado() {
