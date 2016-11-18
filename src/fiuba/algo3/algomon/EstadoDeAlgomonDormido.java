@@ -26,12 +26,7 @@ public class EstadoDeAlgomonDormido implements EstadoDeAlgomon {
     }
 
     @Override
-    public void estadoDelAtacante(Ataque ataqueNormal, Algomon algoMon) {
+    public void consecuencia(Algomon algomon) {
+        throw new AlgomonEstaInhabilitadoParaAtacarException();
     }
-
-	@Override
-	public void consecuencia(Algomon algomon) {
-		throw new AlgomonEstaInhabilitadoParaAtacarException();	
-	}
-
 }

@@ -6,8 +6,5 @@ public interface EstadoDeAlgomon {
 
     public void causarDanio(int potencia, Algomon algoMon);
 
-    public void estadoDelAtacante(Ataque ataqueNormal, Algomon algoMon);
-
-	public void consecuencia(Algomon algomon);
-
+    public void consecuencia(Algomon algomon);
 }

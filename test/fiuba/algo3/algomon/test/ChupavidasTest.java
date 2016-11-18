@@ -61,7 +61,7 @@ public class ChupavidasTest
  }
 
      @Test
-     public void bulbasaurUsaChupaVidasCharmanderGana2Puntos()
+     public void bulbasaurUsaChupaVidasCharmanderGana9Puntos()
      {
          Algomon bulbasaur = Especie.BULBASAUR.nuevo();
          Algomon squirtle = Especie.SQUIRTLE.nuevo();

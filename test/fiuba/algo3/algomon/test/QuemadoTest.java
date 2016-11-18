@@ -17,7 +17,8 @@ public class QuemadoTest
         charmander.atacar(rattata, Movimiento.FOGONAZO);
 
         int vidaInicial = rattata.vida();
-        rattata.turnoTerminado();
+        // rattata no pierde vida si no realiza una accion
+        rattata.atacar(charmander, Movimiento.ATAQUE_RAPIDO);
 
         assertEquals(vidaInicial - 17, rattata.vida());
     }

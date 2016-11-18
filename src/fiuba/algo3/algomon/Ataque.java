@@ -17,14 +17,11 @@ public class Ataque
 
         cantidadDeUsosRestantes--;
 
-        atacado.cambiarEstadoEfimero(movimiento.tipoDeEfecto());
-
         int cantidadDeDanioCausado = movimiento.potencia(atacado.tipo);
         atacado.causarDanio(cantidadDeDanioCausado);
         return cantidadDeDanioCausado;
     }
 
-    public EstadoDeAlgomon estadoDelAlgomonAtacante(Ataque ataqueNormal) {
-        return movimiento.estadoDelAlgomonAtacante();
+    public void setAtacante(Algomon atacante) {
     }
 }
