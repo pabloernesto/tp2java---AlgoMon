@@ -1,6 +1,5 @@
 package fiuba.algo3.algomon.test;
 
-import fiuba.algo3.algomon.*;
 import fiuba.algo3.algomon.modelo.Algomon;
 import fiuba.algo3.algomon.modelo.Especie;
 import fiuba.algo3.algomon.modelo.Movimiento;
