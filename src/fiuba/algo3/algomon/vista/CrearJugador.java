@@ -20,11 +20,13 @@ public CrearJugador(Stage stage) {
     rootPane.setTop(label);
     BorderPane.setAlignment(label, Pos.CENTER);
 
+    // escribe
+    
     Button boton = new Button();
     boton.setText("Continuar");
     boton.setOnAction(e-> {
            stage.setScene(new CrearJugador(stage)); 
-    });;
+    });
     rootPane.setBottom(boton);
     BorderPane.setAlignment(boton, Pos.CENTER);
 }
