@@ -1,8 +1,7 @@
 package fiuba.algo3.algomon.vista;
 
-import java.io.IOException;
+import com.sun.prism.paint.Color;
 
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -14,11 +13,14 @@ public class EscenaPrincipal extends Scene {
     private Stage stage;
 
     public EscenaPrincipal(Stage stage) {
-        super(rootPane,300,275);
+        super(rootPane, 300, 275);
         this.stage = stage;
 
         Button boton = new Button();
         boton.setText("Insert Coin");
+        boton.setOnAction(e-> {
+               stage.setScene(new CrearJugador(stage)); 
+        });;
         rootPane.setCenter(boton);
     }
 
