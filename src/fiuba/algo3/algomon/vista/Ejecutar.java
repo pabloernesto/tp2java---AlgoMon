@@ -13,7 +13,6 @@ import javafx.scene.control.Button;
 public class Ejecutar extends Application {
 
     private Stage stage;
-    private BorderPane rootPane;
 
     public static void main(String[] args) {
         launch(args);
@@ -21,7 +20,7 @@ public class Ejecutar extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-      stage.setScene(new EscenaPrincipal());
+      stage.setScene(new EscenaPrincipal(stage));
       stage.setTitle("Algomon 2.0 BETA Version");
       stage.show();
 
