@@ -40,8 +40,8 @@ public class Ejecutar extends Application {
         this.rootPane = (BorderPane) loader.load();
 
         Scene escena = new Scene(rootPane,300,275,Color.BLUE);
-        stagePrincipal.setTitle("Algomong 1.0 BETA Version");
-        stagePrincipal.setScene(escena);
+        stage.setTitle("Algomong 1.0 BETA Version");
+        stage.setScene(escena);
 
         PrimeraPantallaControlador controlador = loader.getController();
         controlador.setProgramaPrincipal(this);
