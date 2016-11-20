@@ -21,22 +21,11 @@ public class Ejecutar extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        this.stage = stage;
-        this.mostrarVentanaPrincipal();
+      stage.setScene(new EscenaPrincipal());
+      stage.setTitle("Algomon 2.0 BETA Version");
+      stage.show();
+
     }
 
-    public void mostrarVentanaPrincipal() throws IOException {
-
-        rootPane = new BorderPane();
-  
-        Scene escena = new Scene(rootPane,300,275);
-        stage.setTitle("Algomon 2.0 BETA Version");
-        stage.setScene(escena);
-      
-        Button boton = new Button();
-        boton.setText("Insert Coin");
-        rootPane.setCenter(boton);
-
-        stage.show();
-    }
+    
 }
