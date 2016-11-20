@@ -17,19 +17,11 @@ public class Jugador {
     }
 
     public void elegirAlgomon(Algomon algomon) {
-        int i = 0;
 
-        while (i < MAX_CANT_ALGOMONES_POR_JUGADOR){
-            if (this.algomones.size() == i){
-                this.algomones.add(i, algomon);
-                break;
-            }
-            i++;
-        }
-
-        if (i == MAX_CANT_ALGOMONES_POR_JUGADOR)
+        if (algomones.size() == MAX_CANT_ALGOMONES_POR_JUGADOR)
             throw new ImposibleElegirMasDeTresAlgomonesException();
 
+        algomones.add(algomon);
     }
 
     public Algomon algomonNro(int nroDeAlgomon) {
