@@ -13,7 +13,7 @@ import java.net.URL;
 
 public class Ejecutar extends Application {
 
-    private Stage stagePrincipal;
+    private Stage stage;
     private BorderPane rootPane;
 
     public static void main(String[] args) {
@@ -21,8 +21,8 @@ public class Ejecutar extends Application {
     }
 
     @Override
-    public void start(Stage stagePrincipal) throws Exception {
-        this.stagePrincipal = stagePrincipal;
+    public void start(Stage stage) throws Exception {
+        this.stage = stage;
         this.mostrarVentanaPrincipal();
     }
 
@@ -46,9 +46,6 @@ public class Ejecutar extends Application {
         PrimeraPantallaControlador controlador = loader.getController();
         controlador.setProgramaPrincipal(this);
 
-        stagePrincipal.show();
-
+        stage.show();
     }
-
-
 }
