@@ -14,7 +14,7 @@ public class PrimeraPantallaControlador implements Initializable{
 	
 	@FXML
     private void nuevaVentana(ActionEvent evento) {
-        //llamado desde el botón que existe en la vista.
+        //llamado desde el boton que existe en la vista.
     }
 	
 	public void setProgramaPrincipal(Ejecutar programaPrincipal) {
