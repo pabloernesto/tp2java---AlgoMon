@@ -32,7 +32,7 @@ public class Jugador {
         return this.nombre;
     }
 
-    public void actualizarEstadoAlgomones() {
+    public void terminarTurno() {
 
         for (Algomon a : algomones)
             a.turnoTerminado();
