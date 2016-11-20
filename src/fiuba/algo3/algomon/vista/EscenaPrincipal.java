@@ -19,6 +19,9 @@ public class EscenaPrincipal extends Scene {
 
         Button boton = new Button();
         boton.setText("Insert Coin");
+        boton.setOnAction(e-> {
+               stage.setScene(new CrearJugador(stage)); 
+        });;
         rootPane.setCenter(boton);
     }
 
