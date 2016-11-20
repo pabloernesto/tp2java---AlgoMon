@@ -12,11 +12,6 @@ public class EstadoDeAlgomonQuemado implements EstadoDeAlgomon {
         algomon.causarDanio(potencia);
     }
 
-    @Override
-    public void causarDanio(int potencia, Algomon algoMon) {
-        algoMon.vida -= potencia;
-    }
-
     public void consecuencia(Algomon algomon) {
         int vida = algomon.vidaOriginal();
         int potencia = vida / 10;

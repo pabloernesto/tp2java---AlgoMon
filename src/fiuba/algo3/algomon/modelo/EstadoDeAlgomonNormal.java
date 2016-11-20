@@ -10,11 +10,6 @@ public class EstadoDeAlgomonNormal implements EstadoDeAlgomon {
     }
 
     @Override
-    public void causarDanio(int potencia, Algomon algoMon) {
-        algoMon.vida -= potencia;
-    }
-
-    @Override
     public void consecuencia(Algomon algomon) {
     }
 }
