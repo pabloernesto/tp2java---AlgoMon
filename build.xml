@@ -152,10 +152,6 @@
     </target>
 
     <target name="empaquetar" depends="compilar.paquete">
-        <copydir
-            src="src/fiuba/algo3/algomon/vista/xml"
-            dest="${build}/classes/fiuba/algo3/algomon/vista/xml"
-            includes="*.fxml"/>
         <jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes" />
     </target>
 
