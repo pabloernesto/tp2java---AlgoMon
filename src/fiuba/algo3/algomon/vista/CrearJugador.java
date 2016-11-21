@@ -1,40 +1,39 @@
 package fiuba.algo3.algomon.vista;
 
-
-import javax.swing.JTextField;
-
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 
 public class CrearJugador extends Scene {
-static BorderPane rootPane = new BorderPane();
-private Stage stage;
+	
+	static BorderPane rootPane = new BorderPane();
+	//private Stage stage;
 
-public CrearJugador(Stage stage) {
-    super(rootPane,300,275);
-    this.stage = stage;
-
-    Label label = new Label("Escribe tu nombre: ");
-    rootPane.setTop(label);
-    BorderPane.setAlignment(label, Pos.CENTER);
-
-    TextField textField = new TextField();
-    rootPane.setCenter(textField);
-    BorderPane.setAlignment(textField, Pos.CENTER);
-
-    
-    Button boton = new Button();
-    boton.setText("Continuar");
-    boton.setOnAction(e-> {
-           stage.setScene(new CrearJugador(stage)); 
-    });
-    rootPane.setBottom(boton);
-    BorderPane.setAlignment(boton, Pos.CENTER);
-}
+	public CrearJugador() {
+	    
+		super(rootPane,480,480);
+	    //this.stage = stage;
+	
+	    Label lblNombreJugador = new Label("Nombre de entrenador/a Algomón N°1: ");
+	    rootPane.setTop(lblNombreJugador);
+	    lblNombreJugador.setStyle("-fx-font-weight: bold; -fx-font-size: 18px; -fx-padding-top: 4em"); 
+	    BorderPane.setAlignment(lblNombreJugador, Pos.CENTER);
+	
+	    TextField txtNombreJugador = new TextField();
+	    rootPane.setCenter(txtNombreJugador);
+	    BorderPane.setAlignment(txtNombreJugador, Pos.CENTER);
+	    
+	    Button btnContinuar = new Button("Continuar");
+	    btnContinuar.setOnAction(e-> {
+	    	// TODO Conectar con modelo a través del control - Update de Jugador
+	    	lblNombreJugador.setText("Nombre de entrenador/a Algomón N°2: ");
+	    	txtNombreJugador.clear();
+	    });
+	    rootPane.setBottom(btnContinuar);
+	    BorderPane.setAlignment(btnContinuar, Pos.CENTER);
+	}
 
 }
