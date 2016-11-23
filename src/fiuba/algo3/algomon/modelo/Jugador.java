@@ -53,6 +53,7 @@ public class Jugador {
 	}
 
 	public void cambiarAlgomonActivo(int nuevoAlgomonActivo) {
-		this.algomonActivo = this.algomones.get(nuevoAlgomonActivo);		
+		this.algomonActivo = this.algomones.get(nuevoAlgomonActivo);
+		this.terminarTurno();
 	}
 }
