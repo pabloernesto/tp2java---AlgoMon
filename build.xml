@@ -205,13 +205,13 @@
 
 
         <target name="empaquetar.con.imagenes" depends="compilar.paquete">
-            <copydir src="src/gui/imagess"
-                dest="${build}/classes/gui/imagess"
-                includes="**/*.png"/>
+            <copydir src="resources"
+                dest="${build}/classes/resources"
+                includes="**/*"/>
         <jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
     </target>
 
-    <target name="ejecutar.aplicacion" depends="empaquetar">
+    <target name="ejecutar.aplicacion" depends="empaquetar.con.imagenes">
         <java classname="fiuba.algo3.algomon.vista.Ejecutar" fork="true">
             <classpath refid="classpath" />
             <classpath location="${build}/dist/algo3.jar" />
