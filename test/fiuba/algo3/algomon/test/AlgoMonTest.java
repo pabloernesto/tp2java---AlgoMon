@@ -9,13 +9,20 @@ import fiuba.algo3.algomon.modelo.Especie;
 
 public class AlgoMonTest {
 
-	 @Test
-	 public void creacionDeAlgomon() {
-		 Algomon bulbasaur = Especie.BULBASAUR.nuevo();
+     @Test
+     public void creacionDeAlgomon() {
+         Algomon bulbasaur = Especie.BULBASAUR.nuevo();
 
-		 assertEquals(bulbasaur.vida(), 140);
-	 }
-	 
-	 
-	 
+         assertEquals(bulbasaur.vida(), 140);
+     }
+
+     @Test
+     public void causarDanioNoBajaVidaAMenosDeCero() {
+
+         Algomon bulbasaur = Especie.BULBASAUR.nuevo();
+         int v = bulbasaur.vida();
+         bulbasaur.causarDanio(2 * v);
+
+         assertEquals(0, bulbasaur.vida());
+     }
 }

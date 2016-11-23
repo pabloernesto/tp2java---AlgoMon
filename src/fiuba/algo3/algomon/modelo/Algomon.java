@@ -71,6 +71,8 @@ public class Algomon {
 
     public void causarDanio(int potencia) {
         vida -= potencia;
+        if (vida < 0)
+            vida = 0;
     }
 
     public void recuperarVida(int cantidad) {
