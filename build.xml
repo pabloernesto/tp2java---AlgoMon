@@ -175,7 +175,12 @@
     <!-- End of 'Ivy installation -->
 
     <!-- Resolve dependencies -->
-    <target name="resolve" depends="install-ivy" description="--> retrieve dependencies with ivy">
+    <target
+        name="resolve"
+        depends="install-ivy"
+        description="--> retrieve dependencies with ivy"
+        unless = "skip.download"
+    >
         <ivy:retrieve conf="build" pattern="${libs}/[artifact]-[type]-[revision].[ext]" />
         <ivy:retrieve conf="analysis" pattern="${libs}/analysis/[artifact](-[classifier]).[ext]"/>
 
