@@ -53,7 +53,7 @@ public class JugadorTest {
         Algomon rattata = Especie.RATTATA.nuevo();
         int vidaInicial = rattata.vida();
 
-        juego.jugador(0).getAlgomonActivo().atacar(rattata, Movimiento.ATAQUE_RAPIDO);	//El jugador lo elegirá por interfaz
+        juego.jugador(0).getAlgomonActivo().atacar(rattata, Movimiento.ATAQUE_RAPIDO);	//El jugador lo elegira por interfaz
 
         assertEquals(vidaInicial - 10, rattata.vida());
 	}

@@ -17,7 +17,7 @@ public class CrearJugador extends Scene {
 		super(rootPane,480,480);
 	    //this.stage = stage;
 	
-	    Label lblNombreJugador = new Label("Nombre de entrenador/a Algomón N°1: ");
+	    Label lblNombreJugador = new Label("Nombre de entrenador/a Algomon N1: ");
 	    rootPane.setTop(lblNombreJugador);
 	    lblNombreJugador.setStyle("-fx-font-weight: bold; -fx-font-size: 18px; -fx-padding-top: 4em"); 
 	    BorderPane.setAlignment(lblNombreJugador, Pos.CENTER);
@@ -28,8 +28,8 @@ public class CrearJugador extends Scene {
 	    
 	    Button btnContinuar = new Button("Continuar");
 	    btnContinuar.setOnAction(e-> {
-	    	// TODO Conectar con modelo a través del control - Update de Jugador
-	    	lblNombreJugador.setText("Nombre de entrenador/a Algomón N°2: ");
+	    	// TODO Conectar con modelo a traves del control - Update de Jugador
+	    	lblNombreJugador.setText("Nombre de entrenador/a Algomon N2: ");
 	    	txtNombreJugador.clear();
 	    });
 	    rootPane.setBottom(btnContinuar);
