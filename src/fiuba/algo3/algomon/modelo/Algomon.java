@@ -5,8 +5,9 @@ import java.util.Map;
 import fiuba.algo3.algomon.excepciones.AlgomonNoPoseeElMovimientoException;
 
 import java.util.EnumMap;
+import java.util.Observable;
 
-public class Algomon {
+public class Algomon extends Observable {
 
     Tipo tipo;
     int vida;
@@ -77,12 +78,18 @@ public class Algomon {
         vida -= potencia;
         if (vida < 0)
             vida = 0;
+
+        setChanged();
+        notifyObservers();
     }
 
     public void recuperarVida(int cantidad) {
         vida += cantidad;
         if (vida > vidaOriginal)
             vida = vidaOriginal;
+
+        setChanged();
+        notifyObservers();
     }
 
     public String nombreEspecie() {
