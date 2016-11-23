@@ -11,9 +11,17 @@ public class AlgomonVista {
         algomon = a;
     }
 
-    public ImageView imagen() {
+    public ImageView imagenFrente() {
 
-        String path = "file:src/fiuba/algo3/algomon/vista/imagenes/"
+        String path = "file:resources/images/front"
+            + algomon.nombreEspecie()
+            + ".jpg";
+        return new ImageView(path);
+    }
+
+    public ImageView imagenEspalda() {
+
+        String path = "file:resources/images/back"
             + algomon.nombreEspecie()
             + ".jpg";
         return new ImageView(path);
