@@ -10,6 +10,7 @@ import fiuba.algo3.algomon.modelo.Algomon;
 import fiuba.algo3.algomon.modelo.Especie;
 import fiuba.algo3.algomon.modelo.Juego;
 import fiuba.algo3.algomon.modelo.Jugador;
+import fiuba.algo3.algomon.modelo.Movimiento;
 
 public class JugadorTest {
 
@@ -40,5 +41,36 @@ public class JugadorTest {
 		
 		assertEquals(juego.jugador(0).getAlgomonActivo(), primerAlgomon);		
 	}
+	
+	@Test
+	public void jugadorPuedeAtacarConAlgomonActivo(){
+		Juego juego = new Juego();
+		
+		juego.agregarJugador(new Jugador("Mabel"));
+		
+		juego.jugador(0).elegirAlgomon(Especie.CHARMANDER.nuevo());
+		
+        Algomon rattata = Especie.RATTATA.nuevo();
+        int vidaInicial = rattata.vida();
+
+        juego.jugador(0).getAlgomonActivo().atacar(rattata, Movimiento.ATAQUE_RAPIDO);
+
+        assertEquals(vidaInicial - 10, rattata.vida());
+	}
+	
+//	@Test
+//	public void jugadorPuedeElegirAtaqueDeAlgomonActivo(){
+//		
+//	}
+//
+//	@Test
+//	public void jugadorPuedeCambiarAlgomonActivo(){
+//		
+//	}
+//	
+//	@Test
+//	public void jugadorPuedeAplicarleElementoAlAlgomonActivo(){
+//		
+//	}
 
 }
