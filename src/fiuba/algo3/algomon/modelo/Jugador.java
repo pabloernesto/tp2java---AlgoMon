@@ -10,6 +10,7 @@ public class Jugador {
 
     private String nombre;
     private ArrayList<Algomon> algomones;
+    private Algomon algomonActivo;
 
     public Jugador(String nombreJugador) {
         this.nombre = nombreJugador;
@@ -18,10 +19,15 @@ public class Jugador {
 
     public void elegirAlgomon(Algomon algomon) {
 
-        if (algomones.size() == MAX_CANT_ALGOMONES_POR_JUGADOR)
-            throw new ImposibleElegirMasDeTresAlgomonesException();
+    	switch (algomones.size()){
+    	case MAX_CANT_ALGOMONES_POR_JUGADOR: 
+    		throw new ImposibleElegirMasDeTresAlgomonesException();
+    	case 0:
+    		this.algomonActivo = algomon;
+    		break;
+    	}
 
-        algomones.add(algomon);
+    	algomones.add(algomon);
     }
 
     public Algomon algomonNro(int nroDeAlgomon) {
@@ -37,4 +43,12 @@ public class Jugador {
         for (Algomon a : algomones)
             a.turnoTerminado();
     }
+    
+    public ArrayList<Algomon> getAlgomones(){
+    	return this.algomones;
+    }
+
+	public Algomon getAlgomonActivo() {
+		return this.algomonActivo;
+	}
 }
