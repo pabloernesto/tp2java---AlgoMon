@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import fiuba.algo3.algomon.excepciones.ImposibleElegirMasDeTresAlgomonesException;
 import fiuba.algo3.algomon.modelo.Algomon;
-import fiuba.algo3.algomon.modelo.Ataque;
 import fiuba.algo3.algomon.modelo.Especie;
 import fiuba.algo3.algomon.modelo.Juego;
 import fiuba.algo3.algomon.modelo.Jugador;
@@ -59,11 +58,22 @@ public class JugadorTest {
         assertEquals(vidaInicial - 10, rattata.vida());
 	}
 	
-//	@Test
-//	public void jugadorPuedeCambiarAlgomonActivo(){
-//		
-//	}
-//	
+	@Test
+	public void jugadorPuedeCambiarAlgomonActivo(){
+		Juego juego = new Juego();
+		
+		juego.agregarJugador(new Jugador("Mabel"));
+		
+		juego.jugador(0).elegirAlgomon(Especie.CHARMANDER.nuevo());
+		Algomon nuevoAlgomonActivo = Especie.CHANSEY.nuevo();
+		juego.jugador(0).elegirAlgomon(nuevoAlgomonActivo);
+		juego.jugador(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
+		
+		juego.jugador(0).cambiarAlgomonActivo(1);
+		
+        assertEquals(juego.jugador(0).getAlgomonActivo(),nuevoAlgomonActivo);
+	}
+	
 //	@Test
 //	public void jugadorPuedeAplicarleElementoAlAlgomonActivo(){
 //		

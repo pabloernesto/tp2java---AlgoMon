@@ -51,4 +51,8 @@ public class Jugador {
 	public Algomon getAlgomonActivo() {
 		return this.algomonActivo;
 	}
+
+	public void cambiarAlgomonActivo(int nuevoAlgomonActivo) {
+		this.algomonActivo = this.algomones.get(nuevoAlgomonActivo);		
+	}
 }
