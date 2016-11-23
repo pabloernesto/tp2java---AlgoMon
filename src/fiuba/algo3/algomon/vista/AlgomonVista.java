@@ -15,7 +15,7 @@ public class AlgomonVista {
 
         String path = "file:resources/images/front"
             + algomon.nombreEspecie()
-            + ".jpg";
+            + ".png";
         return new ImageView(path);
     }
 
@@ -23,7 +23,7 @@ public class AlgomonVista {
 
         String path = "file:resources/images/back"
             + algomon.nombreEspecie()
-            + ".jpg";
+            + ".png";
         return new ImageView(path);
     }
 }
