@@ -13,8 +13,7 @@ public class Algomon {
     int vidaOriginal;
     EstadoDeAlgomon estadoEfimero = new EstadoDeAlgomonNormal();
     EstadoDeAlgomon estadoPermanente = new EstadoDeAlgomonNormal();
-    Map<Movimiento, Ataque> ataques =
-        new EnumMap<Movimiento, Ataque>(Movimiento.class);
+    Map<Movimiento, Ataque> ataques = new EnumMap<Movimiento, Ataque>(Movimiento.class);
 
     public Algomon(Tipo tipo, Movimiento [] movimientos, int vida) {
 

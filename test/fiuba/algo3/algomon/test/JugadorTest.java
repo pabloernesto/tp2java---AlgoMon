@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import fiuba.algo3.algomon.excepciones.ImposibleElegirMasDeTresAlgomonesException;
 import fiuba.algo3.algomon.modelo.Algomon;
+import fiuba.algo3.algomon.modelo.Ataque;
 import fiuba.algo3.algomon.modelo.Especie;
 import fiuba.algo3.algomon.modelo.Juego;
 import fiuba.algo3.algomon.modelo.Jugador;
@@ -43,7 +44,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void jugadorPuedeAtacarConAlgomonActivo(){
+	public void jugadorPuedeAtacarConAlgomonActivoYElegirElAtaque(){
 		Juego juego = new Juego();
 		
 		juego.agregarJugador(new Jugador("Mabel"));
@@ -53,16 +54,11 @@ public class JugadorTest {
         Algomon rattata = Especie.RATTATA.nuevo();
         int vidaInicial = rattata.vida();
 
-        juego.jugador(0).getAlgomonActivo().atacar(rattata, Movimiento.ATAQUE_RAPIDO);
+        juego.jugador(0).getAlgomonActivo().atacar(rattata, Movimiento.ATAQUE_RAPIDO);	//El jugador lo elegirá por interfaz
 
         assertEquals(vidaInicial - 10, rattata.vida());
 	}
 	
-//	@Test
-//	public void jugadorPuedeElegirAtaqueDeAlgomonActivo(){
-//		
-//	}
-//
 //	@Test
 //	public void jugadorPuedeCambiarAlgomonActivo(){
 //		
