@@ -12,6 +12,7 @@ public class AlgomonVistaVida extends ProgressBar implements Observer {
 
     public AlgomonVistaVida(Algomon algomon) {
         algomon.addObserver(this);
+        update(algomon, "vida");
     }
 
     public void update(Observable o, Object arg) {
