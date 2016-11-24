@@ -86,10 +86,21 @@ public class JugadorTest {
 	    jugador.aplicar(Elemento.POCION);
 
         assertEquals(vidaInicial + 20, atacado.vida());
-	    
-	    
-
-	    
 	}
+
+   @Test
+    public void jugadorPuedeAplicarleSuperPocionAlAlgomonActivo(){
+        Jugador jugador = new Jugador("Yoda");
+        jugador.elegirAlgomon(Especie.CHARMANDER.nuevo());
+        Algomon atacado = jugador.getAlgomonActivo();
+        Algomon atacante = Especie.SQUIRTLE.nuevo();
+        atacante.atacar(atacado, Movimiento.CANION_DE_AGUA);
+        atacante.atacar(atacado, Movimiento.CANION_DE_AGUA);
+
+        int vidaInicial = atacado.vida();
+        jugador.aplicar(Elemento.SUPER_POCION);
+
+        assertEquals(vidaInicial + 40, atacado.vida());
+    }  
 
 }

@@ -11,7 +11,7 @@ import fiuba.algo3.algomon.test.Item;
 public class Jugador {
 
     private static final int MAX_CANT_ALGOMONES_POR_JUGADOR = 3;
-    private static final Elemento[] mochilaBasica = new Elemento[]{Elemento.POCION};
+    private static final Elemento[] mochilaBasica = new Elemento[]{Elemento.POCION, Elemento.SUPER_POCION};
 
     private String nombre;
     private ArrayList<Algomon> algomones;
