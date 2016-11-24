@@ -87,7 +87,7 @@ public class Algomon extends Observable {
             vida = 0;
 
         setChanged();
-        notifyObservers();
+        notifyObservers("vida");
     }
 
     public void recuperarVida(int cantidad) {
@@ -96,7 +96,7 @@ public class Algomon extends Observable {
             vida = vidaOriginal;
 
         setChanged();
-        notifyObservers();
+        notifyObservers("vida");
     }
 
     public String nombreEspecie() {
