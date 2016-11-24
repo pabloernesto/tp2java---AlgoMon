@@ -24,4 +24,12 @@ public class Ataque
 
     public void setAtacante(Algomon atacante) {
     }
+
+    public void recuperarUsos(int cantidadDeUsosARecuperar) {
+        cantidadDeUsosRestantes += cantidadDeUsosARecuperar;
+        if(cantidadDeUsosRestantes > movimiento.cantidadDeUsos) {
+            cantidadDeUsosRestantes = movimiento.cantidadDeUsos;
+        }
+        
+    }
 }

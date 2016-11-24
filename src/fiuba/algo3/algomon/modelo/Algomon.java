@@ -5,8 +5,9 @@ import java.util.Map;
 import fiuba.algo3.algomon.excepciones.AlgomonNoPoseeElMovimientoException;
 
 import java.util.EnumMap;
+import java.util.Observable;
 
-public class Algomon {
+public class Algomon extends Observable {
 
     Tipo tipo;
     int vida;
@@ -14,8 +15,12 @@ public class Algomon {
     EstadoDeAlgomon estadoEfimero = new EstadoDeAlgomonNormal();
     EstadoDeAlgomon estadoPermanente = new EstadoDeAlgomonNormal();
     Map<Movimiento, Ataque> ataques = new EnumMap<Movimiento, Ataque>(Movimiento.class);
+    String nombreEspecie;
 
-    public Algomon(Tipo tipo, Movimiento [] movimientos, int vida) {
+    public Algomon(String nombreEspecie, Tipo tipo, Movimiento [] movimientos,
+        int vida) {
+
+        this.nombreEspecie = nombreEspecie;
 
         this.tipo = tipo;
 
@@ -31,17 +36,15 @@ public class Algomon {
     }
 
     public Algomon atacar(Algomon enemigo, Movimiento movimiento) {
-        try {
-            estadoEfimero.consecuencia(this);
-            estadoPermanente.consecuencia(this);
 
-            ataques.get(movimiento).efectuar(enemigo);
-
-            return this;
-        }
-        catch (NullPointerException e) {
+        Ataque a = ataques.get(movimiento);
+        if (a == null)
             throw new AlgomonNoPoseeElMovimientoException();
-        }
+
+        estadoEfimero.consecuencia(this);
+        estadoPermanente.consecuencia(this);
+        a.efectuar(enemigo);
+        return this;
     }
 
     public int vidaOriginal() {
@@ -52,8 +55,17 @@ public class Algomon {
         return vida;
     }
 
+    public void recuperarEstadoPermanente() {
+       estadoPermanente = new EstadoDeAlgomonNormal();
+    }
+
     public void recuperarEstadoEfimero() {
        estadoEfimero = new EstadoDeAlgomonNormal();
+    }
+
+    public void restaurarEstados() {
+        this.recuperarEstadoEfimero();
+        this.recuperarEstadoPermanente();
     }
 
     public void cambiarEstadoEfimero(EstadoDeAlgomon nuevoEstado) {
@@ -71,11 +83,29 @@ public class Algomon {
 
     public void causarDanio(int potencia) {
         vida -= potencia;
+        if (vida < 0)
+            vida = 0;
+
+        setChanged();
+        notifyObservers("vida");
     }
 
     public void recuperarVida(int cantidad) {
         vida += cantidad;
         if (vida > vidaOriginal)
             vida = vidaOriginal;
+
+        setChanged();
+        notifyObservers("vida");
+    }
+
+    public String nombreEspecie() {
+        return nombreEspecie;
+    }
+
+    public void tomarVitamina() {
+       for (Ataque ataque : ataques.values() ){
+           ataque.recuperarUsos(2);
+       }
     }
 }

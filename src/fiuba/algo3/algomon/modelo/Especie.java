@@ -20,6 +20,6 @@ public enum Especie
     }
 
     public Algomon nuevo() {
-        return new Algomon(tipo, movimientos, vida);
+        return new Algomon(this.name(), tipo, movimientos, vida);
     }
 }
