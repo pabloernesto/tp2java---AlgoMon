@@ -57,8 +57,17 @@ public class Algomon extends Observable {
         return vida;
     }
 
+    public void recuperarEstadoPermanente() {
+       estadoPermanente = new EstadoDeAlgomonNormal();
+    }
+
     public void recuperarEstadoEfimero() {
        estadoEfimero = new EstadoDeAlgomonNormal();
+    }
+
+    public void restaurarEstados() {
+        this.recuperarEstadoEfimero();
+        this.recuperarEstadoPermanente();
     }
 
     public void cambiarEstadoEfimero(EstadoDeAlgomon nuevoEstado) {

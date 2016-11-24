@@ -104,4 +104,21 @@ public class JugadorTest {
         assertEquals(vidaInicial + 40, atacado.vida());
     }  
 
+   @Test
+    public void jugadorPuedeAplicarleRestauradorAlAlgomonActivo(){
+        Jugador jugador = new Jugador("Yoda");
+        jugador.elegirAlgomon(Especie.CHARMANDER.nuevo());
+        Algomon algomonConEstado = jugador.getAlgomonActivo();
+        Algomon atacado = Especie.JIGGLYPUFF.nuevo();
+        int vidaInicial = atacado.vida();
+        atacado.atacar(algomonConEstado, Movimiento.CANTO);
+
+        jugador.aplicar(Elemento.RESTAURADOR);
+        algomonConEstado.atacar(atacado, Movimiento.BRASAS);
+
+
+        assertEquals(vidaInicial - 16, atacado.vida());
+    }  
+
+
 }

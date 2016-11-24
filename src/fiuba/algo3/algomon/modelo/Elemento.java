@@ -10,6 +10,10 @@ public enum Elemento {
         public Item nuevo(){
             return new SuperPocion();
         }
+    }, RESTAURADOR(3){
+        public Item nuevo(){
+            return new Restaurador();
+        }        
     };
  
     
