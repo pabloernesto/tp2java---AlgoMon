@@ -121,8 +121,8 @@ public class JugadorTest {
         assertEquals(vidaInicial - 16, atacado.vida());
     }  
 
-   @Test //(expected = CantidadDeAtaquesExcedidaException.class)
-   public void fogonazoLevantaExcepcionSiExcedeSuCantidadDeUsos()
+   @Test 
+   public void jugadorPuedeAplicarleVitaminaAlAlgomonActivo()
    {
        Jugador jugador = new Jugador("Yoda");
        jugador.elegirAlgomon(Especie.CHARMANDER.nuevo());
@@ -142,7 +142,8 @@ public class JugadorTest {
        jugador.aplicar(Elemento.VITAMINA);
        int vidaInicial = rattata5.vida();
        charmander.atacar(rattata5, Movimiento.FOGONAZO);
-       assertEquals(vidaInicial - 2, rattata5.vida());
+       charmander.atacar(rattata5, Movimiento.FOGONAZO);
+       assertEquals(vidaInicial - 4, rattata5.vida());
    }
-
+ 
 }
