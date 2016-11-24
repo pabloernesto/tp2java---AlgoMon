@@ -36,17 +36,15 @@ public class Algomon extends Observable {
     }
 
     public Algomon atacar(Algomon enemigo, Movimiento movimiento) {
-        try {
-            estadoEfimero.consecuencia(this);
-            estadoPermanente.consecuencia(this);
 
-            ataques.get(movimiento).efectuar(enemigo);
-
-            return this;
-        }
-        catch (NullPointerException e) {
+        Ataque a = ataques.get(movimiento);
+        if (a == null)
             throw new AlgomonNoPoseeElMovimientoException();
-        }
+
+        estadoEfimero.consecuencia(this);
+        estadoPermanente.consecuencia(this);
+        a.efectuar(enemigo);
+        return this;
     }
 
     public int vidaOriginal() {
