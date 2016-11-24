@@ -70,13 +70,26 @@ public class JugadorTest {
 		juego.jugador(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
 		
 		juego.jugador(0).cambiarAlgomonActivo(1);
-		
+
         assertEquals(juego.jugador(0).getAlgomonActivo(),nuevoAlgomonActivo);
 	}
 	
-//	@Test
-//	public void jugadorPuedeAplicarleElementoAlAlgomonActivo(){
-//		
-//	}
+	@Test
+	public void jugadorPuedeAplicarlePocionAlAlgomonActivo(){
+	    Jugador jugador = new Jugador("Yoda");
+	    jugador.elegirAlgomon(Especie.CHARMANDER.nuevo());
+	    Algomon atacado = jugador.getAlgomonActivo();
+	    Algomon atacante = Especie.SQUIRTLE.nuevo();
+        atacante.atacar(atacado, Movimiento.CANION_DE_AGUA);
+
+	    int vidaInicial = atacado.vida();
+	    jugador.aplicar(Elemento.POCION);
+
+        assertEquals(vidaInicial + 20, atacado.vida());
+	    
+	    
+
+	    
+	}
 
 }
