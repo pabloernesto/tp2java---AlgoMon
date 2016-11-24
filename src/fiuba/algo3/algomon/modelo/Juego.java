@@ -47,5 +47,10 @@ public class Juego {
             this.turno = 0;
     }
 
+	public Jugador realizarAccion(Jugador jugador) {
+		pasarTurno();
+		return jugador;
+	}
+
 
 }

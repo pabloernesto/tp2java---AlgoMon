@@ -27,6 +27,7 @@ public class CrearJugador extends Scene {
 
         Button btnContinuar = new Button("Continuar");
         btnContinuar.setOnAction(e -> {
+        	// TODO Depende del jugador que sea se pasa a otra pantalla CrearJugador o a ElegirAlgomones
             stage.setScene(new EscenaBatalla(stage));
         });
         rootPane.setBottom(btnContinuar);

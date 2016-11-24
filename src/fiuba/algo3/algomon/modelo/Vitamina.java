@@ -2,7 +2,11 @@ package fiuba.algo3.algomon.modelo;
 
 public class Vitamina extends Item {
 
-    public void aplicar(Algomon algomonActivo) {
+    Vitamina(Elemento unElemento) {
+        super(unElemento.cantidadInicialDeElemento);
+    }
+
+    public void efecto(Algomon algomonActivo) {
         algomonActivo.tomarVitamina();
     }
 }

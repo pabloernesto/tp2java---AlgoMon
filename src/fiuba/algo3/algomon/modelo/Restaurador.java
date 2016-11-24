@@ -2,7 +2,11 @@ package fiuba.algo3.algomon.modelo;
 
 public class Restaurador extends Item {
 
-    public void aplicar(Algomon algomonActivo) {
+    Restaurador(Elemento unElemento) {
+        super(unElemento.cantidadInicialDeElemento);
+    }
+
+    public void efecto(Algomon algomonActivo) {
         algomonActivo.restaurarEstados();
     }
 }

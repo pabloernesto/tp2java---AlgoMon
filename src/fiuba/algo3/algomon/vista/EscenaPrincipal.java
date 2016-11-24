@@ -14,7 +14,6 @@ public class EscenaPrincipal extends Scene {
     public EscenaPrincipal(Stage stage) {
         super(rootPane, 480, 480);
 
-        // button creation
         Image imgLogo = new Image("resources/images/pokemon-logo.png");
         Button btnStart = new Button();
         btnStart.setGraphic(new ImageView(imgLogo));

@@ -3,22 +3,22 @@ package fiuba.algo3.algomon.modelo;
 public enum Elemento {
     POCION(4){
        public Item nuevo(){
-           return new Pocion();
+           return new Pocion(this);
        }
     },
     SUPER_POCION(2){
         public Item nuevo(){
-            return new SuperPocion();
+            return new SuperPocion(this);
         }
     }, 
     RESTAURADOR(3){
         public Item nuevo(){
-            return new Restaurador();
+            return new Restaurador(this);
         }        
     }, 
     VITAMINA(5){
         public Item nuevo(){
-            return new Vitamina();
+            return new Vitamina(this);
         }
     };
  
@@ -28,7 +28,7 @@ public enum Elemento {
        this.cantidadInicialDeElemento = cantidad ;
     };
     public Item nuevo(){
-       return new Pocion(); //tirar excepcion
+       return new Pocion(this); //tirar excepcion
     };
     
 }
