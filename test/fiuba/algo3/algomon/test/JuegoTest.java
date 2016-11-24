@@ -62,10 +62,10 @@ public class JuegoTest {
 		
 		int nroDeJugadorQueJuegaPrimero = juego.turno;
 		
-		juego.realizarAccion(juego.jugador(nroDeJugadorQueJuegaPrimero)).cambiarAlgomonActivo(1);
+		juego.jugador(nroDeJugadorQueJuegaPrimero).cambiarAlgomonActivo(1);
 		// TODO pasa el test, pero no está buena la solución
 		
-		assertNotSame(juego.turno,nroDeJugadorQueJuegaPrimero);
+		assertNotSame(juego.turno, nroDeJugadorQueJuegaPrimero);
 	}
 
 }

@@ -1,10 +1,12 @@
 package fiuba.algo3.algomon.modelo;
 
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Random;
 import fiuba.algo3.algomon.excepciones.ImposibleAgregarMasJugadoresException;
 
-public class Juego {
+public class Juego implements Observer{
 
     public ArrayList<Jugador> jugadores;
     public int turno;
@@ -27,6 +29,8 @@ public class Juego {
                         break;
             default:    throw new ImposibleAgregarMasJugadoresException();
         }
+        
+		jugador.addObserver(this);
     }
 
     public Jugador turno() {
@@ -34,7 +38,6 @@ public class Juego {
     }
 
     public void pasarTurno() {
-
         jugador(this.turno).terminarTurno();
         this.cambiarTurno();
 
@@ -47,9 +50,14 @@ public class Juego {
             this.turno = 0;
     }
 
-	public Jugador realizarAccion(Jugador jugador) {
-		pasarTurno();
-		return jugador;
+//	public Jugador realizarAccion(Jugador jugador) {
+//		pasarTurno();
+//		return jugador;
+//	}
+
+	@Override
+	public void update(Observable jugador, Object arg) {
+		this.pasarTurno();
 	}
 
 

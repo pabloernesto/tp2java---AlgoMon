@@ -3,10 +3,11 @@ package fiuba.algo3.algomon.modelo;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.Observable;
 
 import fiuba.algo3.algomon.excepciones.ImposibleElegirMasDeTresAlgomonesException;
 
-public class Jugador {
+public class Jugador extends Observable{
 
     private static final int MAX_CANT_ALGOMONES_POR_JUGADOR = 3;
     private static final Elemento[] mochilaBasica = new Elemento[]{Elemento.POCION, Elemento.SUPER_POCION, Elemento.RESTAURADOR,Elemento.VITAMINA};
@@ -48,8 +49,7 @@ public class Jugador {
         return this.nombre;
     }
 
-    public void terminarTurno() {
-
+    public void terminarTurno() { // cambiar nombre
         for (Algomon a : algomones)
             a.turnoTerminado();
     }
@@ -64,7 +64,8 @@ public class Jugador {
 
 	public void cambiarAlgomonActivo(int nuevoAlgomonActivo) {
 		this.algomonActivo = this.algomones.get(nuevoAlgomonActivo);
-		this.terminarTurno();
+		setChanged();
+		notifyObservers();
 	}
 
     public void aplicar(Elemento pocion) {
