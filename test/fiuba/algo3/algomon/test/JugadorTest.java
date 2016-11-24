@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import fiuba.algo3.algomon.excepciones.CantidadDeAtaquesExcedidaException;
+import fiuba.algo3.algomon.excepciones.CantidadElementosExcedidaException;
 import fiuba.algo3.algomon.excepciones.ImposibleElegirMasDeTresAlgomonesException;
 import fiuba.algo3.algomon.modelo.Algomon;
 import fiuba.algo3.algomon.modelo.Elemento;
@@ -145,5 +145,16 @@ public class JugadorTest {
        charmander.atacar(rattata5, Movimiento.FOGONAZO);
        assertEquals(vidaInicial - 4, rattata5.vida());
    }
- 
+
+   @Test (expected = CantidadElementosExcedidaException.class)
+   public void fogonazoLevantaExcepcionSiExcedeSuCantidadDeUsos()
+   {
+       Jugador jugador = new Jugador("Yoda");
+       jugador.elegirAlgomon(Especie.CHARMANDER.nuevo());
+       jugador.aplicar(Elemento.POCION);
+       jugador.aplicar(Elemento.POCION);
+       jugador.aplicar(Elemento.POCION);
+       jugador.aplicar(Elemento.POCION);
+       jugador.aplicar(Elemento.POCION);
+   } 
 }
