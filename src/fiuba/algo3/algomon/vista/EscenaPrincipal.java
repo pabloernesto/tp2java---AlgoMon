@@ -14,7 +14,7 @@ public class EscenaPrincipal extends Scene {
     public EscenaPrincipal(Stage stage) {
         super(rootPane, 480, 480);
 
-        Image imgLogo = new Image("resources/images/pokemon-logo.png");
+        Image imgLogo = new Image("images/pokemon-logo.png");
         Button btnStart = new Button();
         btnStart.setGraphic(new ImageView(imgLogo));
         btnStart.setStyle("-fx-base:#ffffff");

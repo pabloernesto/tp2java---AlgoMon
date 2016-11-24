@@ -205,8 +205,8 @@
 
 
         <target name="empaquetar.con.imagenes" depends="compilar.paquete">
-            <copydir src="resources"
-                dest="${build}/classes/resources"
+            <copydir src="resources/images"
+                dest="${build}/classes/resources/images"
                 includes="**/*"/>
         <jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
     </target>
