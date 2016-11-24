@@ -104,4 +104,10 @@ public class Algomon extends Observable {
     public String nombreEspecie() {
         return nombreEspecie;
     }
+
+    public void tomarVitamina() {
+       for (Ataque ataque : ataques.values() ){
+           ataque.recuperarUsos(2);
+       }
+    }
 }
