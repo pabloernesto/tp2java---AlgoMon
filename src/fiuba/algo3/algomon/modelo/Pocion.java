@@ -1,6 +1,4 @@
-package fiuba.algo3.algomon.test;
-
-import fiuba.algo3.algomon.modelo.Algomon;
+package fiuba.algo3.algomon.modelo;
 
 public class Pocion extends Item {
 

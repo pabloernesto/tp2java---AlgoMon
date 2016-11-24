@@ -1,6 +1,4 @@
-package fiuba.algo3.algomon.test;
-
-import fiuba.algo3.algomon.modelo.SuperPocion;
+package fiuba.algo3.algomon.modelo;
 
 public enum Elemento {
     POCION(4){

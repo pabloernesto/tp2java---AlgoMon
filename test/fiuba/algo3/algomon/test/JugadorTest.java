@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import fiuba.algo3.algomon.excepciones.ImposibleElegirMasDeTresAlgomonesException;
 import fiuba.algo3.algomon.modelo.Algomon;
+import fiuba.algo3.algomon.modelo.Elemento;
 import fiuba.algo3.algomon.modelo.Especie;
 import fiuba.algo3.algomon.modelo.Juego;
 import fiuba.algo3.algomon.modelo.Jugador;

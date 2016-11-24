@@ -5,8 +5,6 @@ import java.util.EnumMap;
 import java.util.Map;
 
 import fiuba.algo3.algomon.excepciones.ImposibleElegirMasDeTresAlgomonesException;
-import fiuba.algo3.algomon.test.Elemento;
-import fiuba.algo3.algomon.test.Item;
 
 public class Jugador {
 
