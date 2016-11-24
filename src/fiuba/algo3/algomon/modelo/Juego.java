@@ -50,11 +50,6 @@ public class Juego implements Observer{
             this.turno = 0;
     }
 
-//	public Jugador realizarAccion(Jugador jugador) {
-//		pasarTurno();
-//		return jugador;
-//	}
-
 	@Override
 	public void update(Observable jugador, Object arg) {
 		this.pasarTurno();
