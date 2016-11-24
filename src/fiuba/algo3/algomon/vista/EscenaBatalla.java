@@ -17,6 +17,7 @@ public class EscenaBatalla extends Scene {
         super(pane, 480, 480);
 
         Algomon a = Especie.BULBASAUR.nuevo();
+        AlgomonVistaImagen avi = new AlgomonVistaImagen(a);
         AlgomonVistaVida avv = new AlgomonVistaVida(a);
 
         Button damBttn = new Button();
@@ -24,6 +25,6 @@ public class EscenaBatalla extends Scene {
                a.causarDanio(10);
         });
 
-        pane.getChildren().addAll(avv, damBttn);
+        pane.getChildren().addAll(avi, avv, damBttn);
     }
 }

@@ -24,14 +24,14 @@ public class AlgomonVistaImagen extends ImageView {
     }
 
     String imagenFrentePath() {
-        String path = "resources/images/front"
+        String path = "resources/images/front/"
             + algomon.nombreEspecie()
             + ".png";
         return path;
     }
 
     String imagenEspaldaPath() {
-        String path = "resources/images/back"
+        String path = "resources/images/back/"
             + algomon.nombreEspecie()
             + ".png";
         return path;
