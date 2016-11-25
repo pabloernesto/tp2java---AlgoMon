@@ -7,14 +7,20 @@ import fiuba.algo3.algomon.modelo.Jugador;
 import fiuba.algo3.algomon.modelo.Movimiento;
 
 import org.junit.Test;
+import org.junit.Before;
 import static org.junit.Assert.*;
 
 public class CantoTest
 {
+    @Before
+    public void setUp() {
+        Juego.borrarInstancia();
+    }
+
     @Test (expected = AlgomonEstaInhabilitadoParaAtacarException.class)
     public void ataqueConCantoInhabilitaElAtaqueDeCharmander()
     {
-        Juego juego = new Juego();
+        Juego juego = Juego.instancia();
 
         juego.agregarJugador(new Jugador("Nahuel"));
         juego.agregarJugador(new Jugador("Juan"));
@@ -35,7 +41,7 @@ public class CantoTest
     @Test (expected = AlgomonEstaInhabilitadoParaAtacarException.class)
     public void ataqueConCantoInhabilitaElAtaqueDeRattataPorTresTurnos()
     {
-        Juego juego = new Juego();
+        Juego juego = Juego.instancia();
 
         juego.agregarJugador(new Jugador("Natalia"));
         juego.agregarJugador(new Jugador("Nahuel"));
@@ -60,7 +66,7 @@ public class CantoTest
     @Test
     public void rattataPuedeAtacarElCuartoTurnoDespuesDeQueLeHagaCanto()
     {
-        Juego juego = new Juego();
+        Juego juego = Juego.instancia();
 
         juego.agregarJugador(new Jugador("Natalia"));
         juego.agregarJugador(new Jugador("Nahuel"));

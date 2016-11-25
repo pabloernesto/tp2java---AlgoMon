@@ -6,12 +6,26 @@ import java.util.Observer;
 import java.util.Random;
 import fiuba.algo3.algomon.excepciones.ImposibleAgregarMasJugadoresException;
 
-public class Juego implements Observer{
+//~ es un singleton
+public class Juego implements Observer {
+
+    static Juego instancia;
 
     public ArrayList<Jugador> jugadores;
     public int turno;
 
-    public Juego(){
+    public static Juego instancia() {
+        if (instancia == null)
+            instancia = new Juego();
+
+        return instancia;
+    }
+
+    public static void borrarInstancia() {
+        instancia = null;
+    }
+
+    Juego(){
         this.jugadores = new ArrayList<Jugador>();
         this.turno = new Random().nextInt(2);
     }
@@ -29,8 +43,8 @@ public class Juego implements Observer{
                         break;
             default:    throw new ImposibleAgregarMasJugadoresException();
         }
-        
-		jugador.addObserver(this);
+
+        jugador.addObserver(this);
     }
 
     public Jugador turno() {
@@ -50,10 +64,8 @@ public class Juego implements Observer{
             this.turno = 0;
     }
 
-	@Override
-	public void update(Observable jugador, Object arg) {
-		this.pasarTurno();
-	}
-
-
+    @Override
+    public void update(Observable jugador, Object arg) {
+        this.pasarTurno();
+    }
 }
