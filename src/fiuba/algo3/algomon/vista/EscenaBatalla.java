@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 
 public class EscenaBatalla extends Scene {
 
@@ -16,15 +17,39 @@ public class EscenaBatalla extends Scene {
     public EscenaBatalla(Stage stage) {
         super(pane, 480, 480);
 
+        HBox paneNos = new HBox();
+        HBox paneEllos = new HBox();
+        VBox paneControles = new VBox();
+
         Algomon a = Especie.BULBASAUR.nuevo();
-        AlgomonVistaImagen avi = new AlgomonVistaImagen(a);
-        AlgomonVistaVida avv = new AlgomonVistaVida(a);
+        Algomon b = Especie.CHARMANDER.nuevo();
 
-        Button damBttn = new Button();
-        damBttn.setOnAction(e -> {
-               a.causarDanio(10);
-        });
+        {
+            AlgomonVistaImagen avi = new AlgomonVistaImagen(a);
+            AlgomonVistaVida avv = new AlgomonVistaVida(a);
+            avi.mostrarEspalda();
+            paneNos.getChildren().addAll(avi, avv);
+        }
+        {
+            AlgomonVistaImagen avi = new AlgomonVistaImagen(b);
+            AlgomonVistaVida avv = new AlgomonVistaVida(b);
+            paneEllos.getChildren().addAll(avv, avi);
+        }
 
-        pane.getChildren().addAll(avi, avv, damBttn);
+        {
+            Button damBttnA = new Button();
+            damBttnA.setOnAction(e -> {
+                   a.causarDanio(10);
+            });
+
+            Button damBttnB = new Button();
+            damBttnB.setOnAction(e -> {
+                   b.causarDanio(10);
+            });
+
+            paneControles.getChildren().addAll(damBttnA, damBttnB);
+        }
+
+        pane.getChildren().addAll(paneEllos, paneNos, paneControles);
     }
 }
