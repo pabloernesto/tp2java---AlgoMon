@@ -1,5 +1,9 @@
 package fiuba.algo3.algomon.vista;
 
+import fiuba.algo3.algomon.modelo.Juego;
+import fiuba.algo3.algomon.modelo.Jugador;
+import fiuba.algo3.algomon.modelo.Especie;
+
 import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -25,9 +29,23 @@ public class CrearJugador extends Scene {
         rootPane.setCenter(txtNombreJugador);
         BorderPane.setAlignment(txtNombreJugador, Pos.CENTER);
 
+        {
+            Juego j = Juego.instancia();
+            {
+                Jugador ash = new Jugador("Ash");
+                ash.elegirAlgomon(Especie.BULBASAUR.nuevo());
+                j.agregarJugador(ash);
+            }
+            {
+                Jugador gary = new Jugador("Gary");
+                gary.elegirAlgomon(Especie.CHARMANDER.nuevo());
+                j.agregarJugador(gary);
+            }
+        }
+
         Button btnContinuar = new Button("Continuar");
         btnContinuar.setOnAction(e -> {
-        	// TODO Depende del jugador que sea se pasa a otra pantalla CrearJugador o a ElegirAlgomones
+            // TODO Depende del jugador que sea se pasa a otra pantalla CrearJugador o a ElegirAlgomones
             stage.setScene(new EscenaBatalla(stage));
         });
         rootPane.setBottom(btnContinuar);
