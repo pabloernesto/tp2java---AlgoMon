@@ -35,15 +35,9 @@ public class Juego implements Observer {
     }
 
     public void agregarJugador(Jugador jugador) {
-
-        switch (this.jugadores.size()){
-            case 0 :    this.jugadores.add(jugador);
-                        break;
-            case 1 :    this.jugadores.add(1, jugador);
-                        break;
-            default:    throw new ImposibleAgregarMasJugadoresException();
-        }
-
+        if (jugadores.size() > 1)
+            throw new ImposibleAgregarMasJugadoresException();
+        jugadores.add(jugador);
         jugador.addObserver(this);
     }
 
