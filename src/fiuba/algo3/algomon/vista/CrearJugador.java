@@ -22,7 +22,6 @@ public class CrearJugador extends Scene {
 
         Label lblNombreJugador = new Label("Nombre de entrenador/a Algomon N1: ");
         rootPane.setTop(lblNombreJugador);
-        lblNombreJugador.setStyle("-fx-font: Arial; -fx-font-weight: bold; -fx-font-size: 18px; -fx-padding-top: 4em");
         BorderPane.setAlignment(lblNombreJugador, Pos.CENTER);
 
         TextField txtNombreJugador = new TextField();
@@ -51,5 +50,4 @@ public class CrearJugador extends Scene {
         rootPane.setBottom(btnContinuar);
         BorderPane.setAlignment(btnContinuar, Pos.CENTER);
     }
-
 }

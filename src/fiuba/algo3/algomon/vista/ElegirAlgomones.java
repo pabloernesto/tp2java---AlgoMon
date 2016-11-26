@@ -9,19 +9,17 @@ import javafx.stage.Stage;
 
 public class ElegirAlgomones extends Scene{
 
-	static BorderPane rootPane = new BorderPane();
-	
-    public ElegirAlgomones(Stage stage) {		
-		super(rootPane,480,480);
+    static BorderPane rootPane = new BorderPane();
 
-		String jugador = null;
-		
+    public ElegirAlgomones(Stage stage) {
+        super(rootPane,480,480);
+
+        String jugador = null;
+
         Label lblElegirAlgomones = new Label("Entrenador/a " + jugador + " elija tres algomones");
         Label lblAclaracion = new Label("Tenga en cuenta que el primer algomon elegido sera su primer algomon activo.");
         rootPane.setTop(lblElegirAlgomones);
         rootPane.setTop(lblAclaracion);
-        lblElegirAlgomones.setStyle("-fx-font-weight: bold; -fx-font-size: 18px; -fx-padding-top: 4em");
-        lblAclaracion.setStyle("-fx-font-weight: normal; -fx-font-size: 14px; -fx-padding-top: 3.4em");
         BorderPane.setAlignment(lblElegirAlgomones, Pos.CENTER);
         BorderPane.setAlignment(lblAclaracion, Pos.CENTER);
 
@@ -29,12 +27,12 @@ public class ElegirAlgomones extends Scene{
 
         Button btnContinuar = new Button("Continuar");
         btnContinuar.setOnAction(e -> {
-        	// TODO Depende del jugador que sea se pasa a otra pantalla ElegirAlgomones o a EscenaBatalla
+            // TODO Depende del jugador que sea se pasa a otra pantalla ElegirAlgomones o a EscenaBatalla
             stage.setScene(new EscenaBatalla(stage));
         });
         rootPane.setBottom(btnContinuar);
         BorderPane.setAlignment(btnContinuar, Pos.CENTER);
 
-	}
+    }
 
 }
