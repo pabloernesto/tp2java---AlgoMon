@@ -11,8 +11,8 @@ public class Juego implements Observer {
 
     static Juego instancia;
 
-    public ArrayList<Jugador> jugadores;
-    public int turno;
+    ArrayList<Jugador> jugadores;
+    int turno;
 
     public static Juego instancia() {
         if (instancia == null)

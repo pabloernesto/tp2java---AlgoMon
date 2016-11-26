@@ -54,24 +54,24 @@ public class JuegoTest {
     @Test
     public void cambiaElTurnoDespuesDeQueJugadorRealizaUnaAccion(){
         Juego juego = Juego.instancia();
+        {
+            Jugador mabel = new Jugador("Mabel");
+            mabel.elegirAlgomon(Especie.BULBASAUR.nuevo());
+            mabel.elegirAlgomon(Especie.CHANSEY.nuevo());
+            mabel.elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
+            juego.agregarJugador(mabel);
+        }
+        {
+            Jugador nahuel = new Jugador("Nahuel");
+            nahuel.elegirAlgomon(Especie.CHARMANDER.nuevo());
+            nahuel.elegirAlgomon(Especie.RATTATA.nuevo());
+            nahuel.elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
+            juego.agregarJugador(nahuel);
+        }
 
-        juego.agregarJugador(new Jugador("Mabel"));
-        juego.agregarJugador(new Jugador("Nahuel"));
-
-        juego.jugador(0).elegirAlgomon(Especie.BULBASAUR.nuevo());
-        juego.jugador(0).elegirAlgomon(Especie.CHANSEY.nuevo());
-        juego.jugador(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
-
-        juego.jugador(1).elegirAlgomon(Especie.CHARMANDER.nuevo());
-        juego.jugador(1).elegirAlgomon(Especie.RATTATA.nuevo());
-        juego.jugador(1).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
-
-        int nroDeJugadorQueJuegaPrimero = juego.turno;
-
-        juego.jugador(nroDeJugadorQueJuegaPrimero).cambiarAlgomonActivo(1);
-        // TODO pasa el test, pero no está buena la solución
-
-        assertNotSame(juego.turno, nroDeJugadorQueJuegaPrimero);
+        //~ primer jugador se elige aleatoriamente: no se si es mabel o nahuel
+        Jugador primero = juego.turno();
+        primero.cambiarAlgomonActivo(1);
+        assertNotSame(primero, juego.turno());
     }
-
 }
