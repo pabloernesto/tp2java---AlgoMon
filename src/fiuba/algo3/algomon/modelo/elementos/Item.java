@@ -1,8 +1,9 @@
-package fiuba.algo3.algomon.modelo;
+package fiuba.algo3.algomon.modelo.elementos;
 
 import fiuba.algo3.algomon.excepciones.CantidadElementosExcedidaException;
+import fiuba.algo3.algomon.modelo.Algomon;
 
-abstract class Item {
+public abstract class Item {
     int cantidadDeUsosRestantes;
     Item(int cantidadDeElementos){
         this.cantidadDeUsosRestantes = cantidadDeElementos;

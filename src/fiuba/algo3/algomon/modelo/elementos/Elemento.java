@@ -1,4 +1,4 @@
-package fiuba.algo3.algomon.modelo;
+package fiuba.algo3.algomon.modelo.elementos;
 
 public enum Elemento {
     POCION(4){

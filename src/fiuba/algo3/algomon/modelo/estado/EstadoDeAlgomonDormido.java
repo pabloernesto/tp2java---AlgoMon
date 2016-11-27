@@ -1,6 +1,7 @@
-package fiuba.algo3.algomon.modelo;
+package fiuba.algo3.algomon.modelo.estado;
 
 import fiuba.algo3.algomon.excepciones.AlgomonEstaInhabilitadoParaAtacarException;
+import fiuba.algo3.algomon.modelo.Algomon;
 
 public class EstadoDeAlgomonDormido implements EstadoDeAlgomon {
 

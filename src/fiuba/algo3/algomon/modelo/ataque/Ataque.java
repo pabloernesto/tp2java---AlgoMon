@@ -1,5 +1,7 @@
-package fiuba.algo3.algomon.modelo;
+package fiuba.algo3.algomon.modelo.ataque;
 import  fiuba.algo3.algomon.excepciones.*;
+import fiuba.algo3.algomon.modelo.Algomon;
+import fiuba.algo3.algomon.modelo.Movimiento;
 
 public class Ataque
 {
@@ -8,7 +10,7 @@ public class Ataque
 
     public Ataque(Movimiento mov) {
         this.movimiento = mov;
-        cantidadDeUsosRestantes = this.movimiento.cantidadDeUsos;
+        cantidadDeUsosRestantes = this.movimiento.getCantidadDeUsos();
     }
 
     public int efectuar(Algomon atacado) {
@@ -17,7 +19,7 @@ public class Ataque
 
         cantidadDeUsosRestantes--;
 
-        int cantidadDeDanioCausado = movimiento.potencia(atacado.tipo);
+        int cantidadDeDanioCausado = movimiento.potencia(atacado.getTipo());
         atacado.causarDanio(cantidadDeDanioCausado);
         return cantidadDeDanioCausado;
     }
@@ -27,8 +29,8 @@ public class Ataque
 
     public void recuperarUsos(int cantidadDeUsosARecuperar) {
         cantidadDeUsosRestantes += cantidadDeUsosARecuperar;
-        if(cantidadDeUsosRestantes > movimiento.cantidadDeUsos) {
-            cantidadDeUsosRestantes = movimiento.cantidadDeUsos;
+        if(cantidadDeUsosRestantes > movimiento.getCantidadDeUsos()) {
+            cantidadDeUsosRestantes = movimiento.getCantidadDeUsos();
         }
         
     }

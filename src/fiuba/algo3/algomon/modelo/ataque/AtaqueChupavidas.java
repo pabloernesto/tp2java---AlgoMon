@@ -1,4 +1,7 @@
-package fiuba.algo3.algomon.modelo;
+package fiuba.algo3.algomon.modelo.ataque;
+
+import fiuba.algo3.algomon.modelo.Algomon;
+import fiuba.algo3.algomon.modelo.Movimiento;
 
 public class AtaqueChupavidas extends Ataque {
 

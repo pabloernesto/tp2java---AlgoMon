@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.Observable;
 
 import fiuba.algo3.algomon.excepciones.ImposibleElegirMasDeTresAlgomonesException;
+import fiuba.algo3.algomon.modelo.elementos.Elemento;
+import fiuba.algo3.algomon.modelo.elementos.Item;
 
 public class Jugador extends Observable{
 
@@ -64,7 +66,7 @@ public class Jugador extends Observable{
 
 	public void cambiarAlgomonActivo(int nuevoAlgomonActivo) {
 		this.algomonActivo = this.algomones.get(nuevoAlgomonActivo);
-		setChanged();
+		setChanged();		// refactor
 		notifyObservers();
 	}
 

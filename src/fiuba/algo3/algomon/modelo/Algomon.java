@@ -3,13 +3,16 @@ package fiuba.algo3.algomon.modelo;
 import java.util.Map;
 
 import fiuba.algo3.algomon.excepciones.AlgomonNoPoseeElMovimientoException;
+import fiuba.algo3.algomon.modelo.ataque.Ataque;
+import fiuba.algo3.algomon.modelo.estado.EstadoDeAlgomon;
+import fiuba.algo3.algomon.modelo.estado.EstadoDeAlgomonNormal;
 
 import java.util.EnumMap;
 import java.util.Observable;
 
 public class Algomon extends Observable {
 
-    Tipo tipo;
+    private Tipo tipo;
     int vida;
     int vidaOriginal;
     EstadoDeAlgomon estadoEfimero = new EstadoDeAlgomonNormal();
@@ -22,7 +25,7 @@ public class Algomon extends Observable {
 
         this.nombreEspecie = nombreEspecie;
 
-        this.tipo = tipo;
+        this.setTipo(tipo);
 
         for (Movimiento m : movimientos) {
             Ataque a = m.nuevo();
@@ -108,4 +111,12 @@ public class Algomon extends Observable {
            ataque.recuperarUsos(2);
        }
     }
+
+	public Tipo getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
+	}
 }

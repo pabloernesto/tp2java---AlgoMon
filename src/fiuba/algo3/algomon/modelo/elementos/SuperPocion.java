@@ -1,4 +1,6 @@
-package fiuba.algo3.algomon.modelo;
+package fiuba.algo3.algomon.modelo.elementos;
+
+import fiuba.algo3.algomon.modelo.Algomon;
 
 public class SuperPocion extends Item {
 

@@ -1,5 +1,10 @@
 package fiuba.algo3.algomon.modelo;
 
+import fiuba.algo3.algomon.modelo.ataque.Ataque;
+import fiuba.algo3.algomon.modelo.ataque.AtaqueCanto;
+import fiuba.algo3.algomon.modelo.ataque.AtaqueChupavidas;
+import fiuba.algo3.algomon.modelo.ataque.AtaqueFogonazo;
+
 public enum Movimiento
 {
     // NOMBRE_ATAQUE(tipo,potencia,cantidadDeUsos)
@@ -28,13 +33,13 @@ public enum Movimiento
     };
 
     int potencia;
-    int cantidadDeUsos;
+    private int cantidadDeUsos;
     Tipo tipo;
 
     Movimiento(Tipo tipo, int potencia, int cantidadDeUsos) {
         this.tipo = tipo;
         this.potencia = potencia;
-        this.cantidadDeUsos =cantidadDeUsos;
+        this.setCantidadDeUsos(cantidadDeUsos);
     }
 
     public int potencia(Tipo t) {
@@ -45,4 +50,12 @@ public enum Movimiento
     public Ataque nuevo() {
         return (new Ataque(this));
     }
+
+	public int getCantidadDeUsos() {
+		return cantidadDeUsos;
+	}
+
+	public void setCantidadDeUsos(int cantidadDeUsos) {
+		this.cantidadDeUsos = cantidadDeUsos;
+	}
 }
