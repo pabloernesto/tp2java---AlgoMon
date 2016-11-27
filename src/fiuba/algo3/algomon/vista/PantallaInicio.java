@@ -7,19 +7,29 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class EscenaPrincipal extends Scene {
+public class PantallaInicio extends Scene {
 
-    static BorderPane rootPane = new BorderPane();
+	private Stage ventana;
+	static BorderPane rootPane = new BorderPane();
+	
+	public PantallaInicio(Stage aplicacion) {
+		super(rootPane, 480, 480);
+		this.ventana = aplicacion;
+		
+		mostrarPantallaInicio();
+	}
 
-    public EscenaPrincipal(Stage stage) {
-        super(rootPane, 480, 480);
-
+	private void mostrarPantallaInicio() {		
         Image imgLogo = new Image("images/pokemon-logo.png");
         Button btnStart = new Button();
         btnStart.setGraphic(new ImageView(imgLogo));
+        btnStart.setStyle("-fx-background-color: #336699;");
         btnStart.setOnAction(e-> {
-               stage.setScene(new CrearJugador(stage));
+               ventana.setScene(new CrearJugador(ventana));
         });;
         rootPane.setCenter(btnStart);
-    }
+	
+		rootPane.setStyle("-fx-background-color: #336699;");
+	}
+
 }

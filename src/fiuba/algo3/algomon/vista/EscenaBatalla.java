@@ -1,7 +1,6 @@
 package fiuba.algo3.algomon.vista;
 
 import fiuba.algo3.algomon.modelo.Algomon;
-import fiuba.algo3.algomon.modelo.Especie;
 import fiuba.algo3.algomon.modelo.Juego;
 
 import javafx.scene.Scene;
