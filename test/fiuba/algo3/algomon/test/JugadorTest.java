@@ -9,11 +9,11 @@ import org.junit.Before;
 import fiuba.algo3.algomon.excepciones.CantidadElementosExcedidaException;
 import fiuba.algo3.algomon.excepciones.ImposibleElegirMasDeTresAlgomonesException;
 import fiuba.algo3.algomon.modelo.Algomon;
-import fiuba.algo3.algomon.modelo.Elemento;
 import fiuba.algo3.algomon.modelo.Especie;
 import fiuba.algo3.algomon.modelo.Juego;
 import fiuba.algo3.algomon.modelo.Jugador;
 import fiuba.algo3.algomon.modelo.Movimiento;
+import fiuba.algo3.algomon.modelo.elementos.Elemento;
 
 public class JugadorTest {
 
