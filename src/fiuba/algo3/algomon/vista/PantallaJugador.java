@@ -25,12 +25,12 @@ public class PantallaJugador extends Scene {
 	private void mostrarPantallaJugadores() {
 		
 		HBox hboxJugador1 = new HBox();
-			Label lblNombreJugador1 = new Label("Nombre de entrenador/a Algomon N°1: ");
+			Label lblNombreJugador1 = new Label("Nombre de entrenador/a Algomon N1: ");
 	        txtNombreJugador1 = new TextField();
         hboxJugador1.getChildren().addAll(lblNombreJugador1, txtNombreJugador1);
         
 		HBox hboxJugador2 = new HBox();
-			Label lblNombreJugador2 = new Label("Nombre de entrenador/a Algomon N°2: ");
+			Label lblNombreJugador2 = new Label("Nombre de entrenador/a Algomon N2: ");
 	        txtNombreJugador2 = new TextField();
         hboxJugador2.getChildren().addAll(lblNombreJugador2, txtNombreJugador2);
 
