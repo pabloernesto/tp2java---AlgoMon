@@ -45,16 +45,14 @@ public class AtaquesBasicosExcepcionTest
     {
         Algomon jigglypuff = Especie.JIGGLYPUFF.nuevo();
         Algomon rattata1 = Especie.RATTATA.nuevo();
-        Algomon rattata2 = Especie.RATTATA.nuevo();
-        Algomon rattata3 = Especie.RATTATA.nuevo();
-        Algomon rattata4 = Especie.RATTATA.nuevo();
-        Algomon rattata5 = Especie.RATTATA.nuevo();
 
         jigglypuff.atacar(rattata1, Movimiento.CANTO);
-        jigglypuff.atacar(rattata2, Movimiento.CANTO);
-        jigglypuff.atacar(rattata3, Movimiento.CANTO);
-        jigglypuff.atacar(rattata4, Movimiento.CANTO);
-        jigglypuff.atacar(rattata5, Movimiento.CANTO);
+        jigglypuff.atacar(rattata1, Movimiento.CANTO);
+        jigglypuff.atacar(rattata1, Movimiento.CANTO);
+        jigglypuff.atacar(rattata1, Movimiento.CANTO);
+        jigglypuff.atacar(rattata1, Movimiento.CANTO);
+        jigglypuff.atacar(rattata1, Movimiento.CANTO);
+        jigglypuff.atacar(rattata1, Movimiento.CANTO);
     }
 
     @Test (expected = AlgomonNoPoseeElMovimientoException.class)

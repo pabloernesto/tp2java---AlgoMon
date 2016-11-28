@@ -11,7 +11,6 @@ public class AtaqueCanto extends Ataque {
     }
 
     public int efectuar(Algomon atacado) {
-        this.descontarUso();
         atacado.cambiarEstadoEfimero(new EstadoDeAlgomonDormido());
         return super.efectuar(atacado);
     }
