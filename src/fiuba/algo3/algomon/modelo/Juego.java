@@ -25,7 +25,7 @@ public class Juego implements Observer {
         instancia = null;
     }
 
-    Juego(){
+    public Juego(){
         this.jugadores = new ArrayList<Jugador>();
         this.turno = new Random().nextInt(2);
     }

@@ -9,12 +9,12 @@ import javafx.stage.Stage;
 
 public class PantallaInicio extends Scene {
 
-	private Stage ventana;
+	private Ejecutar aplicacion;
 	static BorderPane rootPane = new BorderPane();
 	
-	public PantallaInicio(Stage aplicacion) {
+	public PantallaInicio(Stage ventana, Ejecutar aplicacion) {
 		super(rootPane, 480, 480);
-		this.ventana = aplicacion;
+		this.aplicacion = aplicacion;
 		
 		mostrarPantallaInicio();
 	}
@@ -25,7 +25,7 @@ public class PantallaInicio extends Scene {
         btnStart.setGraphic(new ImageView(imgLogo));
         btnStart.setStyle("-fx-background-color: #336699;");
         btnStart.setOnAction(e-> {
-               ventana.setScene(new CrearJugador(ventana));
+        	aplicacion.crearPantallaJugadores();
         });;
         rootPane.setCenter(btnStart);
 	
