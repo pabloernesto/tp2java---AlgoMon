@@ -108,7 +108,8 @@ public class CantoTest
         jigglypuff.atacar(rattata1, Movimiento.CANTO);
         jigglypuff.atacar(rattata1, Movimiento.CANTO);
         jigglypuff.atacar(rattata2, Movimiento.CANTO);}
-        catch (Exception e) {
+        catch (CantidadDeAtaquesExcedidaException e) {
+            //si rattata2 es afectador por canto, el metodo atacar tiraria una excepcion y el test fallaria
             rattata2.atacar(jigglypuff, Movimiento.ATAQUE_RAPIDO);
         }
     }
