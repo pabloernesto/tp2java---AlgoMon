@@ -40,21 +40,6 @@ public class AtaquesBasicosExcepcionTest
         charmander.atacar(rattata5, Movimiento.FOGONAZO);
     }
 
-    @Test (expected = CantidadDeAtaquesExcedidaException.class)
-    public void cantoLevantaExcepcionSiExcedeSuCantidadDeUsos()
-    {
-        Algomon jigglypuff = Especie.JIGGLYPUFF.nuevo();
-        Algomon rattata1 = Especie.RATTATA.nuevo();
-
-        jigglypuff.atacar(rattata1, Movimiento.CANTO);
-        jigglypuff.atacar(rattata1, Movimiento.CANTO);
-        jigglypuff.atacar(rattata1, Movimiento.CANTO);
-        jigglypuff.atacar(rattata1, Movimiento.CANTO);
-        jigglypuff.atacar(rattata1, Movimiento.CANTO);
-        jigglypuff.atacar(rattata1, Movimiento.CANTO);
-        jigglypuff.atacar(rattata1, Movimiento.CANTO);
-    }
-
     @Test (expected = AlgomonNoPoseeElMovimientoException.class)
     public void charmanderUsaBurbujaLevantaExcepcion()
     {

@@ -1,6 +1,7 @@
 package fiuba.algo3.algomon.test;
 
 import fiuba.algo3.algomon.excepciones.*;
+import fiuba.algo3.algomon.modelo.Algomon;
 import fiuba.algo3.algomon.modelo.Especie;
 import fiuba.algo3.algomon.modelo.Juego;
 import fiuba.algo3.algomon.modelo.Jugador;
@@ -91,4 +92,25 @@ public class CantoTest
 
         assertEquals(juego.jugador(0).algomonNro(2).vida(), 120);
     }
+
+    @Test 
+    public void cantoNoCambiaElEstadoLuegoAgotarSusUsos()
+    {
+        Algomon jigglypuff = Especie.JIGGLYPUFF.nuevo();
+        Algomon rattata1 = Especie.RATTATA.nuevo();
+        Algomon rattata2 = Especie.RATTATA.nuevo();
+
+        try{
+        jigglypuff.atacar(rattata1, Movimiento.CANTO);
+        jigglypuff.atacar(rattata1, Movimiento.CANTO);
+        jigglypuff.atacar(rattata1, Movimiento.CANTO);
+        jigglypuff.atacar(rattata1, Movimiento.CANTO);
+        jigglypuff.atacar(rattata1, Movimiento.CANTO);
+        jigglypuff.atacar(rattata1, Movimiento.CANTO);
+        jigglypuff.atacar(rattata2, Movimiento.CANTO);}
+        catch (Exception e) {
+            rattata2.atacar(jigglypuff, Movimiento.ATAQUE_RAPIDO);
+        }
+    }
+
 }
