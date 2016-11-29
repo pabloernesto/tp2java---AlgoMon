@@ -212,7 +212,7 @@
     </target>
 
     <target name="ejecutar.aplicacion" depends="empaquetar.con.imagenes">
-        <java classname="fiuba.algo3.algomon.vista.Ejecutar" fork="true">
+        <java classname="fiuba.algo3.algomon.control.Ejecutar" fork="true">
             <classpath refid="classpath" />
             <classpath location="${build}/dist/algo3.jar" />
         </java>
