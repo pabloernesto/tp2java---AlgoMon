@@ -41,6 +41,7 @@ public class PantallaJugador extends Scene {
         });
         
         rootPane.getChildren().addAll(hboxJugador1,hboxJugador2,btnContinuar);
+        rootPane.setStyle("-fx-background-color: #336699;");
 	}
 
 }
