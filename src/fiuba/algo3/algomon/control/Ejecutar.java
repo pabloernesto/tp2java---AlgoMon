@@ -4,6 +4,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import fiuba.algo3.algomon.modelo.Juego;
+import fiuba.algo3.algomon.vista.PantallaBatalla;
 import fiuba.algo3.algomon.vista.PantallaEleccionAlgomones;
 import fiuba.algo3.algomon.vista.PantallaInicio;
 import fiuba.algo3.algomon.vista.PantallaJugador;
@@ -63,6 +64,10 @@ public class Ejecutar extends Application implements Observer {
 		ventana.setScene(new PantallaEleccionAlgomones(ventana, this));
 	}
 
+	public void crearPantallaBatalla() {
+		ventana.setScene(new PantallaBatalla(ventana, this));
+	}
+	
     public Juego getModelo() {
 		return this.modelo;
 	}
@@ -71,6 +76,8 @@ public class Ejecutar extends Application implements Observer {
 	public void update(Observable arg0, Object arg1) {
 		// TODO
 	}
+
+
 
 
     
