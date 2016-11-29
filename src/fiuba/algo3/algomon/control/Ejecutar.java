@@ -1,9 +1,12 @@
-package fiuba.algo3.algomon.vista;
+package fiuba.algo3.algomon.control;
 
 import java.util.Observable;
 import java.util.Observer;
 
 import fiuba.algo3.algomon.modelo.Juego;
+import fiuba.algo3.algomon.vista.PantallaEleccionAlgomones;
+import fiuba.algo3.algomon.vista.PantallaInicio;
+import fiuba.algo3.algomon.vista.PantallaJugador;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

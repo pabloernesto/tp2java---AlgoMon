@@ -1,5 +1,6 @@
 package fiuba.algo3.algomon.vista;
 
+import fiuba.algo3.algomon.control.Ejecutar;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;

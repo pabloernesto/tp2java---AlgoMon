@@ -1,7 +1,6 @@
 package fiuba.algo3.algomon.control;
 
 import fiuba.algo3.algomon.modelo.Jugador;
-import fiuba.algo3.algomon.vista.Ejecutar;
 import fiuba.algo3.algomon.vista.PantallaJugador;
 
 public class JugadoresControlador {
