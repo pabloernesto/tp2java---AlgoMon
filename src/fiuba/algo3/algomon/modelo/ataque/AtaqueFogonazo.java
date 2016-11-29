@@ -11,8 +11,8 @@ public class AtaqueFogonazo extends Ataque {
     }
 
     public int efectuar(Algomon atacado) {
-
+        int cantidadDeDanioCausado = super.efectuar(atacado);
         atacado.cambiarEstadoPermanente(new EstadoDeAlgomonQuemado());
-        return super.efectuar(atacado);
+        return cantidadDeDanioCausado;
     }
 }

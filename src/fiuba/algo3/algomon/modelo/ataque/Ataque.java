@@ -14,14 +14,16 @@ public class Ataque
     }
 
     public int efectuar(Algomon atacado) {
-        if (cantidadDeUsosRestantes == 0)
-            throw new CantidadDeAtaquesExcedidaException();
-
-        cantidadDeUsosRestantes--;
-
+        this.descontarUso();
         int cantidadDeDanioCausado = movimiento.potencia(atacado.getTipo());
         atacado.causarDanio(cantidadDeDanioCausado);
         return cantidadDeDanioCausado;
+    }
+
+    protected void descontarUso(){
+         if (cantidadDeUsosRestantes == 0)
+            throw new CantidadDeAtaquesExcedidaException();
+        cantidadDeUsosRestantes--;
     }
 
     public void setAtacante(Algomon atacante) {

@@ -1,5 +1,6 @@
 package fiuba.algo3.algomon.test;
 
+import fiuba.algo3.algomon.excepciones.CantidadDeAtaquesExcedidaException;
 import fiuba.algo3.algomon.modelo.Algomon;
 import fiuba.algo3.algomon.modelo.Especie;
 import fiuba.algo3.algomon.modelo.Movimiento;
@@ -22,6 +23,29 @@ public class QuemadoTest
         rattata.atacar(charmander, Movimiento.ATAQUE_RAPIDO);
 
         assertEquals(vidaInicial - 17, rattata.vida());
+    }
+
+    @Test
+    public void fogonazoNoSurteEfectoSiNoLeQuedanUsos()
+    {
+        Algomon rattata = Especie.RATTATA.nuevo();
+        Algomon charmander = Especie.CHARMANDER.nuevo();
+        Algomon rattataAtacado = Especie.RATTATA.nuevo();
+
+        try{
+        charmander
+            .atacar(rattata, Movimiento.FOGONAZO)
+            .atacar(rattata, Movimiento.FOGONAZO)
+            .atacar(rattata, Movimiento.FOGONAZO)
+            .atacar(rattata, Movimiento.FOGONAZO)
+            .atacar(rattataAtacado, Movimiento.FOGONAZO);}
+        catch (CantidadDeAtaquesExcedidaException e) {
+            int vidaInicial = rattataAtacado.vida();
+            // rattata no pierde vida si no realiza una accion
+            rattataAtacado.atacar(rattata, Movimiento.ATAQUE_RAPIDO);
+            assertEquals(vidaInicial , rattataAtacado.vida());
+        }
+
     }
 
 

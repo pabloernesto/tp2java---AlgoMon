@@ -3,8 +3,8 @@ package fiuba.algo3.algomon.test;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
 import org.junit.Before;
+import org.junit.Test;
 
 import fiuba.algo3.algomon.excepciones.CantidadElementosExcedidaException;
 import fiuba.algo3.algomon.excepciones.ImposibleElegirMasDeTresAlgomonesException;
