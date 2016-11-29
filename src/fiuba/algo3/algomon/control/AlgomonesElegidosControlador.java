@@ -3,7 +3,6 @@ package fiuba.algo3.algomon.control;
 import java.util.ArrayList;
 
 import fiuba.algo3.algomon.modelo.Algomon;
-import fiuba.algo3.algomon.vista.Ejecutar;
 import fiuba.algo3.algomon.vista.PantallaEleccionAlgomones;
 
 public class AlgomonesElegidosControlador {
