@@ -143,7 +143,9 @@ public class PantallaEleccionAlgomones extends Scene {
                     cbs.get(i).setSelected(false);
                 }
             }
-            new AlgomonesElegidosControlador(this,aplicacion,algomones,0);
+            AlgomonesElegidosControlador c = new AlgomonesElegidosControlador(
+                this, aplicacion, algomones, 0);
+            c.agregarAlgomones();
             rootPane.getChildren().remove(panelJ1);
             panelJ2.setCenter(grillaAlgomones);
             panelJ2.setRight(grillaAlgomonesElegidos);
@@ -171,7 +173,9 @@ public class PantallaEleccionAlgomones extends Scene {
                 if (cbs.get(i).isSelected())
                     algomones.add(cbs.get(i).getText());
             }
-            new AlgomonesElegidosControlador(this,aplicacion,algomones,1);
+            AlgomonesElegidosControlador c = new AlgomonesElegidosControlador(
+                this, aplicacion, algomones, 1);
+            c.agregarAlgomones();
             //aplicacion.crearPantallaBatalla();
         });
         panelJ2.setBottom(btnContinuar2);
