@@ -18,7 +18,7 @@ public class PantallaBatalla extends Scene {
     private static BorderPane   panelEnemigo, panelActivo;
     private static GridPane     panelOpciones;
 
-    public PantallaBatalla(Stage ventana, Ejecutar ejecutar) {
+    public PantallaBatalla(Ejecutar ejecutar) {
         super(rootPane,690,500);
 
         aplicacion = ejecutar;
