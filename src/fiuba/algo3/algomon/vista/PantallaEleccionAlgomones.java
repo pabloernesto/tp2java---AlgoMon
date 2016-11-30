@@ -3,6 +3,7 @@ package fiuba.algo3.algomon.vista;
 import java.util.ArrayList;
 import fiuba.algo3.algomon.control.AlgomonesElegidosControlador;
 import fiuba.algo3.algomon.control.Ejecutar;
+import fiuba.algo3.algomon.excepciones.SeDebenElegirTresAlgomonesPorJugadorException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Scene;
@@ -117,9 +118,9 @@ public class PantallaEleccionAlgomones extends Scene {
         grillaAlgomonesElegidos.add(iconSquirtle,0,0);
         grillaAlgomonesElegidos.add(iconBulbasaur,0,1);
         grillaAlgomonesElegidos.add(iconChansey, 0, 2);
-        grillaAlgomonesElegidos.add(iconCharmander,0,3);
-        grillaAlgomonesElegidos.add(iconJigglypuff,0,4);
-        grillaAlgomonesElegidos.add(iconRattata,0,5);
+        grillaAlgomonesElegidos.add(iconCharmander,1,0);        
+        grillaAlgomonesElegidos.add(iconJigglypuff,1,1);
+        grillaAlgomonesElegidos.add(iconRattata,1,2);
 
         panelJ1.setCenter(grillaAlgomones);
         panelJ1.setRight(grillaAlgomonesElegidos);
@@ -143,13 +144,17 @@ public class PantallaEleccionAlgomones extends Scene {
                     cbs.get(i).setSelected(false);
                 }
             }
-            AlgomonesElegidosControlador c = new AlgomonesElegidosControlador(
-                this, aplicacion, algomones, 0);
-            c.agregarAlgomones();
-            rootPane.getChildren().remove(panelJ1);
-            panelJ2.setCenter(grillaAlgomones);
-            panelJ2.setRight(grillaAlgomonesElegidos);
-            rootPane.getChildren().add(panelJ2);
+            try {
+				new AlgomonesElegidosControlador(this, aplicacion, algomones, 0);
+				rootPane.getChildren().remove(panelJ1);
+	            panelJ2.setCenter(grillaAlgomones);
+	            panelJ2.setRight(grillaAlgomonesElegidos);
+	            rootPane.getChildren().add(panelJ2);
+			} catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
+				Label lblError = new Label("¡Debe elegir tres (3) algomones!");
+				lblError.setStyle("-fx-text-fill: #f4f4f4");
+				panelJ1.setLeft(lblError);
+			}
         });
         panelJ1.setBottom(btnContinuar1);
 
@@ -173,10 +178,14 @@ public class PantallaEleccionAlgomones extends Scene {
                 if (cbs.get(i).isSelected())
                     algomones.add(cbs.get(i).getText());
             }
-            AlgomonesElegidosControlador c = new AlgomonesElegidosControlador(
-                this, aplicacion, algomones, 1);
-            c.agregarAlgomones();
-            //aplicacion.crearPantallaBatalla();
+            try {
+				new AlgomonesElegidosControlador(this, aplicacion, algomones, 1);
+				//aplicacion.crearPantallaBatalla();
+			} catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
+				Label lblError = new Label("¡Debe elegir tres (3) algomones!");
+				lblError.setStyle("-fx-text-fill: #f4f4f4");
+				panelJ2.setCenter(lblError);
+			}
         });
         panelJ2.setBottom(btnContinuar2);
     }
