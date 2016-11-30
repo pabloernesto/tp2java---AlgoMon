@@ -4,6 +4,8 @@ import fiuba.algo3.algomon.excepciones.CantidadDeAtaquesExcedidaException;
 import fiuba.algo3.algomon.modelo.Algomon;
 import fiuba.algo3.algomon.modelo.Especie;
 import fiuba.algo3.algomon.modelo.Movimiento;
+import fiuba.algo3.algomon.modelo.elementos.Elemento;
+import fiuba.algo3.algomon.modelo.elementos.Vitamina;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -48,7 +50,6 @@ public class QuemadoTest
 
     }
 
-
     @Test
     public void pasarTurnoSinRealizarAccionNoCausaDanio()
     {
@@ -64,5 +65,21 @@ public class QuemadoTest
             .turnoTerminado();
 
         assertEquals(vidaInicial, rattata.vida());
+    }
+    @Test
+    public void quemadoLeQuita17PuntosARattataSiEsteUsaUnElemento()
+    {
+        Algomon charmander = Especie.CHARMANDER.nuevo();
+        Algomon rattata = Especie.RATTATA.nuevo();
+
+        charmander.atacar(rattata, Movimiento.FOGONAZO);
+
+        Vitamina vitamina = (Vitamina)Elemento.VITAMINA.nuevo();
+
+        int vidaInicial = rattata.vida();
+        // rattata no pierde vida si no realiza una accion
+        rattata.aplicar(vitamina);
+
+        assertEquals(vidaInicial - 17, rattata.vida());
     }
 }
