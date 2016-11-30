@@ -20,7 +20,6 @@ public class PantallaEleccionAlgomones extends Scene {
 
     private static FlowPane rootPane = new FlowPane();
     private Ejecutar aplicacion;
-    private ArrayList<String> algomones = new ArrayList<String>();
 
     public PantallaEleccionAlgomones(Stage ventana, Ejecutar ejecutar) {
         super(rootPane, 690, 500);
@@ -137,6 +136,7 @@ public class PantallaEleccionAlgomones extends Scene {
 
         Button btnContinuar1 = new Button("Continuar");
         btnContinuar1.setOnAction(e -> {
+            ArrayList<String> algomones = new ArrayList<String>();
             for (int i = 0; i < cbs.size() ; i++){
                 if (cbs.get(i).isSelected()){
                     algomones.add(cbs.get(i).getText());
@@ -166,6 +166,7 @@ public class PantallaEleccionAlgomones extends Scene {
 
         Button btnContinuar2 = new Button("Continuar");
         btnContinuar2.setOnAction(e -> {
+            ArrayList<String> algomones = new ArrayList<String>();
             for (int i = 0; i < cbs.size() ; i++){
                 if (cbs.get(i).isSelected())
                     algomones.add(cbs.get(i).getText());
