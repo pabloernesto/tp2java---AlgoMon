@@ -36,13 +36,11 @@ public class PantallaBatalla extends Scene {
         mostrarPanelEnemigo();
         mostrarPanelActivo();
         mostrarOpciones();
-
     }
 
     private void mostrarPanelEnemigo() {
         panelEnemigo = new BorderPane();
         panelEnemigo.setStyle("-fx-background-color: #ff0000");
-
 
         Label nombre;
         AlgomonVistaImagen imgAlgomon;
@@ -81,22 +79,25 @@ public class PantallaBatalla extends Scene {
     }
 
     private void mostrarOpciones() {
-        panelOpciones = new GridPane();
-        panelOpciones.setStyle("-fx-background-color: #ffffff");
+        rootPane.getChildren().add(new OpcionesJugador());
+    }
+}
 
-        panelOpciones.setHgap(20);
-        panelOpciones.setVgap(20);
+class OpcionesJugador extends GridPane {
 
-        Button btnAtacar = new Button("Atacar (...)");
-        Button btnCambiarAlgomon = new Button("Cambiar algomon");
-        Button btnAplicarElemento = new Button("Aplicar elemento (...)");
-        Button btnPasarTurno = new Button("Pasar turno");
+    OpcionesJugador() {
+        setStyle("-fx-background-color: #ffffff");
+        setHgap(20);
+        setVgap(20);
 
-        panelOpciones.add(btnAtacar,1,1);
-        panelOpciones.add(btnCambiarAlgomon,3,1);
-        panelOpciones.add(btnAplicarElemento,1,3);
-        panelOpciones.add(btnPasarTurno,3,3);
+        Button atacar = new Button("Atacar");
+        Button algomon = new Button("Algomon");
+        Button mochila = new Button("Mochila");
+        Button pasarTurno = new Button("Pasar turno");
 
-        rootPane.getChildren().add(panelOpciones);
+        add(atacar, 1, 1);
+        add(algomon, 3, 1);
+        add(mochila, 1, 3);
+        add(pasarTurno, 3, 3);
     }
 }
