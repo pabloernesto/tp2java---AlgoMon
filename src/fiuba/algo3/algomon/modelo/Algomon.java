@@ -119,16 +119,19 @@ public class Algomon extends Observable {
 
     public void aplicar(Restaurador restaurador) {
         this.restaurarEstados();
+        estadoPermanente.consecuencia(this);
         
     }
 
     public void aplicar(Pocion pocion) {
         this.recuperarVida(20);
+        estadoPermanente.consecuencia(this);
         
     }
 
     public void aplicar(SuperPocion superPocion) {
         this.recuperarVida(40);
+        estadoPermanente.consecuencia(this);
         
     }
 
@@ -136,5 +139,6 @@ public class Algomon extends Observable {
         for (Ataque ataque : ataques.values() ){
             ataque.recuperarUsos(2);
         }        
+        estadoPermanente.consecuencia(this);
     }
 }
