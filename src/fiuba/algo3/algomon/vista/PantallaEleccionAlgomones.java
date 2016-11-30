@@ -180,11 +180,11 @@ public class PantallaEleccionAlgomones extends Scene {
             }
             try {
 				new AlgomonesElegidosControlador(this, aplicacion, algomones, 1);
-				//aplicacion.crearPantallaBatalla();
+				aplicacion.crearPantallaBatalla();
 			} catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
 				Label lblError = new Label("¡Debe elegir tres (3) algomones!");
-				lblError.setStyle("-fx-text-fill: #f4f4f4");
-				panelJ2.setCenter(lblError);
+				lblError.setStyle("-fx-text-fill: #ff0000; -fx-font-weigh: bold");
+				panelJ2.setLeft(lblError);
 			}
         });
         panelJ2.setBottom(btnContinuar2);
