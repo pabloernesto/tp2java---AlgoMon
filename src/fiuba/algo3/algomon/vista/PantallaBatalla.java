@@ -4,8 +4,10 @@ import fiuba.algo3.algomon.vista.AlgomonVistaImagen;
 import fiuba.algo3.algomon.vista.AlgomonVistaVida;
 import fiuba.algo3.algomon.control.Ejecutar;
 import fiuba.algo3.algomon.modelo.Juego;
+import fiuba.algo3.algomon.modelo.Algomon;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
@@ -41,19 +43,19 @@ public class PantallaBatalla extends Scene {
         panelEnemigo = new BorderPane();
         panelEnemigo.setStyle("-fx-background-color: #ff0000");
 
-//      Label lblNombreEspecie = new Label(juego.jugadorNoActivo().getAlgomonActivo().getNombre());
-//      panelEnemigo.setTop(lblNombreEspecie);
 
+        Label nombre;
         AlgomonVistaImagen imgAlgomon;
         AlgomonVistaVida barraVida;
         {
-            fiuba.algo3.algomon.modelo.Algomon enemigo
-                = juego.jugador(1).getAlgomonActivo();
+            Algomon enemigo = juego.jugador(1).getAlgomonActivo();
             imgAlgomon = new AlgomonVistaImagen(enemigo);
             barraVida = new AlgomonVistaVida(enemigo);
+            nombre = new Label(enemigo.nombreEspecie());
         }
         panelEnemigo.setCenter(imgAlgomon);
         panelEnemigo.setBottom(barraVida);
+        panelEnemigo.setTop(nombre);
 
         rootPane.getChildren().add(panelEnemigo);
     }
@@ -62,17 +64,18 @@ public class PantallaBatalla extends Scene {
         panelActivo = new BorderPane();
         panelActivo.setStyle("-fx-background-color: #ffff00");
 
-//      Label lblNombreEspecie = new Label(juego.turno().getAlgomonActivo().getNombre());
+        Label nombre;
         AlgomonVistaImagen imgAlgomon;
         AlgomonVistaVida barraVida;
         {
-            fiuba.algo3.algomon.modelo.Algomon enemigo
-                = juego.jugador(0).getAlgomonActivo();
-            imgAlgomon = new AlgomonVistaImagen(enemigo);
-            barraVida = new AlgomonVistaVida(enemigo);
+            Algomon activo = juego.jugador(0).getAlgomonActivo();
+            imgAlgomon = new AlgomonVistaImagen(activo);
+            barraVida = new AlgomonVistaVida(activo);
+            nombre = new Label(activo.nombreEspecie());
         }
         panelActivo.setCenter(imgAlgomon);
         panelActivo.setBottom(barraVida);
+        panelActivo.setTop(nombre);
 
         rootPane.getChildren().add(panelActivo);
     }
