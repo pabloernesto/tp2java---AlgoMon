@@ -1,5 +1,7 @@
 package fiuba.algo3.algomon.vista;
 
+import fiuba.algo3.algomon.vista.AlgomonVistaImagen;
+import fiuba.algo3.algomon.vista.AlgomonVistaVida;
 import fiuba.algo3.algomon.control.Ejecutar;
 import fiuba.algo3.algomon.modelo.Juego;
 import javafx.scene.Scene;
@@ -40,14 +42,18 @@ public class PantallaBatalla extends Scene {
         panelEnemigo.setStyle("-fx-background-color: #ff0000");
 
 //      Label lblNombreEspecie = new Label(juego.jugadorNoActivo().getAlgomonActivo().getNombre());
-//
-//      ImageView imgAlgomon = new ImageView(new Image(juego.jugadorNoActivo().getAlgomonActivo().getImgFrontal()));
-
-        HBox vidaAlgomon = new HBox();     // barra de vida
-
 //      panelEnemigo.setTop(lblNombreEspecie);
-//      panelEnemigo.setCenter(imgAlgomon);
-        panelEnemigo.setBottom(vidaAlgomon);
+
+        AlgomonVistaImagen imgAlgomon;
+        AlgomonVistaVida barraVida;
+        {
+            fiuba.algo3.algomon.modelo.Algomon enemigo
+                = juego.jugador(1).getAlgomonActivo();
+            imgAlgomon = new AlgomonVistaImagen(enemigo);
+            barraVida = new AlgomonVistaVida(enemigo);
+        }
+        panelEnemigo.setCenter(imgAlgomon);
+        panelEnemigo.setBottom(barraVida);
 
         rootPane.getChildren().add(panelEnemigo);
     }
