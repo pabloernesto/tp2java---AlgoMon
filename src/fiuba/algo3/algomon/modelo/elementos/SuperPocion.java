@@ -1,14 +1,19 @@
 package fiuba.algo3.algomon.modelo.elementos;
 
+import fiuba.algo3.algomon.excepciones.CantidadElementosExcedidaException;
 import fiuba.algo3.algomon.modelo.Algomon;
 
-public class SuperPocion extends Item {
+public class SuperPocion implements Item {
+    int cantidadDeUsosRestantes;
 
     SuperPocion(Elemento unElemento) {
-        super(unElemento.cantidadInicialDeElemento);
-    }
+        this.cantidadDeUsosRestantes = unElemento.cantidadInicialDeElemento;
+    };
 
-    public void efecto(Algomon algomonActivo) {
-        algomonActivo.recuperarVida(40);
+    public void aplicar(Algomon algomonActivo) {
+        if (cantidadDeUsosRestantes == 0)
+            throw new CantidadElementosExcedidaException();
+        cantidadDeUsosRestantes--;
+        algomonActivo.aplicar(this);
     }
 }

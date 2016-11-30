@@ -1,14 +1,17 @@
 package fiuba.algo3.algomon.modelo;
 
+import java.util.EnumMap;
 import java.util.Map;
+import java.util.Observable;
 
 import fiuba.algo3.algomon.excepciones.AlgomonNoPoseeElMovimientoException;
 import fiuba.algo3.algomon.modelo.ataque.Ataque;
+import fiuba.algo3.algomon.modelo.elementos.Pocion;
+import fiuba.algo3.algomon.modelo.elementos.Restaurador;
+import fiuba.algo3.algomon.modelo.elementos.SuperPocion;
+import fiuba.algo3.algomon.modelo.elementos.Vitamina;
 import fiuba.algo3.algomon.modelo.estado.EstadoDeAlgomon;
 import fiuba.algo3.algomon.modelo.estado.EstadoDeAlgomonNormal;
-
-import java.util.EnumMap;
-import java.util.Observable;
 
 public class Algomon extends Observable {
 
@@ -106,12 +109,6 @@ public class Algomon extends Observable {
         return nombreEspecie;
     }
 
-    public void tomarVitamina() {
-       for (Ataque ataque : ataques.values() ){
-           ataque.recuperarUsos(2);
-       }
-    }
-
 	public Tipo getTipo() {
 		return tipo;
 	}
@@ -119,4 +116,25 @@ public class Algomon extends Observable {
 	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
+
+    public void aplicar(Restaurador restaurador) {
+        this.restaurarEstados();
+        
+    }
+
+    public void aplicar(Pocion pocion) {
+        this.recuperarVida(20);
+        
+    }
+
+    public void aplicar(SuperPocion superPocion) {
+        this.recuperarVida(40);
+        
+    }
+
+    public void aplicar(Vitamina vitamina) {
+        for (Ataque ataque : ataques.values() ){
+            ataque.recuperarUsos(2);
+        }        
+    }
 }
