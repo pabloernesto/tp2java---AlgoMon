@@ -63,14 +63,16 @@ public class PantallaBatalla extends Scene {
         panelActivo.setStyle("-fx-background-color: #ffff00");
 
 //      Label lblNombreEspecie = new Label(juego.turno().getAlgomonActivo().getNombre());
-//
-//      ImageView imgAlgomon = new ImageView(new Image(juego.turno().getAlgomonActivo().getImgEspalda()));
-
-        HBox vidaAlgomon = new HBox();     // barra de vida
-
-//      panelEnemigo.setBottom(lblNombreEspecie);
-//      panelEnemigo.setCenter(imgAlgomon);
-        panelEnemigo.setTop(vidaAlgomon);
+        AlgomonVistaImagen imgAlgomon;
+        AlgomonVistaVida barraVida;
+        {
+            fiuba.algo3.algomon.modelo.Algomon enemigo
+                = juego.jugador(0).getAlgomonActivo();
+            imgAlgomon = new AlgomonVistaImagen(enemigo);
+            barraVida = new AlgomonVistaVida(enemigo);
+        }
+        panelActivo.setCenter(imgAlgomon);
+        panelActivo.setBottom(barraVida);
 
         rootPane.getChildren().add(panelActivo);
     }
