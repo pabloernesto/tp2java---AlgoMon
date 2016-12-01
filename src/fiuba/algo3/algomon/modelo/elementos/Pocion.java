@@ -3,9 +3,8 @@ package fiuba.algo3.algomon.modelo.elementos;
 import fiuba.algo3.algomon.excepciones.CantidadElementosExcedidaException;
 import fiuba.algo3.algomon.modelo.Algomon;
 
-public class Pocion implements Item {
+public class Pocion extends Item {
 
-    int cantidadDeUsosRestantes;
     Pocion(Elemento unElemento) {
         this.cantidadDeUsosRestantes = unElemento.cantidadInicialDeElemento;
     };
@@ -17,4 +16,7 @@ public class Pocion implements Item {
         algomonActivo.aplicar(this);
     }
 
+    public String nombre() {
+        return "Pocion";
+    }
 }
