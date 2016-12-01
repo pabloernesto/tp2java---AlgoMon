@@ -6,7 +6,7 @@ import fiuba.algo3.algomon.modelo.Algomon;
 public class SuperPocion extends Item {
 
     SuperPocion(Elemento unElemento) {
-        this.cantidadDeUsosRestantes = unElemento.cantidadInicialDeElemento;
+        super(unElemento);
     };
 
     public void aplicar(Algomon algomonActivo) {
