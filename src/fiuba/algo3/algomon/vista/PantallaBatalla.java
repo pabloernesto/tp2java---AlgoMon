@@ -127,24 +127,17 @@ class Ataques extends GridPane {
     }
 }
 
-class Algomones extends GridPane {
+class Algomones extends VBox {
 
     Algomones(Pane panel) {
         setStyle("-fx-background-color: #ffffff");
-        setHgap(20);
-        setVgap(20);
+        setSpacing(20);
 
-        Button algomon1, algomon2, algomon3, volver;
-        algomon1 = new Button();
-        algomon2 = new Button();
-        algomon3 = new Button();
-        volver = new Button("Volver");
+        for (Algomon a : Juego.instancia().turno().getAlgomones())
+            getChildren().add(new AlgomonVistaBoton(panel, a));
 
-        add(algomon1, 1, 1);
-        add(algomon2, 3, 1);
-        add(algomon3, 1, 3);
-        add(volver, 3, 3);
-
+        Button volver = new Button("Volver");
+        getChildren().add(volver);
         volver.setOnAction(e -> {
             panel.getChildren().clear();
             panel.getChildren().add(new OpcionesJugador(panel));
@@ -165,6 +158,18 @@ class Mochila extends VBox {
         Button volver = new Button("Volver");
         getChildren().add(volver);
         volver.setOnAction(e -> {
+            panel.getChildren().clear();
+            panel.getChildren().add(new OpcionesJugador(panel));
+        });
+    }
+}
+
+class AlgomonVistaBoton extends Button {
+
+    AlgomonVistaBoton(Pane panel, Algomon algomon) {
+        setText(algomon.nombreEspecie());
+        setOnAction(e -> {
+            Juego.instancia().pasarTurno();
             panel.getChildren().clear();
             panel.getChildren().add(new OpcionesJugador(panel));
         });
