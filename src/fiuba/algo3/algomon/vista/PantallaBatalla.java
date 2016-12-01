@@ -122,6 +122,10 @@ class OpcionesJugador extends GridPane {
             panel.getChildren().clear();
             panel.getChildren().add(new Mochila(panel));
         });
+
+        pasarTurno.setOnAction(e -> {
+            Juego.instancia().pasarTurno();
+        });
     }
 }
 
@@ -133,9 +137,16 @@ class Ataques extends GridPane {
         setVgap(20);
 
         Button ataque1, ataque2, ataque3, volver;
-        ataque1 = new Button();
-        ataque2 = new Button();
-        ataque3 = new Button();
+        {
+            Ataque[] a = Juego
+                .instancia()
+                .turno()
+                .getAlgomonActivo()
+                .ataques();
+            ataque1 = new AtaqueVistaBoton(panel, a[0]);
+            ataque2 = new AtaqueVistaBoton(panel, a[1]);
+            ataque3 = new AtaqueVistaBoton(panel, a[2]);
+        }
         volver = new Button("Volver");
 
         add(ataque1, 1, 1);
@@ -181,11 +192,43 @@ class Mochila extends VBox {
         setStyle("-fx-background-color: #ffffff");
         setSpacing(20);
 
+        for (Item i : Juego.instancia().turno().mochila()) {
+            getChildren().add(new ItemVistaBoton(panel, i));
+        }
+
         Button volver = new Button("Volver");
-
         getChildren().add(volver);
-
         volver.setOnAction(e -> {
+            panel.getChildren().clear();
+            panel.getChildren().add(new OpcionesJugador(panel));
+        });
+    }
+}
+
+class AtaqueVistaBoton extends Button {
+
+    AtaqueVistaBoton(Pane panel, Ataque a) {
+        super(a.movimiento().name());
+        setOnAction(e -> {
+            Juego j = Juego.instancia();
+            Algomon atacante = j.turno().getAlgomonActivo();
+            Algomon enemigo = j.jugadorNoActivo().getAlgomonActivo();
+            atacante.atacar(enemigo, a.movimiento());
+            j.pasarTurno();
+            panel.getChildren().clear();
+            panel.getChildren().add(new OpcionesJugador(panel));
+        });
+    }
+}
+
+class ItemVistaBoton extends Button {
+
+    ItemVistaBoton(Pane panel, Item item) {
+        //~ Juego.instancia().turno().aplicar(item);
+        setText(item.nombre());
+        setOnAction(e -> {
+            Juego j = Juego.instancia();
+            j.pasarTurno();
             panel.getChildren().clear();
             panel.getChildren().add(new OpcionesJugador(panel));
         });

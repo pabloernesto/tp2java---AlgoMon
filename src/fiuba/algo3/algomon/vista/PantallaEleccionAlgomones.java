@@ -128,7 +128,7 @@ public class PantallaEleccionAlgomones extends Scene {
         // JUGADOR 1
         Label lblEntrenador1 = new Label(
             "Entrenador/a "
-            + aplicacion.getModelo().jugador(0).nombre()
+            + Juego.instancia().jugador(0).nombre()
             +" elija 3 algomones:");
         lblEntrenador1.setStyle(
             "-fx-font-size:28 ; -fx-text-fill: #f5f5f5; -fx-padding: 10px;");
@@ -144,16 +144,19 @@ public class PantallaEleccionAlgomones extends Scene {
                 }
             }
             try {
-				new AlgomonesElegidosControlador(this, aplicacion, algomones, 0);
-				rootPane.getChildren().remove(panelJ1);
-	            panelJ2.setCenter(grillaAlgomones);
-	            panelJ2.setRight(grillaAlgomonesElegidos);
-	            rootPane.getChildren().add(panelJ2);
-			} catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
-				Label lblError = new Label("¡Debe elegir tres (3) algomones!");
-				lblError.setStyle("-fx-text-fill: #f4f4f4");
-				panelJ1.setLeft(lblError);
-			}
+                AlgomonesElegidosControlador c =
+                    new AlgomonesElegidosControlador(this, aplicacion,
+                        algomones, 0);
+                c.agregarAlgomones();
+                rootPane.getChildren().remove(panelJ1);
+                panelJ2.setCenter(grillaAlgomones);
+                panelJ2.setRight(grillaAlgomonesElegidos);
+                rootPane.getChildren().add(panelJ2);
+            } catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
+                Label lblError = new Label("¡Debe elegir tres (3) algomones!");
+                lblError.setStyle("-fx-text-fill: #f4f4f4");
+                panelJ1.setLeft(lblError);
+            }
         });
         panelJ1.setBottom(btnContinuar1);
 
@@ -162,7 +165,7 @@ public class PantallaEleccionAlgomones extends Scene {
         // JUGADOR 2
         Label lblEntrenador2 = new Label(
             "Entrenador/a "
-            + aplicacion.getModelo().jugador(1).nombre()
+            + Juego.instancia().jugador(1).nombre()
             + " elija 3 algomones:");
             lblEntrenador2.setStyle(
                 "-fx-font-size:28 ; -fx-text-fill: #f5f5f5;"
@@ -177,13 +180,16 @@ public class PantallaEleccionAlgomones extends Scene {
                     algomones.add(cbs.get(i).getText());
             }
             try {
-				new AlgomonesElegidosControlador(this, aplicacion, algomones, 1);
-				aplicacion.crearPantallaBatalla();
-			} catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
-				Label lblError = new Label("¡Debe elegir tres (3) algomones!");
-				lblError.setStyle("-fx-text-fill: #ff0000; -fx-font-weigh: bold");
-				panelJ2.setLeft(lblError);
-			}
+                AlgomonesElegidosControlador c =
+                    new AlgomonesElegidosControlador(this, aplicacion,
+                        algomones, 1);
+                c.agregarAlgomones();
+                aplicacion.crearPantallaBatalla();
+            } catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
+                Label lblError = new Label("¡Debe elegir tres (3) algomones!");
+                lblError.setStyle("-fx-text-fill: #ff0000; -fx-font-weigh: bold");
+                panelJ2.setLeft(lblError);
+            }
         });
         panelJ2.setBottom(btnContinuar2);
     }

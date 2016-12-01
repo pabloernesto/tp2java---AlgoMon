@@ -13,6 +13,10 @@ public class Ataque
         cantidadDeUsosRestantes = this.movimiento.getCantidadDeUsos();
     }
 
+    public Movimiento movimiento() {
+        return movimiento;
+    }
+
     public int efectuar(Algomon atacado) {
         this.descontarUso();
         int cantidadDeDanioCausado = movimiento.potencia(atacado.getTipo());
@@ -34,6 +38,5 @@ public class Ataque
         if(cantidadDeUsosRestantes > movimiento.getCantidadDeUsos()) {
             cantidadDeUsosRestantes = movimiento.getCantidadDeUsos();
         }
-        
     }
 }

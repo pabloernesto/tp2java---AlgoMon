@@ -25,7 +25,7 @@ public class Juego implements Observer {
         instancia = null;
     }
 
-    public Juego(){
+    Juego(){
         this.jugadores = new ArrayList<Jugador>();
         this.turno = new Random().nextInt(2);
     }
@@ -59,11 +59,11 @@ public class Juego implements Observer {
     }
 
     public Jugador jugadorNoActivo(){
-		int turnoAux;
-		if (this.turno == 0) turnoAux = 1; else turnoAux = 0;
-    	return jugadores.get(turnoAux);
+        int turnoAux;
+        if (this.turno == 0) turnoAux = 1; else turnoAux = 0;
+        return jugadores.get(turnoAux);
     }
-    
+
     @Override
     public void update(Observable jugador, Object arg) {
         this.pasarTurno();
