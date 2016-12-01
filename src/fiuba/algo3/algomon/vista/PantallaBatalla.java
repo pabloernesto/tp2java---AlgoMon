@@ -87,8 +87,8 @@ public class PantallaBatalla extends Scene {
     }
 
     private void mostrarOpciones() {
-    	panelOpciones.setStyle("-fx-background-color: #ffffff");
-    	panelOpciones.setPrefSize(500,220);
+        panelOpciones.setStyle("-fx-background-color: #ffffff");
+        panelOpciones.setPrefSize(500,220);
         rootPane.getChildren().add(panelOpciones);
         panelOpciones.getChildren().add(new OpcionesJugador(panelOpciones));
     }
@@ -170,34 +170,3 @@ class Mochila extends VBox {
         });
     }
 }
-<<<<<<< HEAD
-
-class ItemVistaBoton extends Button {
-
-    ItemVistaBoton(Pane panel, Item item) {
-        //~ Juego.instancia().turno().aplicar(item);
-        setText(item.nombre());
-        setOnAction(e -> {
-            Juego j = Juego.instancia();
-            j.pasarTurno();
-            panel.getChildren().clear();
-            panel.getChildren().add(new OpcionesJugador(panel));
-        });
-    }
-}
-=======
-//
-//class ItemVistaBoton extends Button {
-//
-//    ItemVistaBoton(Pane panel, Item item) {
-//        //~ Juego.instancia().turno().aplicar(item);
-//        setText(item.nombre());
-//        setOnAction(e -> {
-//            Juego j = Juego.instancia();
-//            j.pasarTurno();
-//            panel.getChildren().clear();
-//            panel.getChildren().add(new OpcionesJugador(panel));
-//        });
-//    }
-//}
->>>>>>> branch 'master' of https://github.com/pabloernesto/tp2java---AlgoMon.git
