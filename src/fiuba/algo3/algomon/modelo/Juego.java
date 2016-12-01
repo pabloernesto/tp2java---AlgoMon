@@ -64,10 +64,6 @@ public class Juego implements Observer {
         return jugadores.get(turnoAux);
     }
 
-    public Jugador jugadorActivo(){
-        return jugadores.get(this.turno);
-    }
-
     @Override
     public void update(Observable jugador, Object arg) {
         this.pasarTurno();
