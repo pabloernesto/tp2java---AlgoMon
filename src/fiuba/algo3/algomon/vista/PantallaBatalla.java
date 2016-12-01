@@ -6,6 +6,7 @@ import fiuba.algo3.algomon.control.Ejecutar;
 import fiuba.algo3.algomon.modelo.Juego;
 import fiuba.algo3.algomon.modelo.Algomon;
 import fiuba.algo3.algomon.modelo.ataque.Ataque;
+import fiuba.algo3.algomon.modelo.elementos.Item;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -185,10 +186,12 @@ class Mochila extends VBox {
         setStyle("-fx-background-color: #ffffff");
         setSpacing(20);
 
+        for (Item i : Juego.instancia().turno().mochila()) {
+            getChildren().add(new ItemVistaBoton(panel, i));
+        }
+
         Button volver = new Button("Volver");
-
         getChildren().add(volver);
-
         volver.setOnAction(e -> {
             panel.getChildren().clear();
             panel.getChildren().add(new OpcionesJugador(panel));
@@ -209,5 +212,14 @@ class AtaqueVistaBoton extends Button {
             panel.getChildren().clear();
             panel.getChildren().add(new OpcionesJugador(panel));
         });
+    }
+}
+
+class ItemVistaBoton extends Button {
+
+    ItemVistaBoton(Pane panel, Item item) {
+        //~ Juego.instancia().turno().aplicar(item);
+        setText(item.nombre());
+
     }
 }
