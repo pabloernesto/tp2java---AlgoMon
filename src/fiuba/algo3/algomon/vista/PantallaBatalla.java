@@ -5,6 +5,7 @@ import fiuba.algo3.algomon.vista.AlgomonVistaVida;
 import fiuba.algo3.algomon.control.Ejecutar;
 import fiuba.algo3.algomon.modelo.Juego;
 import fiuba.algo3.algomon.modelo.Algomon;
+import fiuba.algo3.algomon.modelo.ataque.Ataque;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -129,9 +130,16 @@ class Ataques extends GridPane {
         setVgap(20);
 
         Button ataque1, ataque2, ataque3, volver;
-        ataque1 = new Button();
-        ataque2 = new Button();
-        ataque3 = new Button();
+        {
+            Ataque[] a = Juego
+                .instancia()
+                .turno()
+                .getAlgomonActivo()
+                .ataques();
+            ataque1 = new AtaqueVistaBoton(a[0]);
+            ataque2 = new AtaqueVistaBoton(a[1]);
+            ataque3 = new AtaqueVistaBoton(a[2]);
+        }
         volver = new Button("Volver");
 
         add(ataque1, 1, 1);
@@ -185,5 +193,12 @@ class Mochila extends VBox {
             panel.getChildren().clear();
             panel.getChildren().add(new OpcionesJugador(panel));
         });
+    }
+}
+
+class AtaqueVistaBoton extends Button {
+
+    AtaqueVistaBoton(Ataque a) {
+        super();
     }
 }
