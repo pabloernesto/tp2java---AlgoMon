@@ -136,9 +136,9 @@ class Ataques extends GridPane {
                 .turno()
                 .getAlgomonActivo()
                 .ataques();
-            ataque1 = new AtaqueVistaBoton(a[0]);
-            ataque2 = new AtaqueVistaBoton(a[1]);
-            ataque3 = new AtaqueVistaBoton(a[2]);
+            ataque1 = new AtaqueVistaBoton(panel, a[0]);
+            ataque2 = new AtaqueVistaBoton(panel, a[1]);
+            ataque3 = new AtaqueVistaBoton(panel, a[2]);
         }
         volver = new Button("Volver");
 
@@ -198,7 +198,16 @@ class Mochila extends VBox {
 
 class AtaqueVistaBoton extends Button {
 
-    AtaqueVistaBoton(Ataque a) {
-        super(a.nombre());
+    AtaqueVistaBoton(Pane panel, Ataque a) {
+        super(a.movimiento().name());
+        setOnAction(e -> {
+            Juego j = Juego.instancia();
+            Algomon atacante = j.turno().getAlgomonActivo();
+            Algomon enemigo = j.jugadorNoActivo().getAlgomonActivo();
+            atacante.atacar(enemigo, a.movimiento());
+            j.pasarTurno();
+            panel.getChildren().clear();
+            panel.getChildren().add(new OpcionesJugador(panel));
+        });
     }
 }

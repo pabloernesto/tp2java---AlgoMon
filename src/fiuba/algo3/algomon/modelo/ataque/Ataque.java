@@ -13,8 +13,8 @@ public class Ataque
         cantidadDeUsosRestantes = this.movimiento.getCantidadDeUsos();
     }
 
-    public String nombre() {
-        return movimiento.name();
+    public Movimiento movimiento() {
+        return movimiento;
     }
 
     public int efectuar(Algomon atacado) {
