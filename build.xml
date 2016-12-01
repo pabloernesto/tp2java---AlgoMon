@@ -204,10 +204,13 @@
     </target>
 
 
-        <target name="empaquetar.con.imagenes" depends="compilar.paquete">
-            <copydir src="resources/images"
-                dest="${build}/classes/images"
-                includes="**/*"/>
+    <target name="empaquetar.con.imagenes" depends="compilar.paquete">
+        <copydir src="resources/images"
+            dest="${build}/classes/images"
+            includes="**/*"/>
+        <copydir src="resources/sounds"
+            dest="${build}/classes/sounds"
+            includes="*"/>
         <jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
     </target>
 
