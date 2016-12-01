@@ -16,6 +16,9 @@ public abstract class Item {
 
     public abstract String nombre();
 
+    public Elemento elemento(){
+        return this.elemento;
+    };
     public int usosRestantes() {
         return cantidadDeUsosRestantes;
     }
