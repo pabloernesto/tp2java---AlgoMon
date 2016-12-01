@@ -114,6 +114,10 @@ class OpcionesJugador extends GridPane {
             panel.getChildren().clear();
             panel.getChildren().add(new Mochila(panel));
         });
+
+        pasarTurno.setOnAction(e -> {
+            Juego.instancia().pasarTurno();
+        });
     }
 }
 
