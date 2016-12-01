@@ -65,7 +65,6 @@ public class Jugador extends Observable{
     }
 
     public Item[] mochila() {
-        System.out.println(mochila.values().toString());
         return mochila.values().toArray(new Item[mochila.values().size()]);
     }
 
@@ -78,6 +77,20 @@ public class Jugador extends Observable{
     public void aplicar(Elemento pocion) {
         mochila.get(pocion).aplicar(this.getAlgomonActivo());
         setChanged();       // refactor
+        notifyObservers();
+    }
+
+    public void reemplazarAlgomonDesmayado() {
+       algomonActivo.pedirCambioSiEstaDesmayado(this);
+    }
+
+    public void cambiarAlgomonActivo() {
+        for(Algomon algomon: algomones){
+            if (algomon.puedePelear()){
+                this.algomonActivo = algomon;
+            }
+        }
+        setChanged();   
         notifyObservers();
     }
 }

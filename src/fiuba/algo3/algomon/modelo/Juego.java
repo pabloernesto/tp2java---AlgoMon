@@ -68,4 +68,10 @@ public class Juego implements Observer {
     public void update(Observable jugador, Object arg) {
         this.pasarTurno();
     }
+
+    public void reemplazarAlgomonDesmayado() {
+        for  (Jugador jugador : jugadores){
+            jugador.reemplazarAlgomonDesmayado();
+        }
+    }
 }
