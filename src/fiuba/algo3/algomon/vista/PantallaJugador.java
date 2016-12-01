@@ -2,6 +2,7 @@ package fiuba.algo3.algomon.vista;
 
 import fiuba.algo3.algomon.control.Ejecutar;
 import fiuba.algo3.algomon.control.JugadoresControlador;
+import fiuba.algo3.algomon.excepciones.IngresarDosJugadoresException;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -44,8 +45,14 @@ public class PantallaJugador extends Scene {
         Button btnContinuar = new Button("Continuar");
         btnContinuar.setOnAction(e -> {
             JugadoresControlador c = new JugadoresControlador(this, aplicacion);
-            c.agregarJugadores();
-            aplicacion.crearPantallaEleccionAlgomones();
+            try {
+				c.agregarJugadores();
+				aplicacion.crearPantallaEleccionAlgomones();
+			} catch (IngresarDosJugadoresException e1) {
+				Label errorJugadores = new Label("¡Se deben ingresar los nombres de\n los dos entrenadores!");
+				errorJugadores.setStyle("-fx-font-size: 20; -fx-padding: 34 60 ; -fx-text-alignment: center; -fx-text-fill: #ff9966"); 
+				rootPane.getChildren().add(errorJugadores);
+			}
         });
         btnContinuar.setStyle(	"-fx-background-radius: 30; -fx-padding: 20; -fx-background-color: #ffcc00;"
         		+ "-fx-font-size:24; -fx-font-weight:bold; -fx-text-fill:#336699;");
