@@ -5,9 +5,9 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
-class OpcionesJugador extends GridPane {
+public class OpcionesJugador extends GridPane {
 
-    OpcionesJugador(Pane panel) {
+    public OpcionesJugador(Pane panel) {
         setHgap(20);
         setVgap(20);
 
