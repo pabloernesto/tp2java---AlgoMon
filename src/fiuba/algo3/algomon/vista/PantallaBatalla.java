@@ -133,15 +133,3 @@ class Mochila extends VBox {
         });
     }
 }
-
-class AlgomonVistaBoton extends Button {
-
-    AlgomonVistaBoton(Pane panel, Algomon algomon) {
-        setText(algomon.nombreEspecie());
-        setOnAction(e -> {
-            Juego.instancia().pasarTurno();
-            panel.getChildren().clear();
-            panel.getChildren().add(new OpcionesJugador(panel));
-        });
-    }
-}
