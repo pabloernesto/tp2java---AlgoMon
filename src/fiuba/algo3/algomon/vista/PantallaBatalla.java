@@ -117,13 +117,20 @@ class Ataques extends GridPane {
         setHgap(20);
         setVgap(20);
 
-        Button ataque1, ataque2, ataque3;
+        Button ataque1, ataque2, ataque3, volver;
         ataque1 = new Button();
         ataque2 = new Button();
         ataque3 = new Button();
+        volver = new Button("Volver");
 
         add(ataque1, 1, 1);
         add(ataque2, 3, 1);
         add(ataque3, 1, 3);
+        add(volver, 3, 3);
+
+        volver.setOnAction(e -> {
+            panel.getChildren().clear();
+            panel.getChildren().add(new OpcionesJugador(panel));
+        });
     }
 }
