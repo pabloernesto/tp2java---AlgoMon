@@ -13,6 +13,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class PantallaBatalla extends Scene {
@@ -107,6 +108,16 @@ class OpcionesJugador extends GridPane {
             panel.getChildren().clear();
             panel.getChildren().add(new Ataques(panel));
         });
+
+        algomon.setOnAction(e -> {
+            panel.getChildren().clear();
+            panel.getChildren().add(new Algomones(panel));
+        });
+
+        mochila.setOnAction(e -> {
+            panel.getChildren().clear();
+            panel.getChildren().add(new Mochila(panel));
+        });
     }
 }
 
@@ -127,6 +138,48 @@ class Ataques extends GridPane {
         add(ataque2, 3, 1);
         add(ataque3, 1, 3);
         add(volver, 3, 3);
+
+        volver.setOnAction(e -> {
+            panel.getChildren().clear();
+            panel.getChildren().add(new OpcionesJugador(panel));
+        });
+    }
+}
+
+class Algomones extends GridPane {
+
+    Algomones(Pane panel) {
+        setStyle("-fx-background-color: #ffffff");
+        setHgap(20);
+        setVgap(20);
+
+        Button algomon1, algomon2, algomon3, volver;
+        algomon1 = new Button();
+        algomon2 = new Button();
+        algomon3 = new Button();
+        volver = new Button("Volver");
+
+        add(algomon1, 1, 1);
+        add(algomon2, 3, 1);
+        add(algomon3, 1, 3);
+        add(volver, 3, 3);
+
+        volver.setOnAction(e -> {
+            panel.getChildren().clear();
+            panel.getChildren().add(new OpcionesJugador(panel));
+        });
+    }
+}
+
+class Mochila extends VBox {
+
+    Mochila(Pane panel) {
+        setStyle("-fx-background-color: #ffffff");
+        setSpacing(20);
+
+        Button volver = new Button("Volver");
+
+        getChildren().add(volver);
 
         volver.setOnAction(e -> {
             panel.getChildren().clear();
