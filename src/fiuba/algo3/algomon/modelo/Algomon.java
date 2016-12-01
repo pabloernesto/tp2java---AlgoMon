@@ -93,8 +93,11 @@ public class Algomon extends Observable {
 
     public void causarDanio(int potencia) {
         vida -= potencia;
-        if (vida < 0)
+        if (vida < 0){
             vida = 0;
+            Juego juego = Juego.instancia();
+            juego.reemplazarAlgomonDesmayado();
+        }  
 
         setChanged();
         notifyObservers("vida");
@@ -144,5 +147,14 @@ public class Algomon extends Observable {
             ataque.recuperarUsos(2);
         }
         estadoPermanente.consecuencia(this);
+    }
+
+    public void pedirCambioSiEstaDesmayado(Jugador jugador) {
+        if(vida==0){jugador.cambiarAlgomonActivo();};
+        
+    }
+
+    public boolean puedePelear() {
+        return (vida>0);
     }
 }
