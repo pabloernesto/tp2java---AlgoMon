@@ -19,19 +19,19 @@ import javafx.stage.Stage;
 
 public class PantallaEleccionAlgomones extends Scene {
 
-	    private static FlowPane rootPane = new FlowPane();
-	    private Ejecutar aplicacion;
-	
-	    public PantallaEleccionAlgomones(Stage ventana, Ejecutar ejecutar) {
-	        super(rootPane, 690, 500);
-	        this.aplicacion = ejecutar;
-	
-	        mostrarPantallaEleccionAlgomones();
-	    }
-	
-	    private void mostrarPantallaEleccionAlgomones() {
-	        BorderPane panelJ1 = new BorderPane();
-	        BorderPane panelJ2 = new BorderPane();
+        private static FlowPane rootPane = new FlowPane();
+        private Ejecutar aplicacion;
+
+        public PantallaEleccionAlgomones(Stage ventana, Ejecutar ejecutar) {
+            super(rootPane, 690, 500);
+            this.aplicacion = ejecutar;
+
+            mostrarPantallaEleccionAlgomones();
+        }
+
+        private void mostrarPantallaEleccionAlgomones() {
+            BorderPane panelJ1 = new BorderPane();
+            BorderPane panelJ2 = new BorderPane();
 
         // SETEAR PANTALLA
         rootPane.setStyle("-fx-background-color: #336699;");
@@ -118,7 +118,7 @@ public class PantallaEleccionAlgomones extends Scene {
         grillaAlgomonesElegidos.add(iconSquirtle,0,0);
         grillaAlgomonesElegidos.add(iconBulbasaur,0,1);
         grillaAlgomonesElegidos.add(iconChansey, 0, 2);
-        grillaAlgomonesElegidos.add(iconCharmander,1,0);        
+        grillaAlgomonesElegidos.add(iconCharmander,1,0);
         grillaAlgomonesElegidos.add(iconJigglypuff,1,1);
         grillaAlgomonesElegidos.add(iconRattata,1,2);
 
@@ -144,16 +144,19 @@ public class PantallaEleccionAlgomones extends Scene {
                 }
             }
             try {
-				new AlgomonesElegidosControlador(this, aplicacion, algomones, 0);
-				rootPane.getChildren().remove(panelJ1);
-	            panelJ2.setCenter(grillaAlgomones);
-	            panelJ2.setRight(grillaAlgomonesElegidos);
-	            rootPane.getChildren().add(panelJ2);
-			} catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
-				Label lblError = new Label("¡Debe elegir tres (3) algomones!");
-				lblError.setStyle("-fx-text-fill: #f4f4f4");
-				panelJ1.setLeft(lblError);
-			}
+                AlgomonesElegidosControlador c =
+                    new AlgomonesElegidosControlador(this, aplicacion,
+                        algomones, 0);
+                c.agregarAlgomones();
+                rootPane.getChildren().remove(panelJ1);
+                panelJ2.setCenter(grillaAlgomones);
+                panelJ2.setRight(grillaAlgomonesElegidos);
+                rootPane.getChildren().add(panelJ2);
+            } catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
+                Label lblError = new Label("¡Debe elegir tres (3) algomones!");
+                lblError.setStyle("-fx-text-fill: #f4f4f4");
+                panelJ1.setLeft(lblError);
+            }
         });
         panelJ1.setBottom(btnContinuar1);
 
@@ -177,13 +180,16 @@ public class PantallaEleccionAlgomones extends Scene {
                     algomones.add(cbs.get(i).getText());
             }
             try {
-				new AlgomonesElegidosControlador(this, aplicacion, algomones, 1);
-				aplicacion.crearPantallaBatalla();
-			} catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
-				Label lblError = new Label("¡Debe elegir tres (3) algomones!");
-				lblError.setStyle("-fx-text-fill: #ff0000; -fx-font-weigh: bold");
-				panelJ2.setLeft(lblError);
-			}
+                AlgomonesElegidosControlador c =
+                    new AlgomonesElegidosControlador(this, aplicacion,
+                        algomones, 1);
+                c.agregarAlgomones();
+                aplicacion.crearPantallaBatalla();
+            } catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
+                Label lblError = new Label("¡Debe elegir tres (3) algomones!");
+                lblError.setStyle("-fx-text-fill: #ff0000; -fx-font-weigh: bold");
+                panelJ2.setLeft(lblError);
+            }
         });
         panelJ2.setBottom(btnContinuar2);
     }

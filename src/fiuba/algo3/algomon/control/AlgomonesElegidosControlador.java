@@ -22,14 +22,12 @@ public class AlgomonesElegidosControlador {
         ArrayList<String> algomones,
         int nroDeJugador) throws SeDebenElegirTresAlgomonesPorJugadorException {
 
-    	if (algomones.size() != 3) throw new SeDebenElegirTresAlgomonesPorJugadorException();
-    	
+        if (algomones.size() != 3) throw new SeDebenElegirTresAlgomonesPorJugadorException();
+
         pantalla = pantallaEleccionAlgomones;
         this.aplicacion = aplicacion;
         nombresDeEspecie = algomones;
         n = nroDeJugador;
-        
-        agregarAlgomones();
     }
 
     public void agregarAlgomones() {
