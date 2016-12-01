@@ -22,7 +22,7 @@ public class PantallaBatalla extends Scene {
     private Ejecutar aplicacion;
     public Juego juego;
     private static FlowPane     rootPane = new FlowPane();
-    private static BorderPane   panelEnemigo, panelActivo;
+    Pane panelActivo, panelEnemigo;
     Pane panelOpciones = new Pane();
 
 
@@ -45,44 +45,14 @@ public class PantallaBatalla extends Scene {
     }
 
     private void mostrarPanelEnemigo() {
-        panelEnemigo = new BorderPane();
-        panelEnemigo.setStyle("-fx-background-color: #ff0000");
-        panelEnemigo.setPrefSize(500, 180);
-
-        Label nombre;
-        ImageView imgAlgomon;
-        AlgomonVistaVida barraVida;
-        {
-            Algomon enemigo = juego.jugadorNoActivo().getAlgomonActivo();
-            imgAlgomon = new AlgomonVistaImagen(enemigo).mostrarFrente();
-            barraVida = new AlgomonVistaVida(enemigo);
-            nombre = new Label(enemigo.nombreEspecie());
-        }
-        panelEnemigo.setCenter(imgAlgomon);
-        panelEnemigo.setBottom(barraVida);
-        panelEnemigo.setTop(nombre);
-
+        panelEnemigo = new JugadorVistaAlgomonActivo(
+            Juego.instancia().jugadorNoActivo());
         rootPane.getChildren().add(panelEnemigo);
     }
 
     private void mostrarPanelActivo() {
-        panelActivo = new BorderPane();
-        panelActivo.setStyle("-fx-background-color: #ffff00");
-        panelActivo.setPrefSize(500, 180);
-
-        Label nombre;
-        ImageView imgAlgomon;
-        AlgomonVistaVida barraVida;
-        {
-            Algomon activo = juego.turno().getAlgomonActivo();
-            imgAlgomon = new AlgomonVistaImagen(activo).mostrarEspalda();
-            barraVida = new AlgomonVistaVida(activo);
-            nombre = new Label(activo.nombreEspecie());
-        }
-        panelActivo.setCenter(imgAlgomon);
-        panelActivo.setBottom(nombre);
-        panelActivo.setTop(barraVida);
-
+        panelActivo = new JugadorVistaAlgomonActivo(
+            Juego.instancia().turno());
         rootPane.getChildren().add(panelActivo);
     }
 
