@@ -199,6 +199,6 @@ class Mochila extends VBox {
 class AtaqueVistaBoton extends Button {
 
     AtaqueVistaBoton(Ataque a) {
-        super();
+        super(a.nombre());
     }
 }
