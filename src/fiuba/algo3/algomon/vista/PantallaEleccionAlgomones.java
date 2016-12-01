@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import fiuba.algo3.algomon.control.AlgomonesElegidosControlador;
 import fiuba.algo3.algomon.control.Ejecutar;
 import fiuba.algo3.algomon.excepciones.SeDebenElegirTresAlgomonesPorJugadorException;
+import fiuba.algo3.algomon.modelo.Juego;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Scene;

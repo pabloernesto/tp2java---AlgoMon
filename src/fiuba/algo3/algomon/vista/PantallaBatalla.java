@@ -4,6 +4,8 @@ import fiuba.algo3.algomon.vista.AlgomonVistaImagen;
 import fiuba.algo3.algomon.vista.AlgomonVistaVida;
 import fiuba.algo3.algomon.control.Ejecutar;
 import fiuba.algo3.algomon.modelo.Juego;
+import fiuba.algo3.algomon.modelo.ataque.Ataque;
+import fiuba.algo3.algomon.modelo.elementos.Item;
 import fiuba.algo3.algomon.modelo.Algomon;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -28,7 +30,6 @@ public class PantallaBatalla extends Scene {
         super(rootPane,500,600);
 
         aplicacion = ejecutar;
-        juego = aplicacion.getModelo();
 
         dibujarPantalla();
     }
