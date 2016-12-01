@@ -14,9 +14,9 @@ public class PantallaInicio extends Scene {
 	static BorderPane rootPane = new BorderPane();
 	
 	public PantallaInicio(Stage ventana, Ejecutar aplicacion) {
-		super(rootPane, 480, 420);
+		super(rootPane, 480, 480);
 		this.aplicacion = aplicacion;
-		
+        
 		mostrarPantallaInicio();
 	}
 
@@ -29,7 +29,6 @@ public class PantallaInicio extends Scene {
         	aplicacion.crearPantallaJugadores();
         });;
         rootPane.setCenter(btnStart);
-	
 		rootPane.setStyle("-fx-background-color: #336699;");
 	}
 

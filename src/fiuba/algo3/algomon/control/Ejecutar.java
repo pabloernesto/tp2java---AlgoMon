@@ -8,11 +8,17 @@ import fiuba.algo3.algomon.vista.PantallaEleccionAlgomones;
 import fiuba.algo3.algomon.vista.PantallaInicio;
 import fiuba.algo3.algomon.vista.PantallaJugador;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 public class Ejecutar extends Application implements Observer {
 
     private Stage ventana;
+    private MenuBar menuBar;
 
     @Override
     public void start (Stage stage) {
@@ -21,8 +27,8 @@ public class Ejecutar extends Application implements Observer {
         ventana.setTitle ("Algomon 2.0 BETA Version");
         ventana.setResizable(false);
         ventana.show();
-
-        mostrarBarraDeMenu();
+        
+        cargarBarraDeMenu();
 
         crearPantallaInicio();
     }
@@ -31,23 +37,39 @@ public class Ejecutar extends Application implements Observer {
         launch(args);
     }
 
-    private void mostrarBarraDeMenu() {
-//      MenuBar menuBar = new MenuBar();
-//
-//          Menu sonido = new Menu("Sonido");
-//              MenuItem itmActivado = new MenuItem("Activado");
-//              MenuItem itmDesactivado = new MenuItem("Desactivado");
-//          sonido.getItems().addAll(itmActivado,itmDesactivado);
-//
-//          Menu salir = new Menu("Salir");
-//
-//      menuBar.getMenus().addAll(sonido,salir);
-//
-//      root.setTop(menuBar);
-//      ventana.setScene(new Scene(root,480,480));
+    private void cargarBarraDeMenu() {
+    	MenuBar menuBar = new MenuBar();
 
-//      TODO Que se vea
+        Menu sonido = new Menu("Sonido");
+        	Sonido musica = new Sonido();
+            MenuItem activado = new MenuItem("Activado");
+            activado.setOnAction(new EventHandler<ActionEvent>() {
+                public void handle(ActionEvent t) {
+                    musica.player.play();
+                }
+            });
+            MenuItem desactivado = new MenuItem("Desactivado");
+            desactivado.setOnAction(new EventHandler<ActionEvent>() {
+                public void handle(ActionEvent t) {
+                    musica.player.pause();
+                }
+            });
+        sonido.getItems().addAll(activado,desactivado);
+
+        Menu salir = new Menu("Salir");
+        salir.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent t) {
+            	musica.player.stop();
+                System.exit(0);
+            }
+        });
+
+        menuBar.getMenus().addAll(sonido,salir);
     }
+    
+    public MenuBar barraDeMenu(){
+    	return this.menuBar;
+    } 
 
     private void crearPantallaInicio() {
         ventana.setScene (new PantallaInicio(ventana, this));
