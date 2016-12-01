@@ -14,10 +14,12 @@ public class PantallaInicio extends Scene {
 	static BorderPane rootPane = new BorderPane();
 	
 	public PantallaInicio(Stage ventana, Ejecutar aplicacion) {
-		super(rootPane, 480, 480);
+		super(rootPane, 480, 400);
 		this.aplicacion = aplicacion;
-        
-		mostrarPantallaInicio();
+		
+        rootPane.setTop(aplicacion.barraDeMenu());
+		
+        mostrarPantallaInicio();
 	}
 
 	private void mostrarPantallaInicio() {		

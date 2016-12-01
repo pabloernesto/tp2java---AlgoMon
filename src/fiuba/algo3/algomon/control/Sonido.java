@@ -10,7 +10,7 @@ public class Sonido {
     MediaPlayer player;
 
         public Sonido(){
-            //~ String uriString = new File("sounds/Pokemon_theme_song.mp3").toURI().toString();
-            //~ player = new MediaPlayer( new Media(uriString));
+//            String uriString = new File("sounds/Pokemon_theme_song.mp3").toURI().toString();
+//            player = new MediaPlayer( new Media(uriString));
         }
     }

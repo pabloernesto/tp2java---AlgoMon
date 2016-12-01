@@ -8,6 +8,7 @@ import fiuba.algo3.algomon.vista.PantallaEleccionAlgomones;
 import fiuba.algo3.algomon.vista.PantallaInicio;
 import fiuba.algo3.algomon.vista.PantallaJugador;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Menu;
@@ -38,30 +39,22 @@ public class Ejecutar extends Application implements Observer {
     }
 
     private void cargarBarraDeMenu() {
-    	MenuBar menuBar = new MenuBar();
+    	this.menuBar = new MenuBar();
 
         Menu sonido = new Menu("Sonido");
         	Sonido musica = new Sonido();
             MenuItem activado = new MenuItem("Activado");
-            activado.setOnAction(new EventHandler<ActionEvent>() {
-                public void handle(ActionEvent t) {
-                    musica.player.play();
-                }
+            activado.setOnAction(e -> {
+            	musica.player.play();
             });
             MenuItem desactivado = new MenuItem("Desactivado");
-            desactivado.setOnAction(new EventHandler<ActionEvent>() {
-                public void handle(ActionEvent t) {
-                    musica.player.pause();
-                }
+            desactivado.setOnAction(e -> {
+                musica.player.pause();
             });
         sonido.getItems().addAll(activado,desactivado);
 
         Menu salir = new Menu("Salir");
-        salir.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent t) {
-            	musica.player.stop();
-                System.exit(0);
-            }
+        salir.setOnAction(e -> {
         });
 
         menuBar.getMenus().addAll(sonido,salir);
