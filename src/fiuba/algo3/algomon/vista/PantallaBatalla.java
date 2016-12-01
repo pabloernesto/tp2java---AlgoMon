@@ -30,6 +30,7 @@ public class PantallaBatalla extends Scene {
         super(rootPane,500,600);
 
         aplicacion = ejecutar;
+        juego = Juego.instancia();
 
         dibujarPantalla();
     }
@@ -38,7 +39,8 @@ public class PantallaBatalla extends Scene {
         mostrarPanelEnemigo();
         mostrarPanelActivo();
         mostrarOpciones();
-        Label copyright = new Label("Algomon 2.0 - All rights reserved FIUBA - Dec.2016");
+        Label copyright = new Label("Algomon 2.0 - All rights reserved - FIUBA Dec.2016");
+        copyright.setPrefWidth(500);
         rootPane.getChildren().add(copyright);
     }
 
