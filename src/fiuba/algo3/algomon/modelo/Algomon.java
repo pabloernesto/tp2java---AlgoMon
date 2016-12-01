@@ -53,6 +53,10 @@ public class Algomon extends Observable {
         return this;
     }
 
+    public Ataque[] ataques() {
+        return ataques.values().toArray(new Ataque[0]);
+    }
+
     public int vidaOriginal() {
         return vidaOriginal;
     }
@@ -109,36 +113,36 @@ public class Algomon extends Observable {
         return nombreEspecie;
     }
 
-	public Tipo getTipo() {
-		return tipo;
-	}
+    public Tipo getTipo() {
+        return tipo;
+    }
 
-	public void setTipo(Tipo tipo) {
-		this.tipo = tipo;
-	}
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
 
     public void aplicar(Restaurador restaurador) {
         this.restaurarEstados();
         estadoPermanente.consecuencia(this);
-        
+
     }
 
     public void aplicar(Pocion pocion) {
         this.recuperarVida(20);
         estadoPermanente.consecuencia(this);
-        
+
     }
 
     public void aplicar(SuperPocion superPocion) {
         this.recuperarVida(40);
         estadoPermanente.consecuencia(this);
-        
+
     }
 
     public void aplicar(Vitamina vitamina) {
         for (Ataque ataque : ataques.values() ){
             ataque.recuperarUsos(2);
-        }        
+        }
         estadoPermanente.consecuencia(this);
     }
 }
