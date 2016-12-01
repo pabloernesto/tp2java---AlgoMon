@@ -157,7 +157,7 @@ public class PantallaEleccionAlgomones extends Scene {
                 panelJ2.setRight(grillaAlgomonesElegidos);
                 rootPane.getChildren().add(panelJ2);
             } catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
-                Label lblError = new Label("¡Debe elegir tres (3) algomones!");
+                Label lblError = new Label("Debe elegir tres (3) algomones!");
                 lblError.setStyle("-fx-text-fill: #f4f4f4");
                 panelJ1.setLeft(lblError);
             }
@@ -190,7 +190,7 @@ public class PantallaEleccionAlgomones extends Scene {
                 c.agregarAlgomones();
                 aplicacion.crearPantallaBatalla();
             } catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
-                Label lblError = new Label("¡Debe elegir tres (3) algomones!");
+                Label lblError = new Label("Debe elegir tres (3) algomones!");
                 lblError.setStyle("-fx-text-fill: #ff0000; -fx-font-weigh: bold");
                 panelJ2.setLeft(lblError);
             }
