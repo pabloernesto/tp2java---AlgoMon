@@ -14,12 +14,10 @@ import javafx.stage.Stage;
 public class Ejecutar extends Application implements Observer {
 
     private Stage ventana;
-    private Juego modelo;
 
     @Override
     public void start (Stage stage) {
         ventana = stage;
-        modelo = new Juego();
 
         ventana.setTitle ("Algomon 2.0 BETA Version");
         ventana.setResizable(false);
@@ -66,10 +64,6 @@ public class Ejecutar extends Application implements Observer {
 
     public void crearPantallaBatalla() {
         ventana.setScene(new PantallaBatalla(this));
-    }
-
-    public Juego getModelo() {
-        return this.modelo;
     }
 
     @Override

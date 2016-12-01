@@ -19,7 +19,6 @@ import javafx.stage.Stage;
 public class PantallaBatalla extends Scene {
 
     private Ejecutar aplicacion;
-    public Juego juego;
     private static FlowPane     rootPane = new FlowPane();
     private static BorderPane   panelEnemigo, panelActivo;
     Pane panelOpciones = new Pane();
@@ -29,10 +28,7 @@ public class PantallaBatalla extends Scene {
         super(rootPane,690,500);
 
         aplicacion = ejecutar;
-        juego = aplicacion.getModelo();
-
         dibujarPantalla();
-
     }
 
     private void dibujarPantalla() {
@@ -49,7 +45,7 @@ public class PantallaBatalla extends Scene {
         AlgomonVistaImagen imgAlgomon;
         AlgomonVistaVida barraVida;
         {
-            Algomon enemigo = juego.jugador(1).getAlgomonActivo();
+            Algomon enemigo = Juego.instancia().jugador(1).getAlgomonActivo();
             imgAlgomon = new AlgomonVistaImagen(enemigo);
             barraVida = new AlgomonVistaVida(enemigo);
             nombre = new Label(enemigo.nombreEspecie());
@@ -69,7 +65,7 @@ public class PantallaBatalla extends Scene {
         AlgomonVistaImagen imgAlgomon;
         AlgomonVistaVida barraVida;
         {
-            Algomon activo = juego.jugador(0).getAlgomonActivo();
+            Algomon activo = Juego.instancia().jugador(0).getAlgomonActivo();
             imgAlgomon = new AlgomonVistaImagen(activo);
             barraVida = new AlgomonVistaVida(activo);
             nombre = new Label(activo.nombreEspecie());

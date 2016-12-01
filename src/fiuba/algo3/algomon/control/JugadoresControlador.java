@@ -12,7 +12,7 @@ public class JugadoresControlador {
     public JugadoresControlador(PantallaJugador pantallaJugador,
         Ejecutar aplicacion){
 
-        j = aplicacion.getModelo();
+        j = Juego.instancia();
         p = pantallaJugador;
 
     }

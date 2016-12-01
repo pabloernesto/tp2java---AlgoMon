@@ -3,6 +3,9 @@ package fiuba.algo3.algomon.vista;
 import java.util.ArrayList;
 import fiuba.algo3.algomon.control.AlgomonesElegidosControlador;
 import fiuba.algo3.algomon.control.Ejecutar;
+
+import fiuba.algo3.algomon.modelo.Juego;
+
 import fiuba.algo3.algomon.excepciones.SeDebenElegirTresAlgomonesPorJugadorException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -128,7 +131,7 @@ public class PantallaEleccionAlgomones extends Scene {
         // JUGADOR 1
         Label lblEntrenador1 = new Label(
             "Entrenador/a "
-            + aplicacion.getModelo().jugador(0).nombre()
+            + Juego.instancia().jugador(0).nombre()
             +" elija 3 algomones:");
         lblEntrenador1.setStyle(
             "-fx-font-size:28 ; -fx-text-fill: #f5f5f5; -fx-padding: 10px;");
@@ -165,7 +168,7 @@ public class PantallaEleccionAlgomones extends Scene {
         // JUGADOR 2
         Label lblEntrenador2 = new Label(
             "Entrenador/a "
-            + aplicacion.getModelo().jugador(1).nombre()
+            + Juego.instancia().jugador(1).nombre()
             + " elija 3 algomones:");
             lblEntrenador2.setStyle(
                 "-fx-font-size:28 ; -fx-text-fill: #f5f5f5;"
