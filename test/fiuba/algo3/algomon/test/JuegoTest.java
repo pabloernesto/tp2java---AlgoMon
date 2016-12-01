@@ -9,6 +9,7 @@ import fiuba.algo3.algomon.excepciones.ImposibleAgregarMasJugadoresException;
 import fiuba.algo3.algomon.modelo.Especie;
 import fiuba.algo3.algomon.modelo.Juego;
 import fiuba.algo3.algomon.modelo.Jugador;
+import fiuba.algo3.algomon.modelo.elementos.Elemento;
 
 public class JuegoTest {
 
@@ -72,6 +73,30 @@ public class JuegoTest {
         //~ primer jugador se elige aleatoriamente: no se si es mabel o nahuel
         Jugador primero = juego.turno();
         primero.cambiarAlgomonActivo(1);
+        assertNotSame(primero, juego.turno());
+    }
+
+    @Test
+    public void cambiaElTurnoDespuesDeQueJugadorUsaItem(){
+        Juego juego = Juego.instancia();
+        {
+            Jugador mabel = new Jugador("Mabel");
+            mabel.elegirAlgomon(Especie.BULBASAUR.nuevo());
+            mabel.elegirAlgomon(Especie.CHANSEY.nuevo());
+            mabel.elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
+            juego.agregarJugador(mabel);
+        }
+        {
+            Jugador nahuel = new Jugador("Nahuel");
+            nahuel.elegirAlgomon(Especie.CHARMANDER.nuevo());
+            nahuel.elegirAlgomon(Especie.RATTATA.nuevo());
+            nahuel.elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
+            juego.agregarJugador(nahuel);
+        }
+
+        //~ primer jugador se elige aleatoriamente: no se si es mabel o nahuel
+        Jugador primero = juego.turno();
+        primero.aplicar(Elemento.POCION);
         assertNotSame(primero, juego.turno());
     }
 }

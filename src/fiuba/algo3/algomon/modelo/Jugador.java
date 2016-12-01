@@ -76,5 +76,7 @@ public class Jugador extends Observable{
 
     public void aplicar(Elemento pocion) {
         mochila.get(pocion).aplicar(this.getAlgomonActivo());
+        setChanged();       // refactor
+        notifyObservers();
     }
 }
