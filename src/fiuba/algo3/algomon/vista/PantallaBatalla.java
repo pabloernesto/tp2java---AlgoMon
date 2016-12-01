@@ -208,22 +208,6 @@ class Mochila extends VBox {
     }
 }
 
-class AtaqueVistaBoton extends Button {
-
-    AtaqueVistaBoton(Pane panel, Ataque a) {
-        super(a.movimiento().name());
-        setOnAction(e -> {
-            Juego j = Juego.instancia();
-            Algomon atacante = j.turno().getAlgomonActivo();
-            Algomon enemigo = j.jugadorNoActivo().getAlgomonActivo();
-            atacante.atacar(enemigo, a.movimiento());
-            j.pasarTurno();
-            panel.getChildren().clear();
-            panel.getChildren().add(new OpcionesJugador(panel));
-        });
-    }
-}
-
 class ItemVistaBoton extends Button {
 
     ItemVistaBoton(Pane panel, Item item) {
