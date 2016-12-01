@@ -19,19 +19,19 @@ import javafx.stage.Stage;
 
 public class PantallaEleccionAlgomones extends Scene {
 
-    private static FlowPane rootPane = new FlowPane();
-    private Ejecutar aplicacion;
-
-    public PantallaEleccionAlgomones(Stage ventana, Ejecutar ejecutar) {
-        super(rootPane, 690, 500);
-        this.aplicacion = ejecutar;
-
-        mostrarPantallaEleccionAlgomones();
-    }
-
-    private void mostrarPantallaEleccionAlgomones() {
-        BorderPane panelJ1 = new BorderPane();
-        BorderPane panelJ2 = new BorderPane();
+	    private static FlowPane rootPane = new FlowPane();
+	    private Ejecutar aplicacion;
+	
+	    public PantallaEleccionAlgomones(Stage ventana, Ejecutar ejecutar) {
+	        super(rootPane, 690, 500);
+	        this.aplicacion = ejecutar;
+	
+	        mostrarPantallaEleccionAlgomones();
+	    }
+	
+	    private void mostrarPantallaEleccionAlgomones() {
+	        BorderPane panelJ1 = new BorderPane();
+	        BorderPane panelJ2 = new BorderPane();
 
         // SETEAR PANTALLA
         rootPane.setStyle("-fx-background-color: #336699;");
@@ -110,10 +110,10 @@ public class PantallaEleccionAlgomones extends Scene {
 
         grillaAlgomones.add(cbSquirtle, 0, 0);
         grillaAlgomones.add(cbBulbasaur, 1, 0);
-        grillaAlgomones.add(cbChansey, 2, 0);
-        grillaAlgomones.add(cbCharmander, 0, 1);
-        grillaAlgomones.add(cbJigglypuff, 1, 1);
-        grillaAlgomones.add(cbRattata, 2, 1);
+        grillaAlgomones.add(cbChansey, 0, 1);
+        grillaAlgomones.add(cbCharmander, 1, 1);
+        grillaAlgomones.add(cbJigglypuff, 0, 2);
+        grillaAlgomones.add(cbRattata, 1, 2);
 
         grillaAlgomonesElegidos.add(iconSquirtle,0,0);
         grillaAlgomonesElegidos.add(iconBulbasaur,0,1);
@@ -131,8 +131,7 @@ public class PantallaEleccionAlgomones extends Scene {
             + aplicacion.getModelo().jugador(0).nombre()
             +" elija 3 algomones:");
         lblEntrenador1.setStyle(
-            "-fx-font-size:28 ; -fx-text-fill: #f5f5f5;"
-            + "-fx-padding: 10px;");
+            "-fx-font-size:28 ; -fx-text-fill: #f5f5f5; -fx-padding: 10px;");
         panelJ1.setTop(lblEntrenador1);
 
         Button btnContinuar1 = new Button("Continuar");
@@ -161,7 +160,6 @@ public class PantallaEleccionAlgomones extends Scene {
         rootPane.getChildren().add(panelJ1);
 
         // JUGADOR 2
-
         Label lblEntrenador2 = new Label(
             "Entrenador/a "
             + aplicacion.getModelo().jugador(1).nombre()

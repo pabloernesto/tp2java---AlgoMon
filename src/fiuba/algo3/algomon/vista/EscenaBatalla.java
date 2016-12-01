@@ -1,6 +1,7 @@
 package fiuba.algo3.algomon.vista;
 
 import fiuba.algo3.algomon.modelo.Algomon;
+import fiuba.algo3.algomon.modelo.AuxiliarImagen;
 import fiuba.algo3.algomon.modelo.Juego;
 
 import javafx.scene.Scene;
@@ -61,7 +62,7 @@ class VistaAlgomonesPrincipales extends VBox {
                     .instancia()
                     .jugador(0)
                     .getAlgomonActivo();
-            AlgomonVistaImagen avi = new AlgomonVistaImagen(a);
+            AuxiliarImagen avi = new AuxiliarImagen(a);
             AlgomonVistaVida avv = new AlgomonVistaVida(a);
             avi.mostrarEspalda();
             paneNos.getChildren().addAll(avi, avv);
@@ -72,7 +73,7 @@ class VistaAlgomonesPrincipales extends VBox {
                     .instancia()
                     .jugador(1)
                     .getAlgomonActivo();
-            AlgomonVistaImagen avi = new AlgomonVistaImagen(b);
+            AuxiliarImagen avi = new AuxiliarImagen(b);
             AlgomonVistaVida avv = new AlgomonVistaVida(b);
             paneEllos.getChildren().addAll(avv, avi);
         }
