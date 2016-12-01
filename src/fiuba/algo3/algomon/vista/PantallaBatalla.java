@@ -8,6 +8,7 @@ import fiuba.algo3.algomon.modelo.Algomon;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
@@ -20,7 +21,8 @@ public class PantallaBatalla extends Scene {
     public Juego juego;
     private static FlowPane     rootPane = new FlowPane();
     private static BorderPane   panelEnemigo, panelActivo;
-    private static GridPane     panelOpciones;
+    Pane panelOpciones = new Pane();
+
 
     public PantallaBatalla(Ejecutar ejecutar) {
         super(rootPane,690,500);
@@ -79,13 +81,14 @@ public class PantallaBatalla extends Scene {
     }
 
     private void mostrarOpciones() {
-        rootPane.getChildren().add(new OpcionesJugador());
+        rootPane.getChildren().add(panelOpciones);
+        panelOpciones.getChildren().add(new OpcionesJugador(panelOpciones));
     }
 }
 
 class OpcionesJugador extends GridPane {
 
-    OpcionesJugador() {
+    OpcionesJugador(Pane panel) {
         setStyle("-fx-background-color: #ffffff");
         setHgap(20);
         setVgap(20);
@@ -99,5 +102,28 @@ class OpcionesJugador extends GridPane {
         add(algomon, 3, 1);
         add(mochila, 1, 3);
         add(pasarTurno, 3, 3);
+
+        atacar.setOnAction(e -> {
+            panel.getChildren().clear();
+            panel.getChildren().add(new Ataques(panel));
+        });
+    }
+}
+
+class Ataques extends GridPane {
+
+    Ataques(Pane panel) {
+        setStyle("-fx-background-color: #ffffff");
+        setHgap(20);
+        setVgap(20);
+
+        Button ataque1, ataque2, ataque3;
+        ataque1 = new Button();
+        ataque2 = new Button();
+        ataque3 = new Button();
+
+        add(ataque1, 1, 1);
+        add(ataque2, 3, 1);
+        add(ataque3, 1, 3);
     }
 }
