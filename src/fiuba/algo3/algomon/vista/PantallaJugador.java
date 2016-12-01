@@ -49,7 +49,7 @@ public class PantallaJugador extends Scene {
 				c.agregarJugadores();
 				aplicacion.crearPantallaEleccionAlgomones();
 			} catch (IngresarDosJugadoresException e1) {
-				Label errorJugadores = new Label("¡Se deben ingresar los nombres de\n los dos entrenadores!");
+				Label errorJugadores = new Label("Se deben ingresar los nombres de\n los dos entrenadores!");
 				errorJugadores.setStyle("-fx-font-size: 20; -fx-padding: 34 60 ; -fx-text-alignment: center; -fx-text-fill: #ff9966"); 
 				rootPane.getChildren().add(errorJugadores);
 			}
