@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class PantallaEleccionAlgomones extends Scene {
@@ -31,21 +32,26 @@ public class PantallaEleccionAlgomones extends Scene {
 	    }
 	
 	    private void mostrarPantallaEleccionAlgomones() {
-	        BorderPane panelJ1 = new BorderPane();
-	        BorderPane panelJ2 = new BorderPane();
-
+	    BorderPane panelJ1 = new BorderPane();
+	    panelJ1.setPrefSize(500,600);
+	    BorderPane panelJ2 = new BorderPane();
+	    panelJ2.setPrefSize(500,600);
+	    
         // SETEAR PANTALLA
         rootPane.setStyle("-fx-background-color: #336699;");
 
         GridPane grillaAlgomones = new GridPane();
-        grillaAlgomones.setHgap(30);
-        grillaAlgomones.setVgap(30);
-
+        grillaAlgomones.setPrefSize(300, 240);
+        grillaAlgomones.setHgap(34);			grillaAlgomones.setVgap(40);
+        grillaAlgomones.setStyle("-fx-padding:30; -fx-font-size: 18;");
+        
         GridPane grillaAlgomonesElegidos = new GridPane();
-        grillaAlgomonesElegidos.setHgap(2);
-        grillaAlgomonesElegidos.setVgap(10);
+        grillaAlgomonesElegidos.setPrefSize(300, 260);
+        grillaAlgomonesElegidos.setHgap(8);		grillaAlgomonesElegidos.setVgap(14);
+        grillaAlgomonesElegidos.setStyle("-fx-padding:20;");
 
         CheckBox cbSquirtle = new CheckBox("Squirtle");
+        cbSquirtle.setStyle("-fx-text-fill: #ffff99;");
         ImageView iconSquirtle = new ImageView();
         Image imgSquirtle = new Image("images/front/Squirtle.png");
         cbSquirtle.selectedProperty().addListener(
@@ -54,8 +60,8 @@ public class PantallaEleccionAlgomones extends Scene {
                     iconSquirtle.setImage(newValue ? imgSquirtle : null);
                 }
             });
-
         CheckBox cbBulbasaur = new CheckBox("Bulbasaur");
+        cbBulbasaur.setStyle("-fx-text-fill: #ffff99;");
         ImageView iconBulbasaur = new ImageView();
         Image imgBulbasaur = new Image("images/front/Bulbasaur.png");
         cbBulbasaur.selectedProperty().addListener(
@@ -65,6 +71,7 @@ public class PantallaEleccionAlgomones extends Scene {
                 }
             });
         CheckBox cbChansey = new CheckBox("Chansey");
+        cbChansey.setStyle("-fx-text-fill: #ffff99;");
         ImageView iconChansey = new ImageView();
         Image imgChansey = new Image("images/front/Chansey.png");
         cbChansey.selectedProperty().addListener(
@@ -74,6 +81,7 @@ public class PantallaEleccionAlgomones extends Scene {
                 }
             });
         CheckBox cbCharmander = new CheckBox("Charmander");
+        cbCharmander.setStyle("-fx-text-fill: #ffff99;");
         ImageView iconCharmander = new ImageView();
         Image imgCharmander = new Image("images/front/Charmander.png");
         cbCharmander.selectedProperty().addListener(
@@ -83,6 +91,7 @@ public class PantallaEleccionAlgomones extends Scene {
                 }
             });
         CheckBox cbJigglypuff = new CheckBox("Jigglypuff");
+        cbJigglypuff.setStyle("-fx-text-fill: #ffff99;");
         ImageView iconJigglypuff = new ImageView();
         Image imgJigglypuff = new Image("images/front/Jigglypuff.png");
         cbJigglypuff.selectedProperty().addListener(
@@ -92,6 +101,7 @@ public class PantallaEleccionAlgomones extends Scene {
                 }
             });
         CheckBox cbRattata = new CheckBox("Rattata");
+        cbRattata.setStyle("-fx-text-fill: #ffff99;");
         ImageView iconRattata = new ImageView();
         Image imgRattata = new Image("images/front/Rattata.png");
         cbRattata.selectedProperty().addListener(
@@ -102,19 +112,14 @@ public class PantallaEleccionAlgomones extends Scene {
             });
 
         ArrayList<CheckBox> cbs = new ArrayList<CheckBox>();
-        cbs.add(cbSquirtle);
-        cbs.add(cbBulbasaur);
-        cbs.add(cbChansey);
-        cbs.add(cbCharmander);
-        cbs.add(cbJigglypuff);
-        cbs.add(cbRattata);
+        cbs.add(cbSquirtle); cbs.add(cbBulbasaur); cbs.add(cbChansey); cbs.add(cbCharmander); cbs.add(cbJigglypuff); cbs.add(cbRattata);
 
         grillaAlgomones.add(cbSquirtle, 0, 0);
-        grillaAlgomones.add(cbBulbasaur, 1, 0);
-        grillaAlgomones.add(cbChansey, 0, 1);
-        grillaAlgomones.add(cbCharmander, 1, 1);
-        grillaAlgomones.add(cbJigglypuff, 0, 2);
-        grillaAlgomones.add(cbRattata, 1, 2);
+        grillaAlgomones.add(cbBulbasaur, 0, 1);
+        grillaAlgomones.add(cbChansey, 0, 2);
+        grillaAlgomones.add(cbCharmander, 0, 3);
+        grillaAlgomones.add(cbJigglypuff, 0, 4);
+        grillaAlgomones.add(cbRattata, 0, 5);
 
         grillaAlgomonesElegidos.add(iconSquirtle,0,0);
         grillaAlgomonesElegidos.add(iconBulbasaur,0,1);
@@ -130,11 +135,16 @@ public class PantallaEleccionAlgomones extends Scene {
         Label lblEntrenador1 = new Label(
             "Entrenador/a "
             + Juego.instancia().jugador(0).nombre()
-            +" elija 3 algomones:");
-        lblEntrenador1.setStyle(
-            "-fx-font-size:28 ; -fx-text-fill: #f5f5f5; -fx-padding: 10px;");
+            +"\n elija 3 algomones");
+        	lblEntrenador1.setStyle("-fx-font-size:24 ; -fx-text-fill: #ffcc00; -fx-padding:20 94; -fx-font-weight: bold;");
         panelJ1.setTop(lblEntrenador1);
 
+        HBox hb1 = new HBox();
+        
+        Label errorAlgomones1 = new Label("¡Debe elegir tres (3) algomones!"); errorAlgomones1.setVisible(false);
+        errorAlgomones1.setStyle("-fx-text-fill: #ff9966; -fx-font-size:16; -fx-padding:20");
+        hb1.getChildren().add(errorAlgomones1);
+        
         Button btnContinuar1 = new Button("Continuar");
         btnContinuar1.setOnAction(e -> {
             ArrayList<String> algomones = new ArrayList<String>();
@@ -154,12 +164,13 @@ public class PantallaEleccionAlgomones extends Scene {
                 panelJ2.setRight(grillaAlgomonesElegidos);
                 rootPane.getChildren().add(panelJ2);
             } catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
-                Label lblError = new Label("Debe elegir tres (3) algomones!");
-                lblError.setStyle("-fx-text-fill: #f4f4f4");
-                panelJ1.setLeft(lblError);
+            	errorAlgomones1.setVisible(true);
             }
         });
-        panelJ1.setBottom(btnContinuar1);
+        btnContinuar1.setStyle(	"-fx-background-radius: 30; -fx-padding: 20; -fx-background-color: #ffcc00;"
+        		+ "-fx-font-size:18; -fx-font-weight:bold; -fx-text-fill:#336699;");
+        hb1.getChildren().add(btnContinuar1);
+        panelJ1.setBottom(hb1);
 
         rootPane.getChildren().add(panelJ1);
 
@@ -167,12 +178,16 @@ public class PantallaEleccionAlgomones extends Scene {
         Label lblEntrenador2 = new Label(
             "Entrenador/a "
             + Juego.instancia().jugador(1).nombre()
-            + " elija 3 algomones:");
-            lblEntrenador2.setStyle(
-                "-fx-font-size:28 ; -fx-text-fill: #f5f5f5;"
-                + "-fx-padding: 10px;");
+            + "\n elija 3 algomones:");
+            lblEntrenador2.setStyle("-fx-font-size:24 ; -fx-text-fill: #ffcc00; -fx-padding:20 94; -fx-font-weight: bold");
         panelJ2.setTop(lblEntrenador2);
 
+        HBox hb2 = new HBox();
+        
+        Label errorAlgomones2 = new Label("¡Debe elegir tres (3) algomones!"); errorAlgomones2.setVisible(false);
+        errorAlgomones2.setStyle("-fx-text-fill: #ff9966; -fx-font-size:16; -fx-padding:20");
+        hb2.getChildren().add(errorAlgomones2);
+        
         Button btnContinuar2 = new Button("Continuar");
         btnContinuar2.setOnAction(e -> {
             ArrayList<String> algomones = new ArrayList<String>();
@@ -182,16 +197,16 @@ public class PantallaEleccionAlgomones extends Scene {
             }
             try {
                 AlgomonesElegidosControlador c =
-                    new AlgomonesElegidosControlador(this, aplicacion,
-                        algomones, 1);
+                    new AlgomonesElegidosControlador(this, aplicacion, algomones, 1);
                 c.agregarAlgomones();
                 aplicacion.crearPantallaBatalla();
             } catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
-                Label lblError = new Label("Debe elegir tres (3) algomones!");
-                lblError.setStyle("-fx-text-fill: #ff0000; -fx-font-weigh: bold");
-                panelJ2.setLeft(lblError);
+            	 errorAlgomones2.setVisible(true);
             }
         });
-        panelJ2.setBottom(btnContinuar2);
+        btnContinuar2.setStyle(	"-fx-background-radius: 30; -fx-padding: 20; -fx-background-color: #ffcc00;"
+        		+ "-fx-font-size:18; -fx-font-weight:bold; -fx-text-fill:#336699;");
+        hb2.getChildren().add(btnContinuar2);
+        panelJ2.setBottom(hb2);
     }
 }

@@ -14,17 +14,17 @@ public class PantallaInicio extends Scene {
 	static BorderPane rootPane = new BorderPane();
 	
 	public PantallaInicio(Stage ventana, Ejecutar aplicacion) {
-		super(rootPane, 500, 600);
+		super(rootPane, 480, 420);
 		this.aplicacion = aplicacion;
 		
 		mostrarPantallaInicio();
 	}
 
 	private void mostrarPantallaInicio() {		
-        Image imgLogo = new Image("images/pokemon-logo.png");
+        Image imgLogo = new Image("images/algomon.png");
         Button btnStart = new Button();
         btnStart.setGraphic(new ImageView(imgLogo));
-        btnStart.setStyle("-fx-background-color: #336699;");
+        btnStart.setStyle("-fx-background-color: #336699; -fx-padding:0;");
         btnStart.setOnAction(e-> {
         	aplicacion.crearPantallaJugadores();
         });;
