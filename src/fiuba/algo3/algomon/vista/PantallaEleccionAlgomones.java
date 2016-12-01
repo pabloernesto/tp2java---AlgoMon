@@ -141,7 +141,7 @@ public class PantallaEleccionAlgomones extends Scene {
 
         HBox hb1 = new HBox();
         
-        Label errorAlgomones1 = new Label("¡Debe elegir tres (3) algomones!"); errorAlgomones1.setVisible(false);
+        Label errorAlgomones1 = new Label("Debe elegir tres (3) algomones!"); errorAlgomones1.setVisible(false);
         errorAlgomones1.setStyle("-fx-text-fill: #ff9966; -fx-font-size:16; -fx-padding:20");
         hb1.getChildren().add(errorAlgomones1);
         
@@ -184,7 +184,7 @@ public class PantallaEleccionAlgomones extends Scene {
 
         HBox hb2 = new HBox();
         
-        Label errorAlgomones2 = new Label("¡Debe elegir tres (3) algomones!"); errorAlgomones2.setVisible(false);
+        Label errorAlgomones2 = new Label("Debe elegir tres (3) algomones!"); errorAlgomones2.setVisible(false);
         errorAlgomones2.setStyle("-fx-text-fill: #ff9966; -fx-font-size:16; -fx-padding:20");
         hb2.getChildren().add(errorAlgomones2);
         

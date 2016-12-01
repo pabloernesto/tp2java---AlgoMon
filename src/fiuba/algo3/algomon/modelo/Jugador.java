@@ -65,7 +65,8 @@ public class Jugador extends Observable{
     }
 
     public Item[] mochila() {
-        return mochila.values().toArray(new Item[0]);
+        System.out.println(mochila.values().toString());
+        return mochila.values().toArray(new Item[mochila.values().size()]);
     }
 
     public void cambiarAlgomonActivo(int nuevoAlgomonActivo) {
@@ -76,5 +77,7 @@ public class Jugador extends Observable{
 
     public void aplicar(Elemento pocion) {
         mochila.get(pocion).aplicar(this.getAlgomonActivo());
+        setChanged();       // refactor
+        notifyObservers();
     }
 }
