@@ -220,6 +220,11 @@ class ItemVistaBoton extends Button {
     ItemVistaBoton(Pane panel, Item item) {
         //~ Juego.instancia().turno().aplicar(item);
         setText(item.nombre());
-
+        setOnAction(e -> {
+            Juego j = Juego.instancia();
+            j.pasarTurno();
+            panel.getChildren().clear();
+            panel.getChildren().add(new OpcionesJugador(panel));
+        });
     }
 }
