@@ -8,13 +8,12 @@ import fiuba.algo3.algomon.modelo.Algomon;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class PantallaBatalla extends Scene {
 
@@ -26,31 +25,33 @@ public class PantallaBatalla extends Scene {
 
 
     public PantallaBatalla(Ejecutar ejecutar) {
-        super(rootPane,690,500);
+        super(rootPane,500,600);
 
         aplicacion = ejecutar;
         juego = aplicacion.getModelo();
 
         dibujarPantalla();
-
     }
 
     private void dibujarPantalla() {
         mostrarPanelEnemigo();
         mostrarPanelActivo();
         mostrarOpciones();
+        Label copyright = new Label("Algomon 2.0 - All rights reserved FIUBA - Dec.2016");
+        rootPane.getChildren().add(copyright);
     }
 
     private void mostrarPanelEnemigo() {
         panelEnemigo = new BorderPane();
         panelEnemigo.setStyle("-fx-background-color: #ff0000");
+        panelEnemigo.setPrefSize(500, 180);
 
         Label nombre;
-        AlgomonVistaImagen imgAlgomon;
+        ImageView imgAlgomon;
         AlgomonVistaVida barraVida;
         {
-            Algomon enemigo = juego.jugador(1).getAlgomonActivo();
-            imgAlgomon = new AlgomonVistaImagen(enemigo);
+            Algomon enemigo = juego.jugadorNoActivo().getAlgomonActivo();
+            imgAlgomon = new AlgomonVistaImagen(enemigo).mostrarFrente();
             barraVida = new AlgomonVistaVida(enemigo);
             nombre = new Label(enemigo.nombreEspecie());
         }
@@ -64,33 +65,36 @@ public class PantallaBatalla extends Scene {
     private void mostrarPanelActivo() {
         panelActivo = new BorderPane();
         panelActivo.setStyle("-fx-background-color: #ffff00");
+        panelActivo.setPrefSize(500, 180);
 
         Label nombre;
-        AlgomonVistaImagen imgAlgomon;
+        ImageView imgAlgomon;
         AlgomonVistaVida barraVida;
         {
-            Algomon activo = juego.jugador(0).getAlgomonActivo();
-            imgAlgomon = new AlgomonVistaImagen(activo);
+            Algomon activo = juego.turno().getAlgomonActivo();
+            imgAlgomon = new AlgomonVistaImagen(activo).mostrarEspalda();
             barraVida = new AlgomonVistaVida(activo);
             nombre = new Label(activo.nombreEspecie());
         }
         panelActivo.setCenter(imgAlgomon);
-        panelActivo.setBottom(barraVida);
-        panelActivo.setTop(nombre);
+        panelActivo.setBottom(nombre);
+        panelActivo.setTop(barraVida);
 
         rootPane.getChildren().add(panelActivo);
     }
 
     private void mostrarOpciones() {
+    	panelOpciones.setStyle("-fx-background-color: #ffffff");
+    	panelOpciones.setPrefSize(500,220);
         rootPane.getChildren().add(panelOpciones);
         panelOpciones.getChildren().add(new OpcionesJugador(panelOpciones));
     }
 }
 
+
 class OpcionesJugador extends GridPane {
 
     OpcionesJugador(Pane panel) {
-        setStyle("-fx-background-color: #ffffff");
         setHgap(20);
         setVgap(20);
 

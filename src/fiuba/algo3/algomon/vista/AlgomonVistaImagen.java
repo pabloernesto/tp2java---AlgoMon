@@ -10,7 +10,6 @@ public class AlgomonVistaImagen extends ImageView {
 
     public AlgomonVistaImagen(Algomon a) {
         algomon = a;
-        mostrarFrente();
     }
 
     public ImageView mostrarFrente() {

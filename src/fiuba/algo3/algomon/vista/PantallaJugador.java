@@ -17,7 +17,7 @@ public class PantallaJugador extends Scene {
     public TextField txtNombreJugador1,txtNombreJugador2;
 
     public PantallaJugador(Stage ventana, Ejecutar aplicacion) {
-        super(rootPane,480,480);
+        super(rootPane,500,600);
         this.aplicacion = aplicacion;
 
         mostrarPantallaJugadores();
@@ -28,11 +28,13 @@ public class PantallaJugador extends Scene {
         HBox hboxJugador1 = new HBox();
             Label lblNombreJugador1 = new Label("Nombre de entrenador/a Algomon N1: ");
             txtNombreJugador1 = new TextField();
+        hboxJugador1.setPrefSize(500, 200);
         hboxJugador1.getChildren().addAll(lblNombreJugador1, txtNombreJugador1);
 
         HBox hboxJugador2 = new HBox();
             Label lblNombreJugador2 = new Label("Nombre de entrenador/a Algomon N2: ");
             txtNombreJugador2 = new TextField();
+            hboxJugador1.setPrefSize(500, 200);
         hboxJugador2.getChildren().addAll(lblNombreJugador2, txtNombreJugador2);
 
         Button btnContinuar = new Button("Continuar");

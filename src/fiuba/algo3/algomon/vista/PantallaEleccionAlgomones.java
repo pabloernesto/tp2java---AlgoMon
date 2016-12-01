@@ -23,7 +23,7 @@ public class PantallaEleccionAlgomones extends Scene {
 	    private Ejecutar aplicacion;
 	
 	    public PantallaEleccionAlgomones(Stage ventana, Ejecutar ejecutar) {
-	        super(rootPane, 690, 500);
+	        super(rootPane, 500, 600);
 	        this.aplicacion = ejecutar;
 	
 	        mostrarPantallaEleccionAlgomones();
