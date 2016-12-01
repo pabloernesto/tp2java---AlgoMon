@@ -6,7 +6,7 @@ import fiuba.algo3.algomon.modelo.Algomon;
 public class Vitamina extends Item {
 
     Vitamina(Elemento unElemento) {
-        this.cantidadDeUsosRestantes = unElemento.cantidadInicialDeElemento;
+        super(unElemento);
     };
 
     public void aplicar(Algomon algomonActivo) {
