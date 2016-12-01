@@ -159,7 +159,7 @@ class Mochila extends VBox {
         setSpacing(20);
 
         for (Item i : Juego.instancia().turno().mochila()) {
-            getChildren().add(new ItemVistaBoton(panel, i));
+            getChildren().add(new ItemBoton(panel, i));
         }
 
         Button volver = new Button("Volver");
@@ -170,17 +170,17 @@ class Mochila extends VBox {
         });
     }
 }
-
-class ItemVistaBoton extends Button {
-
-    ItemVistaBoton(Pane panel, Item item) {
-        //~ Juego.instancia().turno().aplicar(item);
-        setText(item.nombre());
-        setOnAction(e -> {
-            Juego j = Juego.instancia();
-            j.pasarTurno();
-            panel.getChildren().clear();
-            panel.getChildren().add(new OpcionesJugador(panel));
-        });
-    }
-}
+//
+//class ItemVistaBoton extends Button {
+//
+//    ItemVistaBoton(Pane panel, Item item) {
+//        //~ Juego.instancia().turno().aplicar(item);
+//        setText(item.nombre());
+//        setOnAction(e -> {
+//            Juego j = Juego.instancia();
+//            j.pasarTurno();
+//            panel.getChildren().clear();
+//            panel.getChildren().add(new OpcionesJugador(panel));
+//        });
+//    }
+//}
