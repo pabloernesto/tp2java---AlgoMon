@@ -22,7 +22,6 @@ public class ItemControlador implements EventHandler<ActionEvent> {
         this.miboton = (Button)itemBoton;
         this.panel = panel;
         this.item = item2;
-        System.out.println(item.toString());
     }
 
     @Override
