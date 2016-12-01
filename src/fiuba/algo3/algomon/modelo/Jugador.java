@@ -80,7 +80,7 @@ public class Jugador extends Observable{
         notifyObservers();
     }
 
-    public void reemplazarAlgomonDesmayado() {
+    public void reemplazarAlgomonSiEstaDesmayado() {
        algomonActivo.pedirCambioSiEstaDesmayado(this);
     }
 

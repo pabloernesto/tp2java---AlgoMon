@@ -41,7 +41,7 @@ public class Juego implements Observer {
         jugador.addObserver(this);
     }
 
-    public Jugador turno() {
+    public Jugador obtenerJugadorActivo() {
         return this.jugadores.get(turno);
     }
 
@@ -71,7 +71,7 @@ public class Juego implements Observer {
 
     public void reemplazarAlgomonDesmayado() {
         for  (Jugador jugador : jugadores){
-            jugador.reemplazarAlgomonDesmayado();
+            jugador.reemplazarAlgomonSiEstaDesmayado();
         }
     }
 }

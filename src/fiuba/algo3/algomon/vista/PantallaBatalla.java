@@ -52,7 +52,7 @@ public class PantallaBatalla extends Scene {
 
     private void mostrarPanelActivo() {
         panelActivo = new JugadorVistaAlgomonActivo(
-            Juego.instancia().turno());
+            Juego.instancia().obtenerJugadorActivo());
         rootPane.getChildren().add(panelActivo);
     }
 
@@ -76,7 +76,7 @@ class Ataques extends GridPane {
         {
             Ataque[] a = Juego
                 .instancia()
-                .turno()
+                .obtenerJugadorActivo()
                 .getAlgomonActivo()
                 .ataques();
             ataque1 = new AtaqueVistaBoton(panel, a[0]);
@@ -103,7 +103,7 @@ class Algomones extends VBox {
         setStyle("-fx-background-color: #ffffff");
         setSpacing(20);
 
-        for (Algomon a : Juego.instancia().turno().getAlgomones())
+        for (Algomon a : Juego.instancia().obtenerJugadorActivo().getAlgomones())
             getChildren().add(new AlgomonVistaBoton(panel, a));
 
         Button volver = new Button("Volver");
@@ -121,7 +121,7 @@ class Mochila extends VBox {
         setStyle("-fx-background-color: #ffffff");
         setSpacing(20);
 
-        for (Item i : Juego.instancia().turno().mochila()) {
+        for (Item i : Juego.instancia().obtenerJugadorActivo().mochila()) {
             getChildren().add(new ItemBoton(panel, i));
         }
 

@@ -93,7 +93,7 @@ public class Algomon extends Observable {
 
     public void causarDanio(int potencia) {
         vida -= potencia;
-        if (vida < 0){
+        if (vida <= 0){
             vida = 0;
             Juego juego = Juego.instancia();
             juego.reemplazarAlgomonDesmayado();

@@ -28,7 +28,7 @@ public class ItemControlador implements EventHandler<ActionEvent> {
     public void handle(ActionEvent arg0) {
         // TODO Auto-generated method stub
         Juego j = Juego.instancia();
-        Jugador jugador = j.turno();
+        Jugador jugador = j.obtenerJugadorActivo();
         jugador.aplicar(item.elemento());
         panel.getChildren().clear();
         panel.getChildren().add(new OpcionesJugador(panel));

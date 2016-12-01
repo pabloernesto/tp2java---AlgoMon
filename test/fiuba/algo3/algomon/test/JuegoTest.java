@@ -45,11 +45,11 @@ public class JuegoTest {
         juego.jugador(1).elegirAlgomon(Especie.CHARMANDER.nuevo());
         juego.jugador(1).elegirAlgomon(Especie.RATTATA.nuevo());
 
-        String jugadorQueEmpieza = juego.turno().nombre();
+        String jugadorQueEmpieza = juego.obtenerJugadorActivo().nombre();
         juego.pasarTurno();
         juego.pasarTurno();
 
-        assertEquals(jugadorQueEmpieza,juego.turno().nombre());
+        assertEquals(jugadorQueEmpieza,juego.obtenerJugadorActivo().nombre());
     }
 
     @Test
@@ -71,9 +71,9 @@ public class JuegoTest {
         }
 
         //~ primer jugador se elige aleatoriamente: no se si es mabel o nahuel
-        Jugador primero = juego.turno();
+        Jugador primero = juego.obtenerJugadorActivo();
         primero.cambiarAlgomonActivo(1);
-        assertNotSame(primero, juego.turno());
+        assertNotSame(primero, juego.obtenerJugadorActivo());
     }
 
     @Test
@@ -95,8 +95,8 @@ public class JuegoTest {
         }
 
         //~ primer jugador se elige aleatoriamente: no se si es mabel o nahuel
-        Jugador primero = juego.turno();
+        Jugador primero = juego.obtenerJugadorActivo();
         primero.aplicar(Elemento.POCION);
-        assertNotSame(primero, juego.turno());
+        assertNotSame(primero, juego.obtenerJugadorActivo());
     }
 }

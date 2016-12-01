@@ -25,7 +25,7 @@ public class AtaqueControlador implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
             Juego j = Juego.instancia();
-            Algomon atacante = j.turno().getAlgomonActivo();
+            Algomon atacante = j.obtenerJugadorActivo().getAlgomonActivo();
             Algomon enemigo = j.jugadorNoActivo().getAlgomonActivo();
             atacante.atacar(enemigo, ataque.movimiento());
             j.pasarTurno();
