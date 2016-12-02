@@ -83,6 +83,23 @@ public class JugadorTest {
         assertEquals(juego.jugador(0).getAlgomonActivo(),nuevoAlgomonActivo);
     }
 
+
+    @Test
+    public void jugadorPuedeCambiarAlgomonActivoPorAlgomon(){
+        Juego juego = Juego.instancia();
+
+        juego.agregarJugador(new Jugador("Mabel"));
+        juego.agregarJugador(new Jugador("Nahuel"));
+
+        juego.jugador(0).elegirAlgomon(Especie.CHARMANDER.nuevo());
+        Algomon nuevoAlgomonActivo = Especie.CHANSEY.nuevo();
+        juego.jugador(0).elegirAlgomon(nuevoAlgomonActivo);
+        juego.jugador(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
+
+        juego.jugador(0).cambiarAlgomonActivo(nuevoAlgomonActivo);
+
+        assertEquals(juego.jugador(0).getAlgomonActivo(),nuevoAlgomonActivo);
+    }
     @Test
     public void jugadorPuedeAplicarlePocionAlAlgomonActivo(){
         Jugador jugador = new Jugador("Yoda");

@@ -93,4 +93,10 @@ public class Jugador extends Observable{
         setChanged();   
         notifyObservers();
     }
+
+    public void cambiarAlgomonActivo(Algomon nuevoAlgomonActivo) {
+        this.algomonActivo = nuevoAlgomonActivo;
+        setChanged();   
+        notifyObservers();
+    }
 }
