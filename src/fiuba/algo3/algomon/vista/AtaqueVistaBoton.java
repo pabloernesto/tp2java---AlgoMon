@@ -9,6 +9,6 @@ public class AtaqueVistaBoton extends Button {
 
     AtaqueVistaBoton(Pane panel, Ataque a) {
         super(a.movimiento().name());
-        setOnAction(new AtaqueControlador(this, panel, a));
+        setOnAction(new AtaqueControlador(panel, a));
     }
 }

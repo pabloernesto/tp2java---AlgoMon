@@ -12,12 +12,10 @@ import javafx.scene.layout.Pane;
 
 public class AtaqueControlador implements EventHandler<ActionEvent> {
 
-    private Button miboton;
     private Pane panel;
     private Ataque ataque;
 
-    public AtaqueControlador(AtaqueVistaBoton ataqueVistaBoton, Pane panel, Ataque a) {
-        this.miboton = (Button)ataqueVistaBoton;
+    public AtaqueControlador(Pane panel, Ataque a) {
         this.panel = panel;
         this.ataque = a;
     }
@@ -31,6 +29,5 @@ public class AtaqueControlador implements EventHandler<ActionEvent> {
             j.pasarTurno();
             panel.getChildren().clear();
             panel.getChildren().add(new OpcionesJugador(panel));
-}
-
+    }
 }
