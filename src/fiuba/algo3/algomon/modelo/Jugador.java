@@ -85,18 +85,23 @@ public class Jugador extends Observable{
     }
 
     public void cambiarAlgomonActivo() {
-        for(Algomon algomon: algomones){
-            if (algomon.puedePelear()){
-                this.algomonActivo = algomon;
-            }
+        Algomon[] algomonesConscientes =
+            algomones
+                .stream()
+                .filter(algomon -> algomon.puedePelear())
+                .toArray(Algomon[]::new);
+        if (algomonesConscientes.length == 0)
+            Juego.instancia().terminar();
+        else {
+            cambiarAlgomonActivo(algomonesConscientes[0]);
+            setChanged();
+            notifyObservers();
         }
-        setChanged();   
-        notifyObservers();
     }
 
     public void cambiarAlgomonActivo(Algomon nuevoAlgomonActivo) {
         this.algomonActivo = nuevoAlgomonActivo;
-        setChanged();   
+        setChanged();
         notifyObservers();
     }
 }

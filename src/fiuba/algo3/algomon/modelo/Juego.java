@@ -74,4 +74,7 @@ public class Juego implements Observer {
             jugador.reemplazarAlgomonSiEstaDesmayado();
         }
     }
+
+    public void terminar() {
+    }
 }
