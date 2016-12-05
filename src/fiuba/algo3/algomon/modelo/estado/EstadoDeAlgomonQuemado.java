@@ -19,4 +19,12 @@ public class EstadoDeAlgomonQuemado implements EstadoDeAlgomon {
         int potencia = vida / 10;
         algomon.causarDanio(potencia);
     }
+
+    public boolean estaQuemado() {
+        return true;
+    }
+
+    public boolean estaDormido() {
+        return false;
+    }
 }

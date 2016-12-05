@@ -66,11 +66,15 @@ public class Algomon extends Observable {
     }
 
     public void recuperarEstadoPermanente() {
-       estadoPermanente = new EstadoDeAlgomonNormal();
+        estadoPermanente = new EstadoDeAlgomonNormal();
+        setChanged();
+        notifyObservers("");
     }
 
     public void recuperarEstadoEfimero() {
-       estadoEfimero = new EstadoDeAlgomonNormal();
+        estadoEfimero = new EstadoDeAlgomonNormal();
+        setChanged();
+        notifyObservers("");
     }
 
     public void restaurarEstados() {
@@ -80,14 +84,20 @@ public class Algomon extends Observable {
 
     public void cambiarEstadoEfimero(EstadoDeAlgomon nuevoEstado) {
         estadoEfimero = nuevoEstado;
+        setChanged();
+        notifyObservers("");
     }
 
     public void cambiarEstadoPermanente(EstadoDeAlgomon nuevoEstado) {
         estadoPermanente = nuevoEstado;
+        setChanged();
+        notifyObservers("");
     }
 
     public Algomon turnoTerminado() {
         estadoEfimero.turnoTerminado(this);
+        setChanged();
+        notifyObservers("");
         return this;
     }
 
@@ -97,7 +107,7 @@ public class Algomon extends Observable {
             vida = 0;
             Juego juego = Juego.instancia();
             juego.reemplazarAlgomonDesmayado();
-        }  
+        }
 
         setChanged();
         notifyObservers("vida");
@@ -151,10 +161,18 @@ public class Algomon extends Observable {
 
     public void pedirCambioSiEstaDesmayado(Jugador jugador) {
         if(vida==0){jugador.cambiarAlgomonActivo();};
-        
+
     }
 
     public boolean puedePelear() {
         return (vida>0);
+    }
+
+    public boolean estaQuemado() {
+        return estadoPermanente.estaQuemado();
+    }
+
+    public boolean estaDormido() {
+        return estadoEfimero.estaDormido();
     }
 }

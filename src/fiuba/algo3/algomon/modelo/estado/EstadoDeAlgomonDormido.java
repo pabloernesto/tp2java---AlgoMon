@@ -24,4 +24,12 @@ public class EstadoDeAlgomonDormido implements EstadoDeAlgomon {
     public void consecuencia(Algomon algomon) {
         throw new AlgomonEstaInhabilitadoParaAtacarException();
     }
+
+    public boolean estaQuemado() {
+        return false;
+    }
+
+    public boolean estaDormido() {
+        return true;
+    }
 }

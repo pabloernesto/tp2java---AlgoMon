@@ -14,4 +14,12 @@ public class EstadoDeAlgomonNormal implements EstadoDeAlgomon {
     @Override
     public void consecuencia(Algomon algomon) {
     }
+
+    public boolean estaQuemado() {
+        return false;
+    }
+
+    public boolean estaDormido() {
+        return false;
+    }
 }
