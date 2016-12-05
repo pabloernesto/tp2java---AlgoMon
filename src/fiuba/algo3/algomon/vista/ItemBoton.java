@@ -12,5 +12,7 @@ public class ItemBoton extends Button {
         super(item.nombre() + " " + item.usosRestantes());
         setMinWidth(120);
         setOnAction(new ItemControlador(this, panel, item));
+        if (item.usosRestantes() == 0)
+            setDisable(true);
     }
 }
