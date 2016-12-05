@@ -14,7 +14,7 @@ public class PantallaInicio extends Scene {
 	static BorderPane rootPane = new BorderPane();
 	
 	public PantallaInicio(Stage ventana, Ejecutar aplicacion) {
-		super(rootPane, 480, 400);
+		super(rootPane, 480, 440);
 		this.aplicacion = aplicacion;
 		
         rootPane.setTop(aplicacion.barraDeMenu());
