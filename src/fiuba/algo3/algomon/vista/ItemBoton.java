@@ -9,7 +9,8 @@ import javafx.scene.layout.Pane;
 public class ItemBoton extends Button {
 
     public ItemBoton(Pane panel, Item item) {
-             super(item.nombre());
-             setOnAction(new ItemControlador(this, panel, item));
+        super(item.nombre() + " " + item.usosRestantes());
+        setMinWidth(120);
+        setOnAction(new ItemControlador(this, panel, item));
     }
 }
