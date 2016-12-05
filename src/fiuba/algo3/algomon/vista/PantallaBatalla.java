@@ -8,6 +8,8 @@ import fiuba.algo3.algomon.modelo.Algomon;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
@@ -37,8 +39,7 @@ public class PantallaBatalla extends Scene {
     }
 
     private void dibujarPantalla() {
-        mostrarPanelEnemigo();
-        mostrarPanelActivo();
+        mostrarBatalla();
         mostrarOpciones();
         
         Label copyright = new Label("Algomon 2.0 - All rights reserved - FIUBA Dec.2016");
@@ -46,16 +47,30 @@ public class PantallaBatalla extends Scene {
         pantalla.getChildren().add(copyright);
     }
 
-    private void mostrarPanelEnemigo() {
+    private void mostrarBatalla(){
+    	VBox batalla = new VBox();
+    	
+    	crearPanelEnemigo();
+    	batalla.getChildren().add(panelEnemigo);
+    	crearPanelActivo();
+    	batalla.getChildren().add(panelActivo);
+
+    	// Ahi va el fondo que le quieran poner a la batalla 
+    	batalla.setStyle("-fx-background-image: url('images/algomon.png'); " +
+    	           		"-fx-background-position: center center; " +
+    	           		"-fx-background-repeat: stretch;");
+    	
+    	pantalla.getChildren().add(batalla);
+    }
+    
+    private void crearPanelEnemigo() {
         panelEnemigo = new JugadorVistaAlgomonActivo(
             Juego.instancia().jugadorNoActivo());
-        pantalla.getChildren().add(panelEnemigo);
     }
 
-    private void mostrarPanelActivo() {
+    private void crearPanelActivo() {
         panelActivo = new JugadorVistaAlgomonActivo(
             Juego.instancia().obtenerJugadorActivo());
-        pantalla.getChildren().add(panelActivo);
     }
 
     private void mostrarOpciones() {
