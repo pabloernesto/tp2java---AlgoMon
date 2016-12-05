@@ -1,7 +1,5 @@
 package fiuba.algo3.algomon.vista;
 
-import fiuba.algo3.algomon.vista.AlgomonVistaImagen;
-import fiuba.algo3.algomon.vista.AlgomonVistaVida;
 import fiuba.algo3.algomon.control.Ejecutar;
 import fiuba.algo3.algomon.modelo.Juego;
 import fiuba.algo3.algomon.modelo.ataque.Ataque;
@@ -10,7 +8,6 @@ import fiuba.algo3.algomon.modelo.Algomon;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
@@ -21,7 +18,8 @@ public class PantallaBatalla extends Scene {
 
     private Ejecutar aplicacion;
     public Juego juego;
-    private static FlowPane     rootPane = new FlowPane();
+    private static BorderPane rootPane = new BorderPane(); 
+    private static FlowPane     pantalla = new FlowPane();
     Pane panelActivo, panelEnemigo;
     Pane panelOpciones = new Pane();
 
@@ -29,8 +27,11 @@ public class PantallaBatalla extends Scene {
     public PantallaBatalla(Ejecutar ejecutar) {
         super(rootPane,500,600);
 
-        aplicacion = ejecutar;
-        juego = Juego.instancia();
+        this.aplicacion = ejecutar;
+        this.juego = Juego.instancia();
+        
+        rootPane.setTop(aplicacion.barraDeMenu());
+        rootPane.setCenter(pantalla);
 
         dibujarPantalla();
     }
@@ -39,27 +40,28 @@ public class PantallaBatalla extends Scene {
         mostrarPanelEnemigo();
         mostrarPanelActivo();
         mostrarOpciones();
+        
         Label copyright = new Label("Algomon 2.0 - All rights reserved - FIUBA Dec.2016");
         copyright.setPrefWidth(500);
-        rootPane.getChildren().add(copyright);
+        pantalla.getChildren().add(copyright);
     }
 
     private void mostrarPanelEnemigo() {
         panelEnemigo = new JugadorVistaAlgomonActivo(
             Juego.instancia().jugadorNoActivo());
-        rootPane.getChildren().add(panelEnemigo);
+        pantalla.getChildren().add(panelEnemigo);
     }
 
     private void mostrarPanelActivo() {
         panelActivo = new JugadorVistaAlgomonActivo(
             Juego.instancia().obtenerJugadorActivo());
-        rootPane.getChildren().add(panelActivo);
+        pantalla.getChildren().add(panelActivo);
     }
 
     private void mostrarOpciones() {
         panelOpciones.setStyle("-fx-background-color: #ffffff");
         panelOpciones.setPrefSize(500,220);
-        rootPane.getChildren().add(panelOpciones);
+        pantalla.getChildren().add(panelOpciones);
         panelOpciones.getChildren().add(new OpcionesJugador(panelOpciones));
     }
 }

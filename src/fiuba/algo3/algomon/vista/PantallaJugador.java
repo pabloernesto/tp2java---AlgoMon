@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -14,13 +15,17 @@ import javafx.stage.Stage;
 public class PantallaJugador extends Scene {
 
     private Ejecutar aplicacion;
-    static FlowPane rootPane = new FlowPane();
+    static BorderPane rootPane = new BorderPane();
+    static FlowPane pantalla = new FlowPane();
     public TextField txtNombreJugador1,txtNombreJugador2;
 
     public PantallaJugador(Stage ventana, Ejecutar aplicacion) {
         super(rootPane,500,600);
         this.aplicacion = aplicacion;
-
+        
+        rootPane.setTop(aplicacion.barraDeMenu());
+        rootPane.setCenter(pantalla);
+        
         mostrarPantallaJugadores();
     }
 
@@ -51,14 +56,14 @@ public class PantallaJugador extends Scene {
 			} catch (IngresarDosJugadoresException e1) {
 				Label errorJugadores = new Label("Se deben ingresar los nombres de\n los dos entrenadores!");
 				errorJugadores.setStyle("-fx-font-size: 20; -fx-padding: 34 60 ; -fx-text-alignment: center; -fx-text-fill: #ff9966"); 
-				rootPane.getChildren().add(errorJugadores);
+				pantalla.getChildren().add(errorJugadores);
 			}
         });
         btnContinuar.setStyle(	"-fx-background-radius: 30; -fx-padding: 20; -fx-background-color: #ffcc00;"
         		+ "-fx-font-size:24; -fx-font-weight:bold; -fx-text-fill:#336699;");
         
-        rootPane.getChildren().addAll(vboxJugador1,vboxJugador2,btnContinuar);
-        rootPane.setStyle("-fx-background-color: #336699;");
+        pantalla.getChildren().addAll(vboxJugador1,vboxJugador2,btnContinuar);
+        pantalla.setStyle("-fx-background-color: #336699;");
     }
 
 }

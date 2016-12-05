@@ -21,13 +21,17 @@ import javafx.stage.Stage;
 
 public class PantallaEleccionAlgomones extends Scene {
 
-	    private static FlowPane rootPane = new FlowPane();
+		static BorderPane rootPane = new BorderPane();
+	    static FlowPane pantalla = new FlowPane();
 	    private Ejecutar aplicacion;
 	
 	    public PantallaEleccionAlgomones(Stage ventana, Ejecutar ejecutar) {
 	        super(rootPane, 500, 600);
 	        this.aplicacion = ejecutar;
 	
+	        rootPane.setTop(aplicacion.barraDeMenu());
+	        rootPane.setCenter(pantalla);
+	        
 	        mostrarPantallaEleccionAlgomones();
 	    }
 	
@@ -38,7 +42,7 @@ public class PantallaEleccionAlgomones extends Scene {
 	    panelJ2.setPrefSize(500,600);
 	    
         // SETEAR PANTALLA
-        rootPane.setStyle("-fx-background-color: #336699;");
+        pantalla.setStyle("-fx-background-color: #336699;");
 
         GridPane grillaAlgomones = new GridPane();
         grillaAlgomones.setPrefSize(300, 240);
@@ -159,10 +163,10 @@ public class PantallaEleccionAlgomones extends Scene {
                     new AlgomonesElegidosControlador(this, aplicacion,
                         algomones, 0);
                 c.agregarAlgomones();
-                rootPane.getChildren().remove(panelJ1);
+                pantalla.getChildren().remove(panelJ1);
                 panelJ2.setCenter(grillaAlgomones);
                 panelJ2.setRight(grillaAlgomonesElegidos);
-                rootPane.getChildren().add(panelJ2);
+                pantalla.getChildren().add(panelJ2);
             } catch (SeDebenElegirTresAlgomonesPorJugadorException e1) {
             	errorAlgomones1.setVisible(true);
             }
@@ -172,7 +176,7 @@ public class PantallaEleccionAlgomones extends Scene {
         hb1.getChildren().add(btnContinuar1);
         panelJ1.setBottom(hb1);
 
-        rootPane.getChildren().add(panelJ1);
+        pantalla.getChildren().add(panelJ1);
 
         // JUGADOR 2
         Label lblEntrenador2 = new Label(
