@@ -8,6 +8,7 @@ import fiuba.algo3.algomon.vista.PantallaEleccionAlgomones;
 import fiuba.algo3.algomon.vista.PantallaInicio;
 import fiuba.algo3.algomon.vista.PantallaJugador;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -17,6 +18,7 @@ public class Ejecutar extends Application implements Observer {
 
     private Stage ventana;
     private MenuBar menuBar;
+    public Sonido musica;
 
     @Override
     public void start (Stage stage) {
@@ -37,24 +39,28 @@ public class Ejecutar extends Application implements Observer {
 
     private void cargarBarraDeMenu() {
     	this.menuBar = new MenuBar();
-
+   	
+    	musica = new Sonido();
+    	
         Menu sonido = new Menu("Sonido");
-        	Sonido musica = new Sonido();
             MenuItem activado = new MenuItem("Activado");
             activado.setOnAction(e -> {
-            	musica.player.play();
+//            	musica.player.play();
             });
             MenuItem desactivado = new MenuItem("Desactivado");
             desactivado.setOnAction(e -> {
-                musica.player.pause();
+//                musica.player.pause();
             });
         sonido.getItems().addAll(activado,desactivado);
 
-        Menu salir = new Menu("Salir");
-        salir.setOnAction(e -> {
-        });
+        Menu archivo = new Menu("Salir");
+	        MenuItem salir = new MenuItem(" X ");
+	        salir.setOnAction(e ->
+	        	Platform.exit()
+	        );
+	    archivo.getItems().add(salir);
 
-        menuBar.getMenus().addAll(sonido,salir);
+        menuBar.getMenus().addAll(sonido,archivo);
     }
     
     public MenuBar barraDeMenu(){
@@ -81,9 +87,4 @@ public class Ejecutar extends Application implements Observer {
     public void update(Observable arg0, Object arg1) {
         // TODO
     }
-
-
-
-
-
 }
