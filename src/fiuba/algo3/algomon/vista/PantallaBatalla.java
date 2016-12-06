@@ -24,7 +24,7 @@ public class PantallaBatalla extends Scene {
     private static FlowPane     pantalla = new FlowPane();
     
     BorderPane panelActivo, panelEnemigo;
-    GridPane panelOpciones = new GridPane();
+    Pane panelOpciones = new Pane();
 
 
     public PantallaBatalla(Ejecutar ejecutar) {
@@ -78,8 +78,6 @@ public class PantallaBatalla extends Scene {
 
     private void mostrarOpciones() {
     	panelOpciones.setPrefSize(500,240);
-    	panelOpciones.setHgap(200);		panelOpciones.setVgap(100);
-    	panelOpciones.setStyle("-fx-background-color: #ffffff");
     	panelOpciones.getChildren().add(new OpcionesJugador(panelOpciones));
     	
     	pantalla.getChildren().add(panelOpciones);

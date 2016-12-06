@@ -1,5 +1,7 @@
 package fiuba.algo3.algomon.vista;
 
+import java.util.ArrayList;
+
 import fiuba.algo3.algomon.modelo.Juego;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
@@ -8,19 +10,24 @@ import javafx.scene.layout.Pane;
 public class OpcionesJugador extends GridPane {
 
     public OpcionesJugador(Pane panel) {
-        setHgap(20);
-        setVgap(20);
-
         Button atacar = new Button("Atacar");
         Button algomon = new Button("Algomon");
         Button mochila = new Button("Mochila");
         Button pasarTurno = new Button("Pasar turno");
+     
+        add(atacar, 0, 0);
+        add(algomon, 0, 1);
+        add(mochila, 1, 0);
+        add(pasarTurno, 1, 1);
 
-        add(atacar, 1, 1);
-        add(algomon, 3, 1);
-        add(mochila, 1, 3);
-        add(pasarTurno, 3, 3);
-
+        ArrayList<Button> botones = new ArrayList<Button>();
+        botones.add(atacar);	botones.add(algomon);	botones.add(mochila);	botones.add(pasarTurno);
+        
+        for (Button b : botones) {
+            b.setPrefSize(250, 120);
+            b.setStyle("-fx-font-size: 18; -fx-text-fill: #ffffff; -fx-background-color: #000000;"); 
+        }
+        
         atacar.setOnAction(e -> {
             panel.getChildren().clear();
             panel.getChildren().add(new Ataques(panel));
