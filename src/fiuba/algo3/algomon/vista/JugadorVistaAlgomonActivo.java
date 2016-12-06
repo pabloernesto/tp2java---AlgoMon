@@ -10,11 +10,11 @@ import fiuba.algo3.algomon.vista.AlgomonVistaEstados;
 import java.util.Observable;
 import java.util.Observer;
 
-import javafx.scene.layout.VBox;
-
+import javafx.scene.layout.BorderPane;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 
-public class JugadorVistaAlgomonActivo extends VBox implements Observer {
+public class JugadorVistaAlgomonActivo extends BorderPane implements Observer {
 
     Jugador jugador;
 
@@ -28,9 +28,20 @@ public class JugadorVistaAlgomonActivo extends VBox implements Observer {
         getChildren().clear();
 
         Algomon activo = jugador.getAlgomonActivo();
-        getChildren().add(new AlgomonVistaVida(activo));
-        getChildren().add(new AlgomonVistaImagen(activo).mostrarFrente());
-        getChildren().add(new Label(activo.nombreEspecie()));
-        getChildren().add(new AlgomonVistaEstados(activo));
+        
+        actualizarVista(activo);
     }
+
+	private void actualizarVista(Algomon activo) {
+		Label nombre = new Label(activo.nombreEspecie());		
+			nombre.setStyle("-fx-text-fill: #ffffff; -fx-font-size: 18;");
+			nombre.setAlignment(Pos.TOP_CENTER);
+		setTop(nombre);
+		
+		setCenter(new AlgomonVistaImagen(activo).mostrarFrente());
+        
+		setRight(new AlgomonVistaEstados(activo));
+		
+		setBottom(new AlgomonVistaVida());
+	}
 }

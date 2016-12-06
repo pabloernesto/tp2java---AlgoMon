@@ -5,11 +5,10 @@ import fiuba.algo3.algomon.modelo.Juego;
 import fiuba.algo3.algomon.modelo.ataque.Ataque;
 import fiuba.algo3.algomon.modelo.elementos.Item;
 import fiuba.algo3.algomon.modelo.Algomon;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
@@ -20,10 +19,12 @@ public class PantallaBatalla extends Scene {
 
     private Ejecutar aplicacion;
     public Juego juego;
-    private static BorderPane rootPane = new BorderPane(); 
+    
+    private static BorderPane 	rootPane = new BorderPane(); 
     private static FlowPane     pantalla = new FlowPane();
-    Pane panelActivo, panelEnemigo;
-    Pane panelOpciones = new Pane();
+    
+    BorderPane panelActivo, panelEnemigo;
+    GridPane panelOpciones = new GridPane();
 
 
     public PantallaBatalla(Ejecutar ejecutar) {
@@ -43,12 +44,14 @@ public class PantallaBatalla extends Scene {
         mostrarOpciones();
         
         Label copyright = new Label("Algomon 2.0 - All rights reserved - FIUBA Dec.2016");
-        copyright.setPrefWidth(500);
+        copyright.setAlignment(Pos.CENTER);
+        copyright.setPrefSize(500,40);
         pantalla.getChildren().add(copyright);
     }
 
     private void mostrarBatalla(){
     	VBox batalla = new VBox();
+    	batalla.setPrefSize(500, 300);
     	
     	crearPanelEnemigo();
     	batalla.getChildren().add(panelEnemigo);
@@ -56,7 +59,7 @@ public class PantallaBatalla extends Scene {
     	batalla.getChildren().add(panelActivo);
 
     	// Ahi va el fondo que le quieran poner a la batalla 
-    	batalla.setStyle("-fx-background-image: url('images/algomon.png'); " +
+    	batalla.setStyle("-fx-background-image: url('images/fondo.png'); " +
     	           		"-fx-background-position: center center; " +
     	           		"-fx-background-repeat: stretch;");
     	
@@ -64,20 +67,22 @@ public class PantallaBatalla extends Scene {
     }
     
     private void crearPanelEnemigo() {
-        panelEnemigo = new JugadorVistaAlgomonActivo(
-            Juego.instancia().jugadorNoActivo());
+        panelEnemigo = new JugadorVistaAlgomonActivo(Juego.instancia().jugadorNoActivo());
+        panelEnemigo.setPrefSize(500, 150);
     }
 
     private void crearPanelActivo() {
-        panelActivo = new JugadorVistaAlgomonActivo(
-            Juego.instancia().obtenerJugadorActivo());
+        panelActivo = new JugadorVistaAlgomonActivo(Juego.instancia().obtenerJugadorActivo()); // refact name
+        panelActivo.setPrefSize(500, 150);
     }
 
     private void mostrarOpciones() {
-        panelOpciones.setStyle("-fx-background-color: #ffffff");
-        panelOpciones.setPrefSize(500,220);
-        pantalla.getChildren().add(panelOpciones);
-        panelOpciones.getChildren().add(new OpcionesJugador(panelOpciones));
+    	panelOpciones.setPrefSize(500,240);
+    	panelOpciones.setHgap(200);		panelOpciones.setVgap(100);
+    	panelOpciones.setStyle("-fx-background-color: #ffffff");
+    	panelOpciones.getChildren().add(new OpcionesJugador(panelOpciones));
+    	
+    	pantalla.getChildren().add(panelOpciones);
     }
 }
 
