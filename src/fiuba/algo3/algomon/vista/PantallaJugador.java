@@ -1,6 +1,7 @@
 package fiuba.algo3.algomon.vista;
 
 import fiuba.algo3.algomon.control.Ejecutar;
+
 import fiuba.algo3.algomon.control.JugadoresControlador;
 import fiuba.algo3.algomon.excepciones.IngresarDosJugadoresException;
 import javafx.scene.Scene;
