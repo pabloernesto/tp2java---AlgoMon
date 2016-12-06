@@ -1,5 +1,6 @@
 package fiuba.algo3.algomon.control;
 
+import fiuba.algo3.algomon.excepciones.juegoTerminadoException;
 import fiuba.algo3.algomon.modelo.Algomon;
 import fiuba.algo3.algomon.modelo.Juego;
 import fiuba.algo3.algomon.modelo.Jugador;
@@ -12,24 +13,30 @@ import javafx.scene.layout.Pane;
 
 public class AlgomonCambioControlador implements EventHandler<ActionEvent> {
 
-    @SuppressWarnings("unused")
+    private Ejecutar aplicacion;
+	@SuppressWarnings("unused")
 	private Button miboton;
     private Pane panel;
     private Algomon algomon;
 
-    public AlgomonCambioControlador(AlgomonVistaBoton algomonVistaBoton, Pane panel, Algomon algomon) {
+    public AlgomonCambioControlador(AlgomonVistaBoton algomonVistaBoton, Pane panel, Algomon algomon, Ejecutar app) {
         this.miboton = (Button)algomonVistaBoton;
         this.panel = panel;
         this.algomon = algomon;
+        this.aplicacion = app;
     }
 
     @Override
     // todavia no esta la logica del cambio de algomon;
     public void handle(ActionEvent arg0) {
-        Jugador jugador =Juego.instancia().obtenerJugadorActivo();
-        jugador.cambiarAlgomonActivo(this.algomon);
-        panel.getChildren().clear();
-        panel.getChildren().add(new OpcionesJugador(panel));
+        Jugador jugador = Juego.instancia().obtenerJugadorActivo();
+        try {
+			jugador.cambiarAlgomonActivo(this.algomon);
+			panel.getChildren().clear();
+	        panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
+        } catch (juegoTerminadoException e) {
+			aplicacion.mostrarPantallaFin();
+		}
     }
 
 }

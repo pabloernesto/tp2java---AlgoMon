@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Observable;
 
 import fiuba.algo3.algomon.excepciones.ImposibleElegirMasDeTresAlgomonesException;
+import fiuba.algo3.algomon.excepciones.juegoTerminadoException;
 import fiuba.algo3.algomon.modelo.elementos.Elemento;
 import fiuba.algo3.algomon.modelo.elementos.Item;
 
@@ -18,6 +19,7 @@ public class Jugador extends Observable{
     private ArrayList<Algomon> algomones;
     private Algomon algomonActivo;
     Map<Elemento, Item> mochila = new EnumMap<Elemento, Item>(Elemento.class);
+	private Algomon[] algomonesConscientes;
 
     public Jugador(String nombreJugador) {
         this.nombre = nombreJugador;
@@ -68,8 +70,8 @@ public class Jugador extends Observable{
         return mochila.values().toArray(new Item[mochila.values().size()]);
     }
 
-    public void cambiarAlgomonActivo(int nuevoAlgomonActivo) {
-        this.algomonActivo = this.algomones.get(nuevoAlgomonActivo);
+    public void cambiarAlgomonActivo(int nuevoAlgomonActivo) {  
+    	this.algomonActivo = this.algomones.get(nuevoAlgomonActivo);
         setChanged();       // refactor
         notifyObservers();
     }
@@ -85,23 +87,31 @@ public class Jugador extends Observable{
     }
 
     public void cambiarAlgomonActivo() {
-        Algomon[] algomonesConscientes =
-            algomones
-                .stream()
-                .filter(algomon -> algomon.puedePelear())
-                .toArray(Algomon[]::new);
-        if (algomonesConscientes.length == 0)
-            Juego.instancia().terminar();
-        else {
-            cambiarAlgomonActivo(algomonesConscientes[0]);
-            setChanged();
-            notifyObservers();
-        }
+        algomonesConscientes = null;
+        algomonesConscientes = algomones.stream().filter(algomon -> algomon.puedePelear()).toArray(Algomon[]::new);
+        
+        try {
+			cambiarAlgomonActivo(algomonesConscientes[0]);
+			setChanged();
+	        notifyObservers();
+        } catch (juegoTerminadoException e) {
+			// la exception es manejada en la interfaz
+		}
     }
 
-    public void cambiarAlgomonActivo(Algomon nuevoAlgomonActivo) {
-        this.algomonActivo = nuevoAlgomonActivo;
-        setChanged();
-        notifyObservers();
+    public boolean quedanAlgomonesConscientes() {
+		return (algomonesConscientes.length != 0);
+	}
+
+	public void cambiarAlgomonActivo(Algomon nuevoAlgomonActivo) throws juegoTerminadoException {
+		algomonesConscientes = null;
+		algomonesConscientes = algomones.stream().filter(algomon -> algomon.puedePelear()).toArray(Algomon[]::new);
+		if (!quedanAlgomonesConscientes())
+    		throw new juegoTerminadoException();
+    	else {
+			this.algomonActivo = nuevoAlgomonActivo;
+	        setChanged();
+	        notifyObservers();
+    	}
     }
 }

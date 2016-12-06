@@ -16,10 +16,12 @@ public class AtaqueControlador implements EventHandler<ActionEvent> {
 
     private Pane panel;
     private Ataque ataque;
+	private Ejecutar aplicacion;
 
-    public AtaqueControlador(Pane panel, Ataque a) {
+    public AtaqueControlador(Pane panel, Ataque a, Ejecutar app) {
         this.panel = panel;
         this.ataque = a;
+        this.aplicacion = app;
     }
 
     @Override
@@ -36,6 +38,6 @@ public class AtaqueControlador implements EventHandler<ActionEvent> {
         }
         j.pasarTurno();
         panel.getChildren().clear();
-        panel.getChildren().add(new OpcionesJugador(panel));
+        panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
     }
 }

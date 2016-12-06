@@ -96,7 +96,7 @@ public class JugadorTest {
         juego.jugador(0).elegirAlgomon(nuevoAlgomonActivo);
         juego.jugador(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
 
-        juego.jugador(0).cambiarAlgomonActivo(nuevoAlgomonActivo);
+        juego.jugador(0).cambiarAlgomonActivo(1);
 
         assertEquals(juego.jugador(0).getAlgomonActivo(),nuevoAlgomonActivo);
     }

@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Observable;
 
 import fiuba.algo3.algomon.excepciones.AlgomonNoPoseeElMovimientoException;
+import fiuba.algo3.algomon.excepciones.juegoTerminadoException;
 import fiuba.algo3.algomon.modelo.ataque.Ataque;
 import fiuba.algo3.algomon.modelo.elementos.Pocion;
 import fiuba.algo3.algomon.modelo.elementos.Restaurador;

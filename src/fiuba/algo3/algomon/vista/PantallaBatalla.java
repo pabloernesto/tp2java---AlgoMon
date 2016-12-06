@@ -68,17 +68,17 @@ public class PantallaBatalla extends Scene {
     
     private void crearPanelEnemigo() {
         panelEnemigo = new JugadorVistaAlgomonActivo(Juego.instancia().jugadorNoActivo());
-        panelEnemigo.setPrefSize(500, 150);
+        panelEnemigo.setPrefSize(500, 170);
     }
 
     private void crearPanelActivo() {
         panelActivo = new JugadorVistaAlgomonActivo(Juego.instancia().obtenerJugadorActivo()); // refact name
-        panelActivo.setPrefSize(500, 150);
+        panelActivo.setPrefSize(500, 170);
     }
 
     private void mostrarOpciones() {
-    	panelOpciones.setPrefSize(500,240);
-    	panelOpciones.getChildren().add(new OpcionesJugador(panelOpciones));
+    	panelOpciones.setPrefSize(500,200);
+    	panelOpciones.getChildren().add(new OpcionesJugador(panelOpciones, aplicacion));
     	
     	pantalla.getChildren().add(panelOpciones);
     }
@@ -87,7 +87,7 @@ public class PantallaBatalla extends Scene {
 
 class Ataques extends GridPane {
 
-    Ataques(Pane panel) {
+    Ataques(Pane panel, Ejecutar aplicacion) {
         setStyle("-fx-background-color: #ffffff");
         setHgap(20);
         setVgap(20);
@@ -99,9 +99,9 @@ class Ataques extends GridPane {
                 .obtenerJugadorActivo()
                 .getAlgomonActivo()
                 .ataques();
-            ataque1 = new AtaqueVistaBoton(panel, a[0]);
-            ataque2 = new AtaqueVistaBoton(panel, a[1]);
-            ataque3 = new AtaqueVistaBoton(panel, a[2]);
+            ataque1 = new AtaqueVistaBoton(panel, a[0], aplicacion);
+            ataque2 = new AtaqueVistaBoton(panel, a[1], aplicacion);
+            ataque3 = new AtaqueVistaBoton(panel, a[2], aplicacion);
         }
         volver = new Button("Volver");
 
@@ -112,44 +112,44 @@ class Ataques extends GridPane {
 
         volver.setOnAction(e -> {
             panel.getChildren().clear();
-            panel.getChildren().add(new OpcionesJugador(panel));
+            panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
         });
     }
 }
 
 class Algomones extends VBox {
 
-    Algomones(Pane panel) {
+    Algomones(Pane panel, Ejecutar aplicacion) {
         setStyle("-fx-background-color: #ffffff");
         setSpacing(20);
 
         for (Algomon a : Juego.instancia().obtenerJugadorActivo().getAlgomones())
-            getChildren().add(new AlgomonVistaBoton(panel, a));
+            getChildren().add(new AlgomonVistaBoton(panel, a, aplicacion));
 
         Button volver = new Button("Volver");
         getChildren().add(volver);
         volver.setOnAction(e -> {
             panel.getChildren().clear();
-            panel.getChildren().add(new OpcionesJugador(panel));
+            panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
         });
     }
 }
 
 class Mochila extends VBox {
 
-    Mochila(Pane panel) {
+    Mochila(Pane panel, Ejecutar aplicacion) {
         setStyle("-fx-background-color: #ffffff");
         setSpacing(20);
 
         for (Item i : Juego.instancia().obtenerJugadorActivo().mochila()) {
-            getChildren().add(new ItemBoton(panel, i));
+            getChildren().add(new ItemBoton(panel, i, aplicacion));
         }
 
         Button volver = new Button("Volver");
         getChildren().add(volver);
         volver.setOnAction(e -> {
             panel.getChildren().clear();
-            panel.getChildren().add(new OpcionesJugador(panel));
+            panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
         });
     }
 }

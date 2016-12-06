@@ -15,9 +15,10 @@ public class ItemControlador implements EventHandler<ActionEvent> {
     @SuppressWarnings("unused")
 	private Button miboton;
     private Pane panel;
+    private Ejecutar aplicacion;
     
-    public ItemControlador(ItemBoton itemBoton, Pane panel, Item item2) {
-        // TODO Auto-generated constructor stub
+    public ItemControlador(ItemBoton itemBoton, Pane panel, Item item2, Ejecutar app) {
+        this.aplicacion = app;
         this.miboton = (Button)itemBoton;
         this.panel = panel;
         this.item = item2;
@@ -30,7 +31,7 @@ public class ItemControlador implements EventHandler<ActionEvent> {
         Jugador jugador = j.obtenerJugadorActivo();
         jugador.aplicar(item.elemento());
         panel.getChildren().clear();
-        panel.getChildren().add(new OpcionesJugador(panel));
+        panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
     }
 
 }
