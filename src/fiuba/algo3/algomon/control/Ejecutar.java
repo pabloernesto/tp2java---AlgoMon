@@ -85,7 +85,7 @@ public class Ejecutar extends Application implements Observer {
     }
     
     public void mostrarPantallaFin(){
-    	ventana.setScene(new PantallaFin());
+    	ventana.setScene(new PantallaFin(this));
     }
     
     @Override
