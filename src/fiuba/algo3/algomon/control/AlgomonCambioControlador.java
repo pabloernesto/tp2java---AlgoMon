@@ -12,7 +12,8 @@ import javafx.scene.layout.Pane;
 
 public class AlgomonCambioControlador implements EventHandler<ActionEvent> {
 
-    private Button miboton;
+    @SuppressWarnings("unused")
+	private Button miboton;
     private Pane panel;
     private Algomon algomon;
 

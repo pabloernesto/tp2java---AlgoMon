@@ -4,14 +4,12 @@ import fiuba.algo3.algomon.modelo.Algomon;
 import fiuba.algo3.algomon.modelo.Juego;
 import fiuba.algo3.algomon.modelo.ataque.Ataque;
 
-import fiuba.algo3.algomon.vista.AtaqueVistaBoton;
 import fiuba.algo3.algomon.vista.OpcionesJugador;
 
 import fiuba.algo3.algomon.excepciones.*;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 
 public class AtaqueControlador implements EventHandler<ActionEvent> {

@@ -2,9 +2,7 @@ package fiuba.algo3.algomon.control;
 
 import fiuba.algo3.algomon.modelo.Juego;
 import fiuba.algo3.algomon.modelo.Jugador;
-import fiuba.algo3.algomon.modelo.ataque.Ataque;
 import fiuba.algo3.algomon.modelo.elementos.Item;
-import fiuba.algo3.algomon.vista.AtaqueVistaBoton;
 import fiuba.algo3.algomon.vista.ItemBoton;
 import fiuba.algo3.algomon.vista.OpcionesJugador;
 import javafx.event.ActionEvent;
@@ -14,7 +12,8 @@ import javafx.scene.layout.Pane;
 
 public class ItemControlador implements EventHandler<ActionEvent> {
     private Item item;
-    private Button miboton;
+    @SuppressWarnings("unused")
+	private Button miboton;
     private Pane panel;
     
     public ItemControlador(ItemBoton itemBoton, Pane panel, Item item2) {
