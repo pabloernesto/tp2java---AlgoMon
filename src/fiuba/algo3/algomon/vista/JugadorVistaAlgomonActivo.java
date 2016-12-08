@@ -9,6 +9,7 @@ import fiuba.algo3.algomon.vista.AlgomonVistaEstados;
 
 import java.util.Observable;
 import java.util.Observer;
+import java.util.function.Function;
 
 import javafx.scene.layout.BorderPane;
 import javafx.geometry.Pos;
@@ -17,11 +18,12 @@ import javafx.scene.control.Label;
 public class JugadorVistaAlgomonActivo extends BorderPane implements Observer {
 
     Jugador jugador;
+    Function<Algomon, AlgomonVistaImagen> fabricaImagenes;
 
     public JugadorVistaAlgomonActivo(Jugador j) {
         jugador = j;
         jugador.addObserver(this);
-        update(jugador, null);
+        mostrarFrente();
     }
 
     public void update(Observable j, Object arg) {
@@ -38,10 +40,24 @@ public class JugadorVistaAlgomonActivo extends BorderPane implements Observer {
             nombre.setAlignment(Pos.TOP_CENTER);
         setTop(nombre);
 
-        setCenter(new AlgomonVistaImagen(activo).mostrarFrente());
+        setCenter(fabricaImagenes.apply(activo));
 
         setRight(new AlgomonVistaEstados(activo));
 
         setBottom(new AlgomonVistaVida(activo));
+    }
+
+    public void mostrarFrente() {
+        fabricaImagenes = activo -> {
+            return new AlgomonVistaImagen(activo).mostrarFrente();
+        };
+        update(jugador, null);
+    }
+
+    public void mostrarEspalda() {
+        fabricaImagenes = activo -> {
+            return new AlgomonVistaImagen(activo).mostrarEspalda();
+        };
+        update(jugador, null);
     }
 }

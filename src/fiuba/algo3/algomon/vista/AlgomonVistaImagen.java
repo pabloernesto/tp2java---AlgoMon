@@ -12,12 +12,12 @@ public class AlgomonVistaImagen extends ImageView {
         algomon = a;
     }
 
-    public ImageView mostrarFrente() {
+    public AlgomonVistaImagen mostrarFrente() {
         setImage(new Image(imagenFrentePath()));
         return this;
     }
 
-    public ImageView mostrarEspalda() {
+    public AlgomonVistaImagen mostrarEspalda() {
         setImage(new Image(imagenEspaldaPath()));
         return this;
     }

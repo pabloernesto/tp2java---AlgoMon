@@ -19,11 +19,11 @@ public class PantallaBatalla extends Scene {
 
     private Ejecutar aplicacion;
     public Juego juego;
-    
-    private static BorderPane 	rootPane = new BorderPane(); 
+
+    private static BorderPane   rootPane = new BorderPane();
     private static FlowPane     pantalla = new FlowPane();
-    
-    BorderPane panelActivo, panelEnemigo;
+
+    JugadorVistaAlgomonActivo panelActivo, panelEnemigo;
     Pane panelOpciones = new Pane();
 
 
@@ -72,7 +72,12 @@ public class PantallaBatalla extends Scene {
     }
 
     private void crearPanelActivo() {
-        panelActivo = new JugadorVistaAlgomonActivo(Juego.instancia().obtenerJugadorActivo()); // refact name
+        panelActivo =
+            new JugadorVistaAlgomonActivo(
+                Juego
+                    .instancia()
+                    .obtenerJugadorActivo());
+        panelActivo.mostrarEspalda();
         panelActivo.setPrefSize(500, 170);
     }
 
