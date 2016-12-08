@@ -28,20 +28,20 @@ public class JugadorVistaAlgomonActivo extends BorderPane implements Observer {
         getChildren().clear();
 
         Algomon activo = jugador.getAlgomonActivo();
-        
+
         actualizarVista(activo);
     }
 
-	private void actualizarVista(Algomon activo) {
-		Label nombre = new Label(activo.nombreEspecie());		
-			nombre.setStyle("-fx-text-fill: #ffffff; -fx-font-size: 18;");
-			nombre.setAlignment(Pos.TOP_CENTER);
-		setTop(nombre);
-		
-		setCenter(new AlgomonVistaImagen(activo).mostrarFrente());
-        
-		setRight(new AlgomonVistaEstados(activo));
-		
-		setBottom(new AlgomonVistaVida());
-	}
+    private void actualizarVista(Algomon activo) {
+        Label nombre = new Label(activo.nombreEspecie());
+            nombre.setStyle("-fx-text-fill: #ffffff; -fx-font-size: 18;");
+            nombre.setAlignment(Pos.TOP_CENTER);
+        setTop(nombre);
+
+        setCenter(new AlgomonVistaImagen(activo).mostrarFrente());
+
+        setRight(new AlgomonVistaEstados(activo));
+
+        setBottom(new AlgomonVistaVida(activo));
+    }
 }
