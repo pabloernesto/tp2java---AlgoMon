@@ -77,4 +77,8 @@ public class Juego implements Observer {
 
     public void terminar() {
     }
+
+	public boolean jugadorActivoPuedeContinuar() {
+		return this.obtenerJugadorActivo().quedanAlgomonesConscientes();
+	}
 }

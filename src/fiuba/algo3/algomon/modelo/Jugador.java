@@ -43,6 +43,7 @@ public class Jugador extends Observable{
         }
 
         algomones.add(algomon);
+        this.cambiarAlgomonActivo();
     }
 
     public Algomon algomonNro(int nroDeAlgomon) {
@@ -83,7 +84,8 @@ public class Jugador extends Observable{
     }
 
     public void reemplazarAlgomonSiEstaDesmayado() {
-       algomonActivo.pedirCambioSiEstaDesmayado(this);
+//       algomonActivo.pedirCambioSiEstaDesmayado(this); refactor
+    	this.cambiarAlgomonActivo();
     }
 
     public void cambiarAlgomonActivo() {

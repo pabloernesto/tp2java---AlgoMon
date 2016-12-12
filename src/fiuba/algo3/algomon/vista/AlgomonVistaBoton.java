@@ -11,5 +11,7 @@ public class AlgomonVistaBoton extends Button {
     public AlgomonVistaBoton(Pane panel, Algomon algomon, Ejecutar app) {
         setText(algomon.nombreEspecie());
         setOnAction(new AlgomonCambioControlador(this, panel, algomon, app));
+        if (!algomon.puedePelear())
+            setDisable(true);
     }
 }
