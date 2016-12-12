@@ -39,7 +39,7 @@ public class AlgomonesElegidosControlador {
             .map(s -> Enum.valueOf(Especie.class, s))
             .map(especie -> especie.nuevo())
             .toArray(Algomon[]::new);
-        Jugador j = Juego.instancia().jugador(n);
+        Jugador j = Juego.instancia().getJugadorNro(n);
         for (Algomon a : algomones)
             j.elegirAlgomon(a);
     }

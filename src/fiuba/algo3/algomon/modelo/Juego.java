@@ -7,7 +7,6 @@ import java.util.Random;
 import fiuba.algo3.algomon.excepciones.ImposibleAgregarMasJugadoresException;
 import fiuba.algo3.algomon.excepciones.juegoTerminadoException;
 
-//~ es un singleton
 public class Juego implements Observer {
 
     static Juego instancia;
@@ -31,7 +30,7 @@ public class Juego implements Observer {
         this.turno = new Random().nextInt(2);
     }
 
-    public Jugador jugador(int nroDeJugador) {
+    public Jugador getJugadorNro(int nroDeJugador) {
         return this.jugadores.get(nroDeJugador);
     }
 
@@ -46,28 +45,23 @@ public class Juego implements Observer {
         return this.jugadores.get(turno);
     }
 
-    public void pasarTurno() {
-        jugador(this.turno).terminarTurno();
-        this.cambiarTurno();
-
-    }
-
-    private void cambiarTurno() {
-        if (this.turno == 0)
-            this.turno = 1;
-        else
-            this.turno = 0;
-    }
-
-    public Jugador jugadorNoActivo(){
+    public Jugador obtenerJugadorNoActivo(){
         int turnoAux;
         if (this.turno == 0) turnoAux = 1; else turnoAux = 0;
         return jugadores.get(turnoAux);
     }
+    
+    public void pasarTurno() {
+        getJugadorNro(this.turno).terminarTurno();
+        this.cambiarJugadorQueJuega();
 
-    @Override
-    public void update(Observable jugador, Object arg) {
-        this.pasarTurno();
+    }
+
+    private void cambiarJugadorQueJuega() {
+        if (this.turno == 0)
+            this.turno = 1;
+        else
+            this.turno = 0;
     }
 
     public void reemplazarAlgomonDesmayado()  throws juegoTerminadoException{
@@ -76,10 +70,12 @@ public class Juego implements Observer {
         }
     }
 
-    public void terminar() {
-    }
-
 	public boolean jugadorActivoPuedeContinuar() {
 		return this.obtenerJugadorActivo().quedanAlgomonesConscientes();
 	}
+	
+    @Override
+    public void update(Observable jugador, Object arg) {
+        this.pasarTurno();
+    }
 }

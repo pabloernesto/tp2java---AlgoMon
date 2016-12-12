@@ -70,7 +70,7 @@ public class PantallaBatalla extends Scene {
     }
     
     private void crearPanelEnemigo() {
-        panelEnemigo = new JugadorVistaAlgomonActivo(Juego.instancia().jugadorNoActivo());
+        panelEnemigo = new JugadorVistaAlgomonActivo(Juego.instancia().obtenerJugadorNoActivo());
         panelEnemigo.setPrefSize(500, 160);
     }
 

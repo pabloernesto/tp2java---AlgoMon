@@ -139,7 +139,7 @@ public class PantallaEleccionAlgomones extends Scene {
         // JUGADOR 1
         Label lblEntrenador1 = new Label(
             "Entrenador/a "
-            + Juego.instancia().jugador(0).nombre()
+            + Juego.instancia().getJugadorNro(0).nombre()
             +"\n elija 3 algomones");
         	lblEntrenador1.setStyle("-fx-font-size:22 ; -fx-text-fill: #ffcc00; -fx-padding:20 94; -fx-font-weight: bold;");
         lblEntrenador1.setPrefSize(500, 100);
@@ -185,7 +185,7 @@ public class PantallaEleccionAlgomones extends Scene {
         // JUGADOR 2
         Label lblEntrenador2 = new Label(
             "Entrenador/a "
-            + Juego.instancia().jugador(1).nombre()
+            + Juego.instancia().getJugadorNro(1).nombre()
             + "\n elija 3 algomones:");
             lblEntrenador2.setStyle("-fx-font-size:22 ; -fx-text-fill: #ffcc00; -fx-padding:20 94; -fx-font-weight: bold");
             lblEntrenador2.setPrefSize(500, 100);

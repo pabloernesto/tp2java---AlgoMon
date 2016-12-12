@@ -29,10 +29,10 @@ public class JugadorTest {
         juego.agregarJugador(new Jugador("Mabel"));
         juego.agregarJugador(new Jugador("Nahuel"));
 
-        juego.jugador(0).elegirAlgomon(Especie.BULBASAUR.nuevo());
-        juego.jugador(0).elegirAlgomon(Especie.CHANSEY.nuevo());
-        juego.jugador(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
-        juego.jugador(0).elegirAlgomon(Especie.SQUIRTLE.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.BULBASAUR.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.CHANSEY.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.SQUIRTLE.nuevo());
 
     }
 
@@ -45,11 +45,11 @@ public class JugadorTest {
 
         Algomon primerAlgomon = Especie.BULBASAUR.nuevo();
 
-        juego.jugador(0).elegirAlgomon(primerAlgomon);
-        juego.jugador(0).elegirAlgomon(Especie.CHANSEY.nuevo());
-        juego.jugador(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(primerAlgomon);
+        juego.getJugadorNro(0).elegirAlgomon(Especie.CHANSEY.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
 
-        assertEquals(juego.jugador(0).getAlgomonActivo(), primerAlgomon);
+        assertEquals(juego.getJugadorNro(0).getAlgomonActivo(), primerAlgomon);
     }
 
     @Test
@@ -59,12 +59,12 @@ public class JugadorTest {
         juego.agregarJugador(new Jugador("Mabel"));
         juego.agregarJugador(new Jugador("Nahuel"));
 
-        juego.jugador(0).elegirAlgomon(Especie.CHARMANDER.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.CHARMANDER.nuevo());
 
         Algomon rattata = Especie.RATTATA.nuevo();
         int vidaInicial = rattata.vida();
 
-        juego.jugador(0).getAlgomonActivo().atacar(rattata, Movimiento.ATAQUE_RAPIDO);  //El jugador lo elegira por interfaz
+        juego.getJugadorNro(0).getAlgomonActivo().atacar(rattata, Movimiento.ATAQUE_RAPIDO);  //El jugador lo elegira por interfaz
 
         assertEquals(vidaInicial - 10, rattata.vida());
     }
@@ -76,14 +76,14 @@ public class JugadorTest {
         juego.agregarJugador(new Jugador("Mabel"));
         juego.agregarJugador(new Jugador("Nahuel"));
 
-        juego.jugador(0).elegirAlgomon(Especie.CHARMANDER.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.CHARMANDER.nuevo());
         Algomon nuevoAlgomonActivo = Especie.CHANSEY.nuevo();
-        juego.jugador(0).elegirAlgomon(nuevoAlgomonActivo);
-        juego.jugador(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(nuevoAlgomonActivo);
+        juego.getJugadorNro(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
 
-        juego.jugador(0).cambiarAlgomonActivo(1);
+        juego.getJugadorNro(0).cambiarAlgomonActivo(1);
 
-        assertEquals(juego.jugador(0).getAlgomonActivo(),nuevoAlgomonActivo);
+        assertEquals(juego.getJugadorNro(0).getAlgomonActivo(),nuevoAlgomonActivo);
     }
 
 
@@ -94,14 +94,14 @@ public class JugadorTest {
         juego.agregarJugador(new Jugador("Mabel"));
         juego.agregarJugador(new Jugador("Nahuel"));
 
-        juego.jugador(0).elegirAlgomon(Especie.CHARMANDER.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.CHARMANDER.nuevo());
         Algomon nuevoAlgomonActivo = Especie.CHANSEY.nuevo();
-        juego.jugador(0).elegirAlgomon(nuevoAlgomonActivo);
-        juego.jugador(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(nuevoAlgomonActivo);
+        juego.getJugadorNro(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
 
-        juego.jugador(0).cambiarAlgomonActivo(1);
+        juego.getJugadorNro(0).cambiarAlgomonActivo(1);
 
-        assertEquals(juego.jugador(0).getAlgomonActivo(),nuevoAlgomonActivo);
+        assertEquals(juego.getJugadorNro(0).getAlgomonActivo(),nuevoAlgomonActivo);
     }
     @Test
     public void jugadorPuedeAplicarlePocionAlAlgomonActivo(){

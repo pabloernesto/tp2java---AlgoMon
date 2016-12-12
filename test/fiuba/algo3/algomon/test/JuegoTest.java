@@ -37,13 +37,13 @@ public class JuegoTest {
         juego.agregarJugador(new Jugador("Mabel"));
         juego.agregarJugador(new Jugador("Otto"));
 
-        juego.jugador(0).elegirAlgomon(Especie.CHANSEY.nuevo());
-        juego.jugador(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
-        juego.jugador(0).elegirAlgomon(Especie.RATTATA.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.CHANSEY.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.RATTATA.nuevo());
 
-        juego.jugador(1).elegirAlgomon(Especie.CHANSEY.nuevo());
-        juego.jugador(1).elegirAlgomon(Especie.CHARMANDER.nuevo());
-        juego.jugador(1).elegirAlgomon(Especie.RATTATA.nuevo());
+        juego.getJugadorNro(1).elegirAlgomon(Especie.CHANSEY.nuevo());
+        juego.getJugadorNro(1).elegirAlgomon(Especie.CHARMANDER.nuevo());
+        juego.getJugadorNro(1).elegirAlgomon(Especie.RATTATA.nuevo());
 
         String jugadorQueEmpieza = juego.obtenerJugadorActivo().nombre();
         juego.pasarTurno();

@@ -28,7 +28,7 @@ public class AtaqueControlador implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event) {
         Juego j = Juego.instancia();
         Algomon atacante = j.obtenerJugadorActivo().getAlgomonActivo();
-        Algomon enemigo = j.jugadorNoActivo().getAlgomonActivo();
+        Algomon enemigo = j.obtenerJugadorNoActivo().getAlgomonActivo();
 
         try {
             atacante.atacar(enemigo, ataque.movimiento());

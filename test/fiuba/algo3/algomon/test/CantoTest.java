@@ -26,16 +26,16 @@ public class CantoTest
         juego.agregarJugador(new Jugador("Nahuel"));
         juego.agregarJugador(new Jugador("Juan"));
 
-        juego.jugador(0).elegirAlgomon(Especie.CHANSEY.nuevo());
-        juego.jugador(0).elegirAlgomon(Especie.CHARMANDER.nuevo());
-        juego.jugador(0).elegirAlgomon(Especie.RATTATA.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.CHANSEY.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.CHARMANDER.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.RATTATA.nuevo());
 
-        juego.jugador(1).elegirAlgomon(Especie.CHANSEY.nuevo());
-        juego.jugador(1).elegirAlgomon(Especie.CHARMANDER.nuevo());
-        juego.jugador(1).elegirAlgomon(Especie.RATTATA.nuevo());
+        juego.getJugadorNro(1).elegirAlgomon(Especie.CHANSEY.nuevo());
+        juego.getJugadorNro(1).elegirAlgomon(Especie.CHARMANDER.nuevo());
+        juego.getJugadorNro(1).elegirAlgomon(Especie.RATTATA.nuevo());
 
-        juego.jugador(0).algomonNro(1).atacar(juego.jugador(1).algomonNro(2), Movimiento.CANTO);
-        juego.jugador(1).algomonNro(2).atacar(juego.jugador(0).algomonNro(2), Movimiento.BRASAS);
+        juego.getJugadorNro(0).algomonNro(1).atacar(juego.getJugadorNro(1).algomonNro(2), Movimiento.CANTO);
+        juego.getJugadorNro(1).algomonNro(2).atacar(juego.getJugadorNro(0).algomonNro(2), Movimiento.BRASAS);
 
     }
 
@@ -47,21 +47,21 @@ public class CantoTest
         juego.agregarJugador(new Jugador("Natalia"));
         juego.agregarJugador(new Jugador("Nahuel"));
 
-        juego.jugador(0).elegirAlgomon(Especie.CHANSEY.nuevo());
-        juego.jugador(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
-        juego.jugador(0).elegirAlgomon(Especie.RATTATA.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.CHANSEY.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.RATTATA.nuevo());
 
-        juego.jugador(1).elegirAlgomon(Especie.CHANSEY.nuevo());
-        juego.jugador(1).elegirAlgomon(Especie.CHARMANDER.nuevo());
-        juego.jugador(1).elegirAlgomon(Especie.RATTATA.nuevo());
+        juego.getJugadorNro(1).elegirAlgomon(Especie.CHANSEY.nuevo());
+        juego.getJugadorNro(1).elegirAlgomon(Especie.CHARMANDER.nuevo());
+        juego.getJugadorNro(1).elegirAlgomon(Especie.RATTATA.nuevo());
 
-        juego.jugador(0).algomonNro(2).atacar(juego.jugador(1).algomonNro(3), Movimiento.CANTO);
+        juego.getJugadorNro(0).algomonNro(2).atacar(juego.getJugadorNro(1).algomonNro(3), Movimiento.CANTO);
         juego.pasarTurno();     // Turno jugador 1
         juego.pasarTurno();     // Turno jugador 0
         juego.pasarTurno();     // Turno jugador 1
         juego.pasarTurno();     // Turno jugador 0
 
-        juego.jugador(1).algomonNro(3).atacar(juego.jugador(0).algomonNro(2), Movimiento.BURBUJA);
+        juego.getJugadorNro(1).algomonNro(3).atacar(juego.getJugadorNro(0).algomonNro(2), Movimiento.BURBUJA);
     }
 
     @Test
@@ -72,15 +72,15 @@ public class CantoTest
         juego.agregarJugador(new Jugador("Natalia"));
         juego.agregarJugador(new Jugador("Nahuel"));
 
-        juego.jugador(0).elegirAlgomon(Especie.CHANSEY.nuevo());
-        juego.jugador(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
-        juego.jugador(0).elegirAlgomon(Especie.RATTATA.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.CHANSEY.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.JIGGLYPUFF.nuevo());
+        juego.getJugadorNro(0).elegirAlgomon(Especie.RATTATA.nuevo());
 
-        juego.jugador(1).elegirAlgomon(Especie.CHANSEY.nuevo());
-        juego.jugador(1).elegirAlgomon(Especie.CHARMANDER.nuevo());
-        juego.jugador(1).elegirAlgomon(Especie.RATTATA.nuevo());
+        juego.getJugadorNro(1).elegirAlgomon(Especie.CHANSEY.nuevo());
+        juego.getJugadorNro(1).elegirAlgomon(Especie.CHARMANDER.nuevo());
+        juego.getJugadorNro(1).elegirAlgomon(Especie.RATTATA.nuevo());
 
-        juego.jugador(0).algomonNro(2).atacar(juego.jugador(1).algomonNro(3), Movimiento.CANTO);
+        juego.getJugadorNro(0).algomonNro(2).atacar(juego.getJugadorNro(1).algomonNro(3), Movimiento.CANTO);
         juego.pasarTurno();     // Turno jugador 1
         juego.pasarTurno();     // Turno jugador 0
         juego.pasarTurno();     // Turno jugador 1
@@ -88,9 +88,9 @@ public class CantoTest
         juego.pasarTurno();     // Turno jugador 1
         juego.pasarTurno();     // Turno jugador 0
 
-        juego.jugador(1).algomonNro(3).atacar(juego.jugador(0).algomonNro(2), Movimiento.BURBUJA);
+        juego.getJugadorNro(1).algomonNro(3).atacar(juego.getJugadorNro(0).algomonNro(2), Movimiento.BURBUJA);
 
-        assertEquals(juego.jugador(0).algomonNro(2).vida(), 120);
+        assertEquals(juego.getJugadorNro(0).algomonNro(2).vida(), 120);
     }
 
     @Test 
