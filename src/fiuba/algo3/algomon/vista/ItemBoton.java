@@ -10,7 +10,6 @@ public class ItemBoton extends Button {
 
     public ItemBoton(Pane panel, Item item, Ejecutar app) {
         super(item.nombre());
-        setMinWidth(120);
         setOnAction(new ItemControlador(this, panel, item, app));
         if (item.usosRestantes() == 0)
             setDisable(true);

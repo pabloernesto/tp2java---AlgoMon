@@ -2,6 +2,7 @@ package fiuba.algo3.algomon.vista;
 
 import fiuba.algo3.algomon.control.Ejecutar;
 import fiuba.algo3.algomon.modelo.Juego;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -23,14 +24,19 @@ public class PantallaFin extends Scene {
 
 	private void mostrarPantallaGanador() {
 		Label felicitacion = new Label("FELICITACIONES");
-		felicitacion.setStyle("-fx-text-fill:#ffcc00; -fx-font-size: 24");
-		Label mensaje = new Label (Juego.instancia().obtenerJugadorActivo() + " ha ganado la batalla!");
-		mensaje.setStyle("-fx-text-fill:#ffcc00; -fx-font-size:20");
-		
+			felicitacion.setAlignment(Pos.CENTER);
+			felicitacion.setPrefSize(500, 200);
+			felicitacion.setStyle("-fx-text-fill:#ffcc00; -fx-font-size: 24");
+			
+		Label mensaje = new Label (Juego.instancia().obtenerJugadorActivo().nombre() + " ha ganado la batalla!");
+			mensaje.setAlignment(Pos.CENTER);
+			mensaje.setPrefSize(500, 300);
+			mensaje.setStyle("-fx-text-fill:#ffcc00; -fx-font-size:20");
+			
 		VBox vb = new VBox();
-		vb.setStyle("-fx-background-color: #336699");
-		vb.getChildren().addAll(felicitacion,mensaje);
-		vb.setPrefSize(400, 200);
+			vb.setPrefSize(500, 500);
+			vb.setStyle("-fx-background-color: #336699");
+			vb.getChildren().addAll(felicitacion,mensaje);
 		
 		pantalla.setCenter(vb);
 		

@@ -1,5 +1,7 @@
 package fiuba.algo3.algomon.vista;
 
+import java.util.ArrayList;
+
 import fiuba.algo3.algomon.control.Ejecutar;
 import fiuba.algo3.algomon.modelo.Juego;
 import fiuba.algo3.algomon.modelo.ataque.Ataque;
@@ -51,14 +53,13 @@ public class PantallaBatalla extends Scene {
 
     private void mostrarBatalla(){
     	VBox batalla = new VBox();
-    	batalla.setPrefSize(500, 300);
+    	batalla.setPrefSize(500, 340);
     	
     	crearPanelEnemigo();
     	batalla.getChildren().add(panelEnemigo);
     	crearPanelActivo();
     	batalla.getChildren().add(panelActivo);
 
-    	// Ahi va el fondo que le quieran poner a la batalla 
     	batalla.setStyle("-fx-background-image: url('images/fondo.png'); " +
     	           		"-fx-background-position: center center; " +
     	           		"-fx-background-repeat: stretch;");
@@ -72,12 +73,8 @@ public class PantallaBatalla extends Scene {
     }
 
     private void crearPanelActivo() {
-        panelActivo =
-            new JugadorVistaAlgomonActivo(
-                Juego
-                    .instancia()
-                    .obtenerJugadorActivo());
-        panelActivo.mostrarEspalda();
+        panelActivo = new JugadorVistaAlgomonActivo(Juego.instancia().obtenerJugadorActivo());
+        	panelActivo.mostrarEspalda();
         panelActivo.setPrefSize(500, 170);
     }
 
@@ -93,28 +90,30 @@ public class PantallaBatalla extends Scene {
 class Ataques extends GridPane {
 
     Ataques(Pane panel, Ejecutar aplicacion) {
-        setStyle("-fx-background-color: #ffffff");
-        setHgap(20);
-        setVgap(20);
-
+        setStyle("-fx-background-color: #000000");
+       
         Button ataque1, ataque2, ataque3, volver;
         {
-            Ataque[] a = Juego
-                .instancia()
-                .obtenerJugadorActivo()
-                .getAlgomonActivo()
-                .ataques();
-            ataque1 = new AtaqueVistaBoton(panel, a[0], aplicacion);
-            ataque2 = new AtaqueVistaBoton(panel, a[1], aplicacion);
-            ataque3 = new AtaqueVistaBoton(panel, a[2], aplicacion);
-        }
+            Ataque[] a = Juego.instancia().obtenerJugadorActivo().getAlgomonActivo().ataques();
+	            ataque1 = new AtaqueVistaBoton(panel, a[0], aplicacion);
+	            ataque2 = new AtaqueVistaBoton(panel, a[1], aplicacion);
+	            ataque3 = new AtaqueVistaBoton(panel, a[2], aplicacion);
+	    }
         volver = new Button("Volver");
 
-        add(ataque1, 1, 1);
-        add(ataque2, 3, 1);
-        add(ataque3, 1, 3);
-        add(volver, 3, 3);
+        add(ataque1, 0, 0);
+        add(ataque2, 0, 1);
+        add(ataque3, 1, 0);
+        add(volver, 1, 1);
 
+        ArrayList<Button> botones = new ArrayList<Button>();
+		botones.add(ataque1);	botones.add(ataque2);	botones.add(ataque3);	botones.add(volver);
+		
+		for (Button b : botones) {
+			b.setPrefSize(250, 100);
+			b.setStyle("-fx-font-size: 18; -fx-text-fill: #ffffff; -fx-background-color: #000000;"); 
+		}
+        
         volver.setOnAction(e -> {
             panel.getChildren().clear();
             panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
@@ -122,39 +121,68 @@ class Ataques extends GridPane {
     }
 }
 
-class Algomones extends VBox {
+class Algomones extends GridPane {
 
     Algomones(Pane panel, Ejecutar aplicacion) {
-        setStyle("-fx-background-color: #ffffff");
-        setSpacing(20);
-
-        for (Algomon a : Juego.instancia().obtenerJugadorActivo().getAlgomones())
-            getChildren().add(new AlgomonVistaBoton(panel, a, aplicacion));
-
-        Button volver = new Button("Volver");
-        getChildren().add(volver);
+        setStyle("-fx-background-color: #000000");
+        
+        Button algomon1, algomon2, algomon3, volver;
+        {
+            ArrayList<Algomon> a = Juego.instancia().obtenerJugadorActivo().getAlgomones();
+	            algomon1 = new AlgomonVistaBoton(panel, a.get(0), aplicacion);
+	            algomon2 = new AlgomonVistaBoton(panel, a.get(1), aplicacion);
+	            algomon3 = new AlgomonVistaBoton(panel, a.get(2), aplicacion);
+	    }
+        
+        volver = new Button("Volver");
         volver.setOnAction(e -> {
             panel.getChildren().clear();
             panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
         });
+
+        ArrayList<Button> botones = new ArrayList<Button>();
+		botones.add(algomon1);	botones.add(algomon2);	botones.add(algomon3);	botones.add(volver);
+		for (Button b : botones) {
+			b.setPrefSize(250, 100);
+			b.setStyle("-fx-font-size: 18; -fx-text-fill: #ffffff; -fx-background-color: #000000;"); 
+		}
+                
+        add(algomon1, 0, 0);
+        add(algomon2, 0, 1);
+        add(algomon3, 1, 0);
+        add(volver, 1, 1);
     }
 }
 
-class Mochila extends VBox {
+class Mochila extends GridPane {
 
     Mochila(Pane panel, Ejecutar aplicacion) {
-        setStyle("-fx-background-color: #ffffff");
-        setSpacing(20);
-
-        for (Item i : Juego.instancia().obtenerJugadorActivo().mochila()) {
-            getChildren().add(new ItemBoton(panel, i, aplicacion));
-        }
-
-        Button volver = new Button("Volver");
-        getChildren().add(volver);
+    	setStyle("-fx-background-color: #000000");
+    	
+        Button item1, item2, item3, volver;
+        {
+            Item[] i = Juego.instancia().obtenerJugadorActivo().mochila();
+	            item1 = new ItemBoton(panel, i[0], aplicacion);
+	            item2 = new ItemBoton(panel, i[1], aplicacion);
+	            item3 = new ItemBoton(panel, i[2], aplicacion);
+	    }
+        
+        volver = new Button("Volver");
         volver.setOnAction(e -> {
             panel.getChildren().clear();
             panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
-        });
+        }); 
+
+        ArrayList<Button> botones = new ArrayList<Button>();
+		botones.add(item1);	botones.add(item2);	botones.add(item3);	botones.add(volver);
+		for (Button b : botones) {
+			b.setPrefSize(250, 100);
+			b.setStyle("-fx-font-size: 18; -fx-text-fill: #ffffff; -fx-background-color: #000000;"); 
+		}
+                
+        add(item1, 0, 0);
+        add(item2, 0, 1);
+        add(item3, 1, 0);
+        add(volver, 1, 1);
     }
 }

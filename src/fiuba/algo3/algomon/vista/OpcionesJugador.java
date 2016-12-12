@@ -15,7 +15,10 @@ public class OpcionesJugador extends GridPane {
     		aplicacion.mostrarPantallaFin();
     	}
     	else{
-			Button atacar = new Button("Atacar");
+    		setStyle("-fx-background-color:#000000");
+			
+    		
+    		Button atacar = new Button("Atacar");
 			Button algomon = new Button("Algomon");
 			Button mochila = new Button("Mochila");
 			Button pasarTurno = new Button("Pasar turno");
