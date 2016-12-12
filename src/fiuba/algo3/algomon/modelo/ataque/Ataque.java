@@ -40,7 +40,11 @@ public class Ataque
         }
     }
 
-	public int cantidadDeUsosRestantes() {
+	public int cantidadDeUsosRestantes() {//borrar
 		return cantidadDeUsosRestantes;
+	}
+
+	public String nombre() {
+		return movimiento.name() + " " + cantidadDeUsosRestantes + "/" + movimiento.getCantidadDeUsos();
 	}
 }
