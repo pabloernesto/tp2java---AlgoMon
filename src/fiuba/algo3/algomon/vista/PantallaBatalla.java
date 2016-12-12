@@ -103,23 +103,26 @@ class Ataques extends GridPane {
 	    }
         volver = new Button("Volver");
 
-        add(ataque1, 0, 0);
-        add(ataque2, 0, 1);
-        add(ataque3, 1, 0);
-        add(volver, 1, 1);
-
+        
         ArrayList<Button> botones = new ArrayList<Button>();
-		botones.add(ataque1);	botones.add(ataque2);	botones.add(ataque3);	botones.add(volver);
-		
+        	botones.add(ataque1);	botones.add(ataque2);	botones.add(ataque3);
 		for (Button b : botones) {
 			b.setPrefSize(250, 80);
 			b.setStyle("-fx-font-size: 18; -fx-text-fill: #ffffff; -fx-background-color: #000000;"); 
 		}
         
+		volver.setPrefSize(250, 80);
+		volver.setStyle("-fx-font-size: 18; -fx-text-fill: #ffffff; -fx-background-color: #000000;-fx-font-weight: bold");
         volver.setOnAction(e -> {
             panel.getChildren().clear();
             panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
-        });
+        });        
+        
+        
+        add(ataque1, 0, 0);
+        add(ataque2, 0, 1);
+        add(ataque3, 1, 0);
+        add(volver, 1, 1);
     }
 }
 
@@ -135,20 +138,24 @@ class Algomones extends GridPane {
 	            algomon2 = new AlgomonVistaBoton(panel, a.get(1), aplicacion);
 	            algomon3 = new AlgomonVistaBoton(panel, a.get(2), aplicacion);
 	    }
-        
         volver = new Button("Volver");
-        volver.setOnAction(e -> {
-            panel.getChildren().clear();
-            panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
-        });
 
+        
         ArrayList<Button> botones = new ArrayList<Button>();
-		botones.add(algomon1);	botones.add(algomon2);	botones.add(algomon3);	botones.add(volver);
+		botones.add(algomon1);	botones.add(algomon2);	botones.add(algomon3);
 		for (Button b : botones) {
 			b.setPrefSize(250, 80);
 			b.setStyle("-fx-font-size: 18; -fx-text-fill: #ffffff; -fx-background-color: #000000;"); 
 		}
-                
+		
+		volver.setPrefSize(250, 80);
+		volver.setStyle("-fx-font-size: 18; -fx-text-fill: #ffffff; -fx-background-color: #000000;-fx-font-weight: bold");
+        volver.setOnAction(e -> {
+            panel.getChildren().clear();
+            panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
+        });
+        
+        
         add(algomon1, 0, 0);
         add(algomon2, 0, 1);
         add(algomon3, 1, 0);
@@ -168,20 +175,24 @@ class Mochila extends GridPane {
 	            item2 = new ItemBoton(panel, i[1], aplicacion);
 	            item3 = new ItemBoton(panel, i[2], aplicacion);
 	    }
-        
         volver = new Button("Volver");
-        volver.setOnAction(e -> {
-            panel.getChildren().clear();
-            panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
-        }); 
-
+		
+        
         ArrayList<Button> botones = new ArrayList<Button>();
-		botones.add(item1);	botones.add(item2);	botones.add(item3);	botones.add(volver);
+			botones.add(item1);	botones.add(item2);	botones.add(item3);	botones.add(volver);
 		for (Button b : botones) {
 			b.setPrefSize(250, 80);
 			b.setStyle("-fx-font-size: 18; -fx-text-fill: #ffffff; -fx-background-color: #000000;"); 
 		}
-                
+            
+		volver.setPrefSize(250, 80);
+		volver.setStyle("-fx-font-size: 18; -fx-text-fill: #ffffff; -fx-background-color: #000000;-fx-font-weight: bold");
+        volver.setOnAction(e -> {
+            panel.getChildren().clear();
+            panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
+        });
+
+		
         add(item1, 0, 0);
         add(item2, 0, 1);
         add(item3, 1, 0);

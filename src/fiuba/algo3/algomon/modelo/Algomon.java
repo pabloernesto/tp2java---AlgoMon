@@ -24,11 +24,9 @@ public class Algomon extends Observable {
     Map<Movimiento, Ataque> ataques = new EnumMap<Movimiento, Ataque>(Movimiento.class);
     String nombreEspecie;
 
-    public Algomon(String nombreEspecie, Tipo tipo, Movimiento [] movimientos,
-        int vida) {
+    public Algomon(String nombreEspecie, Tipo tipo, Movimiento [] movimientos, int vida) {
 
         this.nombreEspecie = nombreEspecie;
-
         this.setTipo(tipo);
 
         for (Movimiento m : movimientos) {

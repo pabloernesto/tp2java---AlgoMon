@@ -40,8 +40,8 @@ public class Ataque
         }
     }
 
-	public String nombre() {
-		return movimiento.name() + " " + cantidadDeUsosRestantes + "/" + movimiento.getCantidadDeUsos();
+	public String getNombreParaMostrar() {
+		return movimiento.getNombre() + " (" + cantidadDeUsosRestantes + "/" + movimiento.getCantidadDeUsos() + ")";
 	}
 
 	public boolean puedeSerEfectuado() {

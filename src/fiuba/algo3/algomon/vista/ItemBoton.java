@@ -9,8 +9,8 @@ import javafx.scene.layout.Pane;
 public class ItemBoton extends Button {
 
     public ItemBoton(Pane panel, Item item, Ejecutar app) {
-        super(item.nombre());
-        setOnAction(new ItemControlador(this, panel, item, app));
+        super(item.getNombreParaMostrar());
+        setOnAction(new ItemControlador(panel, item, app));
         if (item.usosRestantes() == 0)
             setDisable(true);
     }

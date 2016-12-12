@@ -9,7 +9,7 @@ import javafx.scene.layout.Pane;
 public class AtaqueVistaBoton extends Button {
 
     AtaqueVistaBoton(Pane panel, Ataque a, Ejecutar app) {
-        super(a.nombre());
+        super(a.getNombreParaMostrar());
         setOnAction(new AtaqueControlador(panel, a, app));
         if (!a.puedeSerEfectuado())
             setDisable(true);

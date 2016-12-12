@@ -14,8 +14,8 @@ public abstract class Item {
 
     public abstract void aplicar(Algomon algomonActivo);
 
-    public String nombre(){
-    	return elemento.name() + " " + cantidadDeUsosRestantes + "/" + elemento.cantidadInicialDeElemento;
+    public String getNombreParaMostrar(){
+    	return elemento.getNombre() + " (" + cantidadDeUsosRestantes + "/" + elemento.cantidadInicialDeElemento + ")";
     };
 
     public Elemento elemento(){
