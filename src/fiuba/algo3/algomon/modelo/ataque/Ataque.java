@@ -43,4 +43,8 @@ public class Ataque
 	public String nombre() {
 		return movimiento.name() + " " + cantidadDeUsosRestantes + "/" + movimiento.getCantidadDeUsos();
 	}
+
+	public boolean puedeSerEfectuado() {
+		return (cantidadDeUsosRestantes>0);
+	}
 }
