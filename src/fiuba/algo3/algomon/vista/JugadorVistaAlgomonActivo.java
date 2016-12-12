@@ -36,7 +36,7 @@ public class JugadorVistaAlgomonActivo extends BorderPane implements Observer {
     }
 
     private void actualizarVista(Algomon activo) {
-        Label nombre = new Label(activo.nombreEspecie());
+        Label nombre = new Label(activo.getNombreEspecie());
             nombre.setStyle("-fx-text-fill: #ffffff; -fx-font-weight: bold ; -fx-font-size: 20;");
             nombre.setPrefSize(500, 50);
             nombre.setAlignment(Pos.CENTER);

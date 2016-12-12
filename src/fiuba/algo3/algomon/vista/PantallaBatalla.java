@@ -96,7 +96,7 @@ class Ataques extends GridPane {
        
         Button ataque1, ataque2, ataque3, volver;
         {
-            Ataque[] a = Juego.instancia().obtenerJugadorActivo().getAlgomonActivo().ataques();
+            Ataque[] a = Juego.instancia().obtenerJugadorActivo().getAlgomonActivo().getAtaques();
 	            ataque1 = new AtaqueVistaBoton(panel, a[0], aplicacion);
 	            ataque2 = new AtaqueVistaBoton(panel, a[1], aplicacion);
 	            ataque3 = new AtaqueVistaBoton(panel, a[2], aplicacion);

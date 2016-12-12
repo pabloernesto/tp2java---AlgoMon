@@ -15,11 +15,11 @@ public class ChupavidasTest
         Algomon bulbasaur = Especie.BULBASAUR.nuevo();
         Algomon squirtle = Especie.SQUIRTLE.nuevo();
 
-        int vidaInicial = squirtle.vida();
+        int vidaInicial = squirtle.getVida();
 
         bulbasaur.atacar(squirtle, Movimiento.CHUPAVIDAS);
 
-        assertEquals(vidaInicial - 30, squirtle.vida());
+        assertEquals(vidaInicial - 30, squirtle.getVida());
     }
 
     @Test
@@ -29,12 +29,12 @@ public class ChupavidasTest
         Algomon squirtle = Especie.SQUIRTLE.nuevo();
 
         //~ bulbasaur queda con 1 pto de vida
-        bulbasaur.causarDanio(bulbasaur.vidaOriginal() - 1);
-        int vidaInicial = bulbasaur.vida();
+        bulbasaur.causarDanio(bulbasaur.getVidaOriginal() - 1);
+        int vidaInicial = bulbasaur.getVida();
 
         bulbasaur.atacar(squirtle, Movimiento.CHUPAVIDAS);
 
-        assertEquals(vidaInicial + 9, bulbasaur.vida());
+        assertEquals(vidaInicial + 9, bulbasaur.getVida());
     }
 
     @Test
@@ -42,11 +42,11 @@ public class ChupavidasTest
         Algomon bulbasaur = Especie.BULBASAUR.nuevo();
         Algomon charmander = Especie.CHARMANDER.nuevo();
 
-        int vidaInicial = charmander.vida();
+        int vidaInicial = charmander.getVida();
 
         bulbasaur.atacar(charmander, Movimiento.CHUPAVIDAS);
 
-        assertEquals(vidaInicial - 7, charmander.vida());
+        assertEquals(vidaInicial - 7, charmander.getVida());
     }
 
     @Test
@@ -55,12 +55,12 @@ public class ChupavidasTest
         Algomon squirtle = Especie.SQUIRTLE.nuevo();
 
         //~ bulbasaur queda con 1 pto de vida
-        bulbasaur.causarDanio(bulbasaur.vidaOriginal() - 1);
-        int vidaInicial = bulbasaur.vida();
+        bulbasaur.causarDanio(bulbasaur.getVidaOriginal() - 1);
+        int vidaInicial = bulbasaur.getVida();
 
         bulbasaur.atacar(squirtle, Movimiento.CHUPAVIDAS);
 
-        assertEquals(vidaInicial + 9, bulbasaur.vida());
+        assertEquals(vidaInicial + 9, bulbasaur.getVida());
     }
 
      @Test
@@ -69,11 +69,11 @@ public class ChupavidasTest
          Algomon bulbasaur = Especie.BULBASAUR.nuevo();
          Algomon rattata = Especie.RATTATA.nuevo();
 
-         int vidaInicial = rattata.vida();
+         int vidaInicial = rattata.getVida();
 
          bulbasaur.atacar(rattata, Movimiento.CHUPAVIDAS);
 
-         assertEquals(vidaInicial - 15, rattata.vida());
+         assertEquals(vidaInicial - 15, rattata.getVida());
  }
 
      @Test
@@ -83,12 +83,12 @@ public class ChupavidasTest
          Algomon rattata = Especie.RATTATA.nuevo();
 
          //~ bulbasaur queda con 1 pto de vida
-         bulbasaur.causarDanio(bulbasaur.vidaOriginal() - 1);
-         int vidaInicial = bulbasaur.vida();
+         bulbasaur.causarDanio(bulbasaur.getVidaOriginal() - 1);
+         int vidaInicial = bulbasaur.getVida();
 
          bulbasaur.atacar(rattata, Movimiento.CHUPAVIDAS);
 
-         assertEquals(vidaInicial + 4, bulbasaur.vida());
+         assertEquals(vidaInicial + 4, bulbasaur.getVida());
      }
 
     @Test
@@ -96,9 +96,9 @@ public class ChupavidasTest
         Algomon bulbasaur = Especie.BULBASAUR.nuevo();
         Algomon rattata = Especie.RATTATA.nuevo();
 
-        int vidaInicial = bulbasaur.vida();
+        int vidaInicial = bulbasaur.getVida();
         bulbasaur.atacar(rattata, Movimiento.CHUPAVIDAS);
 
-        assertEquals(vidaInicial, bulbasaur.vida());
+        assertEquals(vidaInicial, bulbasaur.getVida());
     }
 }

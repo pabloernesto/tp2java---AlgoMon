@@ -20,11 +20,11 @@ public class QuemadoTest
 
         charmander.atacar(rattata, Movimiento.FOGONAZO);
 
-        int vidaInicial = rattata.vida();
+        int vidaInicial = rattata.getVida();
         // rattata no pierde vida si no realiza una accion
         rattata.atacar(charmander, Movimiento.ATAQUE_RAPIDO);
 
-        assertEquals(vidaInicial - 17, rattata.vida());
+        assertEquals(vidaInicial - 17, rattata.getVida());
     }
 
     @Test
@@ -42,10 +42,10 @@ public class QuemadoTest
             .atacar(rattata, Movimiento.FOGONAZO)
             .atacar(rattataAtacado, Movimiento.FOGONAZO);}
         catch (CantidadDeAtaquesExcedidaException e) {
-            int vidaInicial = rattataAtacado.vida();
+            int vidaInicial = rattataAtacado.getVida();
             // rattata no pierde vida si no realiza una accion
             rattataAtacado.atacar(rattata, Movimiento.ATAQUE_RAPIDO);
-            assertEquals(vidaInicial , rattataAtacado.vida());
+            assertEquals(vidaInicial , rattataAtacado.getVida());
         }
 
     }
@@ -58,13 +58,13 @@ public class QuemadoTest
 
         charmander.atacar(rattata, Movimiento.FOGONAZO);
 
-        int vidaInicial = rattata.vida();
+        int vidaInicial = rattata.getVida();
         rattata
             .turnoTerminado()
             .turnoTerminado()
             .turnoTerminado();
 
-        assertEquals(vidaInicial, rattata.vida());
+        assertEquals(vidaInicial, rattata.getVida());
     }
     @Test
     public void quemadoLeQuita17PuntosARattataSiEsteUsaUnElemento()
@@ -76,10 +76,10 @@ public class QuemadoTest
 
         Vitamina vitamina = (Vitamina)Elemento.VITAMINA.nuevo();
 
-        int vidaInicial = rattata.vida();
+        int vidaInicial = rattata.getVida();
         // rattata no pierde vida si no realiza una accion
         rattata.aplicar(vitamina);
 
-        assertEquals(vidaInicial - 17, rattata.vida());
+        assertEquals(vidaInicial - 17, rattata.getVida());
     }
 }

@@ -13,7 +13,7 @@ public class AtaqueFogonazo extends Ataque {
 
     public int efectuar(Algomon atacado) throws juegoTerminadoException {
         int cantidadDeDanioCausado = super.efectuar(atacado);
-        atacado.cambiarEstadoPermanente(new EstadoDeAlgomonQuemado());
+        atacado.cambiarEstadoPermanenteA(new EstadoDeAlgomonQuemado());
         return cantidadDeDanioCausado;
     }
 }

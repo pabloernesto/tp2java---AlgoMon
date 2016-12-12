@@ -62,11 +62,11 @@ public class JugadorTest {
         juego.getJugadorNro(0).elegirAlgomon(Especie.CHARMANDER.nuevo());
 
         Algomon rattata = Especie.RATTATA.nuevo();
-        int vidaInicial = rattata.vida();
+        int vidaInicial = rattata.getVida();
 
         juego.getJugadorNro(0).getAlgomonActivo().atacar(rattata, Movimiento.ATAQUE_RAPIDO);  //El jugador lo elegira por interfaz
 
-        assertEquals(vidaInicial - 10, rattata.vida());
+        assertEquals(vidaInicial - 10, rattata.getVida());
     }
 
     @Test
@@ -94,10 +94,10 @@ public class JugadorTest {
         Algomon atacante = Especie.SQUIRTLE.nuevo();
         atacante.atacar(atacado, Movimiento.CANION_DE_AGUA);
 
-        int vidaInicial = atacado.vida();
+        int vidaInicial = atacado.getVida();
         jugador.aplicar(Elemento.POCION);
 
-        assertEquals(vidaInicial + 20, atacado.vida());
+        assertEquals(vidaInicial + 20, atacado.getVida());
     }
 
    @Test
@@ -109,10 +109,10 @@ public class JugadorTest {
         atacante.atacar(atacado, Movimiento.CANION_DE_AGUA);
         atacante.atacar(atacado, Movimiento.CANION_DE_AGUA);
 
-        int vidaInicial = atacado.vida();
+        int vidaInicial = atacado.getVida();
         jugador.aplicar(Elemento.SUPER_POCION);
 
-        assertEquals(vidaInicial + 40, atacado.vida());
+        assertEquals(vidaInicial + 40, atacado.getVida());
     }
 
    @Test
@@ -121,14 +121,14 @@ public class JugadorTest {
         jugador.elegirAlgomon(Especie.CHARMANDER.nuevo());
         Algomon algomonConEstado = jugador.getAlgomonActivo();
         Algomon atacado = Especie.JIGGLYPUFF.nuevo();
-        int vidaInicial = atacado.vida();
+        int vidaInicial = atacado.getVida();
         atacado.atacar(algomonConEstado, Movimiento.CANTO);
 
         jugador.aplicar(Elemento.RESTAURADOR);
         algomonConEstado.atacar(atacado, Movimiento.BRASAS);
 
 
-        assertEquals(vidaInicial - 16, atacado.vida());
+        assertEquals(vidaInicial - 16, atacado.getVida());
     }
 
    @Test
@@ -150,10 +150,10 @@ public class JugadorTest {
 
 
        jugador.aplicar(Elemento.VITAMINA);
-       int vidaInicial = rattata5.vida();
+       int vidaInicial = rattata5.getVida();
        charmander.atacar(rattata5, Movimiento.FOGONAZO);
        charmander.atacar(rattata5, Movimiento.FOGONAZO);
-       assertEquals(vidaInicial - 4, rattata5.vida());
+       assertEquals(vidaInicial - 4, rattata5.getVida());
    }
 
    @Test (expected = CantidadElementosExcedidaException.class)

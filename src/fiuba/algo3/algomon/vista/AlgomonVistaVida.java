@@ -20,8 +20,8 @@ public class AlgomonVistaVida extends ProgressBar implements Observer {
         String attribute = (String) arg;
 
         if (attribute.equals("vida")) {
-            double v = (double) a.vida();
-            double vo = (double) a.vidaOriginal();
+            double v = (double) a.getVida();
+            double vo = (double) a.getVidaOriginal();
             setProgress(v / vo);
         }
     }

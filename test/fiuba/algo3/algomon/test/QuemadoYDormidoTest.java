@@ -33,7 +33,7 @@ public class QuemadoYDormidoTest
         charmander.atacar(rattata, Movimiento.FOGONAZO);
         jigglypuff.atacar(rattata, Movimiento.CANTO);
 
-        int vidaInicial = rattata.vida();
+        int vidaInicial = rattata.getVida();
         rattata
             .turnoTerminado()
             .turnoTerminado()
@@ -43,6 +43,6 @@ public class QuemadoYDormidoTest
         assertTrue(
             "La vida de rattata debe disminuir "
             + "cuando ataca porque esta quemado",
-            rattata.vida() < vidaInicial);
+            rattata.getVida() < vidaInicial);
     }
 }

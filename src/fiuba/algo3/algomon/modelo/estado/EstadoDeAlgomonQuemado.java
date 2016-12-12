@@ -10,13 +10,13 @@ public class EstadoDeAlgomonQuemado implements EstadoDeAlgomon {
 
     @Override
     public void turnoTerminado(Algomon algomon) throws juegoTerminadoException {
-        int vida = algomon.vidaOriginal();
+        int vida = algomon.getVidaOriginal();
         int potencia = vida / 10;
         algomon.causarDanio(potencia);
     }
 
     public void consecuencia(Algomon algomon) throws juegoTerminadoException {
-        int vida = algomon.vidaOriginal();
+        int vida = algomon.getVidaOriginal();
         int potencia = vida / 10;
         algomon.causarDanio(potencia);
     }

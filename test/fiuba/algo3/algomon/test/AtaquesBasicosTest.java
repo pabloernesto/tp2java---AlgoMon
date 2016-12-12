@@ -15,11 +15,11 @@ public class AtaquesBasicosTest
         Algomon bulbasaur = Especie.BULBASAUR.nuevo();
         Algomon squirtle = Especie.SQUIRTLE.nuevo();
 
-        int vidaInicial = squirtle.vida();
+        int vidaInicial = squirtle.getVida();
 
         bulbasaur.atacar(squirtle, Movimiento.LATIGO_CEPA);
 
-        assertEquals(vidaInicial - 30, squirtle.vida());
+        assertEquals(vidaInicial - 30, squirtle.getVida());
     }
 
     @Test
@@ -28,11 +28,11 @@ public class AtaquesBasicosTest
         Algomon bulbasaur = Especie.BULBASAUR.nuevo();
         Algomon charmander = Especie.CHARMANDER.nuevo();
 
-        int vidaInicial = charmander.vida();
+        int vidaInicial = charmander.getVida();
 
         bulbasaur.atacar(charmander, Movimiento.LATIGO_CEPA);
 
-        assertEquals(vidaInicial - 7, charmander.vida());
+        assertEquals(vidaInicial - 7, charmander.getVida());
     }
 
     @Test
@@ -41,11 +41,11 @@ public class AtaquesBasicosTest
         Algomon bulbasaur = Especie.BULBASAUR.nuevo();
         Algomon chansey = Especie.CHANSEY.nuevo();
 
-        int vidaInicial = chansey.vida();
+        int vidaInicial = chansey.getVida();
 
         bulbasaur.atacar(chansey, Movimiento.LATIGO_CEPA);
 
-        assertEquals(vidaInicial - 15, chansey.vida());
+        assertEquals(vidaInicial - 15, chansey.getVida());
     }
 
     @Test
@@ -54,11 +54,11 @@ public class AtaquesBasicosTest
         Algomon chansey = Especie.CHANSEY.nuevo();
         Algomon squirtle = Especie.SQUIRTLE.nuevo();
 
-        int vidaInicial = squirtle.vida();
+        int vidaInicial = squirtle.getVida();
 
         chansey.atacar(squirtle, Movimiento.LATIGO_CEPA);
 
-        assertEquals(vidaInicial - 30, squirtle.vida());
+        assertEquals(vidaInicial - 30, squirtle.getVida());
     }
 
     @Test
@@ -67,11 +67,11 @@ public class AtaquesBasicosTest
         Algomon chansey = Especie.CHANSEY.nuevo();
         Algomon charmander = Especie.CHARMANDER.nuevo();
 
-        int vidaInicial = charmander.vida();
+        int vidaInicial = charmander.getVida();
 
         chansey.atacar(charmander, Movimiento.LATIGO_CEPA);
 
-        assertEquals(vidaInicial - 7, charmander.vida());
+        assertEquals(vidaInicial - 7, charmander.getVida());
     }
 
     @Test
@@ -80,11 +80,11 @@ public class AtaquesBasicosTest
         Algomon chansey = Especie.CHANSEY.nuevo();
         Algomon jigglypuff = Especie.JIGGLYPUFF.nuevo();
 
-        int vidaInicial = jigglypuff.vida();
+        int vidaInicial = jigglypuff.getVida();
 
         chansey.atacar(jigglypuff, Movimiento.LATIGO_CEPA);
 
-        assertEquals(vidaInicial - 15, jigglypuff.vida());
+        assertEquals(vidaInicial - 15, jigglypuff.getVida());
     }
 
     @Test
@@ -93,11 +93,11 @@ public class AtaquesBasicosTest
         Algomon atacante = Especie.RATTATA.nuevo();
         Algomon atacado = Especie.RATTATA.nuevo();
 
-        int vidaInicial = atacado.vida();
+        int vidaInicial = atacado.getVida();
 
         atacante.atacar(atacado, Movimiento.FOGONAZO);
 
-        assertEquals(vidaInicial - 2, atacado.vida());
+        assertEquals(vidaInicial - 2, atacado.getVida());
     }
 
     @Test
@@ -106,11 +106,11 @@ public class AtaquesBasicosTest
         Algomon squirtle = Especie.SQUIRTLE.nuevo();
         Algomon charmander = Especie.CHARMANDER.nuevo();
 
-        int vidaInicial = charmander.vida();
+        int vidaInicial = charmander.getVida();
 
         squirtle.atacar(charmander, Movimiento.BURBUJA);
 
-        assertEquals(vidaInicial - 20, charmander.vida());
+        assertEquals(vidaInicial - 20, charmander.getVida());
     }
 
     @Test
@@ -119,11 +119,11 @@ public class AtaquesBasicosTest
         Algomon squirtle = Especie.SQUIRTLE.nuevo();
         Algomon charmander = Especie.CHARMANDER.nuevo();
 
-        int vidaInicial = charmander.vida();
+        int vidaInicial = charmander.getVida();
 
         squirtle.atacar(charmander, Movimiento.CANION_DE_AGUA);
 
-        assertEquals(vidaInicial - 40, charmander.vida());
+        assertEquals(vidaInicial - 40, charmander.getVida());
     }
 
     @Test
@@ -132,11 +132,11 @@ public class AtaquesBasicosTest
         Algomon squirtle = Especie.SQUIRTLE.nuevo();
         Algomon bulbasaur = Especie.BULBASAUR.nuevo();
 
-        int vidaInicial = bulbasaur.vida();
+        int vidaInicial = bulbasaur.getVida();
 
         squirtle.atacar(bulbasaur, Movimiento.BURBUJA);
 
-        assertEquals(vidaInicial - 5, bulbasaur.vida());
+        assertEquals(vidaInicial - 5, bulbasaur.getVida());
     }
 
     @Test
@@ -145,11 +145,11 @@ public class AtaquesBasicosTest
         Algomon squirtle = Especie.SQUIRTLE.nuevo();
         Algomon bulbasaur = Especie.BULBASAUR.nuevo();
 
-        int vidaInicial = bulbasaur.vida();
+        int vidaInicial = bulbasaur.getVida();
 
         squirtle.atacar(bulbasaur, Movimiento.CANION_DE_AGUA);
 
-        assertEquals(vidaInicial - 10, bulbasaur.vida());
+        assertEquals(vidaInicial - 10, bulbasaur.getVida());
     }
 
     @Test
@@ -158,11 +158,11 @@ public class AtaquesBasicosTest
         Algomon squirtle = Especie.SQUIRTLE.nuevo();
         Algomon rattata = Especie.RATTATA.nuevo();
 
-        int vidaInicial = rattata.vida();
+        int vidaInicial = rattata.getVida();
 
         squirtle.atacar(rattata, Movimiento.BURBUJA);
 
-        assertEquals(vidaInicial - 10, rattata.vida());
+        assertEquals(vidaInicial - 10, rattata.getVida());
     }
 
     @Test
@@ -171,11 +171,11 @@ public class AtaquesBasicosTest
         Algomon squirtle = Especie.SQUIRTLE.nuevo();
         Algomon rattata = Especie.RATTATA.nuevo();
 
-        int vidaInicial = rattata.vida();
+        int vidaInicial = rattata.getVida();
 
         squirtle.atacar(rattata, Movimiento.CANION_DE_AGUA);
 
-        assertEquals(vidaInicial - 20, rattata.vida());
+        assertEquals(vidaInicial - 20, rattata.getVida());
     }
 
     @Test
@@ -184,11 +184,11 @@ public class AtaquesBasicosTest
         Algomon charmander = Especie.CHARMANDER.nuevo();
         Algomon bulbasaur = Especie.BULBASAUR.nuevo();
 
-        int vidaInicial = bulbasaur.vida();
+        int vidaInicial = bulbasaur.getVida();
 
         charmander.atacar(bulbasaur, Movimiento.BRASAS);
 
-        assertEquals(vidaInicial - 32, bulbasaur.vida());
+        assertEquals(vidaInicial - 32, bulbasaur.getVida());
     }
 
     @Test
@@ -197,11 +197,11 @@ public class AtaquesBasicosTest
         Algomon charmander = Especie.CHARMANDER.nuevo();
         Algomon squirtle = Especie.SQUIRTLE.nuevo();
 
-        int vidaInicial = squirtle.vida();
+        int vidaInicial = squirtle.getVida();
 
         charmander.atacar(squirtle, Movimiento.BRASAS);
 
-        assertEquals(vidaInicial - 8, squirtle.vida());
+        assertEquals(vidaInicial - 8, squirtle.getVida());
     }
 
     @Test
@@ -210,11 +210,11 @@ public class AtaquesBasicosTest
         Algomon charmander = Especie.CHARMANDER.nuevo();
         Algomon rattata = Especie.RATTATA.nuevo();
 
-        int vidaInicial = rattata.vida();
+        int vidaInicial = rattata.getVida();
 
         charmander.atacar(rattata, Movimiento.BRASAS);
 
-        assertEquals(vidaInicial - 16, rattata.vida());
+        assertEquals(vidaInicial - 16, rattata.getVida());
     }
 
     @Test
@@ -223,11 +223,11 @@ public class AtaquesBasicosTest
         Algomon charmander = Especie.CHARMANDER.nuevo();
         Algomon jigglypuff = Especie.JIGGLYPUFF.nuevo();
 
-        int vidaInicial = jigglypuff.vida();
+        int vidaInicial = jigglypuff.getVida();
 
         charmander.atacar(jigglypuff, Movimiento.BRASAS);
 
-        assertEquals(vidaInicial - 16, jigglypuff.vida());
+        assertEquals(vidaInicial - 16, jigglypuff.getVida());
     }
 
 
@@ -237,11 +237,11 @@ public class AtaquesBasicosTest
         Algomon charmander = Especie.CHARMANDER.nuevo();
         Algomon rattata = Especie.RATTATA.nuevo();
 
-        int vidaInicial = rattata.vida();
+        int vidaInicial = rattata.getVida();
 
         charmander.atacar(rattata, Movimiento.ATAQUE_RAPIDO);
 
-        assertEquals(vidaInicial - 10, rattata.vida());
+        assertEquals(vidaInicial - 10, rattata.getVida());
     }
 
     @Test
@@ -250,10 +250,10 @@ public class AtaquesBasicosTest
         Algomon charmander = Especie.CHARMANDER.nuevo();
         Algomon rattata = Especie.RATTATA.nuevo();
 
-        int vidaInicial = rattata.vida();
+        int vidaInicial = rattata.getVida();
 
         charmander.atacar(rattata, Movimiento.FOGONAZO);
 
-        assertEquals(vidaInicial - 2, rattata.vida());
+        assertEquals(vidaInicial - 2, rattata.getVida());
     }
 }

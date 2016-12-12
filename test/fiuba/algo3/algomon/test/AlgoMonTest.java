@@ -14,19 +14,19 @@ public class AlgoMonTest {
      public void creacionDeAlgomon() {
          Algomon bulbasaur = Especie.BULBASAUR.nuevo();
 
-         assertEquals(bulbasaur.vida(), 140);
+         assertEquals(bulbasaur.getVida(), 140);
      }
 
      @Test
      public void causarDanioNoBajaVidaAMenosDeCero() {
 
          Algomon bulbasaur = Especie.BULBASAUR.nuevo();
-         int v = bulbasaur.vida();
+         int v = bulbasaur.getVida();
          try {
 			bulbasaur.causarDanio(2 * v);
 		} catch (juegoTerminadoException e) {
 		}
 
-         assertEquals(0, bulbasaur.vida());
+         assertEquals(0, bulbasaur.getVida());
      }
 }

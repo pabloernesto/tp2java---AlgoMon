@@ -13,7 +13,7 @@ public class AtaqueCanto extends Ataque {
 
     public int efectuar(Algomon atacado) throws juegoTerminadoException {
         int cantidadDeDanioCausado = super.efectuar(atacado);
-        atacado.cambiarEstadoEfimero(new EstadoDeAlgomonDormido());
+        atacado.cambiarEstadoEfimeroA(new EstadoDeAlgomonDormido());
         return cantidadDeDanioCausado;
     }
 }

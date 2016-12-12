@@ -54,15 +54,15 @@ public class Algomon extends Observable {
         return this;
     }
 
-    public Ataque[] ataques() {
+    public Ataque[] getAtaques() {
         return ataques.values().toArray(new Ataque[0]);
     }
 
-    public int vidaOriginal() {
+    public int getVidaOriginal() {
         return vidaOriginal;
     }
 
-    public int vida() {
+    public int getVida() {
         return vida;
     }
 
@@ -83,13 +83,13 @@ public class Algomon extends Observable {
         this.recuperarEstadoPermanente();
     }
 
-    public void cambiarEstadoEfimero(EstadoDeAlgomon nuevoEstado) {
+    public void cambiarEstadoEfimeroA(EstadoDeAlgomon nuevoEstado) {
         estadoEfimero = nuevoEstado;
         setChanged();
         notifyObservers("");
     }
 
-    public void cambiarEstadoPermanente(EstadoDeAlgomon nuevoEstado) {
+    public void cambiarEstadoPermanenteA(EstadoDeAlgomon nuevoEstado) {
         estadoPermanente = nuevoEstado;
         setChanged();
         notifyObservers("");
@@ -123,7 +123,7 @@ public class Algomon extends Observable {
         notifyObservers("vida");
     }
 
-    public String nombreEspecie() {
+    public String getNombreEspecie() {
         return nombreEspecie;
     }
 
@@ -159,11 +159,6 @@ public class Algomon extends Observable {
         }
         estadoPermanente.consecuencia(this);
     }
-
-//    public void pedirCambioSiEstaDesmayado(Jugador jugador) {
-//        if(vida==0){jugador.cambiarAlgomonActivo();};
-//
-//    }
 
     public boolean puedePelear() {
         return (vida>0);

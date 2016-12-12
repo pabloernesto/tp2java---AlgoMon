@@ -90,7 +90,7 @@ public class CantoTest
 
         juego.getJugadorNro(1).algomonNro(3).atacar(juego.getJugadorNro(0).algomonNro(2), Movimiento.BURBUJA);
 
-        assertEquals(juego.getJugadorNro(0).algomonNro(2).vida(), 120);
+        assertEquals(juego.getJugadorNro(0).algomonNro(2).getVida(), 120);
     }
 
     @Test 

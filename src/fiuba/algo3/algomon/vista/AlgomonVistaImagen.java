@@ -37,7 +37,7 @@ public class AlgomonVistaImagen extends ImageView {
     }
 
     String nombreImagen() {
-        String n = algomon.nombreEspecie();
+        String n = algomon.getNombreEspecie();
         return n.substring(0, 1) + n.substring(1).toLowerCase();
     }
 }
