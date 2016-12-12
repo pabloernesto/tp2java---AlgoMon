@@ -15,8 +15,4 @@ public class Vitamina extends Item {
         cantidadDeUsosRestantes--;
         algomonActivo.aplicar(this);
     }
-
-    public String nombre() {
-        return "Vitamina";
-    }
 }

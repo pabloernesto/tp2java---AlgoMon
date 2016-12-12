@@ -16,7 +16,4 @@ public class SuperPocion extends Item {
         algomonActivo.aplicar(this);
     }
 
-    public String nombre() {
-        return "Super pocion";
-    }
 }

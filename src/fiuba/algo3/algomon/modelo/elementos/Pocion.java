@@ -15,8 +15,4 @@ public class Pocion extends Item {
         cantidadDeUsosRestantes--;
         algomonActivo.aplicar(this);
     }
-
-    public String nombre() {
-        return "Pocion";
-    }
 }
