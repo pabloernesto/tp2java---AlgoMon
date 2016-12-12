@@ -26,9 +26,9 @@ public class PantallaFin extends Scene {
 		Label felicitacion = new Label("FELICITACIONES");
 			felicitacion.setAlignment(Pos.CENTER);
 			felicitacion.setPrefSize(500, 200);
-			felicitacion.setStyle("-fx-text-fill:#ffcc00; -fx-font-size: 24");
+			felicitacion.setStyle("-fx-text-fill:#ffcc00; -fx-font-size: 24; -fx-font-weight:bold");
 			
-		Label mensaje = new Label (Juego.instancia().obtenerJugadorActivo().nombre() + " ha ganado la batalla!");
+		Label mensaje = new Label ("¡" + Juego.instancia().obtenerJugadorActivo().nombre() + " ha ganado la batalla!");
 			mensaje.setAlignment(Pos.CENTER);
 			mensaje.setPrefSize(500, 300);
 			mensaje.setStyle("-fx-text-fill:#ffcc00; -fx-font-size:20");
