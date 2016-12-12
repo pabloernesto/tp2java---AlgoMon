@@ -7,7 +7,7 @@ import java.util.Random;
 import fiuba.algo3.algomon.excepciones.ImposibleAgregarMasJugadoresException;
 import fiuba.algo3.algomon.excepciones.juegoTerminadoException;
 
-public class Juego implements Observer {
+public class Juego extends Observable implements Observer {
 
     static Juego instancia;
 
@@ -50,11 +50,13 @@ public class Juego implements Observer {
         if (this.turno == 0) turnoAux = 1; else turnoAux = 0;
         return jugadores.get(turnoAux);
     }
-    
+
     public void pasarTurno() {
         getJugadorNro(this.turno).actualizarEstadoDeAlgomonesPorPasoDeTurno();
         this.cambiarJugadorQueJuega();
 
+        setChanged();
+        notifyObservers();
     }
 
     private void cambiarJugadorQueJuega() {
@@ -70,10 +72,10 @@ public class Juego implements Observer {
         }
     }
 
-	public boolean jugadorActivoPuedeContinuar() {
-		return this.obtenerJugadorActivo().quedanAlgomonesConscientes();
-	}
-	
+    public boolean jugadorActivoPuedeContinuar() {
+        return this.obtenerJugadorActivo().quedanAlgomonesConscientes();
+    }
+
     @Override
     public void update(Observable jugador, Object arg) {
         this.pasarTurno();

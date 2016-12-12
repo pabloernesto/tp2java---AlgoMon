@@ -15,6 +15,7 @@ public class JuegoVistaBatalla extends VBox implements Observer {
 
     public JuegoVistaBatalla() {
         juego = Juego.instancia();
+        juego.addObserver(this);
 
         Jugador activo, inactivo;
         activo = juego.obtenerJugadorActivo();
@@ -25,8 +26,7 @@ public class JuegoVistaBatalla extends VBox implements Observer {
         vistaActivo.mostrarEspalda();
         vistaInactivo = new JugadorVistaAlgomonActivo(inactivo);
 
-        getChildren().add(vistaInactivo);
-        getChildren().add(vistaActivo);
+        getChildren().addAll(vistaInactivo, vistaActivo);
 
         setStyle("-fx-background-image: url('images/bosque.png'); "
                  + "-fx-background-position: center center; "
@@ -34,5 +34,15 @@ public class JuegoVistaBatalla extends VBox implements Observer {
     }
 
     public void update(Observable j, Object arg) {
+        JugadorVistaAlgomonActivo tmp;
+
+        tmp = (JugadorVistaAlgomonActivo) getChildren().get(1);
+        tmp.mostrarFrente();
+
+        tmp = (JugadorVistaAlgomonActivo) getChildren().get(0);
+        tmp.mostrarEspalda();
+
+        getChildren().remove(0);
+        getChildren().add(tmp);
     }
 }
