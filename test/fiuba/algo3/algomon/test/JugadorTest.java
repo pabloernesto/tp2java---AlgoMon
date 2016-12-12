@@ -27,6 +27,7 @@ public class JugadorTest {
         Juego juego = Juego.instancia();
 
         juego.agregarJugador(new Jugador("Mabel"));
+        juego.agregarJugador(new Jugador("Nahuel"));
 
         juego.jugador(0).elegirAlgomon(Especie.BULBASAUR.nuevo());
         juego.jugador(0).elegirAlgomon(Especie.CHANSEY.nuevo());
@@ -40,6 +41,7 @@ public class JugadorTest {
         Juego juego = Juego.instancia();
 
         juego.agregarJugador(new Jugador("Mabel"));
+        juego.agregarJugador(new Jugador("Nahuel"));
 
         Algomon primerAlgomon = Especie.BULBASAUR.nuevo();
 
@@ -55,6 +57,7 @@ public class JugadorTest {
         Juego juego = Juego.instancia();
 
         juego.agregarJugador(new Jugador("Mabel"));
+        juego.agregarJugador(new Jugador("Nahuel"));
 
         juego.jugador(0).elegirAlgomon(Especie.CHARMANDER.nuevo());
 
