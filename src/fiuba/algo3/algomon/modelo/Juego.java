@@ -5,6 +5,7 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Random;
 import fiuba.algo3.algomon.excepciones.ImposibleAgregarMasJugadoresException;
+import fiuba.algo3.algomon.excepciones.juegoTerminadoException;
 
 //~ es un singleton
 public class Juego implements Observer {
@@ -69,7 +70,7 @@ public class Juego implements Observer {
         this.pasarTurno();
     }
 
-    public void reemplazarAlgomonDesmayado() {
+    public void reemplazarAlgomonDesmayado()  throws juegoTerminadoException{
         for  (Jugador jugador : jugadores){
             jugador.reemplazarAlgomonSiEstaDesmayado();
         }

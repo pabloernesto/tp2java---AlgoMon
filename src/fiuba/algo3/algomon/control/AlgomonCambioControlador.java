@@ -30,13 +30,9 @@ public class AlgomonCambioControlador implements EventHandler<ActionEvent> {
     // todavia no esta la logica del cambio de algomon;
     public void handle(ActionEvent arg0) {
         Jugador jugador = Juego.instancia().obtenerJugadorActivo();
-        try {
-			jugador.cambiarAlgomonActivo(this.algomon);
-			panel.getChildren().clear();
-	        panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
-        } catch (juegoTerminadoException e) {
-			aplicacion.mostrarPantallaFin();
-		}
+		jugador.cambiarAlgomonActivo(this.algomon);
+		panel.getChildren().clear();
+		panel.getChildren().add(new OpcionesJugador(panel, aplicacion));
     }
 
 }

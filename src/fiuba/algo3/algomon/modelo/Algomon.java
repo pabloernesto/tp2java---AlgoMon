@@ -102,7 +102,7 @@ public class Algomon extends Observable {
         return this;
     }
 
-    public void causarDanio(int potencia) {
+    public void causarDanio(int potencia)  throws juegoTerminadoException{
         vida -= potencia;
         if (vida <= 0){
             vida = 0;
@@ -160,10 +160,10 @@ public class Algomon extends Observable {
         estadoPermanente.consecuencia(this);
     }
 
-    public void pedirCambioSiEstaDesmayado(Jugador jugador) {
-        if(vida==0){jugador.cambiarAlgomonActivo();};
-
-    }
+//    public void pedirCambioSiEstaDesmayado(Jugador jugador) {
+//        if(vida==0){jugador.cambiarAlgomonActivo();};
+//
+//    }
 
     public boolean puedePelear() {
         return (vida>0);

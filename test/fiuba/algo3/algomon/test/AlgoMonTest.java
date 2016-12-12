@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import fiuba.algo3.algomon.excepciones.juegoTerminadoException;
 import fiuba.algo3.algomon.modelo.Algomon;
 import fiuba.algo3.algomon.modelo.Especie;
 
@@ -21,7 +22,10 @@ public class AlgoMonTest {
 
          Algomon bulbasaur = Especie.BULBASAUR.nuevo();
          int v = bulbasaur.vida();
-         bulbasaur.causarDanio(2 * v);
+         try {
+			bulbasaur.causarDanio(2 * v);
+		} catch (juegoTerminadoException e) {
+		}
 
          assertEquals(0, bulbasaur.vida());
      }

@@ -1,5 +1,6 @@
 package fiuba.algo3.algomon.modelo.estado;
 
+import fiuba.algo3.algomon.excepciones.juegoTerminadoException;
 import fiuba.algo3.algomon.modelo.Algomon;
 
 public class EstadoDeAlgomonQuemado implements EstadoDeAlgomon {
@@ -8,13 +9,13 @@ public class EstadoDeAlgomonQuemado implements EstadoDeAlgomon {
     }
 
     @Override
-    public void turnoTerminado(Algomon algomon) {
+    public void turnoTerminado(Algomon algomon) throws juegoTerminadoException {
         int vida = algomon.vidaOriginal();
         int potencia = vida / 10;
         algomon.causarDanio(potencia);
     }
 
-    public void consecuencia(Algomon algomon) {
+    public void consecuencia(Algomon algomon) throws juegoTerminadoException {
         int vida = algomon.vidaOriginal();
         int potencia = vida / 10;
         algomon.causarDanio(potencia);

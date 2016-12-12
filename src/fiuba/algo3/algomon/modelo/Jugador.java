@@ -43,7 +43,10 @@ public class Jugador extends Observable{
         }
 
         algomones.add(algomon);
-        this.cambiarAlgomonActivo();
+        try {
+			this.cambiarAlgomonActivo();
+		} catch (juegoTerminadoException e) {
+		}
     }
 
     public Algomon algomonNro(int nroDeAlgomon) {
@@ -83,37 +86,43 @@ public class Jugador extends Observable{
         notifyObservers();
     }
 
-    public void reemplazarAlgomonSiEstaDesmayado() {
+    public void reemplazarAlgomonSiEstaDesmayado()  throws juegoTerminadoException{
 //       algomonActivo.pedirCambioSiEstaDesmayado(this); refactor
     	this.cambiarAlgomonActivo();
     }
 
-    public void cambiarAlgomonActivo() {
-        algomonesConscientes = null;
-        algomonesConscientes = algomones.stream().filter(algomon -> algomon.puedePelear()).toArray(Algomon[]::new);
-        
-        try {
-			cambiarAlgomonActivo(algomonesConscientes[0]);
-			setChanged();
-	        notifyObservers();
-        } catch (juegoTerminadoException e) {
-			// la exception es manejada en la interfaz
-		}
-    }
+//    public void cambiarAlgomonActivo() {
+//        algomonesConscientes = null;
+//        algomonesConscientes = algomones.stream().filter(algomon -> algomon.puedePelear()).toArray(Algomon[]::new);
+//        
+//        try {
+//			cambiarAlgomonActivo(algomonesConscientes[0]);
+//			setChanged();
+//	        notifyObservers();
+//        } catch (juegoTerminadoException e) {
+//			// la exception es manejada en la interfaz
+//		}
+//    }
 
     public boolean quedanAlgomonesConscientes() {
 		return (algomonesConscientes.length != 0);
 	}
 
-	public void cambiarAlgomonActivo(Algomon nuevoAlgomonActivo) throws juegoTerminadoException {
+	public void cambiarAlgomonActivo() throws juegoTerminadoException {
 		algomonesConscientes = null;
 		algomonesConscientes = algomones.stream().filter(algomon -> algomon.puedePelear()).toArray(Algomon[]::new);
 		if (!quedanAlgomonesConscientes())
     		throw new juegoTerminadoException();
     	else {
-			this.algomonActivo = nuevoAlgomonActivo;
+			this.algomonActivo = algomonesConscientes[0];
 	        setChanged();
 	        notifyObservers();
     	}
     }
+
+	public void cambiarAlgomonActivo(Algomon algomon) {
+		algomonActivo = algomon;
+		setChanged();
+		notifyObservers();
+	}
 }

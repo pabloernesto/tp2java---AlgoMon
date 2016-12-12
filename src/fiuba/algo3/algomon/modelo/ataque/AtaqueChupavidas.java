@@ -1,5 +1,6 @@
 package fiuba.algo3.algomon.modelo.ataque;
 
+import fiuba.algo3.algomon.excepciones.juegoTerminadoException;
 import fiuba.algo3.algomon.modelo.Algomon;
 import fiuba.algo3.algomon.modelo.Movimiento;
 
@@ -11,7 +12,7 @@ public class AtaqueChupavidas extends Ataque {
         super(m);
     }
 
-    public int efectuar(Algomon atacado) {
+    public int efectuar(Algomon atacado) throws juegoTerminadoException {
         int danio;
         danio = super.efectuar(atacado);
 

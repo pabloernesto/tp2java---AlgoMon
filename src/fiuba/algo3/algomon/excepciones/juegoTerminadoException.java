@@ -1,6 +1,6 @@
 package fiuba.algo3.algomon.excepciones;
 
-public class juegoTerminadoException extends Exception {
+public class juegoTerminadoException extends RuntimeException {
 
 	/**
 	 * 

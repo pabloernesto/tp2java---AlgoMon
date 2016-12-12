@@ -36,6 +36,9 @@ public class AtaqueControlador implements EventHandler<ActionEvent> {
         catch (AlgomonEstaInhabilitadoParaAtacarException e) {
             //~ ???
         }
+        catch (juegoTerminadoException e){
+    		aplicacion.mostrarPantallaFin();
+        }
         j.pasarTurno();
         panel.getChildren().clear();
         panel.getChildren().add(new OpcionesJugador(panel, aplicacion));

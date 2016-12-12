@@ -17,7 +17,7 @@ public class Ataque
         return movimiento;
     }
 
-    public int efectuar(Algomon atacado) {
+    public int efectuar(Algomon atacado) throws juegoTerminadoException {
         this.descontarUso();
         int cantidadDeDanioCausado = movimiento.potencia(atacado.getTipo());
         atacado.causarDanio(cantidadDeDanioCausado);

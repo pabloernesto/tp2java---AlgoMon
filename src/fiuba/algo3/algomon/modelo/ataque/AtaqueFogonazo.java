@@ -1,5 +1,6 @@
 package fiuba.algo3.algomon.modelo.ataque;
 
+import fiuba.algo3.algomon.excepciones.juegoTerminadoException;
 import fiuba.algo3.algomon.modelo.Algomon;
 import fiuba.algo3.algomon.modelo.Movimiento;
 import fiuba.algo3.algomon.modelo.estado.EstadoDeAlgomonQuemado;
@@ -10,7 +11,7 @@ public class AtaqueFogonazo extends Ataque {
         super(m);
     }
 
-    public int efectuar(Algomon atacado) {
+    public int efectuar(Algomon atacado) throws juegoTerminadoException {
         int cantidadDeDanioCausado = super.efectuar(atacado);
         atacado.cambiarEstadoPermanente(new EstadoDeAlgomonQuemado());
         return cantidadDeDanioCausado;
