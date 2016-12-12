@@ -70,9 +70,9 @@ public class JuegoTest {
             juego.agregarJugador(nahuel);
         }
 
-        //~ primer jugador se elige aleatoriamente: no se si es mabel o nahuel
+        // primer jugador se elige aleatoriamente: no se si es mabel o nahuel
         Jugador primero = juego.obtenerJugadorActivo();
-        primero.cambiarAlgomonActivo(1);
+        primero.cambiarAlgomonActivo();
         assertNotSame(primero, juego.obtenerJugadorActivo());
     }
 

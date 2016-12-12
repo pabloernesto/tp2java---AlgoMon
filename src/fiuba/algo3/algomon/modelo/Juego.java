@@ -52,7 +52,7 @@ public class Juego implements Observer {
     }
     
     public void pasarTurno() {
-        getJugadorNro(this.turno).terminarTurno();
+        getJugadorNro(this.turno).actualizarEstadoDeAlgomonesPorPasoDeTurno();
         this.cambiarJugadorQueJuega();
 
     }

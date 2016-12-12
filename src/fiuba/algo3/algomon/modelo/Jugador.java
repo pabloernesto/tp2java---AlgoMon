@@ -27,7 +27,6 @@ public class Jugador extends Observable{
 
         for (Elemento elemento : mochilaBasica) {
             Item nuevoItem = elemento.nuevo();
-
             mochila.put(elemento, nuevoItem);
         }
     }
@@ -57,7 +56,7 @@ public class Jugador extends Observable{
         return this.nombre;
     }
 
-    public void terminarTurno() { // cambiar nombre
+    public void actualizarEstadoDeAlgomonesPorPasoDeTurno() {
         for (Algomon a : algomones)
             a.turnoTerminado();
     }
@@ -70,14 +69,8 @@ public class Jugador extends Observable{
         return this.algomonActivo;
     }
 
-    public Item[] mochila() {
+    public Item[] getMochila() {
         return mochila.values().toArray(new Item[mochila.values().size()]);
-    }
-
-    public void cambiarAlgomonActivo(int nuevoAlgomonActivo) {  
-    	this.algomonActivo = this.algomones.get(nuevoAlgomonActivo);
-        setChanged();       // refactor
-        notifyObservers();
     }
 
     public void aplicar(Elemento pocion) {
@@ -87,22 +80,8 @@ public class Jugador extends Observable{
     }
 
     public void reemplazarAlgomonSiEstaDesmayado()  throws juegoTerminadoException{
-//       algomonActivo.pedirCambioSiEstaDesmayado(this); refactor
     	this.cambiarAlgomonActivo();
     }
-
-//    public void cambiarAlgomonActivo() {
-//        algomonesConscientes = null;
-//        algomonesConscientes = algomones.stream().filter(algomon -> algomon.puedePelear()).toArray(Algomon[]::new);
-//        
-//        try {
-//			cambiarAlgomonActivo(algomonesConscientes[0]);
-//			setChanged();
-//	        notifyObservers();
-//        } catch (juegoTerminadoException e) {
-//			// la exception es manejada en la interfaz
-//		}
-//    }
 
     public boolean quedanAlgomonesConscientes() {
 		return (algomonesConscientes.length != 0);
@@ -120,7 +99,7 @@ public class Jugador extends Observable{
     	}
     }
 
-	public void cambiarAlgomonActivo(Algomon algomon) {
+	public void cambiarAlgomonActivoPor(Algomon algomon) {
 		algomonActivo = algomon;
 		setChanged();
 		notifyObservers();

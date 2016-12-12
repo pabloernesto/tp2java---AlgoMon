@@ -163,7 +163,7 @@ class Mochila extends GridPane {
     	
         Button item1, item2, item3, volver;
         {
-            Item[] i = Juego.instancia().obtenerJugadorActivo().mochila();
+            Item[] i = Juego.instancia().obtenerJugadorActivo().getMochila();
 	            item1 = new ItemBoton(panel, i[0], aplicacion);
 	            item2 = new ItemBoton(panel, i[1], aplicacion);
 	            item3 = new ItemBoton(panel, i[2], aplicacion);
