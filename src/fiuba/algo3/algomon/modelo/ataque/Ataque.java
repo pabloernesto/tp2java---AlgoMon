@@ -39,4 +39,8 @@ public class Ataque
             cantidadDeUsosRestantes = movimiento.getCantidadDeUsos();
         }
     }
+
+	public int cantidadDeUsosRestantes() {
+		return cantidadDeUsosRestantes;
+	}
 }
