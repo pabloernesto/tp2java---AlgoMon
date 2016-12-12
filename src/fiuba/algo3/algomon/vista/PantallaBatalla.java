@@ -35,6 +35,7 @@ public class PantallaBatalla extends Scene {
         this.aplicacion = ejecutar;
         this.juego = Juego.instancia();
         
+        rootPane.setStyle("-fx-background-color: #000000");
         rootPane.setTop(aplicacion.barraDeMenu());
         rootPane.setCenter(pantalla);
 
@@ -46,40 +47,41 @@ public class PantallaBatalla extends Scene {
         mostrarOpciones();
         
         Label copyright = new Label("Algomon 2.0 - All rights reserved - FIUBA Dec.2016");
-        copyright.setAlignment(Pos.CENTER);
-        copyright.setPrefSize(500,40);
+	        copyright.setAlignment(Pos.CENTER);
+	        copyright.setStyle("-fx-text-fill: #ffcc00; -fx-font-size: 12");
+	        copyright.setPrefSize(500,40);
         pantalla.getChildren().add(copyright);
     }
 
     private void mostrarBatalla(){
     	VBox batalla = new VBox();
-    	batalla.setPrefSize(500, 340);
+    		batalla.setPrefSize(500, 340);
     	
     	crearPanelEnemigo();
-    	batalla.getChildren().add(panelEnemigo);
+    		batalla.getChildren().add(panelEnemigo);
     	crearPanelActivo();
-    	batalla.getChildren().add(panelActivo);
+    		batalla.getChildren().add(panelActivo);
 
-    	batalla.setStyle("-fx-background-image: url('images/fondo.png'); " +
-    	           		"-fx-background-position: center center; " +
-    	           		"-fx-background-repeat: stretch;");
+    		batalla.setStyle("-fx-background-image: url('images/bosque.png'); " +
+    	           			"-fx-background-position: center center; " +
+    	           			"-fx-background-repeat: stretch;");
     	
     	pantalla.getChildren().add(batalla);
     }
     
     private void crearPanelEnemigo() {
         panelEnemigo = new JugadorVistaAlgomonActivo(Juego.instancia().jugadorNoActivo());
-        panelEnemigo.setPrefSize(500, 170);
+        panelEnemigo.setPrefSize(500, 160);
     }
 
     private void crearPanelActivo() {
         panelActivo = new JugadorVistaAlgomonActivo(Juego.instancia().obtenerJugadorActivo());
         	panelActivo.mostrarEspalda();
-        panelActivo.setPrefSize(500, 170);
+        panelActivo.setPrefSize(500, 160);
     }
 
     private void mostrarOpciones() {
-    	panelOpciones.setPrefSize(500,200);
+    	panelOpciones.setPrefSize(500,160);
     	panelOpciones.getChildren().add(new OpcionesJugador(panelOpciones, aplicacion));
     	
     	pantalla.getChildren().add(panelOpciones);
@@ -110,7 +112,7 @@ class Ataques extends GridPane {
 		botones.add(ataque1);	botones.add(ataque2);	botones.add(ataque3);	botones.add(volver);
 		
 		for (Button b : botones) {
-			b.setPrefSize(250, 100);
+			b.setPrefSize(250, 80);
 			b.setStyle("-fx-font-size: 18; -fx-text-fill: #ffffff; -fx-background-color: #000000;"); 
 		}
         
@@ -143,7 +145,7 @@ class Algomones extends GridPane {
         ArrayList<Button> botones = new ArrayList<Button>();
 		botones.add(algomon1);	botones.add(algomon2);	botones.add(algomon3);	botones.add(volver);
 		for (Button b : botones) {
-			b.setPrefSize(250, 100);
+			b.setPrefSize(250, 80);
 			b.setStyle("-fx-font-size: 18; -fx-text-fill: #ffffff; -fx-background-color: #000000;"); 
 		}
                 
@@ -176,7 +178,7 @@ class Mochila extends GridPane {
         ArrayList<Button> botones = new ArrayList<Button>();
 		botones.add(item1);	botones.add(item2);	botones.add(item3);	botones.add(volver);
 		for (Button b : botones) {
-			b.setPrefSize(250, 100);
+			b.setPrefSize(250, 80);
 			b.setStyle("-fx-font-size: 18; -fx-text-fill: #ffffff; -fx-background-color: #000000;"); 
 		}
                 

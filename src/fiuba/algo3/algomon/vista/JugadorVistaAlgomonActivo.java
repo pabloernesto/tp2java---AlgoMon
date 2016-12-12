@@ -12,6 +12,7 @@ import java.util.Observer;
 import java.util.function.Function;
 
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 
@@ -36,15 +37,27 @@ public class JugadorVistaAlgomonActivo extends BorderPane implements Observer {
 
     private void actualizarVista(Algomon activo) {
         Label nombre = new Label(activo.nombreEspecie());
-            nombre.setStyle("-fx-text-fill: #ffffff; -fx-font-size: 18;");
-            nombre.setAlignment(Pos.TOP_CENTER);
+            nombre.setStyle("-fx-text-fill: #ffffff; -fx-font-weight: bold ; -fx-font-size: 20;");
+            nombre.setPrefSize(500, 50);
+            nombre.setAlignment(Pos.CENTER);
         setTop(nombre);
 
         setCenter(fabricaImagenes.apply(activo));
 
-        setRight(new AlgomonVistaEstados(activo));
-
-        setBottom(new AlgomonVistaVida(activo));
+        HBox hb = new HBox();
+        	hb.setPrefSize(80, 60);
+        setLeft(hb);
+        
+        AlgomonVistaEstados estados = new AlgomonVistaEstados(activo);
+        	estados.setPrefSize(80, 60);
+        	estados.setStyle("-fx-padding: 4px");
+        setRight(estados);
+        
+        HBox vida = new HBox();
+        	vida.setPrefSize(500, 40);
+        	vida.setAlignment(Pos.CENTER);
+        	vida.getChildren().add(new AlgomonVistaVida(activo));
+        setBottom(vida);
     }
 
     public void mostrarFrente() {

@@ -32,7 +32,7 @@ public class OpcionesJugador extends GridPane {
 			botones.add(atacar);	botones.add(algomon);	botones.add(mochila);	botones.add(pasarTurno);
 			
 			for (Button b : botones) {
-				b.setPrefSize(250, 100);
+				b.setPrefSize(250, 80);
 				b.setStyle("-fx-font-size: 18; -fx-text-fill: #ffffff; -fx-background-color: #000000;"); 
 			}
 			
