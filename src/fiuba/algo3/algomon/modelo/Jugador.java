@@ -80,7 +80,9 @@ public class Jugador extends Observable{
     }
 
     public void reemplazarAlgomonSiEstaDesmayado()  throws juegoTerminadoException{
+        if(!algomonActivo.puedePelear()){
     	this.cambiarAlgomonActivo();
+        }
     }
 
     public boolean quedanAlgomonesConscientes() {
