@@ -41,6 +41,12 @@ public class JugadorVistaAlgomonActivo extends BorderPane implements Observer {
             nombre.setPrefSize(500, 50);
             nombre.setAlignment(Pos.CENTER);
         setTop(nombre);
+        
+        Label nombreJugador = new Label(jugador.nombre());
+        nombreJugador.setStyle("-fx-text-fill: #ffffff; -fx-font-weight: bold ; -fx-font-size: 20;");
+        nombreJugador.setPrefSize(500, 50);
+        nombreJugador.setAlignment(Pos.TOP_LEFT);
+    setTop(nombreJugador);
 
         setCenter(fabricaImagenes.apply(activo));
 
